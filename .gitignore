@@ -1,0 +1,39 @@
+# Ignorar carpetas específicas
+TFG/
+Terecero/
+Libros/
+Cookbook/
+
+# Ignorar todos los archivos por defecto
+
+
+
+# Exceptuar archivos .tex, .pdf, y .bib
+*.lof
+*.lot
+*.mw
+*.aux
+*.out
+*.bbl
+*.bcf
+*.fdb_latexmk
+*.fls
+*.glo
+*.idx
+*.log
+*.xml
+*.toc
+*.xdy
+*.synctex.gz
+*.blg
+*.nls
+*.ilg
+*.glg
+*.gls
+
+*.ind
+build
+*.nlo
+*Org.py
+
+

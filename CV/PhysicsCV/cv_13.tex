@@ -1,0 +1,206 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Wilson Resume/CV
+% XeLaTeX Template
+% Version 1.0 (22/1/2015)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Howard Wilson (https://github.com/watsonbox/cv_template_2004) with
+% extensive modifications by Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[10pt]{article} % Default font size
+
+\input{structure.tex} % Include the file specifying document layout
+
+%----------------------------------------------------------------------------------------
+\usepackage{tasks}
+\usepackage{amssymb}
+\begin{document}
+
+\settasks{label-format={\color{black}\large\bfseries}, label-align=center, label-offset={10mm}, label-width={10mm}, item-indent={5mm}, item-format={\scshape\small}, column-sep={3mm}, after-item-skip=-1mm, after-skip={3mm}
+}
+%----------------------------------------------------------------------------------------
+%	NAME AND CONTACT INFORMATION
+%----------------------------------------------------------------------------------------
+
+\title{Álvaro Méndez Rodríguez de Tembleque } % Print the main header
+
+%------------------------------------------------
+
+\parbox{0.5\textwidth}{ % First block
+  \begin{tabbing} % Enables tabbing
+    \hspace{3cm} \= \hspace{4cm} \= \kill % Spacing within the block
+    {\bf Address} \> Madrid\\ % Address line 2
+    {\bf Date of Birth} \> 3$^{rd}$ May 2001 \\ % Date of birth 
+    {\bf Nationality} \> Spanish % Nationality
+  \end{tabbing}}
+\hfill % Horizontal space between the two blocks
+\parbox{0.5\textwidth}{ % Second block
+  \begin{tabbing} % Enables tabbing
+    \hspace{3cm} \= \hspace{4cm} \= \kill % Spacing within the block
+    %{\bf Home Phone} \> +0 (000) 111 1111 \\ % Home phone
+    {\bf Mobile Phone} \> +34 619 285 683 \\ % Mobile phone
+    {\bf Email} \> \href{mailto:alvaromendezrt@gmail.com}{alvaromendezrt@gmail.com} \\ % Email address
+    %{\bf Linkedin} \> \href{https://www.linkedin.com/in/%C3%A1lvaro-m%C3%A9ndez-rodr%C3%ADguez-de-tembleque-82472a286/}{Profile} \\ % Email address
+    {\bf Github} \> \href{https://github.com/PhyAMR}{Profile} \\ % Email address
+  \end{tabbing}}
+  \vspace{-5mm}
+%----------------------------------------------------------------------------------------
+%	PERSONAL PROFILE
+%----------------------------------------------------------------------------------------
+
+\section{Personal Profile}
+
+
+
+I am a curious and proactive student who wants to apply what I learn at University to solve problems of the real world. I enjoy learning new things in a wide range of fields. However what interest me most is the application of data driven solutions and machine learning.
+\vspace{-5mm}
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Education}
+
+\tabbedblock{
+  \bf{Sep 2023-\\May 2025} \> BSc in Physics - \href{https://fisicas.ucm.es/}{Universidad Complutense, Madrid}\\[1pt]
+  %\>\+
+  %\textit{Pure Mathematics} \> A \\
+  %\textit{Statistics (AS)} \> A \\
+  %\textit{Physics} \> A \\
+  %\textit{Economics} \> B
+}
+
+\tabbedblock{
+  \bf{Sep 2020-\\May 2023} \> BSc in Physics (First to third course) - \href{https://universidadeuropea.com/conocenos/madrid/}{Universidad Europea de Madrid, Madrid} \\[1pt]
+  \>\+
+  %\textit{Sputtering machine - in experimental physics awarded `PBS awards of the university'}\\
+  %
+  %\textit{Machine learning project - in data mining}
+}
+\vspace{-5mm}
+%------------------------------------------------
+\section{Certificates}
+
+\interestsgroup{
+  \interest{Python course by Google in Coursera}
+  \interest{Data analytics by IBM}
+  \interest{Ionizing radiation: application and Safety by Universidad Autónoma de Madrid in association with COFIS}
+  \interest{Data Driven Astronomy in Coursera}
+}
+%----------------------------------------------------------------------------------------
+%	EMPLOYMENT HISTORY SECTION
+%----------------------------------------------------------------------------------------
+\vspace{-5mm}
+\section{Projects}
+
+\job
+{Jan 2023 -}{May 2023}
+{Universidad Europea de Madrid, Madrid}
+{https://universidadeuropea.com/conocenos/madrid/}
+{Machine learning project of stellar clasification}
+{In this project I used different scikit-learn algorithms to classify stars based on the spectrum obtained from the Sloan Digital Sky Survey (SDSS) \\
+  \rule{0mm}{5mm}\textbf{Technologies/Knowledge:} Python, Web Scrapping, Machine learning}
+\job
+{Jan 2023 -}{May 2023}
+{Universidad Europea de Madrid, Madrid}
+{https://universidadeuropea.com/conocenos/madrid/}
+{Sputtering machine to coat thin layers of copper}
+{In this project, done in pairs, me and my collegue made a small sputtering machine and coated micro sample holders with copper and study the transmittance where we could see a preturbance due to de the band gap of the copper \\
+  \rule{0mm}{5mm}\textbf{Technologies/Knowledge:} Electromagnetism, Plasma Physics, Vacuum, Solid state, Envelop fitting, Scientific research}
+
+%------------------------------------------------
+
+
+
+%----------------------------------------------------------------------------------------
+%	IT/COMPUTING SKILLS SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Skills/Tools}
+
+\skillgroup{Programming Languages}
+{
+  \begin{tasks}[counter-format={$\cdot$.}, label-align=left, label-offset={0mm}, label-width={5mm}, item-indent={5mm}, label-format={\bfseries}, column-sep=10mm](4)
+    \task \textit{Python}
+    \task \textit{C++}
+    \task \textit{Latex}
+    \task \textit{Git/Github}
+    \task \textit{Origin}- 2019
+    \task \textit{Office package}
+    
+    \end{tasks}
+
+}
+\skillgroup{Personal skills}
+{
+  
+  \begin{tasks}[counter-format={$\cdot$.}, label-align=left, label-offset={0mm}, label-width={5mm}, item-indent={5mm}, label-format={\bfseries}, column-sep=10mm](4)
+    \task \textit{Communicative}
+    \task \textit{Collaborative}
+    \task \textit{Proactive}    
+    \task \textit{Good English level}    
+    
+    
+    \end{tasks}
+
+}
+
+
+
+
+%------------------------------------------------
+
+
+
+%----------------------------------------------------------------------------------------
+%	INTERESTS SECTION
+%----------------------------------------------------------------------------------------
+
+%\section{Interests}
+%
+%\interestsgroup{
+%  \interest{Data analysis}
+%  \interest{Reading}
+%  \interest{History}
+%  \interest{Nature}
+%}
+
+
+%----------------------------------------------------------------------------------------
+%	REFEREE SECTION
+%----------------------------------------------------------------------------------------
+
+%\section{Referees}
+%
+%\parbox{0.5\textwidth}{ % First block
+%  \begin{tabbing}
+%    \hspace{2.75cm} \= \hspace{4cm} \= \kill % Spacing within the block
+%    {\bf Name} \> Bill Lumbergh \\ % Referee name
+%    {\bf Company} \> Initech Inc. \\ % Referee company
+%    {\bf Position} \> Vice President \\ % Referee job title 
+%    {\bf Contact} \> \href{mailto:bill@initech.com}{bill@initech.com} % Referee contact information
+%  \end{tabbing}}
+%\hfill % Horizontal space between the two blocks
+%\parbox{0.5\textwidth}{ % Second block
+%  \begin{tabbing}
+%    \hspace{2.75cm} \= \hspace{4cm} \= \kill % Spacing within the block
+%    {\bf Name} \> Michael "Big Mike" Tucker\\ % Referee name
+%    {\bf Company} \> Burbank Buy More \\ % Referee company
+%    {\bf Position} \> Store Manager \\ % Referee job title 
+%    {\bf Contact} \> \href{mailto:mike@buymore.com}{mike@buymore.com} % Referee contact information
+%  \end{tabbing}}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}

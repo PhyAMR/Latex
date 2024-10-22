@@ -1,0 +1,482 @@
+\setchapterpreamble[u]{\margintoc}
+\chapter{Algebra}
+\labch{Part}
+
+\begin{center}
+  \large Todo esto lo he sacado del \cite{maggiore2005modern}
+\end{center}
+\section{Algebra de Lie. Grupo de Lie}
+Los grupos de Lie desempeñan un papel fundamental en física, y en esta sección recordamos algunas de sus principales propiedades. En las secciones siguientes aplicaremos estos conceptos al estudio de los grupos de Lorentz y Poincaré.
+
+Un grupo de Lie es un grupo cuyos elementos $g$ dependen de forma continua y diferenciable de un conjunto de parámetros reales $\theta^{a}, a=1, \ldots, N$. Por tanto, un grupo de Lie es al mismo tiempo un grupo y una variedad diferenciable. Escribimos un elemento genérico como $g(\theta)$ y sin pérdida de generalidad elegimos las coordenadas $\theta^{a}$ tales que el elemento identidad $e$ del grupo corresponde a $\theta^{a}=0$, es decir $g(0)=e$.
+
+Una representación (lineal) $R$ de un grupo es una operación que asigna a un elemento genérico y abstracto $g$ de un grupo un operador lineal $D_{R}(g)$ definido sobre un espacio lineal, 
+
+\begin{equation}
+  g \mapsto D_{R}(g) 
+  \end{equation}
+
+  con las propiedades de que 
+  
+  \begin{itemize}
+    \item $D_{R}(e)=1$, donde 1 es el operador identidad,
+    \item $D_{R}\left(g_{1}\right) D_{R}\left(g_{2}\right)=D_{R}\left(g_{1} g_{2}\right)$, de modo que el mapeo preserva la estructura de grupo.
+  \end{itemize}
+
+  El espacio sobre el que actúan los operadores $D_{R}$ se denomina base de la representación $R$. Un ejemplo típico de representación es una representación matricial. En este caso la base es un espacio vectorial de dimensión finita $n$, y un elemento de grupo abstracto $g$ se representa por una matriz $n \times n$ $\left(D_{R}(g)\right)^{i}{ }_{j}$, con $i, j=1, \ldots, n$. La dimensión de la representación se define como la dimensión $n$ del espacio base. Escribiendo un elemento genérico del espacio base como $\left(\phi^{1}, \ldots, \phi^{n}\right)$, un elemento de grupo $g$ induce una transformación del espacio vectorial
+
+
+  \begin{equation*}
+    \phi^{i} \rightarrow\left(D_{R}(g)\right)_{j}^{i} \phi^{j} \tag{2.2}
+    \end{equation*}
+
+  La ecuación (2.2) nos permite atribuir un significado físico a un elemento de grupo: antes de introducir el concepto de representación, un elemento de grupo $g$ es sólo un objeto matemático abstracto, definido por sus reglas de composición con los demás miembros del grupo. En cambio, elegir una representación específica nos permite interpretar $g$ como una transformación en un espacio determinado; por ejemplo, tomando como grupo $S O(3)$ y como espacio base los vectores espaciales $\mathbf{v}$, un elemento $g \in S O(3)$ puede interpretarse físicamente como una rotación en un espacio tridimensional.
+Una representación $R$ se llama reducible si tiene un subespacio invariante, es decir, si la acción de cualquier $D_{R}(g)$ sobre los vectores del subespacio da otro vector del subespacio. Por el contrario, una representación sin subespacio invariante se llama irreducible. Una representación es completamente reducible si, para todos los elementos $g$, las matrices $D_{R}(g)$ se pueden escribir, con una elección adecuada de base, en forma diagonal de bloque. En otras palabras, en una representación completamente reducible los vectores base $\phi^{i}$ pueden elegirse de modo que se dividan en subconjuntos que no se mezclen entre sí en virtud de la ec. (2.2). Esto significa que una representación completamente reducible puede escribirse, con una elección adecuada de la base, como la suma directa de representaciones irreducibles.
+Dos representaciones $R, R^{{prime}}$ se llaman equivalentes si existe una matriz $S$, independiente de $g$, tal que para todo $g$ tenemos $D_{R}(g)=S^{-1} D_{R^{\prime}}(g) S$. Comparando con la ec. (2.2), vemos que las representaciones equivalentes corresponden a un cambio de base en el espacio vectorial abarcado por el $\phi^{i}$.
+Cuando cambiamos la representación, en general la forma explícita e incluso las dimensiones de las matrices $D_{R}(g)$ cambiarán. Sin embargo, hay una propiedad importante de un grupo de Lie que es independiente de la representación. Se trata de su álgebra de Lie, que presentamos a continuación.
+Por el supuesto de suavidad, para $\theta^{a}$ infinitesimal, es decir, en la vecindad del elemento identidad, tenemos
+
+  \begin{equation*}
+    D_{R}(\theta) \simeq 1+i \theta_{a} T_{R}^{a} \tag{2.3}
+    \end{equation*}
+    con
+  \begin{equation*}
+    T_{R}^{a} \equiv-\left.i \frac{\partial D_{R}}{\partial \theta_{a}}\right|_{\theta=0} \tag{2.4}
+    \end{equation*}
+
+  Los $T_{R}^{a}$ se llaman los generadores del grupo en la representación $R$. Se puede demostrar que, con una elección adecuada de la parametrización alejada de la identidad, los elementos genéricos del grupo $g(\theta)$ siempre se pueden representar por
+
+  \begin{equation*}
+    D_{R}(g(\theta))=e^{i \theta_{a} T_{R}^{a}} \tag{2.5}
+    \end{equation*}
+
+  cuya forma infinitesimal reproduce la ec. (2.3). El factor $i$ en la definición (2.4) se elige de modo que, si en la representación $R$ los generadores son hermitianos, entonces las matrices $D_{R}(g)$ son unitarias. En este caso $R$ es una representación unitaria.
+
+Dadas dos matrices $D_{R}\left(g_{1}\right)=\exp \left(i \alpha_{a} T_{R}^{a}\right)$ y $D_{R}\left(g_{2}\right)=\exp \left(i \beta_{a} T_{R}^{a}\right)$, su producto es igual a $D_{R}\left(g_{1} g_{2}\right)$ y por lo tanto debe ser de la forma $\exp \left(i \delta_{a} T_{R}^{a}\right)$, para algunos $\delta_{a}(\alpha, \beta)$,
+  \begin{equation*}
+    e^{i \alpha_{a} T_{R}^{a}} e^{i \beta_{a} T_{R}^{a}}=e^{i \delta_{a} T_{R}^{a}} \tag{2.6}
+    \end{equation*}
+  Obsérvese que $T_{R}^{a}$ es una matriz. Si $A, B$ son matrices, en general $e^{A} e^{B} \neq$ $e^{A+B}$, por lo que en general $\delta_{a} \neq \alpha_{a}+\beta_{a}$. Tomando el logaritmo y expandiendo hasta segundo orden en $\alpha$ y $\beta$ obtenemos
+
+  \begin{align*}
+    i \delta_{a} T_{R}^{a} & =\log \left\{\left[1+i \alpha_{a} T_{R}^{a}+\frac{1}{2}\left(i \alpha_{a} T_{R}^{a}\right)^{2}\right]\left[1+i \beta_{a} T_{R}^{a}+\frac{1}{2}\left(i \beta_{a} T_{R}^{a}\right)^{2}\right]\right\}  \tag{2.7}\\
+    & =\log \left[1+i\left(\alpha_{a}+\beta_{a}\right) T_{R}^{a}-\frac{1}{2}\left(\alpha_{a} T_{R}^{a}\right)^{2}-\frac{1}{2}\left(\beta_{a} T_{R}^{a}\right)^{2}-\alpha_{a} \beta_{b} T_{R}^{a} T_{R}^{b}\right]
+    \end{align*}
+
+  Expandiendo el logaritmo, $\log (1+x) \simeq x-x^{2} / 2$, y teniendo en cuenta que los $T_{R}^{a}$ no conmutan obtenemos
+
+  \begin{equation*}
+    \alpha_{a} \beta_{b}\left[T_{R}^{a}, T_{R}^{b}\right]=i \gamma_{c}(\alpha, \beta) T_{R}^{c} \tag{2.8}
+    \end{equation*}
+  con $\gamma_{c}(\alpha, \beta)=-2\left(\delta_{c}(\alpha, \beta)-\alpha_{c}-\beta_{c}\right)$. Dado que esto debe ser cierto para todos los $\alpha$ y $\beta, \gamma_{c}$ debe ser lineal en $\alpha_{a}$ y en $\beta_{a}$, por lo que la relación entre $\gamma$ y $\alpha, \beta$ debe ser de la forma general $\gamma_{c}=\alpha_{a} \beta_{b} f^{a b}{ }_{c}$ para algunas constantes $f^{a b}{ }_{c}$. Por lo tanto
+
+\begin{equation*}
+\left[T^{a}, T^{b}\right]=i f^{a b}{ }_{c} T^{c} \tag{2.9}
+\end{equation*}
+
+
+  Se denomina álgebra de Lie del grupo considerado. Aquí hay que señalar dos puntos importantes. La primera es que, aunque la forma explícita de los generadores $T^{a}$ depende de la representación utilizada, las constantes de estructura $f^{a b}{ }_{c}$ son independientes de la representación. De hecho, si $f^{a b}{ }_{c}$ dependiera de la representación, $\gamma^{a}$ y por tanto $\delta^{a}$ también dependería de $R$, por lo que sería de la forma $\delta_{R}^{a}(\alpha, \beta)$. Entonces de la ec. (2.6) concluiríamos que el producto de los elementos del grupo $g_{1}$ y $g_{2}$ da un resultado que depende de la representación. Esto es imposible, ya que el resultado de la multiplicación de dos elementos de grupo abstracto $g_{1} g_{2}$ es una propiedad del grupo, definida a nivel de grupo abstracto sin ninguna referencia a las representaciones. Por lo tanto, concluimos que $f^{a b}{ }_{c}$ son independientes de la representación. ${ }^{2}$ El segundo punto importante es que esta ecuación se ha derivado requiriendo la consistencia de la ec. (2.6) hasta el segundo orden; sin embargo, una vez satisfecho esto, se puede demostrar que no surge ningún otro requisito de la expansión en órdenes superiores.
+
+Así, las constantes de estructura definen el álgebra de Lie, y el problema de encontrar todas las representaciones matriciales de un álgebra de Lie equivale al problema algebraico de encontrar todas las posibles soluciones matriciales $T_{R}^{a}$ de la ec. (2.9). En realidad, los generadores de un grupo de Lie pueden definirse incluso sin hacer referencia a una representación concreta. Se aprovecha el hecho de que un grupo de Lie es también un múltiple, parametrizado por las coordenadas $\theta^{a}$ y se definen los generadores como una base del espacio tangente al origen. A continuación, se demuestra que su conmutador (definido como un soporte de Lie) es de nuevo un vector tangente, y por lo tanto debe ser una combinación lineal del vector base. En este enfoque nunca se menciona una representación específica, por lo que resulta obvio que las constantes de estructura son independientes de la representación. Véase, por ejemplo, Nakahara (1990), apartado 5.6.
+
+Un grupo se denomina abeliano si todos sus elementos conmutan entre sí; en caso contrario, el grupo no es abeliano. Para un grupo de Lie abeliano las constantes de estructura desaparecen, ya que en este caso en la ec. (2.6) tenemos $\delta_{a}=\alpha_{a}+\beta_{a}$. La teoría de representación de las álgebras de Lie abelianas es muy sencilla: cualquier álgebra de Lie abeliana $d$-dimensional es isomorfa a la suma directa de $d$ álgebras de Lie abelianas unidimensionales. En otras palabras, todas las representaciones irreducibles de grupos abelianos son unidimensionales. La parte no trivial de la teoría de representaciones de las álgebras de Lie está relacionada con la estructura no abeliana. En el estudio de las representaciones, un papel importante lo desempeñan los operadores de Casimir. Se trata de operadores construidos a partir de los $T^{a}$ que conmutan con todos los $T^{a}$. En cada representación irreducible, los operadores de Casimir son proporcionales a la matriz identidad, y la constante de proporcionalidad etiqueta la representación. Por ejemplo, el álgebra del momento angular es $\left[J^{i}, J^{j}\right]=i \epsilon^{i j k} J^{k}$ y el operador de Casimir es $\mathbf{J}^{2}$. En una representación irreducible, $\mathbf{J}^{2}$ es igual a $j(j+1)$ veces la matriz identidad, con $j=0, \frac{1}{2}, 1, \ldots$.
+
+Un grupo de Lie que, considerado como colector, es un colector compacto se denomina grupo compacto. Las rotaciones espaciales son un ejemplo de grupo de Lie compacto, mientras que veremos que el grupo de Lorentz es no compacto. Un teorema afirma que los grupos no compactos no tienen representaciones unitarias de dimensión finita, excepto las representaciones en las que los generadores no compactos se representan trivialmente, es decir, como cero. La relevancia física de este teorema se debe a que en una representación unitaria los generadores son operadores hermitianos y, según las reglas de la mecánica cuántica, sólo los operadores hermitianos pueden identificarse con observables. Si un grupo no es compacto, para identificar sus generadores con observables físicos necesitamos una representación de dimensión infinita. Veremos en este capítulo que los grupos de Lorentz y Poincaré son no compactos, y que las representaciones de dimensión infinita se obtienen introduciendo el espacio de Hilbert de estados de una partícula.
+
+  \section{Grupo de Lorentz}
+
+  El grupo de Lorentz se define como el grupo de transformaciones lineales de coordenadas,
+
+  \begin{equation*}
+    x^{\mu} \rightarrow x^{\prime \mu}=\Lambda^{\mu}{ }_{\nu} x^{\nu} \tag{2.10}
+    \end{equation*}
+    que dejan invariante la cantidad
+
+    \begin{equation*}
+      \eta_{\mu \nu} x^{\mu} x^{\nu}=t^{2}-x^{2}-y^{2}-z^{2} \tag{2.11}
+      \end{equation*}
+      El grupo de transformaciones de un espacio con coordenadas $\left(y_{1}, \ldots y_{m}\right.$, $\left.x_{1}, \ldots x_{n}\right)$, que deja invariante la forma cuadrática $\left(y_{1}^{2}+\ldots+y_{m}^{2}\right)-$ $\left(x_{1}^{2}+\ldots+x_{n}^{2}\right)$ se llama grupo ortogonal $O(n, m)$, por lo que el grupo de Lorentz es $O(3,1)$. La condición que debe satisfacer la matriz $\Lambda$ para dejar invariante la forma cuadrática (2.11) es
+
+      \begin{equation*}
+        \eta_{\mu \nu} x^{\prime \mu} x^{\prime \nu}=\eta_{\mu \nu}\left(\Lambda_{\rho}^{\mu} x^{\rho}\right)\left(\Lambda_{\sigma}^{\nu} x^{\sigma}\right)=\eta_{\rho \sigma} x^{\rho} x^{\sigma} . \tag{2.12}
+        \end{equation*}
+
+        Dado que esto debe mantenerse para $x$ genérico, debemos tener
+
+        \begin{equation*}
+          \eta_{\rho \sigma}=\eta_{\mu \nu} \Lambda_{\rho}^{\mu} \Lambda_{\sigma}^{\nu} \tag{2.13}
+          \end{equation*}
+
+          En notación matricial, esto se puede reescribir como $\eta=\Lambda^{T} \eta \Lambda$. Tomando el determinante de ambos lados, tenemos $(\operatorname{det} \Lambda)^{2}=1$ o $\operatorname{det} \Lambda= \pm 1$. Transformaciones con $operatorname{det} \Lambda=-1$ pueden escribirse siempre como el producto de una transformación con $\operatorname{det} \Lambda=1$ y de una transformación discreta que invierte el signo de un número impar de coordenadas, por ejemplo una transformación de paridad $(t, x, y, z) \rightarrow(t,-x,-y,-z)$, o una reflexión alrededor de un único eje espacial $(t, x, y, z) \rightarrow(t,-x, y, z)$, o una transformación de inversión temporal, $(t, x, y, z) \rightarrow(-t, x, y, z)$. Transformaciones con $\operatorname{det} \Lambda=+1$ se llaman transformaciones propias de Lorentz. El subgrupo de $O(3,1)$ con $\operatorname{det} \Lambda=1$ se denomina $S O(3,1)$.
+
+Escribiendo explícitamente la componente 00 de la ec. (2.13) encontramos
+
+\begin{equation*}
+  1=\left(\Lambda_{0}^{0}\right)^{2}-\sum_{i=1}^{3}\left(\Lambda_{0}^{i}\right)^{2} \tag{2.14}
+  \end{equation*}
+
+  lo que implica que $\left(\Lambda^{0}{ }_{0}\right)^{2} \geqslant 1$. Por tanto, el grupo Lorentz propio tiene dos componentes desconectadas, una con $\Lambda^{0}{ }_{0} \geqslant 1$ y otra con $\Lambda^{0}{ }_{0} \leqslant-1$, denominadas ortocrona y no ortocrona, respectivamente. Cualquier transformación no ortocrona puede escribirse como el producto de una transformación ortocrona y una inversión discreta del tipo $(t, x, y, z) \rightarrow(-t,-x,-y,-z)$, o $(t, x, y, z) \rightarrow(-t,-x, y, z)$, etc. Es conveniente factorizar todas estas transformaciones discretas y redefinir el grupo de Lorentz como el componente de $S O(3,1)$ para el que $\Lambda^{0}{ }_{0} \geqslant 1$.
+
+Si consideramos una transformación infinitesimal
+\begin{equation*}
+  \Lambda_{\nu}^{\mu}=\delta_{\nu}^{\mu}+\omega^{\mu}{ }_{\nu} \tag{2.15}
+  \end{equation*}
+
+  la ecuación (2.13) nos da
+
+  \begin{equation*}
+    \omega_{\mu \nu}=-\omega_{\nu \mu} \tag{2.16}
+    \end{equation*}
+
+    Una matriz antisimétrica de $4 \times 4$ tiene seis elementos independientes, por lo que el grupo de Lorentz tiene seis parámetros. Estos se identifican fácilmente: en primer lugar tenemos las transformaciones que dejan $t$ invariante. Se trata simplemente del grupo de rotaciones $S O(3)$, generado por las tres rotaciones en los planos $(x, y),(x, z)$ e $(y, z)$. Además, tenemos tres transformaciones en los planos $(t, x),(t, y)$ y $(t, z)$ que dejan invariante $t^{2}-x^{2}$, etc. Una transformación que deja $t^{2}-x^{2}$ invariante se llama un impulso a lo largo del eje $x$, y se puede escribir como
+    \begin{equation*}
+      t \rightarrow \gamma(t+v x), \quad x \rightarrow \gamma(x+v t) \tag{2.17}
+      \end{equation*}
+      con $\gamma=\left(1-v^{2}\right)^{-1 / 2}$ y $-1<v<1$. Su significado físico se entiende mirando el límite $v$ pequeño, donde se reduce a la transformación de velocidad de la mecánica clásica. Es, por tanto, la generalización relativista de una transformación de velocidad. Los seis parámetros independientes del grupo de Lorentz pueden tomarse, por tanto, como los tres ángulos de rotación y las tres componentes de la velocidad $\mathbf{v}$.
+
+      Como $-1<v<1$, podemos escribir $v=\tanh \eta$, con $-\infty<\eta<+\infty$. Entonces $\gamma=\cosh \eta$ y la ec. (2.17) puede escribirse como una rotación hiperbólica,
+
+      \begin{align*}
+        & t \rightarrow(\cosh \eta) t+(\sinh \eta) x \\
+        & x \rightarrow(\sinh \eta) t+(\cosh \eta) x \tag{2.18}
+      \end{align*}
+      La variable \todo{$\eta=\frac{1}{2}\log(\frac{1+v}{1-v})$}$\eta$ se denomina rapidez. Vemos que el grupo de Lorentz está parametrizado de forma continua y diferenciable por seis parámetros, por lo que es un grupo de Lie. Sin embargo, en el grupo de Lorentz uno de los parámetros es el módulo de la velocidad de aceleración, $||\mathbf{v}|$, que abarca el intervalo no compacto $0 \leqslant|\mathbf{v}|<1$. Por lo tanto, el grupo de Lorentz es no compacto.
+      
+      \subsection{Algebra de Lorentz}
+
+      Hemos visto que el grupo de Lorentz tiene seis parámetros, los seis elementos independientes de la matriz antisimétrica $\omega_{\mu \nu}$, a los que corresponden seis generadores. Es conveniente etiquetar los generadores como $J^{\mu \nu}$, con un par de índices antisimétricos $(\mu, \nu)$, de modo que $J^{\mu \nu}=-J^{\nu \mu}$. Por tanto, un elemento genérico $\Lambda$ del grupo de Lorentz se escribe como
+      \begin{equation*}
+        \Lambda=e^{-\frac{i}{2} \omega_{\mu \nu} J^{\mu \nu}} \tag{2.19}
+        \end{equation*}
+
+        El factor $1 / 2$ en el exponente compensa el hecho de que estamos sumando sobre todos los $\mu, \nu$ en lugar de sobre los pares independientes con $\mu<\nu$, y por lo tanto cada generador se cuenta dos veces. Por definición un conjunto de objetos $\phi^{i}$, con $i=1, \ldots, n$, se transforma en una representación $R$ de dimensión $n$ del grupo de Lorentz si, bajo una transformación de Lorentz,
+
+        \begin{equation*}
+          \phi^{i} \rightarrow\left[e^{-\frac{i}{2} \omega_{\mu \nu} J_{R}^{\mu \nu}}\right]_{j}^{i} \phi^{j} \tag{2.20}
+          \end{equation*}
+
+          donde $\exp \left\{-(i / 2) \omega_{\mu \nu} J_{R}^{\mu \nu}\right\}$ es una representación matricial de dimensión $n$ del elemento abstracto (2.19) del grupo de Lorentz; $J_{R}^{\mu \nu}$ son los generadores de Lorentz en la representación $R$, y son matrices $n \times n$. Bajo una transformación infinitesimal con parámetros infinitesimales $\omega_{\mu \nu}$, la variación de $\phi^{i}$ es
+          \begin{equation*}
+            \delta \phi^{i}=-\frac{i}{2} \omega_{\mu \nu}\left(J_{R}^{\mu \nu}\right)^{i}{ }_{j} \phi^{j} \tag{2.21}
+            \end{equation*}
+
+            En $\left(J_{R}^{\mu \nu}\right)^{i}{ }_{j}$ el par de índices $\mu, \nu$ identifican el generador mientras que los índices $i, j$ son los índices matriciales de la representación que estamos considerando. Todas las magnitudes físicas pueden clasificarse según sus propiedades de transformación bajo el grupo de Lorentz. Un escalar es una magnitud invariante bajo la transformación. Un escalar Lorentz típico en física de partículas es la masa en reposo de una partícula. Un cuatro-vector contravariante $V^{\mu}$ se define como un objeto que satisface la ley de transformación
+            \begin{equation*}
+              V^{\mu} \rightarrow \Lambda^{\mu}{ }_{\nu} V^{\nu} \tag{2.22}
+              \end{equation*}
+              con $\Lambda^{\mu}{ }_{\nu}$ definido por la condición (2.13). Un cuatro vector covariante $V_{\mu}$ se transforma como $V_{\mu} \rightarrow \Lambda_{\mu}{ }^{\nu} V_{\nu}$, con $\Lambda_{\mu}{ }^{\nu}=\eta_{\mu \rho} \eta^{\nu \sigma} \Lambda^{\rho}{ }_{\sigma}$. Se comprueba inmediatamente que, si $V^{\mu}$ es un cuatro vector contravariante, entonces $V_{\mu} \equiv \eta_{\mu \nu} V^{\nu}$ es un cuatro vector covariante. Nos referimos genéricamente a los cuatro vectores covariantes y contravariantes simplemente como cuatro vectores. Las coordenadas espacio-temporales $x^{\\mu}$ son el ejemplo más sencillo de cuatro vectores. Otro ejemplo particularmente importante viene dado por el cuatromomento $p^{\mu}=(E, \mathbf{p})$.
+
+La forma explícita de los generadores $\left(J_{R}^{\mu \nu}\right)^{i}{ }_{j}$ como matrices $n \times n$ depende de la representación particular que estemos considerando. Para un escalar $\phi$, el índice $i$ toma un solo valor, por lo que es una representación unidimensional, y $\left(J^{\mu \nu}\right)^{i}{ }_{j}$ es una matriz $1 \times 1$, es decir, un número, para cada par dado $(\mu, \nu)$. Pero de hecho, por definición, en un escalar una transformación de Lorentz es la transformación identidad, por lo que $\delta \phi=0$ y $J^{\mu \nu}=0$. Una representación en la que todos los generadores son iguales a cero es trivialmente una solución de la ec. (2.9), para cualquier grupo de Lie, por lo que se llama la representación trivial.
+
+La representación de cuatro vectores es más interesante. En este caso $i, j$ son a su vez índices de Lorentz, por lo que cada generador $J^{\mu \nu}$ está representado por una matriz de $4 \times 4$ $\left(J^{\mu \nu}\right)^{\rho}{ }_{\sigma}$. La forma explícita de esta matriz es
+\begin{equation*}
+  \left(J^{\mu \nu}\right)^{\rho}{ }_{\sigma}=i\left(\eta^{\mu \rho} \delta_{\sigma}^{\nu}-\eta^{\nu \rho} \delta_{\sigma}^{\mu}\right) \tag{2.23}
+  \end{equation*}
+
+  Esto puede demostrarse observando que, a partir de las ecs. (2.22) y (2.15), la variación de un cuatro vector $V^{\mu}$ bajo una transformación infinitesimal de Lorentz es $\delta V^{\mu}=\omega^{\mu}{ }_{\nu} V^{\nu}$, que puede reescribirse como
+  \begin{equation*}
+    \delta V^{\rho}=-\frac{i}{2} \omega_{\mu \nu}\left(J^{\mu \nu}\right)^{\rho}{ }_{\sigma} V^{\sigma} \tag{2.24}
+    \end{equation*}
+    con $\left(J^{\mu \nu}\right)^{\rho}{ }_{\sigma}$ dada por la ec. (2.23) (esta solución para $J^{\mu \nu}$ es única porque requerimos la antisimetría bajo $\mu \leftrightarrow \nu$ ). Esta representación es irreducible ya que una transformación de Lorentz genérica mezcla las cuatro componentes de un cuatro-vector y por tanto no hay cambio de base que nos permita escribir $\left(J^{\mu \nu}\right)^{\rho}{ }_{\sigma}$ en forma diagonal de bloque. Ahora podemos utilizar la expresión explícita (2.23) para calcular los conmutadores, y encontramos
+    \begin{equation*}
+      \left[J^{\mu \nu}, J^{\rho \sigma}\right]=i\left(\eta^{\nu \rho} J^{\mu \sigma}-\eta^{\mu \rho} J^{\nu \sigma}-\eta^{\nu \sigma} J^{\mu \rho}+\eta^{\mu \sigma} J^{\nu \rho}\right) \tag{2.25}
+      \end{equation*}
+
+      Esta es el álgebra de Lie de $S O(3,1)$. Es conveniente reordenar los seis componentes de $J^{\mu \nu}$ en dos vectores espaciales,
+
+      \begin{equation*}
+        J^{i}=\frac{1}{2} \epsilon^{i j k} J^{j k}, \quad K^{i}=J^{i 0} \tag{2.26}
+        \end{equation*}
+
+        En términos de $J^{i}, K^{i}$ el álgebra de Lie del grupo de Lorentz (2.25) se convierte en
+        \begin{align*}
+          {\left[J^{i}, J^{j}\right] } & =i \epsilon^{i j k} J^{k}  \tag{2.27}\\
+          {\left[J^{i}, K^{j}\right] } & =i \epsilon^{i j k} K^{k}  \tag{2.28}\\
+          {\left[K^{i}, K^{j}\right] } & =-i \epsilon^{i j k} J^{k} \tag{2.29}
+          \end{align*}
+
+          La ecuación (2.27) es el álgebra de Lie de $S U(2)$ y esto muestra que $J^{i}$, definido en la ec. (2.26), es el momento angular. En cambio la ec. (2.28) expresa el hecho de que $\mathbf{K}$ es un vector espacial ${ }^{3}$ Este es el punto de vista "activo". Alternativamente, podemos decir que mantenemos $P$ fijo y rotamos el marco de referencia en el sentido de las agujas del reloj; este es el punto de vista "pasivo". También introducimos las definiciones $\theta^{i}=(1 / 2) \epsilon^{i j k} \omega^{j k}$ y $\eta^{i}=\omega^{i 0}$. Entonces
+
+          \begin{align*}
+            \frac{1}{2} \omega_{\mu \nu} J^{\mu \nu} & =\omega_{12} J^{12}+\omega_{13} J^{13}+\omega_{23} J^{23}+\sum_{i=1}^{3} \omega_{i 0} J^{i 0} \\
+            & =\boldsymbol{\theta} \cdot \mathbf{J}-\boldsymbol{\eta} \cdot \mathbf{K} \tag{2.30}
+            \end{align*}
+
+            donde utilizamos $\omega_{i 0}=-\omega^{i 0}=-\eta^{i}$ mientras que $\omega_{12}=\omega^{12}=\theta^{3}$, etc. Entonces una transformación de Lorentz puede escribirse como
+
+            \begin{equation*}
+              \Lambda=\exp \{-i \boldsymbol{\theta} \cdot \mathbf{J}+i \boldsymbol{\eta} \cdot \mathbf{K}\} \tag{2.31}
+              \end{equation*}
+              Con nuestras definiciones $\theta^{i}=+(1 / 2) \epsilon^{i j k} \omega^{j k}$ y $\eta^{i}=+\omega^{i 0}$ una rotación por un ángulo $\theta>0$ en el plano $(x, y)$ gira en sentido contrario a las agujas del reloj la posición de un punto $P$ respecto a un sistema de referencia fijo, ${ }^{3}$ mientras que al realizar un impulso de velocidad $\mathbf{v}$ sobre una partícula en reposo obtenemos una partícula con velocidad $+\mathbf{v}$. Para comprobar estos signos, podemos considerar transformaciones infinitesimales, y utilizar la forma explícita (2.23) de los generadores. Realizando una rotación por un ángulo $\theta$ alrededor del eje $z$, las ecs. (2.31) y (2.23) dan
+              \begin{equation*}
+                \delta x^{\mu}=-i \theta\left(J^{12}\right)^{\mu}{ }_{\nu} x^{\nu}=\theta\left(\eta^{1 \mu} \delta_{\nu}^{2}-\eta^{2 \mu} \delta_{\nu}^{1}\right) x^{\nu} \tag{2.32}
+              \end{equation*}
+              
+              y por tanto $\delta x=-\theta y$ y $\delta y=+\theta x$, lo que corresponde a una rotación en sentido contrario a las agujas del reloj. Análogamente, realizando un impulso a lo largo del eje $x$,
+              \begin{equation*}
+                \delta x^{\mu}=+i \eta\left(J^{10}\right)^{\mu}{ }_{\nu} x^{\nu}=-\eta\left(\eta^{1 \mu} \delta_{\nu}^{0}-\eta^{0 \mu} \delta_{\nu}^{1}\right) x^{\nu} \tag{2.33}
+                  \end{equation*}
+                  y por tanto $\delta t=+\eta x$ y $\delta x=+\eta t$, que es la forma infinitesimal de la ec. (2.18).
+                  
+                  \section{Representación tensorial}
+                  
+                  Por definición un tensor $T^{\mu \nu}$ con dos índices contravariantes (es decir, superiores) es un objeto que se transforma como
+
+                  \begin{equation*}
+                    T^{\mu \nu} \rightarrow \Lambda_{\mu^{\prime}}^{\mu} \Lambda_{\nu^{\prime}} T^{\mu^{\prime} \nu^{\prime}} \tag{2.34}
+                    \end{equation*}
+                    En general, un tensor con un número arbitrario de índices superior e inferior se transforma con un factor $\Lambda^{\mu}{ }_{\mu^{\prime}}$ para cada índice superior y un factor $\Lambda_{\mu}{ }^{\mu^{\prime}}$ para cada índice inferior. Los tensores son ejemplos de representaciones del grupo de Lorentz. Por ejemplo, un tensor genérico $T^{\mu \nu}$ con dos índices tiene 16 componentes y la ec. (2.34) muestra que estas 16 componentes se transforman entre sí, es decir, son una base para una representación de dimensión 16. Sin embargo, esta representación es reducible. Sin embargo, esta representación es reducible. A partir de la ec. (2.34) vemos que, si $T^{\mu \nu}$ es antisimétrica, después de una transformación de Lorentz sigue siendo antisimétrica, mientras que si es simétrica sigue siendo simétrica. Así que las partes simétrica y antisimétrica de un tensor $T^{\mu \nu}$ no se mezclan, y la representación de 16 dimensiones es reducible a una representación antisimétrica de seis dimensiones $A^{\mu \nu}=(1 / 2)\left(T^{\mu \nu}-T^{\nu \mu}\right)$ y una representación simétrica de 10 dimensiones $S^{\mu \nu}=(1 / 2)\left(T^{\mu \nu}+T^{\nu \mu}\right)$. Además, también la traza de un tensor simétrico es invariante,
+                    \begin{equation*}
+                      S \equiv \eta_{\mu \nu} S^{\mu \nu} \rightarrow \eta_{\mu \nu} \Lambda^{\mu}{ }_{\rho} \Lambda^{\nu}{ }_{\sigma} S^{\rho \sigma}=S \tag{2.35}
+                      \end{equation*}
+
+                      donde en el último paso utilizamos la propiedad definitoria del grupo de Lorentz, ecuación (2.13). Esto significa, en particular, que un tensor sin trazas sigue sin trazas después de una transformación de Lorentz, y así la representación simétrica de 10 dimensiones se descompone en una representación simétrica irreducible sin trazas de nueve dimensiones, $S^{\mu \nu}-(1 / 4) \eta^{\mu \nu} S$, y la representación escalar unidimensional $S$.
+
+                      \section{Representación espinorial}
+
+                      \subsection{No relativista}
+                      Las representaciones tensoriales no agotan todas las representaciones finidimensionales físicamente interesantes del grupo de Lorentz. Podemos entender la cuestión considerando las rotaciones espaciales, es decir, el subgrupo $S O(3)$ del grupo de Lorentz. Las representaciones tensoriales de $S O(3)$ se construyen exactamente igual que antes, con escalares $\phi$, vectores espaciales $v^{i}$, tensores $T^{i j}$, etc. con $i=1,2,3$. Sin embargo, sabemos por la mecánica cuántica no relativista que, además de las representaciones tensoriales, existen otras representaciones de gran interés físico. Se trata de las representaciones espinoriales. Estrictamente hablando, éstas no son representaciones $S O(3)$, porque bajo una rotación de $2 \pi$ un espinor cambia de signo, mientras que una rotación $S O(3)$ por $2 \pi$ es lo mismo que la transformación de identidad. Sin embargo, dado que los observables son cuadráticos en la función de onda, esta ambigüedad de signos es perfectamente aceptable físicamente, y estas representaciones deben incluirse. En términos más formales, esto significa que, para las rotaciones espaciales, el grupo físicamente relevante no es $S O(3)$ sino $S U(2)$.
+
+Recordemos algunos hechos sobre las representaciones $S U(2)$, bien conocidos de la mecánica cuántica no relativista. Las álgebras de Lie de $S U(2)$ y de $S O(3)$ son las mismas, y vienen dadas por el álgebra de momento angular
+\begin{equation*}
+  \left[J^{i}, J^{j}\right]=i \epsilon^{i j k} J^{k} \tag{2.45}
+  \end{equation*}
+  A partir de la discusión del apartado 1.1, vemos que el álgebra de Lie sólo conoce las propiedades de un grupo cerca del elemento identidad, y el hecho de que $S U(2)$ y $S O(3)$ tengan el mismo álgebra de Lie significa que son indistinguibles a nivel de transformaciones infinitesimales. Sin embargo, $S U(2)$ y $S O(3)$ difieren a nivel global, es decir, lejos de la identidad. En $S O(3)$ una rotación por $2 \pi$ es lo mismo que la identidad. En cambio, puede demostrarse que $S U(2)$ es periódico sólo bajo rotaciones por $4 \pi$. Esto significa que un objeto que recoge un signo menos bajo una rotación por $2 \pi$ es una representación aceptable de $S U(2)$, mientras que no es una representación aceptable de $S O(3)$. Por tanto, cuando consideramos $S U(2)$ incluimos las soluciones de la ec. (2.45) que corresponden a espín medio entero, mientras que para $S O(3)$ sólo retenemos representaciones con espín entero. Así, las representaciones de $S U(2)$ se etiquetan con un índice $j$ que toma valores $0, \frac{1}{2}, 1, \frac{3}{2}, \ldots$ y da el espín del estado, en unidades de $\hbar$. La representación de espín $j$ tiene dimensión $2 j+1$, y los distintos estados dentro de ella se etiquetan por $j_{z}$, que toma los valores $-j, \ldots, j$ en pasos enteros. La representación $j=1 / 2$ se denomina representación espinorial, y tiene dimensión 2: en ella los $J^{i}$ se representan como
+  \begin{equation*}
+    J^{i}=\frac{\sigma^{i}}{2} \tag{2.46}
+    \end{equation*}
+    donde $\sigma^{i}$ son las matrices de Pauli, 
+    $$
+\sigma^{1}=\left(\begin{array}{cc}
+0 & 1  \tag{2.47}\\
+1 & 0
+\end{array}\right) \quad \sigma^{2}=\left(\begin{array}{cc}
+0 & -i \\
+i & 0
+\end{array}\right) \quad \sigma^{3}=\left(\begin{array}{cc}
+1 & 0 \\
+0 & -1
+\end{array}\right) .
+$$
+Satisfacen la identidad algebraica
+\begin{equation*}
+  \sigma^{i} \sigma^{j}=\delta^{i j}+i \epsilon^{i j k} \sigma^{k} \tag{2.48}
+  \end{equation*}
+  de lo que se deduce inmediatamente que $\sigma^{i} / 2$ obedecen a las relaciones de conmutación (2.45).
+
+El espinorial es la representación fundamental de $S U(2)$ ya que todas las representaciones pueden construirse con productos tensoriales de espinores. En ${ }^{7}$ El hecho de que el álgebra de Lorentz pueda escribirse como el álgebra de $S U(2) \times$ $S U(2)$ no significa que el grupo de Lorentz $S O(3,1)$ sea el mismo que $S U(2) \times$ $S U(2)$. En primer lugar, el álgebra de Lie sólo refleja las propiedades del grupo cercanas a la identidad. Además, $\mathbf{J}^{ \pm}$ son combinaciones complejas de $\mathbf{J}$ y $\mathbf{K}$. Obsérvese que, debido al factor $i$ de la ec. (2.52), una representación de $S U(2) \times$ $S U(2)$ con $\mathbf{J}^{ \pm}$ hermitiana induce una representación de $S O(3,1)$ con $\mathbf{J}$ hermitiana pero $\mathbf{K}$ antihermitiana. Para el lector más matemático: $S U(2) \times S U(2)$ es el grupo de cobertura universal de $S O(4)$ (de forma similar al hecho de que $S U(2)$ es el grupo de cobertura universal de $S O(3))$)y $S O(4)$ es la versión euclídea del grupo de Lorentz, es decir, se obtiene tomando la variable temporal $t$ puramente imaginaria. El grupo de cobertura universal de $S O(3,1)$ es $S L(2, C)$. En términos físicos, esto significa que con partículas de espín $1 / 2$ podemos construir sistemas compuestos con todos los espines enteros o semienteros posibles. Por ejemplo, la composición de dos estados de espín $1 / 2$ da espín cero y espín 1 ,
+\begin{equation*}
+  \frac{1}{2} \otimes \frac{1}{2}=0 \oplus 1 \tag{2.49}
+  \end{equation*}
+  Si denotamos por $\uparrow$ y $\downarrow$ los estados $j=1 / 2$ con $j_{z}=+1 / 2$ y $j_{z}=$ $-1 / 2$, respectivamente, entonces los tres estados con $j=1$ vienen dados por
+  \begin{equation*}
+    (\uparrow \uparrow), \quad \frac{1}{\sqrt{2}}(\uparrow \downarrow+\downarrow \uparrow), \quad(\downarrow \downarrow) \tag{2.50}
+    \end{equation*}
+    mientras que el singlete (es decir, el estado escalar) es
+    \begin{equation*}
+      \frac{1}{\sqrt{2}}(\uparrow \downarrow-\downarrow \uparrow) \tag{2.51}
+      \end{equation*}
+                      \subsection{Relativista}
+                      Ciertamente queremos mantener los espinores en la teoría relativista. Esto significa que debemos ampliar el conjunto de representaciones del grupo de Lorentz, en comparación con las representaciones tensoriales discutidas anteriormente. Esto se hace más fácilmente partiendo del álgebra de Lorentz en la forma dada por las ecs. $(2.27)-(2.29)$, y definiendo
+                      \begin{equation*}
+                        \mathbf{J}^{ \pm}=\frac{\mathbf{J} \pm i \mathbf{K}}{2} \tag{2.52}
+                        \end{equation*}
+
+                        El algebra de Lie se vuelve
+                        $$
+\begin{align*}
+{\left[J^{+, i}, J^{+, j}\right] } & =i \epsilon^{i j k} J^{+, k}  \tag{2.53}\\
+{\left[J^{-, i}, J^{-, j}\right] } & =i \epsilon^{i j k} J^{-, k}  \tag{2.54}\\
+{\left[J^{+, i}, J^{-, j}\right] } & =0 \tag{2.55}
+\end{align*}
+$$
+Por lo tanto tenemos dos copias del álgebra del momento angular, que conmutan entre sí. 
+
+Habiendo escrito el grupo de Lorentz de esta forma, ahora es fácil incluir las representaciones espinoriales: simplemente tomamos todas las soluciones del álgebra $(2.53)-(2.55)$, incluyendo las representaciones espinoriales.
+
+Como conocemos las representaciones de $S U(2)$, y aquí tenemos dos factores conmutativos $S U(2)$, encontramos que: - Las representaciones del álgebra de Lorentz se pueden etiquetar con dos semienteros: $\left(j_{-}, j_{+}\right)$.
+- La dimensión de la representación $\left(j_{-}, j_{+}\right)$ es $\left(2 j_{-}+1\right)\left(2 j_{+}+1\right)$.
+- El generador de rotaciones $\mathbf{J}$ está relacionado con $\mathbf{J}^{+}$y $\mathbf{J}^{-}$por $\mathbf{J}=$ $\mathbf{J}^{+}+\mathbf{J}^{-}$; por tanto, por la suma de momentos angulares habitual en mecánica cuántica, en la representación $\left(j_{-}, j_{+}\right)$ tenemos estados con todos los espines posibles $j$ en pasos enteros entre los valores $\left|j_{+}-j_{-}\right|$ y $j_{+}+j_{-}$.
+
+Las representaciones son en general complejas y la dimensión de la representación es el número de componentes complejas independientes. En algunos casos podemos imponer una condición de realidad y $\left(2 j_{-}+1\right)\left(2 j_{+}+1\right)$ se convierte en el número de componentes reales independientes. Las representaciones $\left(j_{-}, j_{+}\right)$ deben incluir todas las representaciones tensoriales discutidas en la sección anterior, además de las representaciones espinoriales. Examinamos los casos más sencillos.
+\subsubsection{Rpresentaciones de 1 dimensión}
+$(\mathbf{0}, \mathbf{0})$. Esta representación tiene dimensión uno. En ella, $\mathbf{J}^{ \pm}=0$ por lo que también $\mathbf{J}, \mathbf{K}$ son cero. Por lo tanto es la representación escalar.
+\subsubsection{Rpresentaciones de 2 dimensiones}
+                      \paragraph{Espinores de Weyl}
+
+
+                      $\left(\frac{1}{2}, \mathbf{0}\right)$ y $\left(\mathbf{0}, \frac{1}{2}\right)$. Estas representaciones tienen dimensión dos y espín $1 / 2$, por lo que son representaciones espinoriales. Denotamos por $\left(\psi_{L}\right)_{\alpha}$, con $\alpha=1,2$, un espinor en $(1 / 2,0)$ y por $\left(\psi_{R}\right)_{\alpha}$ un espinor en $(0,1 / 2)$ (a veces en la literatura el índice de $\psi_{L}$ se denota por $\dot{\alpha}$ para destacar que es un índice en una representación diferente en comparación con el índice de $\left.\psi_{R}{\right)$ . $\psi_{L}$ se denomina espinor de Weyl zurdo y $\psi_{R}$ espinor de Weyl diestro:
+                      \begin{equation*}
+                        \text { Weyl spinors: } \quad \psi_{L} \in\left(\frac{1}{2}, 0\right), \quad \psi_{R} \in\left(0, \frac{1}{2}\right) \tag{2.56}
+                        \end{equation*}
+                        Queremos determinar la forma explícita de los generadores $\mathbf{J}, \mathbf{K}$ en espinores de Weyl. Consideremos primero la representación $(1 / 2,0)$. Por definición, en esta representación $\mathbf{J}^{-}$ está representado por una matriz $2 \times 2$, mientras que $\mathbf{J}^{+}=0$. La solución de (2.54) en términos de matrices $2 \times 2$ es por supuesto $\mathbf{J}^{-}=\boldsymbol{\sigma} / 2$, y por tanto
+                        \begin{align*}
+                          \mathbf{J} & =\mathbf{J}^{+}+\mathbf{J}^{-}=\frac{\boldsymbol{\sigma}}{2}  \tag{2.57}\\
+                          \mathbf{K} & =-i\left(\mathbf{J}^{+}-\mathbf{J}^{-}\right)=i \frac{\boldsymbol{\sigma}}{2} \tag{2.58}
+                          \end{align*}
+                          Obsérvese que en esta representación los generadores $K^{i}$ no son hermitianos. Esto es una consecuencia del hecho de que el grupo de Lorentz es no compacto y del teorema que afirma que los grupos no compactos no tienen representaciones unitarias de dimensión finita, excepto las representaciones en las que los generadores no compactos (en este caso los $K^{i}$ ) se representan trivialmente, es decir, $K^{i}=0$. Ahora podemos escribir explícitamente cómo se transforma un espinor de Weyl bajo transformaciones de Lorentz, utilizando la ec. (2.31),
+                          \begin{equation*}
+                            \psi_{L} \rightarrow \Lambda_{L} \psi_{L}=\exp \left\{(-i \boldsymbol{\theta}-\boldsymbol{\eta}) \cdot \frac{\boldsymbol{\sigma}}{2}\right\} \psi_{L} \tag{2.59}
+                            \end{equation*}
+                            Repitiendo el argumento para la representación $(0,1 / 2)$, encontramos de nuevo $\mathbf{J}=\boldsymbol{\sigma} / 2$ pero $\mathbf{K}=-i \boldsymbol{\sigma} / 2$ y
+                            \begin{equation*}
+                              \psi_{R} \rightarrow \Lambda_{R} \psi_{R}=\exp \left\{(-i \boldsymbol{\theta}+\boldsymbol{\eta}) \cdot \frac{\boldsymbol{\sigma}}{2}\right\} \psi_{R} \tag{2.60}
+                              \end{equation*}
+                              Nótese que $\Lambda_{L, R}$ son matrices complejas, y por tanto necesariamente las dos componentes de un espinor de Weyl son números complejos. Utilizando la propiedad de las matrices de Pauli $\sigma^{2} \sigma^{i} \sigma^{2}=-\sigma^{i *}$ y la forma explícita de $\Lambda_{L, R}$ es fácil demostrar que
+                              \begin{equation*}
+                                \sigma^{2} \Lambda_{L}^{*} \sigma^{2}=\Lambda_{R} \tag{2.61}
+                                \end{equation*}
+                                De ello se deduce que
+                                \begin{equation*}
+                                  \sigma^{2} \psi_{L}^{*} \rightarrow \sigma^{2}\left(\Lambda_{L} \psi_{L}\right)^{*}=\left(\sigma^{2} \Lambda_{L}^{*} \sigma^{2}\right) \sigma^{2} \psi_{L}^{*}=\Lambda_{R}\left(\sigma^{2} \psi_{L}^{*}\right) \tag{2.62}
+                                  \end{equation*}
+                                  donde usamos el hecho de que $\sigma^{2} \sigma^{2}=1$. Por lo tanto, si $\psi_{L} \en(1 / 2,0)$, entonces $\sigma^{2} \psi_{L}^{*}$ es un espinor de Weyl diestro,
+                                  \begin{equation*}
+                                    \sigma^{2} \psi_{L}^{*} \in\left(0, \frac{1}{2}\right) \tag{2.63}
+                                    \end{equation*}
+                      \paragraph{Espinores de Dirac}
+
+
+                      $\left(\frac{1}{2}, \frac{1}{2}\right)$. Esta representación tiene dimensión (compleja) cuatro y $\mid 1 / 2-$ $1 / 2 \mid \leqslant j \leqslant 1 / 2+1 / 2$, es decir $j=0,1$. Comparando con la ec. (2.40) vemos que se trata de una representación compleja de cuatro vectores. Un elemento genérico de la representación $(1 / 2,1 / 2)$ puede escribirse como un par $\left(\left(\psi_{L}\right)_{\alpha},\left(\xi_{R}\right)_{\beta}\right)$, donde $\psi_{L}$ y $\xi_{R}$ son dos espinores de Weyl independientes, zurdo y diestro, respectivamente, y $\alpha, \beta$ toman los valores 1,2 . Queremos explicitar la relación entre estas cuatro magnitudes (complejas) y las cuatro componentes de un cuatro vector (complejo). En primer lugar, hemos visto anteriormente que, dado un espinor $\xi_{R}$ diestro, podemos formar un espinor $\xi_{L}$ zurdo $\equiv-i \sigma^{2} \xi_{R}^{*}$, y análogamente a partir de $\psi_{L}$ podemos construir $\psi_{R} \equiv i \sigma^{2} \psi_{L}^{*}$. Definimos las matrices $\sigma^{\mu}$ y $\bar{\sigma}^{\mu}$ como
+                      \begin{equation*}
+                        \sigma^{\mu}=\left(1, \sigma^{i}\right), \quad \bar{\sigma}^{\mu}=\left(1,-\sigma^{i}\right) \tag{2.67}
+                        \end{equation*}
+                        donde $\sigma^{i}$ son las matrices de Pauli y 1 es la $2 \times 2$ matriz identidad. Entonces, es fácil demostrar que
+                        \begin{equation*}
+                          \xi_{R}^{\dagger} \sigma^{\mu} \psi_{R} \tag{2.68}
+                          \end{equation*}
+                          y 
+                          \begin{equation*}
+                            \xi_{L}^{\dagger} \bar{\sigma}^{\mu} \psi_{L} \tag{2.69}
+                            \end{equation*}
+                            son cuadrivectores contravariantes.
+
+
+  \section{Grupo de Poincare}
+  Además de la invariancia bajo transformaciones de Lorentz, requerimos también invariancia bajo traslaciones espacio-temporales. Un elemento genérico del grupo de traslación se escribe como
+  \begin{equation*}
+    \exp \left\{-i P^{\mu} a_{\mu}\right\} \tag{2.96}
+    \end{equation*}
+
+    donde $a_{\mu}$ son los parámetros de la traslación, $x^{\mu} \rightarrow x^{\mu}+a^{\mu}$, y las componentes del operador de cuatro momentos $P^{\mu}$ son los generadores. Las traslaciones más las transformaciones de Lorentz forman un grupo, llamado el grupo de Poincaré, o el grupo inhomogéneo de Lorentz (a veces se denota como $\operatorname{ISO}(3,1)$, donde " $I$ " significa inhomogéneo). Puesto que las traslaciones conmutan, tenemos
+
+    \begin{equation*}
+      \left[P^{\mu}, P^{\nu}\right]=0 \tag{2.97}
+      \end{equation*}
+      Para encontrar el conmutador entre $P^{\mu}$ y $J^{\rho \sigma}$ podemos partir de los conmutadores
+      \begin{align*}
+        & {\left[J^{i}, P^{j}\right]=i \epsilon^{i j k} P^{k}}  \tag{2.98}\\
+        & {\left[J^{i}, P^{0}\right]=0} \tag{2.99}
+        \end{align*}
+        que expresan los hechos de que $P^{i}$ es un vector bajo rotaciones y que la energía es un escalar bajo rotaciones. La única generalización Lorentz-covariante de las ecs. (2.98) y (2.99) es
+        \begin{equation*}
+          \left[P^{\mu}, J^{\rho \sigma}\right]=i\left(\eta^{\mu \rho} P^{\sigma}-\eta^{\mu \sigma} P^{\rho}\right) \tag{2.100}
+          \end{equation*}
+          Junto con el álgebra de Lorentz (2.25), las ecs. (2.97) y (2.100) definen el álgebra de Poincaré. En términos de $J^{i}, K^{i}, P^{0}=H$ y $P^{i}$ se lee
+          \begin{gather*}
+            {\left[J^{i}, J^{j}\right]=i \epsilon^{i j k} J^{k}, \quad\left[J^{i}, K^{j}\right]=i \epsilon^{i j k} K^{k}, \quad\left[J^{i}, P^{j}\right]=i \epsilon^{i j k} P^{k}}  \tag{2.101}\\
+            {\left[K^{i}, K^{j}\right]=-i \epsilon^{i j k} J^{k}, \quad\left[P^{i}, P^{j}\right]=0, \quad\left[K^{i}, P^{j}\right]=i H \delta^{i j}}  \tag{2.102}\\
+            {\left[J^{i}, H\right]=0, \quad\left[P^{i}, H\right]=0, \quad\left[K^{i}, H\right]=i P^{i}} \tag{2.103}
+            \end{gather*}
+            Las ecuaciones (2.101) expresan el hecho de que los $J^{i}$ generan rotaciones espaciales y $K^{i}, P^{i}$ son vectores bajo rotaciones. Las ecuaciones (2.103) establecen que $J^{i}$ y $P^{i}$ conmutan con el generador de traslaciones temporales y por lo tanto son cantidades conservadas; las $K^{i}$ en cambio no se conservan, y esta es la razón por la que los valores propios de $\mathbf{K}$ no se utilizan para etiquetar estados físicos.
+  \subsection{Representación en estados de una partícula}
+  La representación del grupo de Poincaré en campos nos permite construir Lagrangianos invariantes de Poincaré, como estudiaremos en el próximo capítulo. A nivel clásico, una descripción lagrangiana es todo lo que necesitamos para especificar la dinámica del sistema. A nivel cuántico, sin embargo, uno de nuestros objetivos será entender cómo el concepto de partícula emerge de la cuantización de campos. Por lo tanto, es útil ver cómo se puede representar el grupo de Poincaré utilizando como base el espacio de Hilbert de una partícula libre. Denotaremos los estados de una partícula libre con momento $\mathbf{p}$ como $||\mathbf{p}, s\rangle$, donde $s$ etiqueta colectivamente todos los demás números cuánticos. Puesto que $\mathbf{p}$ es una variable continua e ilimitada, este espacio base es infinito-dimensional. Un teorema de Wigner (véase Weinberg (1995), capítulo 2) afirma que en este espacio de Hilbert cualquier transformación de simetría puede representarse mediante un operador unitario. \sidenote{} Por tanto, en este espacio base una transformación de Poincaré se representa por una matriz unitaria, y los generadores $J^{i}, K^{i}, P^{i}$ y $H$ por operadores hermitianos.
+
+  Las representaciones están etiquetadas por los operadores de Casimir. Uno de ellos es fácil de encontrar, y es $P_{\mu} P^{\mu}$. En un estado de una partícula tiene el valor $m^{2}$, donde $m$ es la masa de la partícula. Utilizando las relaciones de conmutación del grupo de Poincaré se puede verificar que existe un segundo operador de Casimir dado por $W_{\mu} W^{\mu}$, donde
+
+  \begin{equation*}
+    W^{\mu}=-\frac{1}{2} \epsilon^{\mu \nu \rho \sigma} J_{\nu \rho} P_{\sigma} \tag{2.113}
+    \end{equation*}
+    se llama el cuatro-vector de Pauli-Lubanski. Demostrar que $W_{\mu} W^{\mu}$ es un operador de Casimir es sencillo. En primer lugar, $W^{\mu}$ es claramente un cuatro vector, por lo que $W_{\mu} W^{\mu}$ es Lorentz-invariante y por lo tanto conmuta con $J^{\mu \nu}$. De la forma explícita se deduce también que
+
+    \begin{equation*}
+      \left[W^{\mu}, P^{\nu}\right]=0 \tag{2.114}
+      \end{equation*}
+
+      (utilizando la ec. (2.100) y la antisimetría de $\epsilon^{\mu \nu \rho \sigma}$ ), y entonces $W_{\mu} W^{\mu}$ conmuta también con $P^{\nu}$.
+
+Como $W_{\mu} W^{\mu}$ es invariante de Lorentz, podemos calcularlo en el marco que prefiramos. Si $m \neq 0$, es conveniente elegir el marco de reposo de la partícula; en este marco $W^{\mu}=(-m / 2) \epsilon^{\mu \nu \rho 0} J_{\nu \rho}=(m / 2) \epsilon^{0 \mu \nu \rho} J_{\nu \rho}$, por lo que $W^{0}=0$ mientras que
+\begin{equation*}
+  W^{i}=\frac{m}{2} \epsilon^{0 i j k} J^{j k}=\frac{m}{2} \epsilon^{i j k} J^{j k}=m J^{i} \tag{2.115}
+  \end{equation*}
+  Por lo tanto en un estado de una partícula con masa $m$ y $\operatorname{spin} j$ tenemos
+  \begin{equation*}
+    -W_{\mu} W^{\mu}=m^{2} j(j+1), \quad(m \neq 0) \tag{2.116}
+    \end{equation*}
+    Si en cambio $m=0$ el marco de reposo no existe, pero podemos elegir un marco donde $P^{\mu}=(\omega, 0,0, \omega)$; en este marco un cálculo sencillo da $W^{0}=W^{3}=\omega J^{3}, W^{1}=\omega\ izquierda(J^{1}-K^{2}\ derecha)$ y $W^{2}=\omega\ izquierda(J^{2}+K^{1}\ derecha)$. Por lo tanto
+    \begin{equation*}
+      -W_{\mu} W^{\mu}=\omega^{2}\left[\left(K^{2}-J^{1}\right)^{2}+\left(K^{1}+J^{2}\right)^{2}\right], \quad(m=0) \tag{2.117}
+      \end{equation*}
+      Comparando las ecs. (2.116) y (2.117) vemos que el límite $m \rightarrow 0$ es bastante sutil, y debemos estudiar por separado las representaciones masivas y sin masa.
+  \subsubsection{Representación masiva}
+  En este caso en los estados de una partícula tenemos $P^{\mu} P_{\mu}=m^{2}$ mientras que $W_{\mu} W^{\mu}=-m^{2} j(j+1)$. Restringiremos a $m$ reales y positivos. Por lo tanto las representaciones están etiquetadas por la masa $m$ y por el espín $j$. Podemos entenderlo mejor observando que, si $m \neq 0$, con una transformación de Lorentz podemos llevar $P^{\mu}$ a la forma $P^{\mu}=(m, 0,0,0)$. Esta elección de $P^{\mu}$ nos deja aún la libertad de realizar rotaciones espaciales. En otras palabras, el espacio de estados de una partícula con momento $P^{\mu}=(m, 0,0,0)$ sigue siendo una base para la representación de rotaciones espaciales. El grupo de transformaciones que deja invariante una elección dada de $P^{\mu}$ se llama el pequeño grupo. En este caso, puesto que queremos incluir las representaciones de espinores, el pequeño grupo es $S U(2)$. Las representaciones masivas se etiquetan por tanto por la masa $m$ y por el espín $j=0,1 / 2,1, \ldots$, y los estados dentro de cada ${ }^{11}$ En principio también existe la posibilidad de representaciones con $m^{2}<0$, conocidas como taquiones. En la teoría de campos, la aparición de un modo taquiónico es la señal de una inestabilidad, y refleja el hecho de que nos hemos expandido alrededor del vacío equivocado, por ejemplo, alrededor de un máximo en lugar de un mínimo de un potencial.
+
+Esta parte es más técnica y puede omitirse en una primera lectura. Basta con suponer que el pequeño grupo es $S O(2)$ y omitir la parte escrita en caracteres más pequeños. ${ }^{12}$ Serían hermitianas si las escribimos como $A^{mu \nu}, B^{mu \nu}$ y $C^{mu \nu}$. Sin embargo, $\\delta x^{\rho}$ es proporcional a $\omega_{\mu \nu}\left(J^{\mu \nu}\right)^{\rho}{ }_{\sigma} x^{\sigma}$, por lo que la representación viene dada por las matrices con un índice superior y otro inferior, y es para estas matrices para las que se cumple el álgebra (2.124).124) es válida. representación se etiquetan con $j_{z}=-j,-j+1, \ldots, j$. Esto significa que las partículas masivas de espín $j$ tienen $2 j+1$ grados de libertad.
+  \subsubsection{Representación no masiva}
+  
+  Cuando $P^{2}=0$ el marco de reposo no existe, pero podemos reducir $P^{\mu}$ a la forma $P^{\mu}=(\omega, 0,0, \omega)$. El pequeño grupo es el conjunto de transformaciones de Poincaré que deja este vector sin cambios. Se ve inmediatamente que las rotaciones en el plano $(x, y)$ dejan invariante este $P^{\mu}$; se trata de un grupo $S O(2)$, generado por $J^{3}$.
+
+  Además hay dos transformaciones de Lorentz menos evidentes que no cambian $P^{\mu}$; para encontrar la solución más general, basta con restringirse a transformaciones de Lorentz infinitesimales $\Lambda^{\mu}{ }_{\nu}=\delta_{\nu}^{\mu}+\omega^{\mu}{ }_{\nu}$, y buscar la matriz más general $\omega^{\mu \nu}$ que satisfaga $\omega^{\mu \nu}=-\omega^{\nu \mu}$ (para tener una transformación de Lorentz) y
+
+  \begin{equation*}
+    \omega^{\mu \nu} P_{\nu}=0 \tag{2.118}
+    \end{equation*}
+    para $P_{\nu}=(\omega, 0,0,-\omega)$. Por lo tanto
+    $$
+    \left(\begin{array}{cccc}
+      0 & \omega^{01} & \omega^{02} & \omega^{03}  \tag{2.119}\\
+      -\omega^{01} & 0 & \omega^{12} & \omega^{13} \\
+      -\omega^{02} & -\omega^{12} & 0 & \omega^{23} \\
+      -\omega^{03} & -\omega^{13} & -\omega^{23} & 0
+      \end{array}\right)\left(\begin{array}{c}
+      1 \\
+      0 \\
+      0 \\
+      -1
+      \end{array}\right)=0$$
+      lo que da $\omega^{03}=0, \omega^{01}+\omega^{13}=0$ y $\omega^{02}+\omega^{23}=0$. Denotando $\omega^{01}=\alpha$, $\omega^{02}=\beta$ y $\omega^{12}=\theta$ vemos que la transformación de Lorentz más general que deja $P^{\mu}$ invariante puede escribirse como
+      \begin{equation*}
+        \Lambda=e^{-i(\alpha A+\beta B+\theta C)} \tag{2.120}
+        \end{equation*}
+        donde (bajando el segundo índice de Lorentz)
+
+        $$
+A^{\mu}{ }_{\nu}=i\left(\begin{array}{cccc}
+0 & -1 & 0 & 0  \tag{2.121}\\
+-1 & 0 & 0 & 1 \\
+0 & 0 & 0 & 0 \\
+0 & -1 & 0 & 0
+\end{array}\right), \quad B^{\mu}{ }_{\nu}=i\left(\begin{array}{cccc}
+0 & 0 & -1 & 0 \\
+0 & 0 & 0 & 0 \\
+-1 & 0 & 0 & 1 \\
+0 & 0 & -1 & 0
+\end{array}\right)
+$$
+y
+$$
+C_{\nu}^{\mu}=i\left(\begin{array}{cccc}
+0 & 0 & 0 & 0  \tag{2.122}\\
+0 & 0 & -1 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0
+\end{array}\right)
+$$
+
+
+
+\begin{example}[Fotón: $\quad m^{2}=0$, dos estados de polarización $h= \pm 1$]
+
+
+  Puesto que la interacción electromagnética conserva la paridad, es más natural definir el fotón como una representación del grupo de Poincaré y de la paridad, es decir, reunir los dos estados de helicidad $h= \pm 1$. Los dos estados $h= \pm 1$ se denominan entonces fotones $(h=-1)$ zurdos y $(h=+1)$ diestros.
+\end{example}
+\begin{example}[Gravitón: $m^{2}=0$, dos estados de polarización $h= \pm 2$]
+
+
+  Del mismo modo, los dos estados con helicidad $h= \pm 2$ que median la interacción gravitatoria se consideran mejor como dos estados de polarización de la misma partícula, el gravitón:
+\end{example}
+\begin{example}[Neutrinos]
+
+
+  Por el contrario, los neutrinos sólo tienen interacciones débiles (aparte de la interacción gravitatoria, mucho menor), que no conservan la paridad, y los dos estados con helicidad $h= \pm 1 / 2$ reciben nombres diferentes: neutrino se reserva para $h=-1 / 2$, y antineutrino para $h=+1 / 2$.
+\end{example}

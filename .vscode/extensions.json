@@ -1,0 +1,15 @@
+{
+  "recommendations": [
+    "James-Yu.latex-workshop",  // Latex Workshop
+    "yujinakayama.zotero-latex",  // Zotero Latex
+    "xu-cheng.latex-formatter",  // Latex-formatter
+    "jannikwi.latex-utilities",  // Latex Utilities
+    "liweitianux.latex-sympy-calculator",  // Latex Sympy Calculator
+    "robjtede.markless",  // Markless
+    "sighmon.texmatrix",  // TexMatrix
+    "geraldf.emath",
+    "spmeesseman.vscode-taskexplorer" // emath
+  ]
+}
+
+  

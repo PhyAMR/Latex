@@ -1,0 +1,169 @@
+{
+  // Place your Latex workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+  // description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+  // is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+  // used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+  // Placeholders with the same ids are connected.
+  // Example:
+
+  // Latex
+  "Insertar paquete": {
+    "scope": "latex",
+    "prefix": "paquete",
+    "body": ["\\usepackage{$1}"],
+    "description": "Insertar paquete de LaTeX"
+  },
+  "Insertar sección": {
+    "scope": "latex",
+    "prefix": "seccion",
+    "body": ["\\section{$1}", "$2"],
+    "description": "Insertar una sección en el documento"
+  },
+  "Insertar figura": {
+    "scope": "latex",
+    "prefix": "figura",
+    "body": [
+      "\\begin{figure}[htbp]",
+      "\\centering",
+      "\\includegraphics[width=\\textwidth]{$1}",
+      "\\caption{$2}",
+      "\\label{fig:$3}",
+      "\\end{figure}"
+    ],
+    "description": "Insertar una figura en el documento"
+  },
+  "Insertar cita": {
+    "scope": "latex",
+    "prefix": "cita",
+    "body": ["\\cite{$1}"],
+    "description": "Insertar una cita bibliográfica"
+  },
+  "Insertar referencia cruzada": {
+    "scope": "latex",
+    "prefix": "ref",
+    "body": ["\\ref{$1}"],
+    "description": "Insertar una referencia cruzada"
+  },
+  "Insertar ecuación": {
+    "scope": "latex",
+    "prefix": "ecuacion",
+    "body": [
+      "\\begin{DispWithArrows}[format=c, displaystyle]",
+      "\t$1",
+      "\t\\label{eq:$2}",
+      "\\end{DispWithArrows}"
+    ],
+    "description": "Insertar una ecuación numerada"
+  },
+  "Nueva receta": {
+    "scope": "latex",
+    "prefix": "receta",
+    "body": [
+      "\\recipe{${1:Título}}",
+      "\\ingred{",
+      "\\begin{itemize}",
+      "\t\\item ${2:Ingredientes}",
+      "\\end{itemize}}",
+      "",
+
+      "\\begin{enumerate}",
+      "\\item ${0:Pasos}",
+      "\\end{enumerate}"
+    ],
+    "description": "Añade una receta"
+  },
+  "Recuerda": {
+    "scope": "latex",
+    "prefix": "recuerda",
+    "body": [
+      "\\marginnote[-2.2cm]{",
+      "\t\\begin{kaobox}[frametitle=Recuerda]",
+      "\t\t${0:Contenido}\\",
+      "\\end{kaobox}",
+      "}"
+    ],
+    "description": "Añade un recordatorio"
+  },
+  "Figura normal": {
+    "scope": "latex",
+    "prefix": "normfig",
+    "body": [
+      "\\begin{figure}[hb]",
+      "\t\\includegraphics[width=0.45\\textwidth]{$1}",
+      "\t\\caption[$2]{$2}",
+      "\t\\labfig{fig:$0}",
+      "\\end{figure}"
+    ],
+    "description": "Añade unimagen normal"
+  },
+  "Fórmula": {
+    "scope": "latex",
+    "prefix": "form",
+    "body": ["$\\underset{\\text{${2:Nombre}}}{\\boxed{${1:Formula}}}$"],
+    "description": "Añade unimagen normal"
+  },
+  "Figura margin": {
+    "scope": "latex",
+    "prefix": "marginfig",
+    "body": [
+      "\\begin{marginfigure}[$0]",
+      "\t\\includegraphics{$1}",
+      "\t\\caption[$2]{$2}",
+      "\t\\labfig{fig:$3}",
+      "\\end{marginfigure}"
+    ],
+    "description": "Añade unimagen normal"
+  },
+  //Referencias
+  "Agregar artículo": {
+    "scope": "bibtex",
+    "prefix": "articulo",
+    "body": [
+      "@article{$1,",
+      "\tauthor = {$2},",
+      "\ttitle = {$3},",
+      "\tjournal = {$4},",
+      "\tyear = {$5},",
+      "\tvolume = {$6},",
+      "\tnumber = {$7},",
+      "\tpages = {$8},",
+      "\tdoi = {$9}",
+      "}"
+    ],
+    "description": "Agregar una entrada de artículo a la bibliografía"
+  },
+  "Agregar libro": {
+    "scope": "bibtex",
+    "prefix": "libro",
+    "body": [
+      "@book{$1,",
+      "\tauthor = {$2},",
+      "\ttitle = {$3},",
+      "\tpublisher = {$4},",
+      "\tyear = {$5},",
+      "\tisbn = {$6}",
+      "}"
+    ],
+    "description": "Agregar una entrada de libro a la bibliografía"
+  },
+  "Agregar sitio web": {
+    "scope": "bibtex",
+    "prefix": "sitio",
+    "body": [
+      "@online{$1,",
+      "\tauthor = {$2},",
+      "\ttitle = {$3},",
+      "\tyear = {$4},",
+      "\turl = {$5}",
+      "}"
+    ],
+    "description": "Agregar una entrada de sitio web a la bibliografía"},
+
+    "Bold Current Word": {
+        "prefix": "bold",
+        "body": "\\textbf{${TM_CURRENT_WORD}}",
+        "description": "Poner en negrita la palabra actual",
+    }
+}
+

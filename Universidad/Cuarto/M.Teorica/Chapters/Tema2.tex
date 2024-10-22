@@ -1,0 +1,175 @@
+\setchapterpreamble[u]{\margintoc}
+\chapter{Mecánica Hamiltoniana}
+\labch{Part}
+
+
+\section{Motivación de sistemas Hamiltonianos}
+
+Uno podría imaginar, de forma más general, la construcción de una variedad diferente $\mathbb{F}$ añadiendo un tipo diferente de fibra a cada punto de $\mathbb{Q}$ (el resultado sería un haz de fibras sobre $\mathbb{Q}$ ). Si se pudiera hacer que $\mathbb{F}$ llevara de alguna manera la dinámica (para separar las trayectorias), y si las trayectorias sobre $\mathbb{F}$ pudieran proyectarse hasta las trayectorias físicas sobre $\mathbb{Q}$, entonces $\mathbb{F}$ serviría para nuestros propósitos tan bien como $\mathbf{TQ}$. En el formalismo hamiltoniano esto es precisamente lo que se hace: $\mathbb{F}$ es el haz cuyas fibras consisten en los posibles valores del momento $p$, una variedad cuyos puntos son de la forma ( $q, p$ ). Se denomina haz cotangente o colector (o espacio) de fase $\mathbf{T}^{*}. \mathbf{Q}$; sus fibras no son los espacios tangentes a los puntos de $\mathbb{Q}$, sino sus espacios duales (definidos en el apartado 3.4.1), llamados espacios cotangentes. Estas afirmaciones se aclararán a medida que avancemos.
+
+\subsection{Ecuaciones de Hamilton}
+
+A continuación vamos a derviar las ecuaciones de Hamilton a partir de lo que conocemos, es decir, el lagrangiano. Para ello vamos a hacer uso de la transformada de Legendre, que ya vimos en Termodinámica de segundo (Ver apéndice \ref{Legendre}). Lo que vamos a ver es análogo a lo del apéndice. 
+
+El momento generalizado $p_{\alpha}$ conjugado con $q^{\alpha}$ ha sido definido (Sección 2.2.1) como
+\begin{equation*}
+  p_{\alpha}=\frac{\partial L}{\partial \dot{q}^{\alpha}} \tag{5.1}
+\end{equation*}
+
+donde $L: \mathbb{Q} \times \mathbb{R} \rightarrow \mathbb{R}$ es, como siempre, la función lagrangiana. (El dominio de $L$ está formado por $\mathbf{T}$ y el tiempo $t \in \mathbb{R}$). Por tanto, las ecuaciones de E-L y las ecuaciones diferenciales para $q^{\alpha}$ pueden escribirse de la forma
+
+\begin{DispWithArrows}[format=ll, displaystyle]
+  \frac{d p_{\alpha}}{d t} & =\frac{\partial L}{\partial q^{\alpha}}  \tag{5.2a}\\
+  \frac{d q^{\alpha}}{d t} & =\dot{q}^{\alpha} \tag{5.2b}
+\end{DispWithArrows}
+
+\todo{Ahora no hay ecuaciones de segundo grado, solo $2n$ ecuaciones de primer grado}
+Excepto por el hecho de que $L$ y $\dot{q}^{\alpha}$ son todas funciones de ( $q, \dot{q}, t$ ) ($\dot{q}^{\alpha}$ trivialmente) en lugar de $(q, p, t)$, estas ecuaciones tienen la forma simple deseada. Para obtener precisamente la forma deseada sólo se requiere que los lados derechos se escriban en términos de $(q, p, t)$.
+
+En principio, esto es fácil de hacer para la Ec. (5.2b): escribir el $\dot{q}^{\alpha}$ en el lado derecho como funciones de $(q, p, t)$ invirtiendo (5.1). Supongamos que esto se puede hacer (vamos a encontrar las condiciones necesarias para ello más adelante), y llamar a las funciones resultantes $\dot{q}^{\alpha}(q, p, t)$. El lado derecho de la Ec. (5.2a) puede transformarse de forma similar: en todos los $\partial L / \partial q^{\beta}$ sustituir los $\dot{q}^{\alpha}$ dondequiera que aparezcan por $\dot{q}^{\alpha}(q, p, t)$. Sería más fácil hacer primero la sustitución en $L$, convirtiendo $L$ en una función de ( $q, p, t$ ), y luego tomar las derivadas. Esto requiere cuidado, sin embargo, porque la derivada parcial de $L(q, \dot{q}, t)$ con respecto a $q^{alpha}$ no es la misma que la de \todo{$\hat{L}$ es igual que $L$, pero en este caso $\dot{q}$ no es un parámetro libre, si no que es función de $(q,p,t)$} $\hat{L}(q, p, t) \equiv L(q, \dot{q}(q, p, t), t)$, ya que $L$ es una función de $(q, \dot{q}, t)$, y $\hat{L}$ es una función de $(q, p, t)$. Al tomar derivadas de $L$, las $\dot{q} s$ se mantienen fijas, mientras que en $\hat{L}$ las $p$ s se mantienen fijas.
+fijas. Comparamos estos dos conjuntos de derivadas:
+
+\[\frac{\partial \hat{L}}{\partial q^{\alpha}}=\frac{\partial L}{\partial q^{\alpha}}+\frac{\partial L}{\partial \dot{q}^{\beta}} \frac{\partial \dot{q}^{\beta}}{\partial q^{\alpha}}=\frac{\partial L}{\partial q^{\alpha}}+p_{\beta} \frac{\partial \dot{q}^{\beta}}{\partial q^{\alpha}}\]
+
+donde hemos utilizado (5.1). El último término del lado derecho es la derivada de la función $\dot{q}^{\beta}(q, p, t)$. Ahora ponga todas las funciones de $(q, p, t)$ en un lado de la ecuación para obtener
+
+\[\frac{\partial L}{\partial q^{\alpha}}=\frac{\partial}{\partial q^{\alpha}}\left[\hat{L}(q, p, t)-p_{\beta} \dot{q}^{\beta}(q, p, t)\right]\]
+
+También será necesaria la derivada de $\hat{L}$ con respecto a $p_{\alpha}$. Esto es
+
+\[\frac{\partial \hat{L}}{\partial p_{\alpha}}=\frac{\partial L}{\partial \dot{q}^{\beta}} \frac{\partial \dot{q}^{\beta}}{\partial p_{\alpha}}=p_{\beta} \frac{\partial \dot{q}^{\beta}}{\partial p_{\alpha}}\]
+
+o (de nuevo poner todas las funciones de $(q, p, t)$ en un lado)
+
+\begin{equation*}
+  \frac{\partial}{\partial p_{\alpha}}\left[\hat{L}(q, p, t)-p_{\beta} \dot{q}^{\beta}(q, p, t)\right]=-\dot{q}^{\alpha} \tag{5.3}
+  \end{equation*}
+
+  Esta ecuación parece la solución que se obtendría para $\dot{q}^{text {ox }}$ invirtiendo (5.1), pero en realidad no lo es, ya que el lado izquierdo depende de $\dot{q}^{\beta}$. En su lugar es una ecuación diferencial para $\dot{q}^{\alpha}$ como una función de $(q, p, t)$.
+
+  La función 
+  
+  \begin{equation*}
+    H(q, p, t) \equiv p_{\beta} \dot{q}^{\beta}(q, p, t)-\hat{L}(q, p, t) \tag{5.4}
+    \end{equation*}
+
+aparece en las ecuaciones (5.3) y (5.4). Esta función tan importante se denomina función Hamiltoniana, o simplemente Hamiltoniana.
+
+
+Con la ayuda del Hamiltoniano, las Ecs. (5.2a, b) pueden ahora escribirse enteramente en términos de $(q, p, t)$ :
+
+
+\[\left.\begin{array}{l}
+  \dot{q}^{\beta}=\frac{\partial H}{\partial p_{\beta}}  \tag{5.5}\\
+  \dot{p}_{\beta}=-\frac{\partial H}{\partial q^{\beta}}
+  \end{array}\right\}\]
+
+Se denominan \textit{ecuaciones canónicas de Hamilton} \sidenote{El término «canónico» significa estándar o convencional (según los cánones). Se utiliza técnicamente para los sistemas dinámicos, en particular en el formalismo hamiltoniano.}. Son las ecuaciones del movimiento en el formalismo hamiltoniano. Su solución da expresiones locales para las trayectorias
+$(q(t), p(t))$ en $\mathbf{T}^{*} \mathbb{Q}$, la multiplicidad $(q, p)$. Esta variedad se denomina haz cotangente (que se discutirá en la Sección 5.2). Las proyecciones de estas trayectorias hacia $\mathbb{Q}$ (esencialmente ignorando la parte $p(t)$) son las trayectorias del colector de configuración $q(t)$. Dejamos para la Sección 5.2 una discusión más detallada de $\mathbf{T}^{*} \mathbb{Q}$ y una explicación de la diferencia entre éste y $\mathbf{T Q}$.
+
+
+\subsubsection{Energía}
+
+Es de destacar que el Hamiltoniano es la variable dinámica que hemos llamado $E$, escrito ahora en términos de $(q, p)$ en lugar de $(q, \dot{q})$. Recordemos que para muchos sistemas dinámicos $E$ es la energía, y por tanto cuando $L=T-V$ el Hamiltoniano es $H=T+V$ expresado en términos de $(q, p)$. En los casos comunes en que $V$ es independiente de la $\dot{q}^{\beta}$ sólo es necesario escribir la energía cinética $T$ en términos de $(q, p)$. Sin embargo, no siempre es tan sencillo, como se verá en el ejemplo práctico 5.1 del Hamiltoniano para una partícula cargada en un campo electromagnético.
+
+En el formalismo lagrangiano teniamos la cantidad conservada, asociada en algunos casos a la energía, que deonotabamos como $h(q,\dot{q},t)$ con la forma 
+\[h(q,\dot{q},t)=p_{\alpha}\dot{q}^{\alpha}-L\]
+En el formalismo Hamiltoniano, esta cantidad coincide con el Hamiltoniano en si, es decir,
+
+\[h(q,\dot{q},t)=p_{\alpha}\dot{q}^{\alpha}-L=H \text{ con }\dot{q}^{\alpha}(q,p)\]
+
+\begin{proof}
+  Esto se puede demostrar sabiendo que $\pdv{H}{t}=-\pdv{L}{t}$ como 
+  \[\dv{H}{t}=\overbrace{\pdv{H}{q^{a}}\pdv{q^{a}}}^{-p_{a}\dot{q}^{a}} + \overbrace{\pdv{H}{p_{a}}\pdv{}{}}^{\dot{q}^{a}p_{a}}+\pdv{H}{t}\Rightarrow \dv{H}{t}=\pdv{H}{t}=0 \]
+\end{proof}
+
+
+
+\subsubsection{Receta Para construir el Hamiltoniano}
+
+La receta para escribir las ecuaciones de Hamilton para un sistema cuya Lagrangiana es conocida es entonces la siguiente\sidenote{Dentro de cada apartado pondré como explico Prado cada paso para un \textbf{caso de interés} que ya desarrolllamos en su momento es cuando el Lagrangiano tiene la forma \\
+\[L=\underbrace{\frac{1}{2}T_{ab}(q,t) \dot{q}^{a}\dot{q}^{b}}_{L_{2}}+\underbrace{A_{a}(q, t)\dot{q}^{a}}_{L_{1}}-\underbrace{V(q,t)}_{L_{0}}\],\\ es decir
+$L=L_{2}+L_{1}+L_{0}$}:
+\begin{itemize}
+  \item Utilizar (5.1) para calcular $p_{\alpha}$ en términos de $(q, \dot{q}, t)$.
+  \item Invertir estas ecuaciones para obtener el $\dot{q}^{\alpha}$ en términos de $(q, p, t)$.
+  \item Insertar el $\dot{q}^{{\alpha}}(q, p, t)$ en la expresión de $L$ para obtener $\hat{L}$.
+  \item Utilizar (5.4) para obtener una expresión explícita para $H(q, p, t)$.
+  \item Tomando las derivadas de $H$, escribir (5.5).
+\end{itemize}
+
+La receta funciona sólo si el paso $i i$ es posible, es decir, sólo si la Ecs. (5.1) se puede resolver de forma única para el $\dot{q}^{\alpha}$. De acuerdo con el teorema de la función implícita una condición necesaria y suficiente para la invertibilidad localmente es que el hessiano $\partial^{2} L / \partial \dot{q}^{\alpha} \partial \dot{q}^{\beta}$ sea no singular. Nos encontramos con el mismo requisito en la sección 2.2.2. Como regla general supondremos que se cumple, aunque habrá ocasiones en que falle en subconjuntos pequeños.
+
+Las ecuaciones canónicas de Hamilton se han derivado de las ecuaciones de Euler-Lagrange, que a su vez se han derivado de las ecuaciones de movimiento de Newton. Hasta ahora el único método que tenemos para hallar la función hamiltoniana es pasando por la lagrangiana, pero a menudo es tan sencillo desde cero escribir una como la otra. Más adelante hablaremos de ello.
+
+
+
+\begin{example}[Dado el lagrangiano: $L=\frac{1}{2} m\left[\dot{r}^{2}+r^{2} \dot{\theta}^{2}+\left(r^{2} \sin ^{2} \theta\right) \dot{\phi}^{2}\right]-V(r) $ \\(a) Obtenga el Hamiltoniano y (b) escriba las ecuaciones canónicas de Hamilton para una partícula cargada en un campo electromagnético. Proyectarlas hasta $\mathbb{Q}$ y demostrar que son las ecuaciones usuales para una partícula en un campo electromagnético.]
+
+  Según la Ecuación (5.1): 
+  \begin{DispWithArrows}[displaystyle, format=c] 
+    p_{r}=m \dot{q}^{\gamma}+e A_{\gamma} \tag{5.6} 
+  \end{DispWithArrows} 
+  que es el momento generalizado canónicamente conjugado a $q^{\gamma}$. El momento generalizado no es el momento dinámico $m \dot{q}^{\gamma}$, sino que tiene una contribución que proviene del campo electromagnético.
+
+  Para obtener el hamiltoniano, resuelve esta ecuación para $\dot{q}^{\gamma}$ e insértalo en la Ecuación (5.4). El resultado es (usamos $\delta^{\alpha \beta}$ para forzar que las sumas sean sobre pares superíndice-subíndice): \begin{DispWithArrows}[displaystyle, format=c] 
+    H(q, p, t)=\frac{1}{2 m} \delta^{\alpha \gamma}\left\{p_{\alpha}-e A_{\alpha}(q, t)\right\}\left\{p_{\gamma}-e A_{\gamma}(q, t)\right\}+e \varphi(q, t) \tag{5.7} 
+  \end{DispWithArrows}
+  
+  (b) Las ecuaciones canónicas obtenidas de este hamiltoniano son: 
+  
+  \begin{DispWithArrows}[format=c, displaystyle]
+    \dot{q}^{\beta}=\frac{1}{m} \delta^{\alpha \beta}\left\{p_{\alpha}-e A_{\alpha}(q, t)\right\}, \tag{5.8a} \\
+     \dot{p}{\beta}=\frac{e}{m} \delta^{\alpha \gamma} \frac{\partial A{\alpha}}{\partial q^{\beta}}\left\{p_{\gamma}-e A_{\gamma}(q, t)\right\}-\frac{\partial \varphi}{\partial q^{\beta}}. \tag{5.8b}
+  \end{DispWithArrows}
+  
+  Las ecuaciones de movimiento en $\mathbb{Q}$ se obtienen eliminando $p_{\beta}$ de las Ecuaciones (5.8a, b). Esto se hace tomando las derivadas temporales de $\dot{q}^{\alpha}$ en (5.8a) y reemplazando los $\dot{p}{\alpha}$ que aparecen por sus expresiones en (5.8b). La Ecuación (5.8a) da como resultado: \begin{DispWithArrows}[displaystyle, format=c] \ddot{q}^{\beta}=\frac{1}{m} \delta^{\alpha \beta}\left(\dot{p}{\alpha}-e \partial_{y} A_{\alpha} \dot{q}^{\gamma}-e \partial_{y} A_{\alpha}\right) \end{DispWithArrows}
+  
+  donde $\partial_{\gamma}=\partial / \partial q^{\gamma}$ y $\partial_{t}=\partial / \partial t$. Ahora, se usa la Ecuación (5.8b) para eliminar $\dot{p}{\alpha}$, pero el $p_{y}$ en el lado derecho debe ser reemplazado por su expresión en términos de $(q, \dot{q})$, es decir, por la Ecuación (5.6). Entonces, la ecuación para $\ddot{q}^{\beta}$ se convierte en (aquí ya no nos preocupamos de si los índices son superíndices o subíndices): 
+  \begin{DispWithArrows}[displaystyle, format=c] 
+    m \ddot{q}^{\beta}=e\left\{\left(\partial_{\beta} A_{\gamma}-\partial_{\gamma} A_{\beta}\right) \dot{q}^{\gamma}-\partial_{t} A_{\beta}-\partial_{\beta} \varphi\right\} \tag{5.9} 
+  \end{DispWithArrows}
+  
+  Se deduce de la Sección 2.2.4 que $\partial_{\beta} A_{\gamma}-\partial_{y} A_{\beta}=\epsilon_{\beta \gamma \alpha} B_{\alpha}$ y $-\partial_{\psi} A_{\alpha}-\partial_{\alpha} \varphi=E_{\alpha}$, donde $\mathbf{B}=\left(B_{1}, B_{2}, B_{3}\right)$ es el campo magnético y $\mathbf{E}=\left(E_{1}, E_{2}, E_{3}\right)$ es el campo eléctrico (no debe confundirse con la energía). Así que: 
+  \begin{DispWithArrows}[displaystyle, format=c] 
+    m \ddot{q}^{\beta}=e\left\{\epsilon_{\gamma \alpha \beta} \dot{q}^{\gamma} B_{\alpha}+E_{\beta}\right\} \end{DispWithArrows}
+  
+  lo cual es la forma en componentes de la fuerza de Lorentz $\mathbf{F} \equiv m \mathbf{a}=e(\mathbf{v} \wedge \mathbf{B}+\mathbf{E})$, que es el resultado requerido.
+  
+\end{example}
+
+
+\begin{example}[Dado el lagrangiano: \[L(q, \dot{q}, t)=\frac{1}{2} m \dot{q}^{\beta} \dot{q}^{\beta}-e \varphi(q, t)+e \dot{q}^{\beta} A_{\beta}(q, t)\] \\ (a) Obtén el Hamiltoniano y las ecuaciones canónicas para una partícula en un campo de fuerza central. (b) Toma dos de las condiciones iniciales como \(p_{\phi}(0)=0\) y \(\phi(0)=0\) (esto es esencialmente la elección de un sistema de coordenadas esféricas particular). Discute la simplificación resultante de las ecuaciones canónicas. ]
+
+  Denota los momentos conjugados por \(p_{r}, p_{\theta}\) y \(p_{\phi}\). Las ecuaciones definitorias para ellos son
+\begin{DispWithArrows}[format=ll, displaystyle]
+  p_{r} & \equiv \frac{\partial L}{\partial \dot{r}}=m \dot{r}  \tag{5.11}\\
+  p_{\theta} & \equiv \frac{\partial L}{\partial \dot{\theta}}=m r^{2} \dot{\theta} \\
+  p_{\phi} & \equiv \frac{\partial L}{\partial \dot{\phi}}=m\left(r^{2} \sin ^{2} \theta\right) \dot{\phi}
+\end{DispWithArrows}
+
+Invertir estas ecuaciones da
+\begin{DispWithArrows}[format=c, displaystyle]
+  \dot{r}=\frac{p_{r}}{m}  \tag{5.12}\\
+  \dot{\theta}=\frac{p_{\theta}}{m r^{2}} \\
+  \dot{\phi}=\frac{p_{\phi}}{m r^{2} \sin ^{2} \theta}
+\end{DispWithArrows}
+
+El Hamiltoniano es
+\begin{DispWithArrows}[format=c, displaystyle]
+  H=p_{\alpha} \dot{q}^{\alpha}-L=\frac{p_{r}^{2}}{2 m}+\frac{p_{\theta}^{2}}{2 m r^{2}}+\frac{p_{\phi}^{2}}{2 m r^{2} \sin ^{2} \theta}+V(r) \equiv T+V \tag{5.13}
+\end{DispWithArrows}
+donde la energía cinética $T$ es la suma de los tres primeros términos. Las ecuaciones canónicas de Hamilton en estas variables son
+\begin{DispWithArrows}[format=ll, displaystyle]
+  \dot{r} \equiv \frac{\partial H}{\partial p_{r}}=\frac{p_{r}}{m}, & \dot{p}_{r} \equiv-\frac{\partial H}{\partial r}=\frac{1}{m r^{3}}\left[p_{\theta}^{2}+\frac{p_{\phi}^{2}}{\sin ^{2} \theta}\right]-V^{\prime}(r) \\
+  \dot{\theta} \equiv \frac{\partial H}{\partial p_{\theta}}=\frac{p_{\theta}}{m r^{2}}, & \dot{p}_{\theta} \equiv-\frac{\partial H}{\partial \theta}=\frac{p_{\phi}^{2} \cos \theta}{m r^{2} \sin ^{3} \theta}  \tag{5.14}\\
+  \dot{\phi} \equiv \frac{\partial H}{\partial p_{\phi}}=\frac{p_{\phi}}{m r^{2} \sin ^{2} \theta}, & \dot{p}_{\phi} \equiv-\frac{\partial H}{\partial \phi}=0
+\end{DispWithArrows}
+
+Comentario: Nota que las tres ecuaciones a la izquierda siguen inmediatamente de las definiciones de los momentos generalizados. Esto siempre ocurre con las ecuaciones canónicas de Hamilton: al estudiar su derivación queda claro que la mitad de ellas son simplemente inversiones de esas definiciones.
+
+(b) Si $p_{\phi}(0)=0$, la última de las Eqs. (5.14) implica que $p_{\phi}(t)=0$ para todo $t$. Entonces las ecuaciones canónicas se simplifican.
+
+De $\phi(0)=0$ y estas ecuaciones se sigue que $\phi(t)=0$ para todo $t$: el movimiento se mantiene en el plano $\phi=0$. El resultado es un sistema de dos grados de libertad que consiste en las dos primeras líneas de (5.15). La cuarta ecuación implica que $p_{\theta}$ es una constante del movimiento. Esta es el momento angular en el plano $\phi=0$, llamado $l$.
+  
+\end{example}

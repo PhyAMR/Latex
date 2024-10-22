@@ -1,0 +1,147 @@
+
+\documentclass[
+	a4paper, 
+	fontsize=10pt,
+	twoside=true, 
+	%open=any,
+	%chapterentrydots=true, 
+	numbers=noenddot, 
+]{kaobook}
+
+\ifxetexorluatex
+	\usepackage{polyglossia}
+	\setmainlanguage{spanish}
+\else
+	\usepackage[spanish]{babel} 
+\fi
+\usepackage[spanish]{csquotes}	
+
+\newcommand{\framedtext}[1]{%
+\par%
+\noindent\fbox{%
+    \parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{#1}%
+}%
+}
+
+\usepackage{blindtext}
+%\usepackage{showframe} % Uncomment to show boxes around the text area, margin, header and footer
+%\usepackage{showlabels} % Uncomment to output the content of \label commands to the document where they are used
+
+% Load the bibliography package
+\usepackage{kaobiblio}
+\addbibresource{main.bib} % Bibliography file
+
+% Load mathematical packages for theorems and related environments
+\usepackage[framed=true]{kaotheorems}
+
+% Load the package for hyperreferences
+\usepackage{kaorefs}
+
+%%%%%%%%%%%%%%%%Paquetes%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{witharrows}
+\usepackage{physics}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\graphicspath{{../Images}{images/}} % Paths in which to look for images
+
+\makeindex[columns=3, title=Alphabetical Index, intoc] % Make LaTeX produce the files required to compile the index
+
+\makeglossaries % Make LaTeX produce the files required to compile the glossary
+\input{Chapters/Glossary.tex} % Include the glossary definitions
+
+\makenomenclature % Make LaTeX produce the files required to compile the nomenclature
+
+% Reset sidenote counter at chapters
+\counterwithin*{sidenote}{chapter}
+
+\begin{document}
+
+\titlehead{Apuntes de Mecánica Teórica}
+\subject{Mecánica Teórica}
+
+\title[]{Título}
+\subtitle{Profesora Maria del Prado Castillo}
+
+\author[]{}
+
+\date{\today}
+
+\publishers{An Awesome Publisher}
+
+\frontmatter
+
+\makeatletter
+\uppertitleback{\@titlehead}
+
+\makeatletter
+\uppertitleback{\@titlehead} % Header
+
+\lowertitleback{
+  \textbf{Aviso}\\
+  Estos apuntes son basicamente una recopilación de los libros que usa Prado en clase y con algunas anotaciones, la mayoria de cosas son literales de los libros y traducidas y poco más salvo algunas notas que he ido cogiendo. 
+
+  Hay mucho más de lo que hace falta.
+
+
+}
+\makeatother
+
+\maketitle
+
+\begingroup % Local scope for the following commands
+
+% Define the style for the TOC, LOF, and LOT
+%\setstretch{1} % Uncomment to modify line spacing in the ToC
+%\hypersetup{linkcolor=blue} % Uncomment to set the colour of links in the ToC
+\setlength{\textheight}{230\hscale} % Manually adjust the height of the ToC pages
+
+% Turn on compatibility mode for the etoc package
+\etocclasstocstyle % "toc display" as if etoc was not loaded
+\etocstandardlines % "toc lines" as if etoc was not loaded
+
+\tableofcontents % Output the table of contents
+
+\listoffigures % Output the list of figures
+
+% Comment both of the following lines to have the LOF and the LOT on different pages
+\let\cleardoublepage\bigskip
+\let\clearpage\bigskip
+
+\listoftables % Output the list of tables
+\printglossary
+\endgroup
+
+%----------------------------------------------------------------------------------------
+%	MAIN BODY
+%----------------------------------------------------------------------------------------
+
+\mainmatter % Denotes the start of the main document content, resets page numbering and uses arabic numbers
+\setchapterstyle{kao} % Choose the default chapter heading style
+
+
+
+\pagelayout{wide}
+
+\addpart{Mecánica Lagrangiana y Hamiltoniana}
+
+\pagelayout{margin}
+\input{Chapters/Tema1.tex}
+\input{Chapters/Tema2.tex}
+\pagelayout{wide}
+
+\addpart{Integrabilidad}
+
+\pagelayout{margin}
+\input{Chapters/Tema3.tex}
+
+\appendix
+
+\input{Chapters/Rela.tex}
+
+\input{Chapters/AppLegen.tex}
+
+\defbibnote{bibnote}{Aquí las referencias que ha usado Prado en clase.\par\bigskip} % Prepend this text to the bibliography
+\printbibliography[heading=bibintoc, title=Bibliography, prenote=bibnote] % Add the bibliography heading to the ToC, set the title of the bibliography and output the bibliography note
+
+\end{document}
+

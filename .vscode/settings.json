@@ -1,0 +1,104 @@
+{
+  "editor.wordWrap": "on",
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "editor.formatOnSave": true,
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.view.pdf.zoom": "page-width",
+  "latex-workshop.intellisense.package.enabled": true,
+  "latex-workshop.latex.autoBuild.run": "never",
+  "workbench.colorTheme": "Gruvbox Material Dark",
+  "workbench.iconTheme": "gruvbox-material-icon-theme",
+  "editor.snippetSuggestions": "top",
+  "latex-workshop.latex.outDir": "%DIR%",
+  "latex-workshop.view.pdf.invertMode.enabled":"always",
+  "latex-workshop.view.pdf.invert":0.9,
+  "latex-workshop.formatting.tex-fmt.doNotWrap": true,
+  "latex-workshop.formatting.latex": "latexindent",
+  
+  "files.exclude": {
+    "**/*.lof": true,
+    "**/*.lot": true,
+    "**/*.mw": true,
+    "**/*.aux": true,
+    "**/*.out": true,
+    "**/*.bbl": true,
+    "**/*.bcf": true,
+    "**/*.fdb_latexmk": true,
+    "**/*.fls": true,
+    "**/*.glo": true,
+    "**/*.idx": true,
+    "**/*.log": true,
+    "**/*.xml": true,
+    "**/*.toc": true,
+    "**/*.xdy": true,
+    "**/*.sh": false,
+    "**/*.sty": true,
+    "**/*.cls": true,
+    "**/build": true,
+    "**/*.nlo": true
+  },
+   "latex-workshop.latex.recipes": [
+        {
+            "name": "Kaobock",
+            "tools": [
+                "pdflatex",
+                "makeindex-nomenclature",
+                "makeindex-index",
+                "biber",
+                "pdflatex",
+                "makeglossaries",
+                "pdflatex"
+            ]
+        }
+    ],
+    "latex-workshop.latex.tools": [
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "makeindex-nomenclature",
+            "command": "makeindex",
+            "args": [
+                "%DOCFILE%.nlo",
+                "-s",
+                "nomencl.ist",
+                "-o",
+                "%DOCFILE%.nls"
+            ]
+        },
+        {
+            "name": "makeindex-index",
+            "command": "makeindex",
+            "args": [
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "biber",
+            "command": "biber",
+            "args": [
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "makeglossaries",
+            "command": "makeglossaries main",
+            "args": [
+                "%DOCFILE%"
+            ]
+        }
+    ]
+}
+
+
+
+

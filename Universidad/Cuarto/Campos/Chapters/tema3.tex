@@ -1,0 +1,382 @@
+\setchapterpreamble[u]{\margintoc}
+\chapter{Cuantización canónica del campo escalar libre}
+\labch{Part}
+
+\begin{center}
+  \large Todo esto lo he sacado del \cite{Dobdado}
+\end{center}
+\section{Cuantización canónica del campo bosónico libre}
+
+Una vez visto lo que es un campo clásico vamos a cuantizarlo, para ello vamos primero a ver como se cuantizaban las cosas. 
+
+En mecánica clásica teniamos el Hamiltoniano el cual estaba definido como función de $(q_{i},p_{i})$, sin embargo, en mecánica cuantica usamos operadores
+
+\[\left.\begin{array}{c}
+  q_{i} \xrightarrow{Cuantizamos}\hat{q}_{i} \\
+  p_{i} \xrightarrow{Cuantizamos}\hat{p}_{i}
+\end{array}\right\} \comm{\hat{q}_{i}}{\hat{p}_{i}}=i\delta_{ij}\]
+
+Como podemos sospechar que en vez de tener variables como $(q_{i},p_{i})$ tengamos los operadores $(hat{q}_{i},\hat{p}_{i})$ complica un poco las cosas, ya que habrá que asegurarse siempre que se cumplan ciertas reglas de conmutación.
+
+Si $(q_{i},p_{i})$ han pasado a convertirse en operadores $H$, tambien lo será, es decir, $\hat{H}(hat{q}_{i},\hat{p}_{i})$. 
+
+En mecánica cuántica la ecuación que describía la dinámica de un sistema era la ecuación de Schrödinger, y su variable dinámica era la función de onda 
+\[i\dv{}{t}\ket{\psi(t_{0})}=\hat{H}\ket{\psi(t_{0})}\]
+
+En este caso nos encontramos con un problema, ya que la variable dinámica es la función de onda, y es la que tiene la dependencia temporal, y queremos irnos a un campo en donde no hay funciones de onda. La solución a este problema es la \textbf{Imagen de Heisenberg}, la cual nos permite poner la dependencia temporal en los operadores en vez de en las funciones de onda, es decir, 
+
+\[q_{i}\longrightarrow \hat{q}_{i}(t)=e^{i \hat{H}t}\hat{q}_{i}e^{-i \hat{H}t}=\mathcal{U}^{-1} \hat{q}_{i}\mathcal{U}\]
+
+como el operador evolución temporal $\mathcal{U}$ cumple la relación $\mathcal{U}^{-1}\mathcal{U}=\mathbb{I}$, entonces conservamos la relación de conmutación de la imagen de Schrödinger 
+
+\[\comm{\hat{q}_{i}(t)}{\hat{p}_{i}(t)}=i\delta_{ij}\]
+
+Basicamente hemos movido la dinámica a los operadores, y esto es importante porque cuando pasamos (en el tema anterior) al formalismo de campos, pasamos las coordenadas generalizadas, en ningún momento hablamos de funciones de onda. 
+
+\subsection{Cuantización en teoría de campos}
+
+Ahora una vez visto como cuantizamos cosas y sabiendo como se pasa de la coordenadas generalizadas a un campo, vamos a juntar las dos cosas y ver que pasa, para ello expresemos los operadores $\hat{q}_{i}(t)$ como campos
+
+\[\hat{q}_{i}(t)\longrightarrow \hat{\phi}(\vec{x},t)\]
+\todo{El subindice $i$ hace referencia a las coordenadas $\vec{x}$, es decir, $q\rightarrow\phi$ y $i\rightarrow \vec{x}$}
+
+En teoría clasica de campos podiamos obtener un campo real $\phi \in \mathbb{R}$ con el que describir una partícula con el lagarangiano 
+\[\mathcal{L}_{0}=\frac{1}{2}\partial_{\mu}\phi\phi \partial^{\mu}\phi-\frac{1}{2}m^{2}\phi^{2}\]
+
+Del cual podiamos obtener el momento canónico conjugado como 
+
+\[\Pi(x)=\pdv{\mathcal{L}}{\partial_{0}\phi}= \dot{\phi}\]
+
+Con estas 2 cantidades podiamos escribir el Hamiltoniano del sistema como 
+
+\[H_{0}=\int d \vec{x}\mathcal{H}=\int d \vec{x}(\Pi \phi-\mathcal{L})=\frac{1}{2}\int d \vec{x}(\Pi^{2}+(\vec{\nabla}\phi)^{2}+m^{2}\phi^{2})\]
+
+SI ahora cuantizamos el campo pasamos a obtener que 
+\[\left.\begin{array}{c}
+  \phi_{i} \xrightarrow{Cuantizamos}\hat{\phi}(\vec{x},t) \\
+  \Pi_{i} \xrightarrow{Cuantizamos}\hat{\Pi}(\vec{x},t)
+\end{array}\right\} \comm{\hat{\phi}(\vec{x},t)}{\hat{\Pi}(\vec{x},t)}=i\delta(\vec{x}-\vec{x'})\]
+
+En este caso a diferencia de los operadores, los campos son un continuo (por defiinición, ya que ocupan todo el espacio) no obtenemos la delta de Kronecker, si no la de Dirac. 
+
+Otras reglas de conmutación que cumplen estos campos cuantizados son 
+\[\comm{\hat{\phi}(\vec{x},t)}{\hat{\phi}(\vec{x'},t)}=\comm{\hat{\Pi}(\vec{x},t)}{\hat{\Pi}(\vec{x'},t)}\]
+
+De esta forma obtenemos que el operador Hamiltoniano en este formalismo es 
+
+\[\hat{H}_{0}=\int d \vec{x}\frac{1}{2}\left[\hat{\Pi}^{2}+(\vec{\nabla}\hat{\phi}(\vec{x},t))^{2}+m^{2}\hat{\phi}(\vec{x},t)^{2}\right]\]
+
+Como los operadores de campo son continuos, estos cumplen la ecuación de heisenberg de forma que 
+
+\[i\partial_{0}\hat{\phi}(\vec{x},t)=\comm{\hat{\phi}(\vec{x},t)}{\hat{H}_{0}}\]
+
+
+Se puede demostrar que $\hat{\phi}(\vec{x},t)$ cumple la ecuación de Klein-Gordon.
+
+\begin{proof}
+  \[(\box + m^{2})\hat{\phi}(\vec{x},t)=0\]
+\end{proof}
+
+\subsection{Solución general de la ecuación de Klein-Gordon}
+
+Volviendo al formalismo de campos clásicos y a la ecuación de Klein-Gordon, obtuvimmos soluciones con la forma 
+\[e^{-ikx}\]
+para soluciones con energía positiva y con la forma
+\[e^{ikx}\]
+
+para soluciones con energía negativa, en donde $k^{\mu}=(k^{0},\vec{k})$ y $x^{\mu}=(t,\vec{x})$. Estas soluciones complian las siguientes condiciones:
+
+\[h^{2}-m^{2}=0 \qquad k^{0}=E_{k}=\sqrt{\vec{k}^{2}+m^{2}}\text{ con }E_{k}>0\]
+
+Si nos centramos en las soluciones con energía positiva, podemos buscar otras soluciones, que mientras cumplan las condiciones anteriores también serán soluciones válidas. 
+
+Esta función 
+
+\[\int d^{4}\frac{k}{(2\pi)^{3}}\alpha_{\vec{k}}\theta(k^{0})\delta(k^{2}-m^{2})e^{-ikx}\]
+
+es solución poque $\delta(k^{2}-m^{2})$ garantiza que $k^{2}-m^{2}=0$ y $\theta(k^{0})$ (es la función escalón\sidenote{$\theta(k^{0}=\left\{\begin{align}0 \text{ si } k^{0}<0 \\ 1 \text{ si }k^{0}>0\end{align}\right.)$}) granatiza que $E_{k}>0$ y es proporcional a las soluciones que obtuvimos en el tema 1. 
+
+Podemos definir la delta de una función como 
+\begin{definition}[Delta de Dirac de una función]
+  Podemos definir la delta de Dirac de una función como 
+  \[\delta(f(x_{0}))=\sum_{i=1}^{\infty} \frac{\delta(x-x_{i})}{\abs{f'(x_{i})}} \]
+\end{definition}
+
+En el caso de nuestra solución esto se aplica como 
+\[\delta(k^{2}-m^{2})=\delta((k^{0})^{2}-\vec{k}^{2}-m^{2})=\frac{1}{2k^{0}}\delta(k^{0}-E_{k}) + \text{Un termino de }k^{0}<0\]
+
+Y como la última delta nos fuerza a que $k^{0}=E_{k}$. 
+
+La última condición que debemos cumplir es que $\phi\in \mathbb{R}$, por lo que juntando este desarrollo con el mismo para las soluciones con energía negativa, tenemos que la solución más general a la ecuación de Klein-Gordon es:
+\[\phi(\vec{x},t)=\int d\tilde{k}(\alpha_{\vec{k}}e^{-ikx}+\alpha^{*}_{\vec{k}}e^{ikx})\]
+
+en donde los coeficientes $\alpha_{\vec{k}}$ y $\alpha^{*}_{\vec{k}}$ aseguran que se cumpla la última condición
+
+
+\begin{corollary}
+  El termino 
+  \[d^{4}\frac{k}{(2\pi)^{3}}\delta(k^{2}-m^{2})\]
+  se convierte en 
+  \[\]
+  pasando a una integral sobre el trivector $\vec{k}$ por el efecto de la delta, este término de ahora en adelante llamaremos $d \tilde{k}$. 
+
+  Además que, tanto $d^{4}k$ como $k^{2}$ son invariantes Lorentz (esto es porque el jacobiano de la transformación es $0$), entonces 
+  \[d \tilde{k}=d \tilde{k'}\]
+\end{corollary}
+\subsection{Soluciones en el formalismo de campo cuántico}
+
+Para conseguir las soluciones en el formalismo de campo cuántico podemos reutilizar la misma estructura que para un campo clásico. 
+
+Para ello seguimos teniendo que tener soluciones $\hat{\phi}(\vec{x},t)\in \mathbb{R}$, el análogo clásico era que $\phi(\vec{x},t)=\phi^{*}(\vec{x},t)$. EN este formalismo cuántico esta condición se puede obtener imponiendo que las soluciones sean autoadjuntas, es decir, $\hat{\phi}(\vec{x},t)=\hat{\phi}^{\dagger}(\vec{x},t)$.
+
+De esta forma vemos que ya no podemos seguir usando los números $\alpha_{\vec{k}}$, si no que tenemos que cambiarlos por unos operadores llamados  aniquilación $\hat{a}_{\vec{k}}$ y destrucción $\hat{a}^{\dagger}_{\vec{k}}$.
+
+Así obtenemos que las soluciones de la ecuación de Klein-Gordon de un campo cuántico son 
+
+\[\hat{\phi}(\vec{x},t)=\int d \tilde{k} (\hat{a}_{\vec{k}}e^{-ikx}+\hat{a}^{\dagger}_{\vec{k}}e^{ikx})\]
+
+\subsubsection{Resumen de los operadores de campo $\hat{\phi}(\vec{x},t)$}
+
+\begin{itemize}
+  \item Estos operadores satisfacen la ecuación de Heisenberg 
+  \[i\partial_{0}\hat{\phi}(\vec{x},t)=\comm{\hat{\phi}(\vec{x},t)}{\hat{H}_{0}}\]
+  \item Tambien Satisfacen la ecuación de Klein-Gordon
+  \[(\box +m^{2})\hat{\phi}(\vec{x},t)=0\]
+  \item Son autoadjuntos 
+  \[\hat{\phi}(\vec{x},t)=\hat{\phi}^{\dagger}(\vec{x},t)\]
+  \item Cumplen la regla de conmutación
+  \[\comm{\hat{\phi}(\vec{x},t)}{\dot{\hat{\phi}}(\vec{x},t)}=i\delta(\vec{x}-\vec{x'})\]
+  
+  Esto no lo hemos obtenido realmente, pero si forzamos a que cumplan estas reglas podemos obtener las reglas de conmutación de los operadores creación y destrucción. Estas reglas son
+  \[\comm{\hat{a}_{\vec{k}}}{\hat{a}_{\vec{k'}}}=\comm{\hat{a}^{\dagger}_{\vec{k}}}{\hat{a}^{\dagger}_{\vec{k'}}}=0\]
+  y \[\comm{hat{a}_{\vec{k}}}{\hat{a}^{\dagger}_{\vec{k}}}= 2E_{k}(2\pi)^{3}\delta(\vec{k}-\vec{k'})\]
+\end{itemize}
+
+Una vez encontrados los operadores, nos falta encontrar a que estados los aplicamos, ya dijimos que no ibamos a tener funciones de onda, ¿como vamos a describir a las cosas si no usamos funciones de onda?
+
+\subsection{Espacio de Fock}
+
+El espacio de Fock es el equivalente al espacio de Hilbert en campos cuánticos. 
+
+\begin{definition}[Espacio de Fock] 
+\\
+  El espacio de Fock ${\mathcal {F}}(H)$, en mecánica cuántica es un espacio de Hilbert especial, que se construye como suma directa de productos tensoriales de otro espacio de Hilbert dado 
+$H$. Dicho espacio se usa para describir el estado cuántico de un sistema formado por un número variable o indeterminado de partículas.
+  
+\end{definition}
+
+Dentro de este espacio vamos a encontrar los estados de Fock, que son los que usaremos en este formalismo de campo cuantizado. 
+
+\begin{definition}[Estados de Fock]
+  Si nos limitamos, por simplicidad, a un sistema con un solo tipo de partícula y un solo modo (con lo que formalmente estamos describiendo un oscilador armónico), un estado de Fock se representa por $\ket{n}$, donde $n$ es un valor entero. Esto significa que hay $n$ cuantos de excitación en ese modo. Así, $\ket{0}$ corresponde al estado fundamental (sin excitación), o estado que representa el vacío cuántico (esto es diferente de 0 ($\braket{0}=1$), que es el vector nulo que no es un estado posible del sistema al no ser un vector unitario)
+\end{definition}
+
+Los estados de Fock han de cumplir las siguientes condiciones:
+\begin{itemize}
+  \item \[\hat{a}_{\vec{k}}\ket{0}=0 \qquad \forall \vec{k}\]
+  Si recordamos al operador $\hat{a}_{\vec{k}}$ lo denominamos operador destrucción, por lo que al vacío no podemos quitarle partículas
+  \item \[\hat{a}^{\dagger}_{\vec{k}}\ket{0}=\ket{\vec{k}}\]
+  Si recordamos al operador $\hat{a}^{\dagger}_{\vec{k}}$ lo denominamos operador creación, si al vacío le aplicamos este operador aparecerá una partícula.
+
+  De esta forma podemos ver que cualquier estado puede ser construido aplicando el operador creación al estado de vacío $\ket{0}$. 
+\end{itemize}
+
+Ahora vamos a contruir la normalización de este conjunto de estados, esto es:
+
+\[\braket{\vec{k}}{\vec{k'}}= \ev{\hat{a}_{\vec{k}}\hat{a}^{\dagger}_{\vec{k'}}}{0}=\ev{\comm{\hat{a}_{\vec{k}}}{\hat{a}_{\vec{k'}}}}{0}+\cancelto{0}{\ev{\hat{a}^{\dagger}_{\vec{k'}}\hat{a}_{\vec{k'}}}{0}}=2E_{k}(2\pi)^{3} \var(\vec{k}-\vec{k'})\]
+
+\begin{remark}[Normalización de estados con momento bien definidio]
+Como podemos observar la norma de los estados con $\vec{k}=\vec{k'}$ nos da 0, sin embargo podemos redefinir la delta como: 
+
+\[\var(\vec{k})=\frac{1}{(2\pi)^{3}}\int_{\mathbb{R}^{3}}d \vec{x}e^{ikx}\chi(x)\]
+
+si $\chi(x)=0\qquad\forall x\in\Omega$, es decir, que la función es 0 para cualquier valor de $x$ que no pertenezca a una región del espacio, entonces 
+
+\[\var(0)=\frac{1}{(2\pi)^{3}}V(\Omega)\] 
+
+si el espacio $\Omega \equiv \mathbb{R}^{3}$ entonces $V(\Omega)=V$
+
+Cuando los momentos están bien definidos $\var(\vec{k}-\vec{k'})=\var(0)$ y podemos hacer la normalización así:
+
+\[\braket{\vec{k}}=2E_{k}V\]
+
+\end{remark}
+
+Una vez obtenida la normalización vamos a construir estados de multiples partículas, empezando por 2:
+\[\hat{a}^{\dagger}_{\vec{k}_{1}}\hat{a}^{\dagger}_{\vec{k}_{2}}\ket{0}=\ket{\vec{k_{1}}, \vec{k_{2}}}\]
+
+Esto quiere decir que para crear un estado vamos a multiplicar tantos operadores creación al estado de vacío como partículas haya en el. De esta forma un estado con $N$ partículas es 
+
+\[\ket{\vec{k_{1}}, \vec{k_{2}}, \cdots, \vec{k_{N}}}=\frac{1}{\sqrt{n!}} \hat{a}^{\dagger}_{\vec{k}_{1}}\hat{a}^{\dagger}_{\vec{k}_{2}}\cdots \hat{a}^{\dagger}_{\vec{k}_{N}}\]
+
+Tambien podemos tener un estado cualquiera $\ket{\psi}\in \mathcal{F}$ formado por muchos estados diferentes con cada uno diferentes partículas como 
+
+\[\sum_{n=0}^{\infty}\frac{1}{\sqrt{n!}} f(\vec{k}_{1}, \vec{k}_{2},\cdots \vec{k}_{n}) \prod_{n=0}^{\infty}\hat{a}^{\dagger}_{\vec{k}_{n}} \ket{0}\]
+
+Obteniendo un estado con la forma 
+
+\[\ket{\phi}= \ket{0}+ \alpha\ket{\vec{k}_{1}}+\beta\ket{\vec{k}_{1} \vec{k}_{2}} + \cdots\]
+
+además, como 
+
+\[\comm{\hat{a}_{\vec{k}}}{\hat{a}^{\dagger}_{\vec{k'}}}=0 \longrightarrow \ket{\vec{k_{1}}, \vec{k_{2}}}=\ket{\vec{k_{2}}, \vec{k_{2}}}\]
+
+Es decir, son funciones simétricas y por lo tanto serán lo que llamaremos bosones.
+
+\subsubsection{Operadores en el espacio de Fock}
+Una vez definidos los estados, lo lógico es calcular algunos valores esperados necesarios y ver como se hace. Para ellos calculamos el valor esperado de la energía de vacio como 
+\paragraph{Operadore Energía}
+\begin{DispWithArrows}[format=c, displaystyle]
+\ev{\hat{H}_{0}}{0}=\frac{1}{2} \int d \tilde{k} \braket{\vec{k}}= \frac{V}{2}\int d \tilde{k}= \infty
+\end{DispWithArrows}
+
+Como vemos la energía de vacio diverge, lo cual no tiene sentido por lo que podemos definir un nuevo Hamiltoniano como 
+
+\begin{DispWithArrows}[format=c, displaystyle]
+\hat{H'}_{0}=\hat{H}_{0} - \ev{\hat{H}_{0}}{0} \\
+\ev{\hat{H}_{0}}{0}=0
+\end{DispWithArrows}
+
+De esta forma la energía de vacio se anula, lo cual tiene más sentido. 
+
+Como ya mencionamos al pasar de las coordenadas clasicas $q,p$ a los operadores $\hat{q}, \hat{p}$ teniamos el problema de que estos operadores no conmutan, por lo que hay muchas formas de obtener $\hat{H}_{0}$, para no tener esa ambigüedad a la hora de obtener el Hamiltoniano definimos el producto normal 
+
+\begin{definition}[Producto normal]
+  El producto normal se define como 
+
+  \begin{DispWithArrows}[format=c, displaystyle]
+  :\hat{a}_{\vec{k}}\hat{a}^{\dagger}_{\vec{k}}:=\hat{a}^{\dagger}_{\vec{k}}\hat{a}_{\vec{k}}
+  \end{DispWithArrows}
+
+  Basicamente, lo que hace es ordenar los operadores de forma que todos los conjugados se encuentren a la izquierda.
+\end{definition}
+
+De esta forma podemos definir el Hamiltoniano $\hat{H'}$ como 
+
+\begin{DispWithArrows}[format=c, displaystyle]
+  \hat{H'} \equiv :\hat{H}_{0}:=\int d \tilde{k}E_{k}\hat{a}^{\dagger}_{\vec{k}}\hat{a}_{\vec{k}}
+\end{DispWithArrows}
+
+En donde encontramos un nuevo operador como multiplicación de 2 operadores, este es el operador número y se define como 
+
+\begin{definition}[Operador número]
+  \begin{DispWithArrows}[format=c, displaystyle]
+  \hat{n}_{k}=\hat{a}^{\dagger}_{\vec{k}}\hat{a}_{\vec{k}}
+  \end{DispWithArrows}
+
+  Este operador nos devuelve el número de partículas en un estado.
+\end{definition}
+
+De esta forma el Hamiltoniano $H'$ es 
+
+\begin{DispWithArrows}[format=c, displaystyle]
+\int d \tilde{k}E_{k} \hat{n}_{k}
+\end{DispWithArrows}
+
+Una vez definido el operadore número, es conveniente definir el operador número total de partículas 
+
+\begin{definition}[Operador número total de partículas]
+  \begin{DispWithArrows}[format=c, displaystyle]
+  \hat{N}=\int d\tilde{k}\hat{n}_{k}
+  \end{DispWithArrows}
+
+  Este operador nos devuelve el número total de partículas en un estado. 
+  \begin{DispWithArrows}[format=ccc, displaystyle]
+  \hat{N}\ket{0}=0 & \hat{N}\ket{\vec{k}}=1\ket{\vec{k}} & \hat{N}\ket{\vec{k}_{1}\vec{k}_{2}} =2\ket{\vec{k}_{1}\vec{k}_{2}}
+  \end{DispWithArrows}
+
+  Hay que tener en cuenta que en el caso de $\ket{\psi}=\alpha \ket{\vec{k}}+\beta \ket{\vec{k'}\vec{k''}}$ no tenemos un autoestado, por lo que el número total de partículas no estará bien definido y podrá dar números que no son enteros.
+\end{definition}
+
+Dado que la construcción del producto normal nos pone el operador aniquilación en primer lugar obtenemos que el valor esperado de la energía de vacío es
+\begin{DispWithArrows}[format=c, displaystyle]
+\ev{\hat{H'}}{0}=0
+\end{DispWithArrows}
+
+Otros resultados de este Hamiltoniano son:
+\begin{itemize}
+  \item $\hat{H'}\ket{0}$
+  \item $\hat{H'}\ket{\vec{k}}=E_{k}\ket{\vec{k}}$
+  \item $\hat{H}\ket{\vec{k}_{1}\vec{k}_{2}}=(E_{k_{1}}+E_{k_{2}})\ket{\vec{k}_{1}\vec{k}_{2}}$
+\end{itemize}
+\paragraph{Operador momento lineal }
+Tambien se puede definir el operador momento lineal mediante el producto normal como 
+
+\begin{DispWithArrows}[format=c, displaystyle]
+:\hat{P}:=\int d\tilde{k}\hat{n}_{k}\vec{k}
+\end{DispWithArrows}
+\paragraph{Operador campo}
+
+El operador campo conjugado crea una partícula y nos devuelve la posición de esa partícula en el campo, es decir,
+
+\begin{DispWithArrows}[format=c, displaystyle]
+\hat{\Phi}^\dagger(\vec{x},0)\ket{0}=\ket{\psi}=\ket{\vec{x}}
+\end{DispWithArrows}
+\begin{proof}
+  Esto se puede ver como 
+  \begin{DispWithArrows}[format=c, displaystyle]
+  \braket{\vec{k}}{\psi}=e^{-ikx} \\
+  \braket{\vec{k}}{\vec{x}}=e^{-ikx} \\
+  \end{DispWithArrows}
+
+  Y como ambas cosas son iguales, podemos sustituir.
+\end{proof}
+
+\section{Propagador del campo escalar libre}
+El propagador de un campo se definer como:
+
+\begin{definition}
+  \begin{DispWithArrows}[format=c, displaystyle]
+  G(x,y)=\ev{T(\hat{\phi}(x),\hat{\phi}(y))}{0}
+  \end{DispWithArrows}
+  Donde $\hat{\phi}(x)$ es el campo escalar libre en el punto $x$ y $T(\hat{\phi}(x),\hat{\phi}(y))$ es el operador de ordenación temporal, el cual ordena los tiempos de mayor a menor, es decir, 
+  \[\begin{array}{ccc}
+    \hat{\phi}(x),\hat{\phi}(y) &\text{si} & x^{0}>y^{0}\\
+    \hat{\phi}(y),\hat{\phi}(x) &\text{si} & x^{0}<y^{0}\\
+  \end{array}\]
+\end{definition}
+Ahora podemos ver que tenemos 2 casos:
+\begin{enumerate}
+  \item $x^{0} > y^{0}$
+  
+  En este caso tenemos que el propagador es 
+  \begin{DispWithArrows}[format=ll, displaystyle]
+  G(x,y)= & \ev{\hat{\phi}(x),\hat{\phi}(y)}{0}=\int d\tilde{k}e^{-ikx}\int d \tilde{k'}e^{ik'y}\braket{\vec{k}}{\vec{k'}} \\
+  &=\int d\tilde{k}e^{-ik(x-y)}
+  \end{DispWithArrows}
+
+  \item $x^{0} < y^{0}$
+  
+  De forma análoga tenemos que el propagador es 
+  begin{DispWithArrows}[format=ll, displaystyle]
+  G(x,y)= & \ev{\hat{\phi}(y),\hat{\phi}(x)}{0}=\int d\tilde{k}e^{-iky}\int d \tilde{k'}e^{ik'x}\braket{\vec{k}}{\vec{k'}} \\
+  &=\int d\tilde{k}e^{-ik(y-x)}
+  \end{DispWithArrows}
+\end{enumerate}
+
+El progpagador del campo escalar libre es una función que realmente se comporta como una distribución de probabilidad ya que permite el uso de deltas de Dirac. 
+
+Podemos definir el propagador de forma general como 
+
+\begin{definition}[Propagador General I]
+  \begin{DispWithArrows}[format=c, displaystyle]
+  G(x,y)=\theta(x^{0}-y^{0})\int d\tilde{k}e^{-ik(x-y)}+ \theta(y^{0}-x^{0})\int d\tilde{k}e^{-ik(y-x)}
+  \end{DispWithArrows}
+
+  
+\end{definition}
+
+Aunque esta difinición no es muy comoda, podemos definirla de forma más sencilla haciendo uso del siguiente teorema: 
+
+  \begin{theorem}
+    \begin{DispWithArrows}[format=c, displaystyle]
+    G(x,y)=\lim_{\epsilon\rightarrow 0}i\int \frac{d^{4}k}{(2\pi)^{4}}\frac{e^{-ik(x-y)}}{k^{2}-m^{2}+i\epsilon}
+    \end{DispWithArrows}
+    Primero se hace la integral y luego se hace el límite
+  \end{theorem}
+  
+\begin{proof}
+  A continuación demostraremos este teorema para el caso $x^{0} > y^{0}$ y para el caso $x^{0} < y^{0}$ se procederá de manera análoga.
+
+
+\end{proof}
