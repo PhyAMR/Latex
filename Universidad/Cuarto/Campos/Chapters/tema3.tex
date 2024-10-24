@@ -74,7 +74,7 @@ Como los operadores de campo son continuos, estos cumplen la ecuación de heisen
 Se puede demostrar que $\hat{\phi}(\vec{x},t)$ cumple la ecuación de Klein-Gordon.
 
 \begin{proof}
-  \[(\box + m^{2})\hat{\phi}(\vec{x},t)=0\]
+  \[(\Box + m^{2})\hat{\phi}(\vec{x},t)=0\]
 \end{proof}
 
 \subsection{Solución general de la ecuación de Klein-Gordon}
@@ -141,7 +141,7 @@ Así obtenemos que las soluciones de la ecuación de Klein-Gordon de un campo cu
   \item Estos operadores satisfacen la ecuación de Heisenberg 
   \[i\partial_{0}\hat{\phi}(\vec{x},t)=\comm{\hat{\phi}(\vec{x},t)}{\hat{H}_{0}}\]
   \item Tambien Satisfacen la ecuación de Klein-Gordon
-  \[(\box +m^{2})\hat{\phi}(\vec{x},t)=0\]
+  \[(\Box +m^{2})\hat{\phi}(\vec{x},t)=0\]
   \item Son autoadjuntos 
   \[\hat{\phi}(\vec{x},t)=\hat{\phi}^{\dagger}(\vec{x},t)\]
   \item Cumplen la regla de conmutación
@@ -207,7 +207,7 @@ Una vez obtenida la normalización vamos a construir estados de multiples partí
 
 Esto quiere decir que para crear un estado vamos a multiplicar tantos operadores creación al estado de vacío como partículas haya en el. De esta forma un estado con $N$ partículas es 
 
-\[\ket{\vec{k_{1}}, \vec{k_{2}}, \cdots, \vec{k_{N}}}=\frac{1}{\sqrt{n!}} \hat{a}^{\dagger}_{\vec{k}_{1}}\hat{a}^{\dagger}_{\vec{k}_{2}}\cdots \hat{a}^{\dagger}_{\vec{k}_{N}}\]
+\[\ket{\vec{k_{1}}, \vec{k_{2}}, \cdots, \vec{k_{N}}}=\frac{1}{\sqrt{n!}} \hat{a}^{\dagger}_{\vec{k}_{1}}\hat{a}^{\dagger}_{\vec{k}_{2}}\cdots \hat{a}^{\dagger}_{\vec{k}_{N}}\ket{0}\]
 
 Tambien podemos tener un estado cualquiera $\ket{\psi}\in \mathcal{F}$ formado por muchos estados diferentes con cada uno diferentes partículas como 
 
@@ -225,7 +225,7 @@ Es decir, son funciones simétricas y por lo tanto serán lo que llamaremos boso
 
 \subsubsection{Operadores en el espacio de Fock}
 Una vez definidos los estados, lo lógico es calcular algunos valores esperados necesarios y ver como se hace. Para ellos calculamos el valor esperado de la energía de vacio como 
-\paragraph{Operadore Energía}
+\paragraph{Operador Energía}
 \begin{DispWithArrows}[format=c, displaystyle]
 \ev{\hat{H}_{0}}{0}=\frac{1}{2} \int d \tilde{k} \braket{\vec{k}}= \frac{V}{2}\int d \tilde{k}= \infty
 \end{DispWithArrows}
@@ -322,7 +322,7 @@ El operador campo conjugado crea una partícula y nos devuelve la posición de e
   Y como ambas cosas son iguales, podemos sustituir.
 \end{proof}
 
-\section{Propagador del campo escalar libre}
+\subsection{Propagador del campo escalar libre}
 El propagador de un campo se definer como:
 
 \begin{definition}
@@ -374,9 +374,181 @@ Aunque esta difinición no es muy comoda, podemos definirla de forma más sencil
     \end{DispWithArrows}
     Primero se hace la integral y luego se hace el límite
   \end{theorem}
-  
+
 \begin{proof}
   A continuación demostraremos este teorema para el caso $x^{0} > y^{0}$ y para el caso $x^{0} < y^{0}$ se procederá de manera análoga.
 
 
 \end{proof}
+
+
+\section{Cuantización del campo escalar complejo}
+
+En esta sección vamos a dar la forma del operador campo complejo, de la misma forma que el campo escalar libre.
+
+
+A continuación vamos a definir el campo escalar complejo como $\phi \in \mathbb{C}$ dado que el campo es complejo, no tenemos la misma condición de mantenerlo real, por lo que $\phi \neq \phi^{*}$, es decir, el conjugado del no tiene porque ser igual que el campo. 
+
+También definimos el módulo al cuadrado del campo complejo como $\abs{\phi}^{2}=\phi\phi^{*}$. 
+
+De esta forma el  lagrangiano del campo complejo es \marginnote[-2.2cm]{
+  \begin{kaobox}[frametitle=Recuerda]
+    Cuando se habla de Lagrangiano O hamiltoniano pero se usa $\mathcal{L}$ o $\mathcal{H}$, estamos hablando de densidades Lagrangianas y Hamiltonianas respectivamente. El lagrangiano o hamiltoniano será $L=\int d\vec{x}\mathcal{L}$ y $H=\int d\vec{x}\mathcal{H}$
+\end{kaobox}
+}
+\begin{DispWithArrows}[format=c, displaystyle]
+\mathcal{L}_0=\partial_{\mu}\phi\partial^{\mu}\phi - m^{2}\abs{\phi}^{2}
+\end{DispWithArrows}
+
+Este campo complejo también obedece las ecuaciones de Klein-Gordon, es decir, 
+
+\begin{DispWithArrows}[format=c, displaystyle]
+(\Box +m^{2})\phi=0 \\
+(\Box +m^{2})\phi^{*}=0
+\end{DispWithArrows}
+
+Una vez obtenido el lagrangiano podemos obtener el Hamiltoniano, pero antes es necesario definir el momento canónico conjugado, el cual es 
+
+\begin{DispWithArrows}[format=c, displaystyle]
+\Pi=\pdv{\mathcal{L}}{\partial_{0}\phi}\equiv \dot{\phi}^{*} \Arrow{Y su complejo} \\
+\Pi^{*}=\pdv{\mathcal{L}}{\partial_{0}\phi^{*}}\equiv \dot{\phi}
+\end{DispWithArrows}
+
+Y ahora si, obtenemos el Hamiltoniano como 
+
+\begin{DispWithArrows}[format=c, displaystyle]
+\mathcal{H}_{0}=\Pi\Pi^{*}+ \vec{\nabla}\cdot \phi\vec{\nabla}\cdot\phi^{*} + m^{2}\abs{\phi}^{2}
+\end{DispWithArrows}
+
+
+
+Ahora pasamos a sistituir el campo complejo por los operadores de campo complejo, es decir, 
+
+\begin{DispWithArrows}[format=c, displaystyle]
+\phi \longrightarrow \hat{\phi} \\
+\phi^{*} \longrightarrow \hat{\phi}^{\dagger}
+\end{DispWithArrows}
+
+Los conmutadores no triviales de estos operadores, es decir, que son diferentes de 0 son:
+
+\begin{DispWithArrows}[format=c, displaystyle]
+\comm{\hat{\phi}(\vec{x},t)}{\dot{\hat{\phi}}^{\dagger}(\vec{x},t)}=i\delta(\vec{x}-\vec{x}') \\
+\comm{\hat{\phi}(\vec{x},t)}{\dot{\Pi}(\vec{x},t)}=i\delta(\vec{x}-\vec{x}')
+
+\end{DispWithArrows}
+
+Según la ecuación de evolución temoral de Heisenberg la evolución temporal del operador campo complejo es 
+\begin{DispWithArrows}[format=c, displaystyle]
+i\partial_{0}\hat{\phi}(\vec{x},t)=\comm{\hat{\phi}(\vec{x},t)}{H_{0}}
+\end{DispWithArrows}
+
+Tambien sabemos que cumplen la ecuación de Klein-Gordon al igual que hicimos con el campo escalar libre, es decir,
+
+\begin{DispWithArrows}[format=c, displaystyle]
+  (\Box +m^{2})\hat{\phi}=0 \\
+  (\Box +m^{2})\hat{\phi}^{\dagger}=0
+  \end{DispWithArrows}
+
+  A continuación vamos a dar la forma del operador campo complejo, de la misma forma que el campo escalar libre, pero ahora, como no tenemos la restricción de que el campo sea real ($\phi \neq \phi^{*}$) entonces tenemos 
+
+  \begin{DispWithArrows}[format=c, displaystyle]
+  \hat{\phi}(\vec{x},t)=\int d\tilde{k}(\hat{a}_{\vec{k}}e^{-ikx}+\hat{b}^{\dagger}_{\vec{k}}e^{ikx}) \\
+  \hat{\phi}^{\dagger}(\vec{x},t)=\int d\tilde{k}(\hat{a}^{\dagger}_{\vec{k}}e^{ikx}+\hat{b}_{\vec{k}}e^{-ikx})
+  \end{DispWithArrows}
+
+\subsubsection{Estados de Fock y sus operadores en el campo complejo}
+  Al igual que en el caso del campo escalar libre, tenemos los estados del espacio de Fock y sus operadores. Ahora partimos del mismo estado de Fock que en el caso del campo escalar libre, cuyas condiciones eran:
+
+  \begin{DispWithArrows}[format=c, displaystyle]
+  \braket{0}=1 \\
+  \hat{a}_{\vec{k}}\ket{0}=0 \Arrow{Añadimos una más}\\
+  \hat{b}_{\vec{k}}\ket{0}=0 
+  \end{DispWithArrows}
+
+  Esta última condición es nueva, ya que el campo complejo no tiene la condición de mantenerse real. 
+
+  Los nuevos operadores $\hat{b}^{\dagger}_{\vec{k}}$ y $\hat{b}_{\vec{k}}$ funcionan de manera similar a los operadores $\hat{a}^{\dagger}_{\vec{k}}$ y $\hat{a}_{\vec{k}}$ del campo escalar libre. Solo que estos operadores serán los \textbf{Operadores creación y aniquilación de antipartículas}, respectivamente.
+
+  Entonces los estados de Fock para el campo complejo son los mismos que para el campo escalar libre, pero ahora con el operador de creación y aniquilación de antipartículas, es decir:
+
+  \begin{DispWithArrows}[format=c, displaystyle]
+    \hat{a}^{\dagger}_{\vec{k}}\ket{0}=\ket{\vec{k}}\Arrow{Pero además} \\
+    \hat{b}^{\dagger}_{\vec{k}}\ket{0}=\ket{\underline{\vec{k}}} \\
+    \hat{a}^{\dagger}_{\vec{k}_{1}}\hat{a}^{\dagger}_{\vec{k}_{2}}\ket{0}=\ket{\vec{k_{1}}, \vec{k_{2}}}\Arrow{Pero además} \\
+    \hat{b}^{\dagger}_{\vec{k}_{1}}\hat{b}^{\dagger}_{\vec{k}_{2}}\ket{0}=\ket{\underline{\vec{k_{1}}}, \underline{\vec{k_{1}}}}
+  \end{DispWithArrows}
+
+  Y esto con todo lo que hemos visto hasta ahora, basicamente añadir las mismas operaciones del campo escalar libre con los nuevos operadores de creación y aniquilación de antipartículas y poniendo una barra debajo para diferenciar los estados. 
+
+  Otra cosa que podemos obtener en este campo son estados mixtos que tienen la forma 
+
+  \begin{DispWithArrows}[format=c, displaystyle]
+    \hat{a}^{\dagger}_{\vec{k}_{1}}\hat{b}^{\dagger}_{\vec{k}_{2}}\ket{0}=\ket{\vec{k_{1}}, \underline{\vec{k_{1}}}}
+  \end{DispWithArrows}
+
+  Esto es debido a que las reglas de conmutación no triviales son 
+
+  \begin{DispWithArrows}[format=c, displaystyle]
+  \comm{\hat{a}_{\vec{k}}}{\hat{a}^{\dagger}_{\vec{k}}}=(2\pi)^{3}E_k \var(\vec{k}-\vec{k'})\\
+  \comm{\hat{b}_{\vec{k}}}{\hat{b}^{\dagger}_{\vec{k}}}=(2\pi)^{3}E_k \var(\vec{k}-\vec{k'})\\
+  \comm{\hat{a}_{\vec{k}}}{\hat{b}^{\dagger}_{\vec{k}}}=\comm{\hat{b}_{\vec{k}}}{\hat{a}^{\dagger}_{\vec{k}}}=\comm{\hat{a}_{\vec{k}}}{\hat{b}_{\vec{k}}}=\comm{\hat{a}^{\dagger}_{\vec{k}}}{\hat{b}^{\dagger}_{\vec{k}}}=0
+
+  \end{DispWithArrows}
+
+  \paragraph{Operador Energía}
+
+  Una vez definidos los operadores y los estado de Fock, podemos definir el Hamiltoniano de forma aáloga al campo escalar libre, pero ahora con el operador de creación y aniquilación de antipartículas.
+
+  \begin{DispWithArrows}[format=c, displaystyle]
+    \hat{H'} \equiv :\hat{H}_{0}:=\int d \tilde{k}E_{k}(\hat{a}^{\dagger}_{\vec{k}}\hat{a}_{\vec{k}}+\hat{b}^{\dagger}_{\vec{k}}\hat{b}_{\vec{k}})=\int d \tilde{k}E_{k}(\hat{n}_k+\hat{\overline{n}}_k)
+  \end{DispWithArrows}
+
+  Al aplicarlo al estado vacio obtenemos 0, ya que gracias a usar el producto normal no hay ni energías negativas ni divergencias. Aplicando este operador sobre un estado cualquiera obtenemos 
+
+  \begin{DispWithArrows}[format=c, displaystyle]
+  \left.\begin{array}{c}
+  \hat{H'}\ket{\vec{k}}=E_{k}\ket{\vec{k}} \\
+  \hat{H'}\ket{\underline{\vec{k}}}=E_{k}\ket{\underline{\vec{k}}} 
+  \end{array}\right\} \forall \ket{\psi} \in \mathscr{F} \ev{\hat{H'}}{\psi}=0
+  \end{DispWithArrows}
+
+  En donde $\hat{\overline{n}}_k$ es el operador número de antipartícula, el operador número total de antipartícuales es
+
+  \begin{DispWithArrows}[format=c, displaystyle]
+  \hat{\overline{N}}=\int d \tilde{k}\hat{\overline{n}}_k
+  \end{DispWithArrows}
+\paragraph{Operador Carga}
+  Un operador que no nos intereso antes, ya que en el campo escalar libre todas las partículas tenian la misma carga, es el operador carga, el cual devuelve la carga de un estado 
+
+  \begin{DispWithArrows}[format=c, displaystyle]
+  \hat{Q}=q\int d\tilde{k}(\hat{n}_k-\hat{\overline{n}}_k)
+  \end{DispWithArrows}
+
+  La carga de los sistemas se conserva, es decir,
+
+  \begin{DispWithArrows}[format=c, displaystyle]
+  \comm{\hat{H'}}{\hat{Q}}=0
+  \end{DispWithArrows}
+
+  Y podemos obtener la carga de una partícula en un estado cualquiera de la forma
+
+  \begin{DispWithArrows}[format=c, displaystyle]
+    \hat{Q}\hat{a}^\dagger _{k\vec{k}}\ket{0}=q\ket{\vec{k}} \\
+    \hat{Q}\hat{b}^\dagger _{k\vec{k}}\ket{0}=-q\ket{\vec{k}} 
+  \end{DispWithArrows}
+
+  Las funciones de onda en este caso siguen siendo simétricas por lo que seguimos en un campo bosónico.
+  \section{¿Porque estos campos?}
+
+  Como vimos en el primer tema la ecuación de Klein-Gordon no describe bien la mecánica cuántica de las partículas haciendo uso de las funciones de onda, pero si que es una buena ecuación para describir las partículas si se usan campos.
+
+  Además, La ventaja de usar campos, es que con 1 solo campo definimos todas las partícuals que existen en el universon, en el caso de los campos escalares podemos definir:
+
+  \begin{itemize}
+    \item Bosones sin antipartículas con espín 0
+    
+    Como fotónes, Bosones de Higgs, etc.
+    \item Bosones con antipartículas y con espín 0
+    
+    Como piones y muchos otros. (En estructura seguro que los visteis, eran tantos que no recuerdo ninguno)
+  \end{itemize}
