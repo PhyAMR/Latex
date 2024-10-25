@@ -173,3 +173,356 @@ Comentario: Nota que las tres ecuaciones a la izquierda siguen inmediatamente de
 De $\phi(0)=0$ y estas ecuaciones se sigue que $\phi(t)=0$ para todo $t$: el movimiento se mantiene en el plano $\phi=0$. El resultado es un sistema de dos grados de libertad que consiste en las dos primeras líneas de (5.15). La cuarta ecuación implica que $p_{\theta}$ es una constante del movimiento. Esta es el momento angular en el plano $\phi=0$, llamado $l$.
   
 \end{example}
+
+\subsection{
+Coordenadas unificadas en $T* \mathbb{Q}^{*}$ y corchetes de Poisson}
+
+Uno de los principales beneficios del formalismo hamiltoniano es que las variables $q$ y $p$ se tratan a la misma manera. Para hacer esto de manera consistente, los unimos en un conjunto de $2 n$ variables que serán llamadas $\xi^{\prime}$, con el índice $j$ corriendo desde 1 hasta $2 n$ (índices latinos van desde 1 hasta $2 n$ y índices griegos continúan corriendo desde 1 hasta $n$). El primer $n$ de las $\xi^{j}$ son las $q^{\beta}$, y el segundo $n$ son las $p_{\beta}$. De manera más explícita,
+
+$$
+\begin{array}{ll}
+\xi^{j}=q^{j}, & j \in\{1, \ldots, n\} \\
+\xi^{j}=p_{j-n}, & j \in\{n+1, \ldots, 2 n\}
+\end{array}
+$$
+\todo{De estas dos ecuaciones, se deduce que $\xi^{j}$ es un conjunto de $2 n$ variables, donde $q^{\beta}$ y $p_{\beta}$ son las primeras $n$ y las últimas $n$ variables, respectivamente.}
+
+Si ahora queremos escribir las ecuaciones canónicas de Hamilton en la forma unificada $\dot{\xi}^{\prime}=f^{\prime}(\xi)$, deben encontrarse los $f^{j}$ funciones a partir de la derecha de (5.5): los primeros $n$ del $f^{\prime}$ son las $\partial H / \partial p_{\jmath} \equiv \partial H / \partial \xi^{\prime+n}$, y los últimos $n$ son $-\partial H / \partial q^{J} \equiv-\partial H / \partial \xi^{j}$. Así que las ecuaciones canónicas son
+
+Esta puede escribirse en una de las dos formas equivalentes
+
+$$
+\begin{array}{ll}
+\dot{\xi}^{\prime}=\omega^{j k} \partial_{k} H \equiv \Delta_{H}\tag{5.42a}\\
+\omega_{l,} \dot{\xi}^{\prime}=\partial_{l} H \tag{5.42b}
+\end{array}
+$$
+
+Aquí $\partial_{k} \equiv \partial / \partial \xi^{k}$.
+
+La ecuación (5.42a) introduce la matriz simétrica $2 n \times 2 n$ $\Omega$, con elementos de matriz $\omega^{\prime h}$ dados por
+$$
+\Omega=\left|\begin{array}{cc}
+0_{n} & -\mathbb{I}_{n}  \tag{5.43}\\
+\mathbb{I}_{n} & 0_{n}
+\end{array}\right|
+$$
+donde $\mathbb{I}_{n}$ y $0_{n}$ son las matrices unitarias y de ceros $n \times n$, respectivamente. Dos propiedades importantes de $\Omega$ son que $\Omega^{-1}=-\Omega$ (usamos índices inferiores para los elementos de la matriz de $\Omega^{-1}$, escribiendo $\omega_{j l}$ ) y que es antisimétrica. En otras palabras,
+$$
+\begin{array}{l}
+\Omega^{2}=-\mathbb{I}, \quad \Omega^{\mathrm{T}}=-\Omega \tag{5.44}\\
+\omega^{\prime k} \omega_{k l}=\delta_{l}^{\prime}, \quad \omega_{k l} \omega_{l j} \delta^{l l}=-\delta_{k l}, \quad \omega^{k_{l}} \omega^{l /} \delta_{l l}=-\delta^{k j}
+\end{array}
+$$
+
+
+
+\subsection{Corchetes de Poisson}
+
+El término involucrado en $\omega^{\prime k}$ en el lado derecho de (5.46) es importante; se le llama el cuadrado Poisson de $f$ con $H$. En general, si $f, g \in \mathcal{F}\left(\mathbf{T}^{*} \mathbb{Q}\right)$, el cuadrado Poisson de $f$ con $g$\todo{$f, g$ son variables dinámicas} se define como
+
+$$
+\begin{aligned}
+\{f, g\} & \equiv\left(\partial_{j} f\right) \omega^{\prime k}\left(\partial_{k} g\right) \equiv \frac{\partial f}{\partial \xi^{\prime}} \omega^{\prime k} \frac{\partial g}{\partial \xi^{k}} \\
+& \equiv \frac{\partial f}{\partial q^{\alpha}} \frac{\partial g}{\partial p_{\alpha}}-\frac{\partial f}{\partial p_{\alpha}} \frac{\partial g}{\partial q^{\alpha}} \tag{5.47}
+\end{aligned}
+$$
+
+si cambiamos la $f$ y la $g$ por $\xi^{j}$ y $\xi^{i}$, respectivamente.
+\begin{DispWithArrows}[format=c, displaystyle]
+\pb{\xi^{j}}{\xi^{i}}=\partial_{\gamma }\xi^{j} \omega^{\gamma  \delta } \partial_{\delta } \xi^{ i} = \delta_{\gamma}^{i}\omega\omega^{\gamma  \delta }\delta_{\delta}^{j} 
+\end{DispWithArrows}
+
+Los corchetes de Poisson (CP) tiene las propiedades de cuerdas que se mencionaron en Sección 3.4.1 en conexión con el algebra de Lie: es bilinear y antisimétrica y satisface la identidad Jacobi (ver Problema 20). En más, satisface una regla de producto de tipo Leibniz:
+
+\begin{DispWithArrows}[displaystyle, format=c]
+\{f, g h\}=g\{f, h\}+\{f, g\} h \tag{5.48}
+\end{DispWithArrows}
+
+
+\begin{remark}
+  Bilinearidad
+  \begin{DispWithArrows}[format=c, displaystyle]
+  \pb{af+bg}{h}=a\{f, h\}+b\{g, h\} \notag
+  \end{DispWithArrows}, 
+  antisimetría
+  \begin{DispWithArrows}[format=c, displaystyle]
+  \pb{f}{g}=-\pb{g}{f} \notag
+  \end{DispWithArrows} y la identidad Jacobi 
+  \begin{DispWithArrows}[format=c, displaystyle]
+  \pb{f}{\pb{g}{h}}+\pb{g}{\pb{h}{f}}+\pb{h}{\pb{f}{g}}=0 \notag
+  \end{DispWithArrows}
+  son las propiedades definidoras de una estructura algebraica importante llamada algebras Lie. El espacio funcional $\mathcal{F}\left(\mathbf{T}^{*} \mathrm{Q}\right)$ es por tanto una algebras Lie bajo el CP, y la dinámica hamiltoniana se estudia con éxito desde el punto de vista de las algebras Lie. El punto de vista algebraico Lie juega un papel importante también en la transición a mecánica cuántica.
+\end{remark}
+
+En términos del CP Eq. (5.46) se convierte
+$$
+\mathbf{L}_{\Delta} f \equiv \frac{d f}{d t}=\{f, H\}+\partial_{t} f
+$$
+
+La ecuación (5.49) se satisface por todas las variables dinámicas, incluyendo las coordenadas mismas. Aplicado a las coordenadas locales, se convierte en
+
+\begin{DispWithArrows}[displaystyle, format=c]
+\dot{\xi}^{\prime}=\left\{\xi^{\prime}, H\right\} \tag{5.50}
+\end{DispWithArrows}
+
+que es solo otra forma de escribir las ecuaciones hamiltonianas canónicas. Otra aplicación de Eq. (5.49) es a la función hamiltoniana. La antisimetría del CP implica que $\{H, H\}=0$, y luego
+
+\begin{DispWithArrows}[displaystyle, format=c]
+\dot{H}=\{H, H\}+\partial_{t} H=\partial_{t} H \tag{5.51}
+\end{DispWithArrows}
+
+es decir, la derivada temporal de la función hamiltoniana es igual a su derivada parcial temporal. Esto refleja la conservación de energía para lagrangianos invarientes en el tiempo, ya que se puede demostrar desde la definición original de la función hamiltoniana que $\partial_{t} H=-\partial_{t} L$.
+
+\begin{example}[(a) Encuentra las correciones Poisson de las componentes $j_\alpha$ del momento angular $\mathbf{j}$ con variables dinámicas (usamos $\mathbf{j}$ en lugar de $\mathbf{L}$ para evitar la confusión con el Lagrangiano y la derivada de Lie). \\  (b) Encuentra las PBs de las componentes $j_\alpha$ con la posición y momentum en espacio euclidiano 3. \\
+  (c) La única forma de formar escalar es mediante productos de dot. Encuentra las correciones Poisson de las $j_\alpha$ con los momientos y posiciones. \\
+  (d) La única forma de formar vectores es multiplicando $\mathbf{x}$ y $\mathbf{p}$ por escalar y tomando productos cruzados. Encuentra las PBs de las $j_\alpha$ con vectores. \\
+  Especializa en los CP  de las $j_\alpha$ entre sí.]
+
+  Configuración del espacio de la cuadrícula $\mathbb{Q}$ es el espacio vectorial $\mathbb{E}^{3}$ con coordenadas $\left(x^{1}, x^{2}, x^{3}\right)$. El anticommutador entre componentes de la momenta angular no es cero, sino que es igual a la componente $x^{3}$ del producto escalar. Por lo tanto, para cualquier vector escalar $\mathbf{w} = f \mathbf{x} + g \mathbf{p} + h \mathbf{j}$,
+
+  El espacio de configuración $\mathbb{Q}$ es el espacio vectorial $\mathbb{E}^{3}$ con coordenadas $\left(x^{1}, x^{2}, x^{3}\right) \equiv \mathbf{x}$. El momento angular $\mathbf{j}$ de una sola partícula se define como $\mathbf{j}=\mathbf{x} \wedge \mathbf{p}$. Aquí $\mathbf{p}$ es el momento, que se encuentra en otro $\mathbb{E}^{3}$. El momento angular $\mathbf{j}$, en un tercer $\mathbb{E}^{3}$, tiene componentes
+  \begin{DispWithArrows}[displaystyle, format=c]
+  j_{\alpha}=\epsilon_{\alpha \beta \gamma} x^{\beta} p_{\gamma} \tag{5.53}
+  \end{DispWithArrows}
+  (Como hacemos a menudo al usar coordenadas cartesianas, violamos las convenciones sobre índices superiores e inferiores).
+  (a) De la segunda línea de la Ecuación (5.52) tenemos
+  \begin{aligned}
+  \left\{j_{\alpha}, f\right\} & =\epsilon_{\alpha \beta Y}\left\{x^{\beta} p_{Y}, f\right\}=\epsilon_{\alpha \beta_{Y}} x^{\beta}\left\{p_{\gamma}, f\right\}+\epsilon_{\alpha \beta \gamma}\left\{x^{\beta}, f\right\} p_{\gamma} \\
+  & =\epsilon_{\alpha \beta Y}\left[-x^{\beta} \partial f / \partial x^{\gamma}+p_{\gamma} \partial f / \partial p_{\beta}\right] .
+  \end{aligned}
+  
+  (b) Usa el resultado anterior con $f \equiv x^{\lambda}$ y $f=p_{\lambda}$ para obtener
+  \begin{aligned}
+  & \left\{j_{\alpha}, x^{\lambda}\right\}=-\epsilon_{\alpha \beta \gamma} x^{\beta} \delta_{\gamma}^{\lambda}=\epsilon_{\alpha \lambda \beta} x^{\beta} \\
+  & \left\{j_{\alpha}, p_{\lambda}\right\}=\epsilon_{\alpha \beta \beta \gamma} p_{\gamma} \delta_{\lambda}^{\beta}=\epsilon_{\alpha \lambda \gamma} p_{\gamma}
+  \end{aligned}
+  
+  (c) Usa la regla de Leibniz, Ecuación (5.48), para obtener
+  \begin{aligned}
+  & \left\{j_{\alpha}, x^{\lambda} x^{\lambda}\right\}=2 x^{\lambda} \epsilon_{\alpha \lambda \beta} x^{\beta}=0 \\
+  & \left\{j_{\alpha}, p_{\lambda} p_{\lambda}\right\}=2 p_{\lambda} \epsilon_{\alpha \lambda \gamma} p_{Y}=0 \\
+  & \left\{j_{\alpha}, x^{\lambda} p_{\lambda}\right\}=\epsilon_{\alpha \lambda \gamma} x^{\lambda} p_{\gamma}+\epsilon_{\alpha \lambda \beta} x^{\beta} p_{\lambda}=0
+  \end{aligned}
+  
+  (d) Los únicos vectores son productos de funciones escalares con $\mathbf{x}, \mathbf{p}$ y $\mathbf{j}=\mathbf{x} \wedge \mathbf{p}$, es decir, son de la forma
+  $$
+  \mathbf{w}=f \mathbf{x}+g \mathbf{p}+h \mathbf{j}
+  $$
+  donde $f, g$ y $h$ son escalares. Por la regla de Leibniz y la Parte (a)
+  \begin{aligned}
+  \left\{j_{\alpha}, f x^{\lambda}\right\} & =f \epsilon_{\alpha \lambda} x^{\beta} \\
+  \left\{j_{\alpha}, g p_{\lambda}\right\} & =g \epsilon_{\alpha \lambda \gamma} p_{\gamma}
+  \end{aligned}
+  
+  Solo necesitan calcularse los corchetes de Poisson de los componentes de $\mathbf{j}$ entre sí:
+  \begin{aligned}
+  \left\{j_{\alpha}, j_{\beta}\right\} & =\epsilon_{\alpha \mu \nu}\left\{x^{\mu} p_{\nu}, j_{\beta}\right\}=\epsilon_{\alpha \mu \nu} x^{\mu}\left\{p_{\nu}, j_{\beta}\right\}+\epsilon_{\alpha \mu \nu}\left\{x^{\mu}, j_{\beta}\right\} p_{v} \\
+  & =\epsilon_{\alpha \mu \nu} \epsilon_{\nu \beta \gamma} x^{\mu} p_{\gamma}+\epsilon_{\alpha \mu \nu} \epsilon_{\mu \beta \gamma} x^{\gamma} p_{\nu} \\
+  & =\left(\epsilon_{\alpha \mu \nu} \epsilon_{\nu \beta \gamma}+\epsilon_{\alpha \nu \gamma} \epsilon_{\nu \beta \mu}\right) x^{\mu} p_{\gamma} \\
+  & =\left[\left(\delta_{\alpha \beta} \delta_{\mu \nu}-\delta_{\alpha \gamma} \delta_{\mu \beta}\right)+\left(\delta_{\gamma \beta} \delta_{\mu \alpha}-\delta_{\gamma \mu} \delta_{\alpha \beta}\right)\right] x^{\mu} p_{\gamma} \\
+  & =\left(\delta_{\gamma \beta} \delta_{\alpha \mu}-\delta_{\alpha \gamma} \delta_{\mu \beta}\right) x^{\mu} p_{\gamma}=\epsilon_{\alpha \beta \nu} \epsilon_{\nu \mu \gamma} x^{\mu} p_{\gamma}
+  \end{aligned}
+  
+  o
+  \begin{DispWithArrows}[displaystyle, format=c]
+  \left\{j_{\alpha}, j_{\beta}\right\}=\epsilon_{\alpha \beta \nu} j_{\nu} \tag{5.54}
+  \end{DispWithArrows}
+  
+  Dado que $h$ es un escalar, la regla de Leibniz implica que $\left\{j_{\alpha}, h j_{\beta}\right\}=h \epsilon_{\alpha \beta v} j_{v}$. Así, para cualquier vector $\mathbf{w}$,
+  $$
+  \left\{j_{\alpha}, w_{\beta}\right\}=\epsilon_{\alpha \beta v} w_{v}
+  $$
+  
+  Resumiendo, tenemos
+  \begin{aligned}
+  & \left\{j_{1}, w_{1}\right\}=\left\{j_{2}, w_{2}\right\}=\left\{j_{3}, w_{3}\right\}=0 \\
+  & \left\{j_{1}, w_{2}\right\}=w_{3},\left\{j_{2}, w_{3}\right\}=w_{1}, \quad \text { y permutaciones cíclicas }
+  \end{aligned}
+  
+  En particular,
+  \begin{aligned}
+  & \left\{j_{1}, j_{2}\right\}=j_{3} \quad \text { y permutaciones cíclicas } \\
+  & \left\{j_{1}, j_{1}\right\}=\left\{j_{2}, j_{2}\right\}=\left\{j_{3}, j_{3}\right\}=0
+  \end{aligned}
+  
+  Los componentes cartesianos del momento angular no conmutan entre sí (el término se toma de álgebra matricial). Veremos más adelante que esto tiene consecuencias importantes.
+  
+\end{example}
+
+\subsubsection{Oscilador armónico istrópico}
+
+Consideremos el oscilador armónico isotrópico en \( n \) grados de libertad (para simplificar, tomemos tanto la masa \( m = 1 \) como la constante del resorte \( k = 1 \)). El lagrangiano es 
+
+\[
+L = \frac{1}{2} \delta_{\alpha \beta} \left( \dot{q}^{\alpha} \dot{q}^{\beta} - q^{\alpha} q^{\beta} \right)
+\]
+
+lo cual lleva a
+
+\[
+H = \frac{1}{2} \delta_{y k} \xi^{y} \xi^{k}
+\]
+
+Luego, a partir de (5.50) con bilinealidad y Leibniz, se sigue que
+
+\[
+\dot{\xi}^t = \frac{1}{2} \delta_{j k} \left\{ \xi^t, \xi^j \xi^k \right\} = \delta_{1 k} \omega^l \xi^k \tag{5.55}
+\]
+
+Una forma de resolver estas ecuaciones es derivarlas con respecto al tiempo y usar la propiedad de que \( \Omega^{2} = -\mathbb{I} \), obteniendo \( \ddot{\xi}^{k} = -\xi^{k} \). Estas \( 2n \) ecuaciones de segundo orden dan lugar a \( 4n \) constantes del movimiento que están conectadas por las ecuaciones de primer orden (5.55), de modo que solo \( 2n \) de ellas son independientes. Una manera diferente, y quizás más interesante, de resolver estas ecuaciones es escribirlas en la forma
+
+\[
+\dot{\xi} = \Lambda \xi \tag{5.56}
+\]
+
+donde \( \xi \) es el vector de \( 2n \) dimensiones con componentes \( \xi^{k} \) y \( \Lambda \) es la matriz con elementos \( \lambda_{k}^{y} = \delta_{j k} \omega^{t} \). La solución de la ecuación (5.56) es
+
+\[
+\boldsymbol{\xi}(t) = e^{\Lambda t} \xi_{0} \tag{5.57}
+\]
+
+donde \( \xi_{0} \) es un vector constante cuyas componentes son las condiciones iniciales, y
+
+\[
+e^{\Lambda t} \equiv \sum_{0}^{\infty} \frac{(\Lambda t)^n}{n!} \tag{5.58}
+\]
+
+Calcular \( e^{\Lambda t} \) se simplifica por el hecho de que \( \Lambda^{2} = -\mathbb{I} \); de hecho,
+
+\[
+\left( \Lambda^{2} \right)_{l}^{l} \equiv \lambda_{k}^{l} \lambda_{l}^{k} = \omega^{l} \delta_{l k} \omega^{k r} \delta_{r l} = -\delta^{r} \delta_{r l} = -\delta_{l}^{l}
+\]
+
+Esto se puede usar para escribir todas las potencias de \( \Lambda \):
+
+\[
+\Lambda^{3} = -\Lambda, \quad \Lambda^{4} = \mathbb{I}, \quad \Lambda^{5} = \Lambda, \quad \Lambda^{6} = -\mathbb{I}, \ldots
+\]
+
+Luego, al expandir la suma en (5.58) se obtiene
+
+\[
+e^{\Lambda t} = \mathbb{I} \left( 1 - \frac{t^2}{2!} + \frac{t^4}{4!} + \cdots \right) + \Lambda \left( t - \frac{t^3}{3!} + \frac{t^5}{5!} + \cdots \right)
+= \mathbb{I} \cos t + \Lambda \sin t
+\]
+
+(comparar con la expansión similar para \( e^{\prime t} \)). La solución de las ecuaciones de movimiento es entonces
+
+\[
+\xi(t) = \xi_{0} \cos t + \Lambda \xi_{0} \sin t \tag{5.59a}
+\]
+
+o
+
+\[
+\xi^{k}(t) = \xi_{0}^{k} \cos t + \lambda^{k}, \xi_{0}^{\prime} \sin t \tag{5.59~b}
+\]
+
+Las ecuaciones (5.59a, 5.59b) son solo una forma diferente de escribir (5.57). Debido a que solo se usaron ecuaciones de primer orden, solo las \( 2n \) constantes del movimiento \( \xi_{0}^{k} \) aparecen en estas soluciones. Finalmente, para completar el ejemplo, escribimos la forma \((q, p)\) de la solución:
+
+\[
+\begin{aligned}
+q^{\alpha}(t) &= q_{0}^{\alpha} \cos t + p_{0 \alpha} \sin t \\
+p_{\alpha}(t) &= -q_{0}^{\alpha} \sin t + p_{0 \alpha} \cos t
+\end{aligned}
+\]
+
+\subsection{Corchetes de Poisson y dinámica Hamiltoniana}
+
+Los corchetes de Poisson juegan un papel especial cuando el movimiento se deriva de las ecuaciones canónicas de Hamilton. No todo movimiento concebible en \(\mathbf{T}^{*} \mathbb{Q}\) es un sistema dinámico hamiltoniano, definido de la manera canónica por (5.42a) o (5.50). Cualquier ecuación de la forma
+
+\[
+\dot{\xi}^{j} = X^{\prime}(\xi) \tag{5.60}
+\]
+
+con \( X^{\prime} \in \mathcal{F}\left(\mathbf{T}^{*} \mathbb{Q}\right) \), define un sistema dinámico en \(\mathbf{T}^{*} \mathbb{Q}\) (los \( X^{f} \) son las componentes de un campo vectorial dinámico). Si no existe \( H \in \mathcal{F}\left(\mathbf{T}^{*} \mathbb{Q}\right) \) tal que \( X^{\prime} = \omega^{j k} \partial_{k} H \), puede ser imposible poner las ecuaciones de movimiento en la forma canónica de (5.42a).
+
+\begin{example}
+  Consideremos, por ejemplo, el sistema en dos grados de libertad dado por
+
+\[
+\dot{q} = q p, \quad \dot{p} = -q p \tag{5.61}
+\]
+
+Si este fuera un sistema hamiltoniano, \(\dot{q} = q p\) sería igual a \(\partial H / \partial p\), y \(\dot{p} = -q p\) sería igual a \(-\partial H / \partial q\). Pero entonces, \(\partial^{2} H / \partial q \partial p\) no sería igual a \(\partial^{2} H / \partial p \partial q\); por lo tanto, no existe una función \(H\) que sea el hamiltoniano de este sistema. No obstante, este es un sistema dinámico legítimo cuyas curvas integrales se encuentran fácilmente:
+
+\[
+q(t) = q_{0} \frac{C e^{C t}}{p_{0} + q_{0} e^{C t}}, \quad p(t) = p_{0} \frac{C}{p_{0} + q_{0} e^{C t}}
+\]
+
+donde \(C = q_{0} + p_{0} = q + p\) es una constante del movimiento.
+\end{example}
+
+Un papel especial del corchete de Poisson es que proporciona una prueba de si un sistema dinámico es hamiltoniano o no. 
+
+\begin{proposition}
+  Ahora mostramos que un sistema dinámico es hamiltoniano (o que los \(X^{\prime}\) son los componentes de un campo vectorial hamiltoniano) si y solo si la derivada temporal actúa sobre los paréntesis de Poisson como si fueran productos (es decir, mediante la regla de Leibniz). Es decir, el sistema es hamiltoniano si y solo si
+
+\[
+\frac{d}{d t}\{f, g\} = \{\dot{f}, g\} + \{f, \dot{g}\} \tag{5.62}
+\]
+
+\end{proposition}
+\begin{proof}
+  Para la demostración, asumamos que el sistema dinámico es hamiltoniano y que \( H(\xi, t) \) es la función hamiltoniana. Entonces,
+
+\[
+\frac{d}{d t}\{f, g\} = \{\{f, g\}, H\} + \partial_{t}\{f, g\}
+\]
+
+Según la identidad de Jacobi (y la antisimetría), el primer término se puede escribir como
+
+\[
+\{\{f, g\}, H\} = \{\{f, H\}, g\} + \{f, \{g, H\}\}
+\]
+
+El segundo término es
+
+\[
+\begin{aligned}
+\partial_{t}\{f, g\} & = \partial_{t}\left[(\partial_j f) \, \omega_{j k} \, \partial_k g\right] \\
+& = (\partial_j \, \partial_{t} f) \, \omega_{j k} \, \partial_k g + (\partial_j f) \, \omega_{j k} \, \partial_k \, \partial_{t} g \\
+& = \{\partial_{t} f, g\} + \{f, \partial_{t} g\}.
+\end{aligned}
+\]
+
+Combinando ambos resultados, se obtiene
+
+\[
+\begin{aligned}
+\frac{d}{d t}\{f, g\} &= \left\{\{f, H\} + \partial_{t} f, g\right\} + \left\{f, \{g, H\} + \partial_{t} g\right\} \\
+&= \{\dot{f}, g\} + \{f, \dot{g}\}.
+\end{aligned}
+\]
+
+Esto prueba que, si existe una función hamiltoniana, la regla de Leibniz es válida para el paréntesis de Poisson.
+\end{proof}
+
+\begin{proof}
+  Para demostrar la afirmación contraria, usaremos la siguiente lógica: si la regla de Leibniz de la Ecuación (5.62) se cumple para todos \( f, g \in \mathcal{F}\left(\mathbf{T}^{*} \mathbb{Q}\right) \), entonces se cumple en particular para el par \( \xi^{l}, \xi^{\prime} \). La demostración mostrará que si (5.62) se cumple para este par, entonces existe una función Hamiltoniana \( H \) tal que \( \omega_{j k} \dot{\xi}^{k} = \partial_{j} H \); es decir, la existencia de la función Hamiltoniana se deduce de la regla de Leibniz.
+
+Dado que \( \left\{\xi^{l}, \xi^{\prime}\right\} = \omega^{l i} \), su derivada temporal es cero. Así, tenemos:
+
+\[
+\begin{aligned}
+\frac{d}{d t}\{\xi^{l}, \xi^{\prime}\} &= 0 = \{\dot{\xi}^{l}, \xi^{\prime}\} + \{\xi^{l}, \dot{\xi}^{\prime}\} = \{X^{l}, \xi^{\prime}\} + \{\xi^{l}, X^{\prime}\} \\
+&= (\partial_{j} X^{l}) \omega^{j k} \partial_{k} \xi^{\prime} + (\partial_{j} \xi^{l}) \omega^{j k} \partial_{k} X^{\prime} \\
+&= \partial_{j}(X^{l} \omega^{j k}) + \partial_{k}(\omega^{j k} X^{l}),
+\end{aligned}
+\]
+
+donde hemos usado la Ecuación (5.60). Ahora, multiplicamos por \( \omega_{l p} \omega_{i r} \) y sumamos sobre los índices repetidos, obteniendo
+
+\[
+\partial_{p} Z_{r} - \partial_{r} Z_{p} = 0,
+\]
+
+donde \( Z_{l} = \omega_{j k} X^{k} \). Esta es la condición de integrabilidad local (ver Problema 2.4) para la existencia de una función \( H \) que satisfaga el conjunto de ecuaciones diferenciales parciales
+
+\[
+\partial_{j} H = Z_{l} \equiv \omega_{l k} X^{k} \equiv \omega_{j k} \dot{\xi}^{k}.
+\]
+
+Esto completa la demostración. Hemos probado el resultado solo de forma local, lo cual es lo máximo que se puede lograr. Si el paréntesis de Poisson se comporta como un producto con respecto a la diferenciación temporal, entonces existe una función Hamiltoniana local \( H \); es decir, el sistema dinámico es localmente hamiltoniano. Puede no existir una única función \( H \) que sea válida en toda \( \mathbf{T}^{*} \mathbb{Q} \).
+\end{proof}
