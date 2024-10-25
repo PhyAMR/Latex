@@ -1,145 +1,222 @@
+\documentclass[a4paper, 1pt]{book}
+\usepackage{lmodern}
+% matemáticas:
+\usepackage{amsmath, amssymb} 
+% idioma:
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, es-tabla]{babel} % 'cuadro' es el título del caption de table por defecto siguiendo indicaciones de RAE; es-tabla lo cambia a 'tabla'
+% gestión de párrafos (hace innecesario indicar el salto de línea con doble barra y elimina el indent de todos los párrafos):
+\usepackage{parskip}
+% enlaces a URLs:
+\usepackage{hyperref}
+% gráficos:
+\usepackage{graphicx, wrapfig, subcaption}
+% tablas:
+\usepackage{array, multirow}
 
-\documentclass[
-	a4paper, 
-	fontsize=10pt,
-	twoside=true, 
-	%open=any,
-	%chapterentrydots=true, 
-	numbers=noenddot, 
-]{kaobook}
+\newcommand{\dl}{\left(}
+\newcommand{\dr}{\right)}
 
-\ifxetexorluatex
-	\usepackage{polyglossia}
-	\setmainlanguage{spanish}
-\else
-	\usepackage[spanish]{babel} 
-\fi
-\usepackage[spanish]{csquotes}	
+\newcommand{\dsin}[1]{\sin{\left(#1\right)}}
+\newcommand{\dtan}[1]{\tan{\left(#1\right)}}
+\newcommand{\dcos}[1]{\cos{\left(#1\right)}}
+\newcommand{\dsec}[1]{\sec{\left(#1\right)}}
+\newcommand{\dcsc}[1]{\csc{\left(#1\right)}}
+\newcommand{\dcot}[1]{\cot{\left(#1\right)}}
+\newcommand{\darcsin}[1]{\arcsin{\left(#1\right)}}
+\newcommand{\darccos}[1]{\arccos{\left(#1\right)}}
+\newcommand{\darctan}[1]{\arctan{\left(#1\right)}}
+\newcommand{\dsinh}[1]{\sinh{\left(#1\right)}}
+\newcommand{\dcosh}[1]{\cosh{\left(#1\right)}}
+\newcommand{\dtanh}[1]{\tanh{\left(#1\right)}}
+\newcommand{\dexp}[1]{e^{#1}}
+
+\newcommand{\dln}[1]{\ln{\left(#1\right)}}
+
+\newcommand{\dsum}[2]{\displaystyle\sum_{#1}^{#2}}
+\newcommand{\dlim}[2]{\lim_{#1\rightarrow#2}}
+\newcommand{\dint}[2]{\displaystyle\int_{#1}^{#2}}
+\newcommand{\doint}[2]{\displaystyle\oint_{#1}^{#2}}
 
 
-\usepackage{blindtext}
-%\usepackage{showframe} % Uncomment to show boxes around the text area, margin, header and footer
-%\usepackage{showlabels} % Uncomment to output the content of \label commands to the document where they are used
+\NewDocumentCommand{\umathnote}{ mm }
+   {
+     \overset % ❶
+        {% The annotation goes above
+          \textcolor{black!20!white}{\hbox to 0pt{\hss % ❷
+             $ % return to math mode
+               \begin{array}{c} % ❸
+                   \displaystyle #2\\ % ❹
+                   \Big\downarrow % ❺
+               \end{array}
+             $
+          \hss}
+          }
+        }
+        {#1} % 
+   }
+   
+\NewDocumentCommand{\dmathnote}{ mm }
+   {
+     \underset % ❶
+        {% The annotation goes above
+          \textcolor{black!20!white}{\hbox to 0pt{\hss % ❷
+             $ % return to math mode
+               \begin{array}{c} % ❸
+                   \Big\uparrow\\ % ❹
+                   \displaystyle #2 % ❺
+               \end{array}
+             $
+          \hss}
+          }
+        }
+        {#1} % 
+   }
 
-% Load the bibliography package
-\usepackage{kaobiblio}
-\addbibresource{main.bib} % Bibliography file
 
-% Load mathematical packages for theorems and related environments
-\usepackage[framed=true]{kaotheorems}
+\renewcommand{\baselinestretch}{0.5}
+\usepackage{titlesec}
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+            {-2.5ex\@plus -1ex \@minus -.25ex}%
+            {1.25ex \@plus .25ex}%
+            {\normalfont\normalsize\bfseries}}
+\makeatother
+\setcounter{secnumdepth}{4} % how many sectioning levels to assign numbers to
+\setcounter{tocdepth}{4}    % how many sectioning levels to show in ToC
+\usepackage[mathscr]{euscript}
+\usepackage[all]{xy}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+\usepackage{tikz}
+\usetikzlibrary{calc, arrows}
+\usepackage[makeroom]{cancel}
+\newenvironment{grand}
+{\begin{center}\large}
+{\end{center}}
+\usepackage[framemethod=TikZ]{mdframed}
 
-% Load the package for hyperreferences
-\usepackage{kaorefs}
 
-%%%%%%%%%%%%%%%%Paquetes%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{witharrows}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcounter{dem}[chapter]\setcounter{dem}{0}
+\renewcommand{\thedem}{\Roman{dem}}  
+\newenvironment{dem}[2][]{%
+\refstepcounter{dem}%
+\ifstrempty{#1}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=white]
+{\strut Tema~\thedem};}}
+}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=white]
+{\begin{minipage}{0.99\linewidth}#1\end{minipage}};}}%
+}%
+\mdfsetup{innertopmargin=10pt,linecolor=black,%
+linewidth=0.5pt,topline=true,%
+frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+}
+\begin{mdframed}[]\relax%
+\label{#2}}{\end{mdframed}}
 
-\graphicspath{{../Images}{images/}} % Paths in which to look for images
 
-\makeindex[columns=3, title=Alphabetical Index, intoc] % Make LaTeX produce the files required to compile the index
+\usepackage{nccmath}
+\usepackage{tcolorbox}
+\tcbuselibrary{most}
 
-\makeglossaries % Make LaTeX produce the files required to compile the glossary
-\input{Chapters/Glossary.tex} % Include the glossary definitions
+\newtcolorbox[auto counter,
+              number within=chapter,
+              list inside=ej
+              ]{ej}[1][]{%
+    enhanced, breakable,
+    title={{\begin{minipage}{\linewidth}\textbf{Ejercicio}\thetcbcounter.\textit{#1}\end{minipage}}},
+    halign title=left,
+    sharp corners,
+    colback=white,
+    coltitle=black,
+    colbacktitle=white,
+    boxrule=0pt,frame hidden,
+    underlay unbroken and first={%
+         \ifnumequal{\tcbsegmentstate}{0}{
+            \draw[black,double] (interior.north west)--(interior.south west);
+        }{\ifnumequal{\tcbsegmentstate}{1}{
+                \draw[black,double] (interior.north west)--(segmentation.west);
+            \begin{tcbclipinterior}
+                    \draw[help lines, step=3.8mm, black!20!white](segmentation.south west) grid (frame.south east);
+            \end{tcbclipinterior}
+        }{\ifnumequal{\tcbsegmentstate}{2}{
+            \begin{tcbclipinterior}
+                    \draw[help lines, step=3.8mm, black!20!white](interior.north west) grid (interior.south east);
+            \end{tcbclipinterior}
+        }}}
+    },
+    underlay middle and last={%
+         \ifnumequal{\tcbsegmentstate}{0}{
+            \draw[black,double] (interior.north west)--(interior.south west);
+        }{\ifnumequal{\tcbsegmentstate}{1}{
+                \draw[black,double] (interior.north west)--(segmentation.west);
+            \begin{tcbclipinterior}
+                    \draw[help lines, step=3.8mm, black!20!white](segmentation.south west) grid (frame.south east);
+            \end{tcbclipinterior}
+        }{\ifnumequal{\tcbsegmentstate}{2}{
+            \begin{tcbclipinterior}
+                    \draw[help lines, step=3.8mm, black!20!white](interior.north west) grid (interior.south east);
+            \end{tcbclipinterior}
+        }}}
+    },
+    boxed title style={%
+      colframe=white, 
+      boxrule=0pt,
+      colback=white,
+      left=0pt,
+      right=0pt},
+    attach boxed title to top left={xshift={-5pt}},
+    lower separated=false, 
+    before lower = {\tcbsubtitle[colback=white, opacityback=0, colframe=black, opacityframe=0, boxrule=1pt, height=1cm,  width=2.55cm, valign=center]{\textbf{Solution:}}}
+}
 
-\makenomenclature % Make LaTeX produce the files required to compile the nomenclature
+\newtcolorbox[auto counter,
+              number within=chapter,
+              list inside=defi
+              ]{defi}[1][]{%
+    enhanced,
+    title={{\begin{minipage}{0.99\linewidth}\textit{#1}\end{minipage}}},
+    ,
+    halign title=left,
+    sharp corners,
+    colback=white,
+    coltitle=black,
+    colbacktitle=white,
+    boxrule=0pt,frame hidden,
+    overlay unbroken={%
+      \draw[black,double] (interior.north west)--(interior.south west);%
+      },
+    boxed title style={%
+      colframe=white, 
+      boxrule=0pt,
+      colback=white,
+      left=0pt,
+      right=0pt},
+    attach boxed title to top left={xshift={-5pt}},
+}
+\usepackage{float}
 
-% Reset sidenote counter at chapters
-\counterwithin*{sidenote}{chapter}
+\usepackage{fancyhdr}
+
+\usepackage{geometry}
+\usepackage{physics}
+\newgeometry{bottom=0.5cm,top=0.5cm,right=0.5cm,left=0.5cm,binding=0.5cm}
+
+\title{Formulario}
 
 \begin{document}
 
-\titlehead{Apuntes de }
-\subject{Asignatura}
-
-\title[]{Título}
-\subtitle{Customise this page according to your needs}
-
-\author[]{}
-
-\date{\today}
-
-\publishers{An Awesome Publisher}
-
-\frontmatter
-
-\makeatletter
-\uppertitleback{\@titlehead}
-
-\makeatletter
-\uppertitleback{\@titlehead} % Header
-
-\lowertitleback{
-  \textbf{Disclaimer}\\
-  You can edit this page to suit your needs. For instance, here we have a no copyright statement, a colophon and some other information. This page is based on the corresponding page of Ken Arroyo Ohori's thesis, with minimal changes.
-
-  \medskip
-
-  \textbf{No copyright}\\
-  \cczero\ This book is released into the public domain using the CC0 code. To the extent possible under law, I waive all copyright and related or neighbouring rights to this work.
-
-  To view a copy of the CC0 code, visit: \\\url{http://creativecommons.org/publicdomain/zero/1.0/}
-
-  \medskip
-
-  \textbf{Colophon} \\
-  This document was typeset with the help of \href{https://sourceforge.net/projects/koma-script/}{\KOMAScript} and \href{https://www.latex-project.org/}{\LaTeX} using the \href{https://github.com/fmarotta/kaobook/}{kaobook} class.
-
-  The source code of this book is available at:\\\url{https://github.com/fmarotta/kaobook}
-
-  (You are welcome to contribute!)
-
-  \medskip
-
-  \textbf{Publisher} \\
-  First printed in May 2019 by \@publishers
-}
-\makeatother
-
-\maketitle
-
-\begingroup % Local scope for the following commands
-
-% Define the style for the TOC, LOF, and LOT
-%\setstretch{1} % Uncomment to modify line spacing in the ToC
-%\hypersetup{linkcolor=blue} % Uncomment to set the colour of links in the ToC
-\setlength{\textheight}{230\hscale} % Manually adjust the height of the ToC pages
-
-% Turn on compatibility mode for the etoc package
-\etocstandarddisplaystyle % "toc display" as if etoc was not loaded
-\etocstandardlines % "toc lines" as if etoc was not loaded
-
-\tableofcontents % Output the table of contents
-
-\listoffigures % Output the list of figures
-
-% Comment both of the following lines to have the LOF and the LOT on different pages
-\let\cleardoublepage\bigskip
-\let\clearpage\bigskip
-
-\listoftables % Output the list of tables
-
-\endgroup
-
-%----------------------------------------------------------------------------------------
-%	MAIN BODY
-%----------------------------------------------------------------------------------------
-
-\mainmatter % Denotes the start of the main document content, resets page numbering and uses arabic numbers
-\setchapterstyle{kao} % Choose the default chapter heading style
-
-
-
-\pagelayout{wide}
-
-\addpart{El interior estelar de aquí}
-
-\pagelayout{margin}
-
-\input{Chapters/tema1 copy.tex}
-\input{Chapters/tema2.tex}
-\input{Chapters/tema3.tex}
-
+\footnotesize
+\begin{dem}[Introdución]{}
+  
+\end{dem}
 
 
 \end{document}

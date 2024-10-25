@@ -233,7 +233,13 @@ si cambiamos la $f$ y la $g$ por $\xi^{j}$ y $\xi^{i}$, respectivamente.
 \pb{\xi^{j}}{\xi^{i}}=\partial_{\gamma }\xi^{j} \omega^{\gamma  \delta } \partial_{\delta } \xi^{ i} = \delta_{\gamma}^{i}\omega\omega^{\gamma  \delta }\delta_{\delta}^{j} 
 \end{DispWithArrows}
 
-Los corchetes de Poisson (CP) tiene las propiedades de cuerdas que se mencionaron en Sección 3.4.1 en conexión con el algebra de Lie: es bilinear y antisimétrica y satisface la identidad Jacobi (ver Problema 20). En más, satisface una regla de producto de tipo Leibniz:
+Si cambiamos f y g por $\xi^{i}$ y $\xi^{j}$, respectivamente, entonces
+\begin{DispWithArrows}[format=ll, displaystyle]
+\pb{\xi^{i}}{\xi^{j}}=& \partial_{\gamma }\xi^{i} \omega^{\gamma  \delta } \partial_{\delta } \xi^{ j} \\
+=& \delta_{\gamma}^{j}\omega^{\gamma  \delta }\delta_{\delta}^{i}=\omega^{ij} 
+\end{DispWithArrows}
+
+Los corchetes de Poisson (CP) satisfacen una regla de producto de tipo Leibniz:
 
 \begin{DispWithArrows}[displaystyle, format=c]
 \{f, g h\}=g\{f, h\}+\{f, g\} h \tag{5.48}
@@ -263,16 +269,46 @@ $$
 La ecuación (5.49) se satisface por todas las variables dinámicas, incluyendo las coordenadas mismas. Aplicado a las coordenadas locales, se convierte en
 
 \begin{DispWithArrows}[displaystyle, format=c]
-\dot{\xi}^{\prime}=\left\{\xi^{\prime}, H\right\} \tag{5.50}
+\Delta_{H}^{j}=\dot{\xi}^{j}=\left\{\xi^{j}, H\right\} \left\{\begin{array}{c}
+  \dot{q}^{a}=\pb{q^{a}}{H} \\
+  \dot{o}_{a}=\pb{p_{a}}{H} \\
+\end{array}\right.
+    \tag{5.50}
 \end{DispWithArrows}
 
-que es solo otra forma de escribir las ecuaciones hamiltonianas canónicas. Otra aplicación de Eq. (5.49) es a la función hamiltoniana. La antisimetría del CP implica que $\{H, H\}=0$, y luego
+que es solo otra forma de escribir las ecuaciones hamiltonianas canónicas. Otra aplicación de Eq. (5.49) es a la función hamiltoniana. Si hacemos la derivada de una función $f$ cualquiera obtenemos 
+\begin{DispWithArrows}[format=c, displaystyle]
+  \dv{f}{t}=\dot{f}=\partial_{i}f\dot{\xi}^{i}=\partial_{i}f\omega^{ij}\partial_{j}H+\partial_{t} f=\{f, H\}+\partial_{t} f\equiv \mathbf{L}_{\Delta_{H}}
+\end{DispWithArrows}
+
+
+La antisimetría del CP implica que $\{H, H\}=0$, y luego
 
 \begin{DispWithArrows}[displaystyle, format=c]
 \dot{H}=\{H, H\}+\partial_{t} H=\partial_{t} H \tag{5.51}
 \end{DispWithArrows}
 
 es decir, la derivada temporal de la función hamiltoniana es igual a su derivada parcial temporal. Esto refleja la conservación de energía para lagrangianos invarientes en el tiempo, ya que se puede demostrar desde la definición original de la función hamiltoniana que $\partial_{t} H=-\partial_{t} L$.
+
+Los paréntesis de Poisson (PB) de funciones tomadas con las coordenadas jugarán un papel especial en gran parte de lo que sigue, así que los presentamos aquí. Si \( f \in \mathcal{F}\left(\mathbf{T}^{*} \mathbb{Q}\right) \), entonces se tienen las siguientes relaciones:
+
+\[
+\Delta_{f}^{\alpha }= \underbrace{\partial_{\gamma }\xi^{j}}_{\delta _{\gamma }^{j}}\omega^{jk}\partial_{k}f\left\{\xi^{j}, f\right\} = \omega^{j k} \partial_{k} f, \text{ o } 
+\]
+
+\[
+\left\{p_{\alpha}, f\right\} = \frac{\partial f}{\partial q^{\alpha}}, \quad \left\{q^{\alpha}, f\right\} = -\frac{\partial f}{\partial p_{\alpha},} 
+\]
+
+\[
+\left\{\xi^{j}, \xi^{k}\right\} = \omega^{j k}, \text{ o }
+\]
+
+\[
+\left\{p_{\beta}, q^{\alpha}\right\} = \delta_{\beta}^{\alpha}, \quad \left\{q^{\alpha}, q^{\beta}\right\} = \left\{p_{\alpha}, p_{\beta}\right\} = 0.
+\]
+
+
 
 \begin{example}[(a) Encuentra las correciones Poisson de las componentes $j_\alpha$ del momento angular $\mathbf{j}$ con variables dinámicas (usamos $\mathbf{j}$ en lugar de $\mathbf{L}$ para evitar la confusión con el Lagrangiano y la derivada de Lie). \\  (b) Encuentra las PBs de las componentes $j_\alpha$ con la posición y momentum en espacio euclidiano 3. \\
   (c) La única forma de formar escalar es mediante productos de dot. Encuentra las correciones Poisson de las $j_\alpha$ con los momientos y posiciones. \\
@@ -357,11 +393,12 @@ Consideremos el oscilador armónico isotrópico en \( n \) grados de libertad (p
 \[
 L = \frac{1}{2} \delta_{\alpha \beta} \left( \dot{q}^{\alpha} \dot{q}^{\beta} - q^{\alpha} q^{\beta} \right)
 \]
+\todo{Al pasar a la nueva notación hemos perdido como se transformar los momentos (forma covariante), se verá como se hace}
 
 lo cual lleva a
 
 \[
-H = \frac{1}{2} \delta_{y k} \xi^{y} \xi^{k}
+H = \frac{1}{2} (\delta^{\alpha \beta }p_{\alpha }p_{\beta }+\delta_{\alpha \beta }q^{\alpha \beta })= \frac{1}{2} \delta_{y k} \xi^{y} \xi^{k}
 \]
 
 Luego, a partir de (5.50) con bilinealidad y Leibniz, se sigue que
@@ -373,13 +410,13 @@ Luego, a partir de (5.50) con bilinealidad y Leibniz, se sigue que
 Una forma de resolver estas ecuaciones es derivarlas con respecto al tiempo y usar la propiedad de que \( \Omega^{2} = -\mathbb{I} \), obteniendo \( \ddot{\xi}^{k} = -\xi^{k} \). Estas \( 2n \) ecuaciones de segundo orden dan lugar a \( 4n \) constantes del movimiento que están conectadas por las ecuaciones de primer orden (5.55), de modo que solo \( 2n \) de ellas son independientes. Una manera diferente, y quizás más interesante, de resolver estas ecuaciones es escribirlas en la forma
 
 \[
-\dot{\xi} = \Lambda \xi \tag{5.56}
+\dot{\vec{\xi}} = \Lambda \vec{\xi} \tag{5.56}
 \]
 
-donde \( \xi \) es el vector de \( 2n \) dimensiones con componentes \( \xi^{k} \) y \( \Lambda \) es la matriz con elementos \( \lambda_{k}^{y} = \delta_{j k} \omega^{t} \). La solución de la ecuación (5.56) es
+donde \( \xi \) es el vector de \( 2n \) dimensiones con componentes \( \xi^{k} \) y \( \Lambda =\Omega^{-1}\mathrm{i}\) es la matriz con elementos \( \lambda_{k}^{y} = \delta_{j k} \omega^{t} \). La solución de la ecuación (5.56) es
 
 \[
-\boldsymbol{\xi}(t) = e^{\Lambda t} \xi_{0} \tag{5.57}
+\vec{}{\xi}(t) = e^{\Lambda t} \vec{\xi_{0}} \tag{5.57}
 \]
 
 donde \( \xi_{0} \) es un vector constante cuyas componentes son las condiciones iniciales, y
@@ -526,3 +563,105 @@ donde \( Z_{l} = \omega_{j k} X^{k} \). Esta es la condición de integrabilidad 
 
 Esto completa la demostración. Hemos probado el resultado solo de forma local, lo cual es lo máximo que se puede lograr. Si el paréntesis de Poisson se comporta como un producto con respecto a la diferenciación temporal, entonces existe una función Hamiltoniana local \( H \); es decir, el sistema dinámico es localmente hamiltoniano. Puede no existir una única función \( H \) que sea válida en toda \( \mathbf{T}^{*} \mathbb{Q} \).
 \end{proof}
+
+\begin{corollary}
+  
+\end{corollary}
+
+\section{Geometría simpléctica}
+
+En esta sección se analiza la geometría de 
+$\mathbf{T}^{*} \mathbb{Q}$ y cómo esta geometría contribuye a sus propiedades como una variedad portadora para la dinámica.
+
+\subsection{Espacio cotangente}
+
+Primero demostraremos la diferencia entre \( T \mathbb{Q} \) y \( \mathbf{T}^{*} \mathbb{Q} \). El haz tangente \( \mathbf{T} \mathbb{Q} \) consiste en la variedad de configuración \( \mathbb{Q} \) y el conjunto de los espacios tangentes \( \mathbf{T}_{q} \mathbb{Q} \), cada uno asociado a un punto \( q \in \mathbb{Q} \). Los puntos de \( \mathbf{T} \mathbb{Q} \) tienen la forma \( (q, \dot{q}) \), donde \( q \in \mathbb{Q} \) y \( \dot{q} \) es un vector en \( \mathbf{T}_{q} \mathbb{Q} \). Sin embargo, los puntos \( (q, p) \) de \( \mathbf{T}^{*} \mathbb{Q} \) no tienen esta forma, ya que \( p \) no es un vector en \( \mathbf{T}_{q} \mathbb{Q} \). Mostramos esto al considerar la forma diferencial \( \theta_{L} \equiv \left(\partial L / \partial \dot{q}^{\alpha}\right) d q^{\alpha} = p_{\alpha} d q^{\alpha} \) de la Ecuación (3.86) y al compararla con el campo vectorial \( \dot{q}^{\alpha}\left(\partial / \partial q^{\alpha}\right) \).
+
+Los \( \dot{q}^{\alpha} \) son los componentes locales del campo vectorial \( \dot{q}^{\alpha}\left(\partial / \partial q^{\alpha}\right) \) en \( \mathbb{Q} \): para funciones dadas \( \dot{q}^{\alpha} \in \mathcal{F}(\mathbb{Q}) \), especifican el vector con componentes \( \dot{q}^{\alpha}(q) \) en el espacio tangente \( \mathbf{T}_{q} \mathbb{Q} \) en cada \( q \in \mathbb{Q} \). Sin embargo, los \( p_{\alpha} \) son los componentes locales de la forma diferencial \( \theta_{L} = p_{\alpha} d q^{\alpha} \). Aunque \( \theta_{L} \) se introdujo como una forma diferencial en \( \mathbb{T} \mathbb{Q} \), también puede verse como una forma diferencial en \( \mathbb{Q} \), ya que no contiene una parte \( d \dot{q} \) (cuando se ve de esta manera, sus componentes dependen, sin embargo, de los \( \dot{q}^{\alpha} \) como parámetros). Una forma diferencial no es un campo vectorial, y por lo tanto los \( p_{\alpha} = \partial L / \partial \dot{q}^{\alpha} \), componentes de una forma diferencial, no son componentes de un campo vectorial. En la Sección 3.4.1 mencionamos que las formas diferenciales son duales a los campos vectoriales, por lo que \( \theta_{L} \) pertenece a un espacio dual al \( \mathbf{T}_{q} \mathbb{Q} \). Este nuevo espacio se denota como \( \mathbf{T}_{q}^{*} \mathbb{Q} \) y se llama el espacio cotangente en \( q \in \mathbb{Q} \). Sus elementos, las formas diferenciales, mapean los vectores (es decir, se combinan con ellos en una especie de producto interno) hacia funciones.
+
+\subsubsection{dos-formas}
+Recordemos que en el tema 1, una 1-forma \( \alpha \) en \( T \mathbb{Q} \) se definió como un mapeo lineal de los campos vectoriales \( X \) a funciones, es decir, \( \alpha: \mathcal{X} \rightarrow \mathcal{F}: X \mapsto \langle \alpha, X \rangle \). (Esta definición es válida para cualquier variedad diferencial, tanto para \( \mathbf{T}^{*} \mathbb{Q} \) como para \( \mathbf{T Q} \)). Las 2-formas se definen como mapeos bilineales y antisimétricos de pares de campos vectoriales a funciones. Es decir, si \( \omega \) es una 2-forma en \( \mathbf{T}^{*} \mathbb{Q} \) y \( X \) y \( Y \) son campos vectoriales en \( \mathbf{T}^{*} \mathbb{Q} \), entonces
+
+$$
+\omega(X, Y)=-\omega(Y, X) \in \mathcal{F}\left(\mathbf{T}^{*} \mathbb{Q}\right) \tag{5.66}
+$$
+
+matemáticamente, \( \omega: \mathcal{X} \times \mathcal{X} \rightarrow \mathcal{F} \). Como el mapeo es bilineal, puede representarse localmente mediante una matriz cuyos elementos son (recordando que \( \partial_{j} \equiv \partial / \partial \xi^{\prime} \) es un campo vectorial)
+
+$$
+\omega_{j k} = \omega\left(\partial_{j}, \partial_{k}\right) = -\omega_{k j} = -\omega\left(\partial_{k}, \partial_{j}\right) \tag{5.67}
+$$
+
+de modo que, por linealidad, si (localmente) \( X = X^{j} \partial_{j} \) y \( Y = Y^{k} \partial_{j} \), entonces
+
+$$
+\omega(X, Y) = \omega_{j k} X^{j} Y^{k} \tag{5.68}
+$$
+
+¿Qué ocurre si una 2-forma se aplica solo a un campo vectorial \( Y^{k} \partial_{k} \), es decir, qué tipo de objeto es \( \omega_{j k} Y^{k} \)? No es una función, ya que su subíndice \( j \) implica que tiene \( n \) componentes. Sin embargo, se puede construir una función a partir de ella y de un segundo campo vectorial \( X^{j} \partial_{j} \), multiplicando los componentes y sumando sobre \( j \), obteniendo así \( \left(\omega_{j k} Y^{k}\right) X^{j} \), que es el lado derecho de la Ecuación (5.68). Esto significa que \( \omega_{j k} Y^{k} \) es el componente \( j \)-ésimo de una 1-forma, ya que puede utilizarse para mapear cualquier campo vectorial \( X^{j} \partial_{j} \) a una función. En una notación evidente, esta 1-forma puede llamarse \( \omega(\bullet, Y) = -\omega(Y, \bullet) \) (el \( \bullet \) indica dónde colocar el otro campo vectorial): cuando la 1-forma \( \omega(\bullet, Y) \) se aplica a un campo vectorial \( X = X^{j} \partial_{j} \), el resultado es \( \omega(X, Y) \).
+
+Es conveniente introducir una terminología y notación uniformes para la acción de 1-formas y 2-formas sobre campos vectoriales. Se dice que los campos vectoriales se contraen con o se insertan en las formas, denotado por \( i_{X} \):
+
+$$
+i_{X} \alpha \equiv \alpha(X) \equiv \langle \alpha, X \rangle \quad \text { y } \quad i_{X} \omega \equiv \omega(\bullet, X) \tag{5.69}
+$$
+
+donde \( X \) es un campo vectorial, \( \alpha \) es una 1-forma, y \( \omega \) es una 2-forma. Entonces \( i_{X} \alpha \) y \( i_{Y} i_{X} \omega \equiv \omega(X, Y) = -i_{X} i_{Y} \omega \) son funciones, y \( i_{X} \omega \) es una 1-forma.
+\subsubsection{k-formas}
+
+De forma enteramente análoga a como hemos definidos las dos-formas, se definen las $k$-formas como tensores covariantes totalmente antisimétricos que actúan sobre $k$ vectores para dar un número real (o una función en el caso de campos). Mediante una asignación suave de una $k$-forma a cada punto de variedad diferenciables $\mathscr{M}$ obtenemos un campo de $k$-formas.
+
+Los productos tensoriales antisimetrizados y ordenados $d \zeta^{\alpha_{1}} \dot{\Lambda} \cdots \dot{\lambda} d \zeta^{\alpha_{k}}$ forman una base de $k$-formas y cualquier $k$-forma puede escribir como combinación lineal de los mismos:
+$$
+\omega=\sigma_{\alpha_{1} \cdots \alpha_{k}} \mathrm{~d} \zeta^{\alpha_{1}} \dot{\wedge} \cdots \dot{\wedge} \mathrm{~d} \zeta^{\alpha_{k}}=\frac{1}{k!} \sigma_{\alpha_{1} \cdots \alpha_{k}} \mathrm{~d} \zeta^{\alpha_{1}} \wedge \cdots \wedge \mathrm{~d} \zeta^{\alpha_{k}}
+$$
+
+Definiremos la contracción $i_{X} \omega$ de una $k$-forma $\omega$ con un vector $X$ como
+$$
+i_{X} \omega=\omega(X, \diamond, \ldots, \diamond)=\frac{1}{(k-1)!} \sigma_{\alpha_{1} \cdots \alpha_{k}} X^{\alpha_{1}} \mathrm{~d} \zeta^{\alpha_{2}} \wedge \cdots \wedge \mathrm{~d} \zeta^{\alpha_{k}}
+$$
+
+Si $\sigma$ es una $k$-forma y $\rho$ una $l$-forma, definimos el producto exterior de ambas $\sigma \wedge \rho$ como su producto tensorial completamente antisimetrizado, cuyas componentes son:
+$$
+(\sigma \wedge p)_{\alpha_{1} \cdots \alpha_{k} \beta_{1} \cdots \beta_{l}}=\frac{(k+l)!}{k!!!} \sigma_{\left[\alpha_{1} \cdots \alpha_{k}\right.} \rho_{\left.\beta_{1} \cdots \beta_{2}\right]}
+$$
+Se puede demostrar que si $\sigma$ es una $k$-forma y $\rho$ una $l$-forma, entonces
+$$
+i_{X}(\omega \wedge \rho)=i_{X} \omega \wedge \rho+(-1)^{k} \omega \wedge i_{X} \rho
+$$
+
+\subsubsection{Derivada exterior}
+
+Definimos la derivada exterior d como una operación que actúa sobre una $k$-forma $\omega$ para dar la $(k+1)$-forma
+$$
+\begin{aligned}
+\mathrm{d} \omega & =\frac{1}{k!} \mathrm{d} \sigma_{\alpha_{1} \cdots \alpha_{k}} \wedge \mathrm{~d} \zeta^{\alpha_{1}} \wedge \cdots \wedge \mathrm{~d} \zeta^{\alpha_{k}}= \\
+& =\frac{1}{k!} \partial_{\beta} \sigma_{\alpha_{1} \cdots \alpha_{k}} \mathrm{~d} \zeta^{\beta} \wedge \mathrm{d} \zeta^{\alpha_{1}} \wedge \cdots \wedge \mathrm{~d} \zeta^{\alpha_{k}}= \\
+& =(k+1) \partial_{[\beta} \sigma_{\alpha_{1} \cdots \alpha_{k}} \mathrm{~d} \zeta^{\beta} \dot{\wedge} \zeta^{\alpha_{1}} \dot{\wedge} \dot{\wedge} \mathrm{~d} \zeta^{\alpha_{k}}
+\end{aligned}
+$$
+cuyas componentes son $(k+1) \partial_{[\beta} \sigma_{\left.\alpha_{1} \cdots \alpha_{k}\right]}$. La derivada exterior satisface la "regla de Leibniz antisimetrizada"
+$$
+\mathrm{d}(\omega \wedge \rho)=\mathrm{d} \omega \wedge \rho+(-1)^{k} \omega \wedge \mathrm{~d} \rho
+$$
+donde $\omega$ es una $k$-forma y $\rho$ una $l$-forma.
+Por ejemplo, la derivada exterior $\mathrm{d} \omega$ de una uno-forma $\omega=\sigma_{\alpha} \mathrm{d} \zeta^{\alpha}$ es 
+$$
+\mathrm{d} \omega=\mathrm{d}\left(\sigma_{\beta} \mathrm{d} \zeta^{\beta}\right)=\partial_{\alpha} \sigma_{\beta} \mathrm{d} \zeta^{\alpha} \wedge \mathrm{d} \zeta^{\beta}=2 \partial_{[\alpha} \sigma_{\beta]} \mathrm{d} \zeta^{\alpha} \dot{\lambda} \mathrm{d} \zeta^{\beta}
+$$
+
+Una forma es exacta si la derivada exterior de otra. Una forma es cerrada si su derivada exterior se anula. La condición necesaria y suficiente para que una $k$ forma sea exacta (localmente) es que sea una forma cerrada. En particular, para uno-formas $\omega$ y dos-formas $\rho$,
+$$
+\mathrm{d} \omega=0 \Leftrightarrow \exists f|\omega=\mathrm{d} f, \quad \mathrm{~d} \rho=0 \Leftrightarrow \exists \omega| \rho=\mathrm{d} \omega \quad \text { (localmente). }
+$$
+
+En componentes, $\partial_{[\alpha} \sigma_{\beta]}=0 \Leftrightarrow \sigma_{\alpha}=\partial_{\alpha} f, \quad \partial_{[\alpha} \rho_{\beta \gamma]}=0 \Leftrightarrow \rho_{\alpha \beta}=2 \partial_{[\alpha} \sigma_{\beta]}$.
+\subsubsection{Ley de transformación II}
+
+Como hemos visto, una $k$-forma es un tensor antisimétrico covariante. Por tanto, bajo cambios de coordenadas, una $k$-forma se transforma de forma inversa a como lo hacen los vectores en cada uno de sus índices:
+
+\begin{DispWithArrows}[format=c, displaystyle]
+  \omega_{\alpha}^{\prime}=\frac{\partial \zeta^{\beta}}{\partial \zeta^{\prime \alpha}} \omega_{\beta}, \tag{1-forma}\\  \omega_{\alpha \beta}^{\prime}=\frac{\partial \zeta^{\gamma}}{\partial \zeta^{\prime} \alpha} \frac{\partial \zeta^{\delta}}{\partial \zeta^{\prime \beta}} \omega_{\gamma \delta}, \tag{2-forma}\\  \omega_{\alpha_{1} \cdots \alpha_{k}}^{\prime}=\frac{\partial \zeta^{\gamma_{1}}}{\partial \zeta^{\prime \alpha_{1}}} \cdots \frac{\partial \zeta^{\gamma_{k}}}{\partial \zeta^{\prime \alpha_{k}}} \omega_{\gamma_{1} \cdots \gamma_{k}} \tag{k-forma}
+\end{DispWithArrows}
+
+\subsection{Geometria simppléctica}
