@@ -5,11 +5,247 @@
 \begin{center}
   \large Todo esto lo he sacado del \cite{Dobdado}
 \end{center}
-\section{Ecuación de Klein Gordon}
-\section{Ecuación de Klein-Gordon en presencia de campos electromagnéticos}
-\section{Ecuación de Dirac}
-\section{El límite no relativista de la ecuación de Dirac}
-\section{Soluciones a la ecuación de Dirac}
-\subsection{Ondas con energía positiva}
-\subsection{Ondas con energía negativa}
-\section{Fermiones quirales}
+
+En este tema vamos a ver como es el formalismo de campos cuánticos en partículas con espín $\frac{1}{2}$
+\section{Campos fermionicos libres}
+Primero recordamos como son las soluciones para los campos fermionicos libres.
+
+Recordemos que estos campos son soluciones de la ecuación de Dirac 
+$$
+(i\cancel{\partial}-m)\Psi_D=0
+$$
+en donde $\Psi_D=\begin{pmatrix}
+  \psi_1 \\
+  \psi_2 \\
+  \psi_3 \\
+  \psi_4
+\end{pmatrix}$ es el cuadriespinor de Dirac.
+
+
+Las soluciones a la ecuación de Dirac tenían la siguiente forma según la energía
+$$
+\begin{aligned}
+ u_s(\vec{k}) e^{-i k x} \text { con } E>0 \\
+ v_s(\vec{k}) e^{i k x} \quad \text { con } E<0
+\end{aligned}
+$$
+en donde $s=1,2$ denota los 2 biespinores del cuadriespinor de Dirac. A paritr de ahora pasamos de $s$ a $\alpha$ para denotar cada una de las componentes del cuadriespinor, es decir, $\alpha=1,2,3,4$.
+
+De esta forma la solución más general para la ecuación de Dirac es:
+$$
+\psi_\alpha(\vec{x}, t)=\sum_s \int d \tilde{k}\left(\beta(\vec{k}, s) u_\alpha e^{-i k x}+\delta^*(\vec{k}, s) v_k(\vec{k}, s) e^{+i k x}\right)
+$$
+Esta solución puede obtenerse de uno de estos 2 Lagrangianos 
+$$
+\begin{aligned}
+& \mathcal{L}=i_2\left(\bar{\Psi} \gamma^\mu \partial_\mu \Psi-\partial_\mu \bar{\Psi} \gamma^\mu \Psi\right)-m \Psi \bar{\Psi} \\
+& \mathcal{L}=\bar{\Psi}\left(i \cancel{\partial}-m\right) \Psi
+\end{aligned}
+$$
+\todo{Estos 2 Lagrangianosson equivalentes ya que se diferencian por la divergencia de una cantidad}
+Usando el segundo Lagrangiano podemos definir el momento canónico conjugado de $\psi_\alpha$ como:
+$$
+\Pi_\alpha=\frac{\partial \mathcal{L}}{\partial \dot{\psi}}=i \psi_\alpha^{*} $$
+Si lo expresamos en terminos del cuadriespinor de Dirac, en vez de por componentes, obtenemos:
+$$\Pi=i \Psi^*
+$$
+Una vez que tenemos el momento canónico conjugado, podemos expresar el Hamiltoniano de Dirac como:
+$$
+\mathcal{H}=\Pi \dot{\psi}-\mathcal{L}=\overline{\psi}(-i \vec{\gamma} \cdot \vec{\nabla}-m) \psi
+$$
+Luego Dobado definió estas cantidades no se muy bien porque, pero las usaremos más adelante
+$$
+\sum_s u_s(\vec{k}) \overline{u_s(\vec{k})}=\cancel{\vec{k}}+m
+$$
+
+$$
+\sum_s v_s(\vec{k}) \overline{v_s(\vec{k})}=\cancel{\vec{k}}-m
+$$
+
+
+\section{Cuantización canónica}
+Una vez hecho el repaso sobre los campos clásicos relativistas, vamos a pasar a la cuantización canónica. Por lo que tendremos que ver las relaciones de conmutación. 
+
+En casos anteriores solo usamos el conmutador para ver las relaciones de conmutación, pero en este caso vamos a dejarlo un poco más ambigüo usando el anticonmutador tambien. Para ello introducimos la siguiente notación para los conmutadores de los operadores:
+$$
+[A, B]_{\mp}\left\{\begin{array}{c}
+  [A, B]_{-}\equiv [A, B] \\
+  [A, B]_{+}\equiv \{A, B\} 
+  
+\end{array}\right.
+$$
+De esta forma, cuando estblezcamos una relación de conmutación exigiremos que se aplique al conmutador y al anticonmutador por igual. \todo{Dobado demuestra una cosa con esto que resultará en que solo son validas las relaciones de anticonmutación}
+
+Una propiedad interesante de las relaciones de anticonmutación es:
+$$
+[A, A]_{+}=0 \Rightarrow A^2=-A^2 \rightarrow A^2=0 \Rightarrow A \neq 0
+$$
+
+En temas anteriores hemos visto que para cuantizar pasábamos de $\{q,p\}$ a $[\hat{q}, \hat{p}]$, pero como ya he mencionado, vamos a dejarlo abierto a que también puedan usarse el anticonmutador. \todo{Esto realmente es lo que deberíamos haber hecho siempre para luego acabar descartando uno de los dos}
+$$
+[\hat{q}, \hat{p}]\longrightarrow\frac{1}{h i}[\hat{q}, \hat{p}]_{\mp}
+$$
+
+De esta forma al pasar de del campo clásico al campo cuántico, las reglas de conmutación canónicas son:
+$$
+\left.\begin{array}{l}
+\psi_\alpha(\vec{x}, t) \longrightarrow \hat{\psi}_\alpha(\vec{x}, t) \\
+\Pi_\alpha(\vec{x}, t) \longrightarrow \hat{\Pi}_\alpha(\vec{x}, t)
+\end{array}\right\}\left[\hat{\psi}_\alpha(\vec{x}, t), \hat{\Pi}_\beta (\vec{x}, t)\right]_{\mp}=i \delta\left(\vec{x}-\vec{x}^{\prime}\right)
+$$
+y
+$$
+\left[\hat{\psi}_\alpha(\vec{x}, t), \hat{\psi}^{\dagger}_\alpha(\vec{x}, t)\right]_{\mp}= \delta\left(\vec{x}-\vec{x}^{\prime}\right)
+$$
+A continuación pasamos a obtener el Hamiltoniano de este sistema, el cual es muy similar al hamiltoniano integrando la densidad Hamiltoniana de antes. 
+$$
+\hat{H}_0=\int d \vec{x} \hat{\overline{\psi}}(-i \vec{\gamma} \cdot \vec{\nabla}+m) \hat{\psi}
+$$
+Hay que decir, que estos operadores de campo cumplen con la ecuación de Heisenberg, y por lo tanto su evolución se define como:
+$$
+\hat{\Psi}(\vec{x}, t)=e^{i \hat{H}_0 t} \Psi(\vec{x}, 0) e^{-i \hat{H}_0 t}
+$$
+Y además también cumplen la ecuación de Dirac para campos cuánticos: 
+$$
+(i\cancel{\partial}-m)\hat{\Psi}=0
+$$
+De esta forma las soluciones en su forma más general son:
+$$
+\hat{\psi}_\alpha(\vec{x}, t)=\sum_s \int d \tilde{k}\left(u_\alpha(\vec{k}, s) \hat{b}(\vec{k}, s) e^{-i k x}+v_\alpha(\bar{k}, s) \hat{d}^\dagger(\vec{k}, s) e^{i k x}\right)
+$$
+\subsection{Operadores de creación y destrucción}
+Ahora, al igual que en el tema anterior nos han salido dos nuevos operadores, que también seran los operadores creación y destrucción para las partículas y antipartículas de este campo. 
+
+Ahora estudiamos las relaciones de conmutación (y anticonmutación) de estos operadores:
+\begin{itemize}
+  \item Relaciones de conmutación para los operadores $\hat{b}(\vec{k}, s)$ y $ \hat{b}^{\dagger}(\vec{k'}, s')$
+  $$
+\left[\hat{b}(\vec{k}, s), \hat{b}^{\dagger}(\vec{k'}, s')\right]_\mp=(2 \pi)^3 2 E_K \delta\left(\vec{k}-\vec{k}^{\prime}\right) \delta_{s s'}
+$$
+
+$$
+\left[\hat{b}(\vec{k}, \tilde{s}), \hat{b}\left(\vec{k}', s^{\prime}\right)\right]_\mp=\left[\hat{b}^{\dagger}(\vec{k}, s), \hat{b}\left(\vec{k}^{\prime}, s'\right)\right]_\mp=0
+$$
+  \item Relaciones de conmutación para los operadores $\hat{d}(\vec{k}, s)$ y $ \hat{d}^{\dagger}(\vec{k'}, s')$
+  $$
+\left[\hat{d}(\vec{k}, s), \hat{d}^{\dagger}(\vec{k'}, s')\right]_\mp=(2 \pi)^3 2 E_K \delta\left(\vec{k}-\vec{k}^{\prime}\right) \delta_{s s'}
+$$
+
+$$
+\left[\hat{d}(\vec{k}, \tilde{s}), \hat{d}\left(\vec{k}', s^{\prime}\right)\right]_\mp=\left[\hat{d}^{\dagger}(\vec{k}, s), \hat{d}\left(\vec{k}^{\prime}, s'\right)\right]_\mp=0
+$$
+\end{itemize}
+
+\subsection{Hamiltoniano del campo fermiónico libre}
+Una vez definidos los operadores y las relación de conmutación, podemos definir el operador Hamiltoniano del campo fermiónico libre.
+
+$$
+\hat{H}_0=\sum_s \int d \tilde{k} E_k\left(\hat{b}^{\dagger}(\vec{k}, s) \hat{b}(\vec{k}, s)-\left\{\begin{array}{l}
+{[~~]_-} \rightarrow \hat{d}^{\dagger}(\vec{k}, s) \hat{d}(\vec{k}, s)\\
+{[~~]_+} \rightarrow \hat{d}(\vec{k}, s) \hat{d}^{\dagger}(\vec{k}, s)
+\end{array} \right.\right.
+$$
+Como podemos ver, el operador Hamiltoniano del campo fermiónico libre es muy similar al de un campo cuántico, pero como no hemos establecido que reglas de computación se deben cumplir, tenemos dos opciones. Vamos a ver los 2 casos:
+\begin{itemize}
+  \item Caso en el que los operadores cumplen las reglas de conmutación 
+  Como en temas anteriores en los que se obedecióan las reglas de conmutación, podemos expresar el Hamiltoniano en función de los operadores númor de partículas y número de antipartículas:
+  $$
+\hat{H}_0=\sum_s \int d \tilde{k} E_K(\hat{n}(\vec{k}, s)-\hat{\overline{n}}(\vec{k}, s))
+$$ 
+
+en donde $\hat{n}(\vec{k}, s)=\hat{b}^{\dagger}(\vec{k}, s) \hat{b}(\vec{k}, s)$ y $\hat{\overline{n}}(\vec{k}, s)=\hat{d}^{\dagger}(\vec{k}, s) \hat{d}(\vec{k}, s)$. 
+
+El problema aquí reside que mientras en el tema anterior las antipartículas añadián energía, en este caso la restan. Y como $\hat{\overline{n}}(\vec{k}, s)$ no tiene ninguna cota superior podriamos obtener un estado con energía negativa. Esto nos dice que este Hamiltonianono es compatible con la teoría de un campo cúantico ya que no hay un estad fundamental. 
+
+  \item Caso en el que los operadores cumplen las reglas de anticonmutación 
+  Como ya hemos visto que el Hamiltoniano del campo fermiónico libre cumple las reglas de anticonmutación, podemos expresarlo de la siguiente manera:
+  $$
+  \begin{array}{ll}
+    \hat{H}_0= &\sum_s \int d \tilde{k} E_k\left(\hat{b}^{\dagger}(\vec{k}, s) \hat{b}(\vec{k}, s)-\hat{d}(\vec{k}, s) \hat{d}^{\dagger}(\vec{k}, s)\right) \\
+    =&\sum_s \int d \tilde{k} E_k\left(\hat{b}^{\dagger}(\vec{k}, s) \hat{b}(\vec{k}, s)+\hat{d}^{\dagger}(\vec{k}, s) \hat{d}(\vec{k}, s)\right)-2 \int d \vec{k} E_k \delta(\vec{0})
+  \end{array}
+$$
+En este caso, el operador número de antipartículas no estaba de forma directa en el Hamiltoniano, por lo que se ha introducido el termino que esta restando.
+
+\end{itemize}
+
+Para no andar con el Hamiltoniano anterior, podemos definir el producto normal de este campo y así obtener un Hamiltoniano bueno y que este bien definido.
+
+\begin{definition}[Producto normal]
+
+  Aunque el producto noraml ya lo definimos, en este caso es diferente ya que al cumplir las reglas de anticonmutación el producto normal es:
+  $$
+: \hat{b} \hat{b}^{\dagger}:=-\hat{b}^{\dagger} \hat{b}
+$$
+\end{definition}
+
+De esta forma podemos definir el Hamiltoniano del campo fermiónico libre como:
+$$
+\hat{H}_0^{\prime}=: \hat{H}_0:=\sum_s \int d \tilde{k}\left(E_k \hat{n}(\vec{k}, s)+E_k \hat{\overline{n}}(\vec{k}, s)\right)
+$$
+en donde $\hat{n}(\vec{k}, s)=\hat{b}^{\dagger}(\vec{k}, s) \hat{b}(\vec{k}, s)$ y $\hat{\overline{n}}(\vec{k}, s)=\hat{d}^{\dagger}(\vec{k}, s) \hat{d}(\vec{k}, s)$. 
+
+Este Hamiltoniano es compatible con la teoría de un campo cuántico ya que hay un estad fundamental.
+
+\subsection{Estados de Foch}
+
+Al igual que en el tema anterior, podemos obtener los estados de Foch para este campo. 
+
+En este caso, como hemos usado los anticonmutadores en vez de los conmutadores, los estados tienen dos propiedades diferentes a las definidas en el tema anterior:
+\begin{enumerate}
+  \item Los estados son antisimétricos
+  
+  $$\begin{array}{ll}
+    \ket{\vec{k}_1, s_1 ; \vec{k}_2, s_2}=&\frac{1}{\sqrt{2}} \hat{b}^{\dagger}\left(\vec{k}_1, s_1\right) \hat{b}\left(\vec{k}_2, s_2\right)\ket{0} \\
+    =&\frac{-1}{\sqrt{2}}\hat{b}\left(\vec{k}_1, s_1\right) \hat{b}^{\dagger}\left(\vec{k}_2, s_2\right)\ket{0} \\
+    =&-\ket{\vec{k}_1, s_1 ; \vec{k}_2, s_2}
+  \end{array}$$
+
+  \item Los estados siguen el Teorema espín estadística debido a que se cumple esta regla que definimos al principio del tema: 
+  $$
+\left\{\hat{b}^{\dagger}, \hat{b}^{\dagger}\right\}=0 \quad \hat{b}^{\dagger^{2}}=0
+$$
+Por lo que la superposición de 2 estados de Foch es:
+$$
+\ket{\vec{k},s; \vec{k},s}=0
+$$
+\end{enumerate}
+
+
+\section{Propagador fermiónico}
+Al igual que en el tema anterior podemos definir el propagador fermiónico para este campo. 
+
+\begin{definition}[Propagador del campo fermiónico libre]
+  El propagador del campo fermiónico libre es:
+  $$
+G_{\alpha, \beta}(x, y)=\bra{0} T\left(\hat{\psi}_\psi(x), \hat{\psi}_\beta(y)\right)\ket{0}=\left\{\begin{array}{ll}
+\langle 0| \hat{\psi}_\alpha(x) \hat{\psi}_\beta(y)|0\rangle & x^0> y^0 \\
+-\langle 0| \hat{\psi}_\beta(y) \hat{\psi}_\alpha(x)|0\rangle & x^0<y^0
+\end{array}\right.
+$$
+\end{definition}
+
+A continuación definimos la estructura del propagador para los siguientes casos
+\begin{itemize}
+  \item $ x^0> y^0$
+  $$\begin{array}{ll}
+    G_{\alpha \beta}(x, y)= & \sum_{s s^{\prime}} \int d \tilde{k} \int d \tilde{k}^{\prime} u_\alpha(\vec{k}, s) \overline{u_\beta\left(\vec{k},s^{\prime}\right)} e^{-i k x} e^{i k^{\prime} y}\\
+    =&\int d \tilde{k} \underbrace{\sum_s u_\alpha(s , \vec{k}) \overline{u_\beta(s, \vec{k})} }_{(K+m)_{\alpha \beta}}e^{i k y}\\
+    =&\left(i \partial_x+m\right)_{\alpha \beta} \int d \tilde{k} e^{-i k(x-y)}
+  \end{array}$$
+  
+  \item  $ x^0< y^0$
+  Y deforma análoga al caso anterior:
+  $$
+  G_{\alpha \beta}(x, y)=\left(i \partial_x+m\right)_{\alpha \beta} \int d \tilde{k} e^{-i k(y-x)}
+$$
+\end{itemize}
+
+El ropagador en su forma más general es:
+$$
+G_{\alpha \beta}(x, y)=\frac{i}{(2 \pi)^4} \int \frac{d^4 k\left(i \partial_x+m\right)_{\alpha \beta} e^{-i k(x-y)}}{k^2-m^2+i \epsilon}
+$$
+Y en notación matricial, sin indices, es:
+$$
+G(x, y)=\frac{i}{(2 \pi)^4} \int \frac{d^4 k\left(i \cancel{k}+m\right) e^{-i k(x-y)}}{k^2-m^2+i \epsilon}
+$$

@@ -6,6 +6,66 @@
   \large Todo esto lo he sacado del \cite{Dobdado}
 \end{center}
 \section{Campos clásicos relativistas}
+
+En la teoría de campos clásicos relativistas, el campo es un concepto abstracto que se puede entender como una función de varias variables que depende de las coordenadas espaciales y de un parámetro temporal.
+
+Al igual que las funciones de onda, tenemos un campo $\Phi$ que de pende de las $\phi_{i}$ coordenadas, y cada una de estas coordenadas esta definida por unas coordenadas espaciales $\vec{x}$ y un parámetro temporal $t$.
+
+A la hora de aplicar transformaciones en este formalismo podemos emplear 2 tipos de puntos de vista:
+\begin{enumerate}
+  \item \textbf{Actitud activa}: Esta será la que usaremos y será aquella en la que las transformaciones se hacen al sistema 
+  \item \textbf{Actitud pasiva}: En este caso aplicamos las transformaciones al sistema de referencia.
+\end{enumerate}
+\begin{corollary}
+  Cuando hay simetria estos puntos de vista pueden ser iguales.
+\end{corollary}
+
+Dado que adpotamos la actitud activa, una transformación sobre el campo lo alterará de forma que 
+
+\[\Phi(\vec{x},t)\xrightarrow{\text{T}} \Phi(\vec{x'})\]
+
+De esta forma definimos las variaciones de campo como $\tilde{\delta}$:
+
+\begin{definition}[Variación tilda]
+  La variación tilda $\tilde{\delta}$ de un campo $\Phi$ es la diferencia entre el campo en un punto $\vec{x}$ y el campo en un punto $\vec{x'}$ que se obtiene al aplicar una transformación $\text{T}$ al campo original. Es decir,
+  
+  \[\tilde{\delta}\Phi=\underbrace{\Phi'(\vec{x'})-\Phi(\vec{x})}_{\text{Trans. General}}=\Phi'(\vec{x'}+\delta\vec{x})-\Phi(\vec{x})=\]
+  \[\Phi'(x^{\mu})+\partial_{\mu}\Phi'(x^{\mu})(\delta x^{\mu})-\Phi(x^{\mu})\]
+
+  En donde el termino del medio se va ya que no quedaría lineal ($\Phi'(x^{\mu})=\Phi(x^{\mu})+\delta \Phi$). 
+
+  De esta forma, la variación tilda de un campo $\Phi$ es:
+  \[\tilde{\delta}\Phi=\underbrace{\Phi'(\vec{x})-\Phi(\vec{x})}_{\text{Variación \\ intrínseca }}+\underbrace{\delta x^{\mu}\partial_{\mu}\Phi(x^{\mu})}_{\text{Termino de \\ transporte}}=\delta\Phi+\delta x^{\mu}\partial_{\mu}\Phi(x^{\mu})\]
+  
+\end{definition}
+
+\subsection{Casos simples}
+Los casos simples son aquellos en los que las variaciones del campo tienen o no tiene término de transporte, es decir, 
+\[\delta x^{\mu}\neq 0 \longrightarrow\text{Transformación tipo espacio-tiempo}\]
+\[\delta x^{\mu}= 0 \longrightarrow\text{Transformación tipo interna} \rightarrow \tilde{\delta}\Phi=\delta\Phi\]
+A continuación definiremos que son estas variaciones:
+\begin{definition}[Variación intrínseca]
+  La variación 
+  $\delta x^\mu=\epsilon^a A_a^\mu(x) \quad \epsilon^a \ll 1 \quad \partial_\mu \epsilon^a=0 \rightarrow$ transformación global
+
+\end{definition}
+\begin{definition}[Variación tilda]
+  $\hat{\delta} \phi=\epsilon^a F_{i, a}(\Phi, \partial \Phi) \quad \quad \partial_\mu \epsilon^a \neq 0 \rightarrow$ transformaciór local (Gauge)
+\end{definition}
+\subsubsection{Transformaciones de Lorentz}
+
+\begin{example}[Campo escalar]
+  
+\end{example}
+\begin{example}[Espinores de Weyl]
+  
+\end{example}
+\begin{example}[Campo vectorial]
+  
+\end{example}
+\begin{example}[Campo tensorial]
+  
+\end{example}
 \section{Dinámica de los campos clásicos}
 
 Por la mecánica lagrangiana sabemos que para estudiar la dinámica usamos las llamadas coordenadas generalizadas $q_{i}(t)$. En el formalismo de campos utilizamos el propio campo para definir la dinámica, es decir, supongamos que tenemos un campo $\Phi$ el cual esta compuesto por el valor del campo en un punto que denotamos $\phi_{i}(\vec{x},t)$ estas $\phi_{i}$ son las coordenadas generalizadas en el formalismo de campos. Esto se puede ver como:
