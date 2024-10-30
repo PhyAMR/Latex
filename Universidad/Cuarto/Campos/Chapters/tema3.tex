@@ -94,7 +94,7 @@ Esta función
 
 \[\int d^{4}\frac{k}{(2\pi)^{3}}\alpha_{\vec{k}}\theta(k^{0})\delta(k^{2}-m^{2})e^{-ikx}\]
 
-es solución poque $\delta(k^{2}-m^{2})$ garantiza que $k^{2}-m^{2}=0$ y $\theta(k^{0})$ (es la función escalón\sidenote{$\theta(k^{0}=\left\{\begin{align}0 \text{ si } k^{0}<0 \\ 1 \text{ si }k^{0}>0\end{align}\right.)$}) granatiza que $E_{k}>0$ y es proporcional a las soluciones que obtuvimos en el tema 1. 
+es solución poque $\delta(k^{2}-m^{2})$ garantiza que $k^{2}-m^{2}=0$ y $\theta(k^{0})$ (es la función escalón\todo{$\theta(k^{0})=\left\{\begin{array}{c}0 \text{ si } k^{0}<0 \\ 1 \text{ si }k^{0}>0\end{array}\right.$}) granatiza que $E_{k}>0$ y es proporcional a las soluciones que obtuvimos en el tema 1. 
 
 Podemos definir la delta de una función como 
 \begin{definition}[Delta de Dirac de una función]
@@ -149,7 +149,7 @@ Así obtenemos que las soluciones de la ecuación de Klein-Gordon de un campo cu
   
   Esto no lo hemos obtenido realmente, pero si forzamos a que cumplan estas reglas podemos obtener las reglas de conmutación de los operadores creación y destrucción. Estas reglas son
   \[\comm{\hat{a}_{\vec{k}}}{\hat{a}_{\vec{k'}}}=\comm{\hat{a}^{\dagger}_{\vec{k}}}{\hat{a}^{\dagger}_{\vec{k'}}}=0\]
-  y \[\comm{hat{a}_{\vec{k}}}{\hat{a}^{\dagger}_{\vec{k}}}= 2E_{k}(2\pi)^{3}\delta(\vec{k}-\vec{k'})\]
+  y \[\comm{\hat{a}_{\vec{k}}}{\hat{a}^{\dagger}_{\vec{k}}}= 2E_{k}(2\pi)^{3}\delta(\vec{k}-\vec{k'})\]
 \end{itemize}
 
 Una vez encontrados los operadores, nos falta encontrar a que estados los aplicamos, ya dijimos que no ibamos a tener funciones de onda, ¿como vamos a describir a las cosas si no usamos funciones de onda?
@@ -260,6 +260,7 @@ De esta forma podemos definir el Hamiltoniano $\hat{H'}$ como
 En donde encontramos un nuevo operador como multiplicación de 2 operadores, este es el operador número y se define como 
 
 \begin{definition}[Operador número]
+  El operador número de una partícula se define como:
   \begin{DispWithArrows}[format=c, displaystyle]
   \hat{n}_{k}=\hat{a}^{\dagger}_{\vec{k}}\hat{a}_{\vec{k}}
   \end{DispWithArrows}
@@ -276,6 +277,8 @@ De esta forma el Hamiltoniano $H'$ es
 Una vez definido el operadore número, es conveniente definir el operador número total de partículas 
 
 \begin{definition}[Operador número total de partículas]
+  El operador número total de partículas se define como: 
+
   \begin{DispWithArrows}[format=c, displaystyle]
   \hat{N}=\int d\tilde{k}\hat{n}_{k}
   \end{DispWithArrows}
@@ -326,6 +329,8 @@ El operador campo conjugado crea una partícula y nos devuelve la posición de e
 El propagador de un campo se definer como:
 
 \begin{definition}
+
+  Definimos el propagador como: 
   \begin{DispWithArrows}[format=c, displaystyle]
   G(x,y)=\ev{T(\hat{\phi}(x),\hat{\phi}(y))}{0}
   \end{DispWithArrows}
@@ -340,16 +345,20 @@ Ahora podemos ver que tenemos 2 casos:
   \item $x^{0} > y^{0}$
   
   En este caso tenemos que el propagador es 
+
   \begin{DispWithArrows}[format=ll, displaystyle]
-  G(x,y)= & \ev{\hat{\phi}(x),\hat{\phi}(y)}{0}=\int d\tilde{k}e^{-ikx}\int d \tilde{k'}e^{ik'y}\braket{\vec{k}}{\vec{k'}} \\
-  &=\int d\tilde{k}e^{-ik(x-y)}
+  G(x,y)= & \ev{\hat{\phi}(x),\hat{\phi}(y)}{0} \\
+  =&\int d\tilde{k}e^{-ikx}\int d \tilde{k'}e^{ik'y}\braket{\vec{k}}{\vec{k'}} \\
+  =&\int d\tilde{k}e^{-ik(x-y)}
   \end{DispWithArrows}
 
   \item $x^{0} < y^{0}$
   
   De forma análoga tenemos que el propagador es 
-  begin{DispWithArrows}[format=ll, displaystyle]
-  G(x,y)= & \ev{\hat{\phi}(y),\hat{\phi}(x)}{0}=\int d\tilde{k}e^{-iky}\int d \tilde{k'}e^{ik'x}\braket{\vec{k}}{\vec{k'}} \\
+
+  \begin{DispWithArrows}[format=ll, displaystyle]
+  G(x,y)= & \ev{\hat{\phi}(y),\hat{\phi}(x)}{0}\\
+  =& \int d\tilde{k}e^{-iky}\int d \tilde{k'}e^{ik'x}\braket{\vec{k}}{\vec{k'}} \\
   &=\int d\tilde{k}e^{-ik(y-x)}
   \end{DispWithArrows}
 \end{enumerate}
@@ -359,6 +368,8 @@ El progpagador del campo escalar libre es una función que realmente se comporta
 Podemos definir el propagador de forma general como 
 
 \begin{definition}[Propagador General I]
+  Podemos definir la versión más general del propagador como:
+
   \begin{DispWithArrows}[format=c, displaystyle]
   G(x,y)=\theta(x^{0}-y^{0})\int d\tilde{k}e^{-ik(x-y)}+ \theta(y^{0}-x^{0})\int d\tilde{k}e^{-ik(y-x)}
   \end{DispWithArrows}
@@ -369,6 +380,8 @@ Podemos definir el propagador de forma general como
 Aunque esta difinición no es muy comoda, podemos definirla de forma más sencilla haciendo uso del siguiente teorema: 
 
   \begin{theorem}
+    ~~
+
     \begin{DispWithArrows}[format=c, displaystyle]
     G(x,y)=\lim_{\epsilon\rightarrow 0}i\int \frac{d^{4}k}{(2\pi)^{4}}\frac{e^{-ik(x-y)}}{k^{2}-m^{2}+i\epsilon}
     \end{DispWithArrows}

@@ -6,7 +6,132 @@
   \large Todo esto lo he sacado de \cite{Dobdado}
 \end{center}
 \section{Ecuación de Klein Gordon}
+Recordemos que bajo el sistema natural de unidades, el Hamiltoniano de una partícula relativista es simplemente $H=\sqrt{\vec{p}^{2}+m^{2}}$, con $c=1$. La ecuación de Klein-Gordon busca una descripción relativista de la ecuación de Schrödinger:
+$$
+\sqrt{\vec{p}^{2}+m^{2}} \psi(\vec{x}, t)=i \frac{\partial}{\partial t} \psi
+$$
+
+Volviéndola a aplicar para quitar las raíces cuadradas:
+$$
+\begin{gathered}
+\left(\vec{p}^{2}+m^{2}\right) \psi=-\frac{\partial^{2} \psi}{\partial t^{2}} \\
+\left(\frac{\partial^{2}}{\partial t^{2}}-\nabla^{2}+m^{2}\right) \psi(\vec{x}, t)=0
+\end{gathered}
+$$
+
+Está es la ecuación de Klein-Gordon, que es invariante relativista. A continuación, un breve inciso explicando como obtener los cuadrivectores y sus operadores.
+
+Recordemos la definición de cuadrivector contravariante $V^{\mu}=\left(V^{0}, \vec{V}\right)$. Se definen las componentes covariantes a partir del tensor métrico:
+$$
+g_{\mu \nu}=\left(\begin{array}{llll}
+1 & & & \\
+& -1 & & \\
+& & -1 & \\
+& & & -1
+\end{array}\right)
+$$
+
+Si tengo dos cuadrivectores, $A^{\mu}=\left(A^{0}, \vec{A}\right)$ y $B^{\mu}=\left(B^{0}, \vec{B}\right)$, podemos definir el producto escalar (en sentido Minkowski ${ }^{1.3}$ ) como:
+$$
+A \cdot B=A^{\mu} B^{\nu} G_{\mu \nu}=A^{0} B^{0}-\vec{A} \cdot \vec{B}
+$$
+
+Así mismo, definimos las componentes covariantes se obtienen a partir de la métrica: $V_{\mu}=g_{\mu \nu} V^{\nu}=\left(V_{0},-\vec{V}\right)$. De esta manera:
+$$
+V^{2}=V^{\mu} V^{\nu} g_{\mu \nu}=V^{\mu} V_{\mu}=V^{0^{2}}-\vec{V}^{2}
+$$
+
+Esta norma, en el espacio de Minkowski, no está definida positiva (en función del género: tiempo, luz, espacio).
+
+\footnotetext{
+${ }^{1.3} \mathrm{El}$ producto escalar en sentido Minkowski es invariante Lorentz.
+}
+
+Con:
+$$
+\begin{aligned}
+\rho & =\frac{i}{2 m}\left(\psi^{*} \partial_{t} \psi-\psi \partial_{t} \psi^{*}\right) \\
+\vec{j} & =\frac{-i}{2 m}\left(\psi^{*} \vec{\nabla} \psi-\psi \vec{\nabla} \psi^{*}\right)
+\end{aligned}
+$$
+
+Si hacemos el cuadrigradiente de la densidad de corriente:
+$\partial_{\mu} J^{\mu}=\frac{i}{2 m}\left(\partial_{\mu} \psi^{*} \partial^{\mu} \psi+\psi^{*} \square \psi-\partial_{\mu} \psi \partial^{\mu} \psi^{*}-\psi \square \psi^{*}\right)=0 \rightarrow \partial_{\mu} J^{\mu}=\frac{\partial \rho}{\partial t}+\vec{\nabla} \cdot \vec{j}=0$
+Esto último nos verifica que cumple la ecuación de continuidad.
 \section{Ecuación de Klein-Gordon en presencia de campos electromagnéticos}
+En el sistema de unidades Heaviside-Lorentz las ecuaciones de Maxwell verifican:
+$$
+\begin{array}{cc}
+\vec{\nabla} \cdot \vec{B}=0 ; & \vec{\nabla} \times \vec{E}+\frac{1}{c} \frac{\partial \vec{B}}{\partial t}=0 \\
+\vec{\nabla} \cdot \vec{E}=0 ; & \vec{\nabla} \times \vec{B}=\frac{1}{c} \vec{j}+\frac{1}{c} \frac{\partial \vec{E}}{\partial t} \\
+\vec{E}, \vec{B} ; & \vec{B}=\vec{\nabla} \times \vec{A} \\
+\phi, \vec{A} ; & \vec{E}=-\vec{\nabla} \cdot \phi-\frac{\partial \vec{A}}{\partial t}
+\end{array}
+$$
+
+El objetivo de estas unidades es que las ecuaciones de Maxwell sean lo más sencillo posible. Si además imponemos sistema natural:
+$$
+\begin{array}{ll}
+\vec{\nabla} \cdot \vec{B}=0 ; & \vec{\nabla} \times \vec{E}+\frac{\partial \vec{B}}{\partial t}=0 \\
+\vec{\nabla} \cdot \vec{E}=\rho ; & \vec{\nabla} \times \vec{B}=\vec{j}+\frac{\partial \vec{E}}{\partial t}
+\end{array}
+$$
+
+El Lagrangiano de una partícula interaccionando con campo eléctrico y magnético es:
+$$
+\begin{equation*}
+\mathcal{L}=-m \sqrt{1-v^{2}}+q \vec{v} \cdot \vec{A}-q \phi=\mathcal{L}(\vec{x}, \vec{v}) \tag{1.6}
+\end{equation*}
+$$
+
+Con $-m \sqrt{1-v^{2}}$ el término de partícula libre, $q \vec{v} \cdot \vec{A}$ el término de interacción magnética $\mathrm{y}-q \phi$ el correspondiente a la interacción eléctrica.
+
+El Hamiltoniano está definido en función de $\vec{x}$ y de $\vec{\Pi}$, con $\vec{\Pi}=\frac{\partial \mathcal{L}}{\partial \vec{v}}=\vec{\rho}+q \vec{A}$, el momento canónicamente conjugado; que es distinto a la cantidad de movimiento, $\vec{p}=m \gamma \vec{v}$.
+
+El cuadrivector $p^{\mu}=(E, \vec{p})$ en representación de posiciones $(|x\rangle)$ :
+$$
+P^{\mu}=\left(i \frac{\partial}{\partial t},-i \vec{\nabla}\right) \rightarrow P^{\mu}=i \partial^{\mu}
+$$
+
+De aquí, a partir de la expresión para obtener un Hamilotniano a partir del Lagrangiano de un sistema:
+$$
+H\left(q_{i}, p_{i}\right)=\sum_{i} \dot{q}_{i} p_{i}-\mathcal{L} \rightarrow H(\vec{x}, \vec{\Pi})=\vec{v} \cdot \vec{\Pi}-\mathcal{L}
+$$
+
+Obteniendo la siguiente expresión para el Hamiltoniano del sistema:
+$$
+\begin{equation*}
+H(\vec{x}, \vec{\Pi})=\sqrt{m^{2}+(\vec{\Pi}-q \vec{A})^{2}}+q \phi \tag{1.7}
+\end{equation*}
+$$
+
+Con $(\vec{\Pi}-q \vec{A})^{2}=\vec{p}^{2} ; \sqrt{m^{2}+(\vec{\Pi}-q \vec{A})^{2}}=E$, el término de la energía relativista y $q \phi$ la energía electromagnética (no contribuye el campo magnético ya que no acelerá trayectorias, solo las curva).
+
+Comparando con las ecuaciones de una partícula, para introducir el campo electromagnético hay que hacer los siguientes cambios:
+$$
+\left.\begin{array}{c}
+i \partial_{t} \longrightarrow i \partial_{t}-q \phi \\
+-i \vec{\nabla} \longrightarrow-i \vec{\nabla}-q \vec{A}
+\end{array}\right\} \partial^{\mu} \rightarrow \partial^{\mu}+i q A^{\mu} \rightarrow \partial^{\mu} \longrightarrow D^{\mu}=\partial^{\mu}+i q A^{\mu}
+$$
+
+Con $\mathcal{D}^{\mu}$ la derivada covariante. Así, la ecuación de Klein-Gordon para la interacción EM queda:
+$$
+\begin{gather*}
+\left(\square+m^{2}\right) \psi=0 \longrightarrow\left(D_{\mu} D^{\mu}+m^{2}\right) \psi=0 \rightarrow \\
+\rightarrow\left[\left(i \frac{\partial}{\partial t}-q \phi\right)^{2}-(-i \vec{\nabla}-q \vec{A})^{2}\right] \psi=m^{2} \psi \tag{1.8}
+\end{gather*}
+$$
+
+Esta es la ecuación de Klein-Gordon para una partícula cargada en presencia de un campo EM.
+
+Si ahora introducimos la carga $q$ en el cuadrivector $J^{\mu}$ :
+$$
+J^{\mu}=\frac{i q}{2 m}\left(\psi^{*} \partial^{\mu} \psi-\psi \partial^{\mu} \psi^{*}=(\rho, \vec{j})^{1.4}\right.
+$$
+
+Que, nuevamente, cumple la ecuación de continuidad.
+Si $\psi \in \mathbb{R} \rightarrow \psi=\psi^{*}=J^{\mu}=0$, es decir, si la función de onda es real, representa una partícula neutra y, por tanto, una partícula cargada debe tener función de onda compleja.
 \section{Ecuación de Dirac}
 
 A continuación vamos intentar solucionar algunos de los problemas que tenía la ecuación de Klein-Gordon y para ello vamos a definir la siguiente base de estados:
@@ -115,7 +240,60 @@ Además, podemos reconocer $\vec{\sigma}$ como las matrices sigma de Pauli, las 
   \acomm{\sigma^{i}}{\sigma^{j}}=2\delta_{ij} 
 \end{align}\right.\]
 \subsection{Partículas cargadas en un campo electromagnético}
+En electrodinámica clásica, vimos que el Lagrangiano de un sistema relativista es: $\mathcal{L}=-\frac{1}{4} F_{\mu \nu} F^{\mu \nu}$. Ahora bien, en el sistema de Maxwell-Dirac:
+$$
+\mathcal{L}=-\frac{1}{4} F_{\mu \nu} F^{\mu \nu}+\bar{\psi}(i \not D-m) \psi
+$$
 
+Con $F_{\mu \nu}=\partial_{\mu} A_{\nu}-\partial_{\nu} A_{\mu}$ el tensor electromagnético y $D_{\mu}=\partial_{\mu}+i q A_{\mu}$. Quedando el Lagrangiano para un sistema de una partícula sometida a un campo EM:
+$$
+\mathcal{L}=-\frac{1}{4} F_{\mu \nu} F^{\mu \nu}+\bar{\psi}(i \not D-m) \psi-J_{\mu} A^{\mu}
+$$
+
+Con $\vec{B}$ el campo magnético $\rightarrow \vec{B}=\vec{\nabla} \times \overrightarrow{\vec{A}}$ y $\vec{S}=\frac{\vec{\sigma}}{2}$.
+En su momento Pauli definió $\varepsilon^{\prime}=\left[\begin{array}{l}\varepsilon_{+}^{\prime} \\ \varepsilon_{-}^{\prime}\end{array}\right]$
+Con $\varepsilon_{+}^{\prime}$ la componente del espín hacía arriba y $\varepsilon_{-}^{\prime}$ la componente del espín hacia abajo. Además se sabía que las partículas con espín $\vec{S}$ tiene asociado un momento magnético asociado $\vec{M}_{S}$.
+$$
+\begin{equation*}
+i \frac{\partial \varepsilon^{\prime}}{\partial t}=\left[\frac{1}{2 m}(-i \vec{\nabla}-q \vec{A})^{2}+q \phi-\vec{M}_{S} \vec{B}\right] \varepsilon^{\prime} \tag{1.15}
+\end{equation*}
+$$
+
+Esta es la ecuación de Pauli, con la parte dentro del corchete el Hamiltoniano de partícula espín $\frac{1}{2}$ interactuando con un campo electromagnético no relativista.
+
+Se definió: $\vec{M}_{S}=g \frac{q}{2 m} \vec{S}$, con $g$ el ratio giromagnético.
+Comparando la ecuación de Pauli con la ecuación de Dirac en el límite no relativista:
+$$
+i \frac{\partial \varepsilon^{\prime}}{\partial t}=\left\{\frac{1}{2 m}(-i \vec{\nabla}-q \vec{A})^{2}-\frac{q}{m} \vec{S} \cdot \vec{B}+q \phi\right\} \varepsilon^{\prime} \rightarrow g=2
+$$
+
+Si una partícula sigue la ecuación de Dirac, su razón giromagnética es 2. Para el electrón, experimentalmente se ha medido: $\frac{g_{e}}{2}=1,001159652209 \ldots$, una precisión de 11 cifras. A partir de QED, hasta $5^{\circ}$ orden de perturbaciones, el cálculo encaja con el experimental.
+
+El radio giromagnético para el protón medido experimentalmente es: $\frac{g_{p}}{2}=2,7928 \ldots$, la ecuación de Dirac no vale para el protón. Esto se debe a que a los hadrones ( $p, n, \pi, k, \kappa, \varphi, \ldots$ ) están compuestos por quarks ( $u, d, s, c, t, b$ ). El protón está formado por uud:
+$$
+\left.\begin{array}{l}
+q_{u}=\frac{2}{3} e \\
+q_{d}=-\frac{1}{3} e
+\end{array}\right\} \frac{2}{3}+\frac{2}{3}-\frac{1}{3}=1
+$$
+
+Por eso no satisface la ecuación de Dirac ya que el protón no es partícula elemental (es un sistema).
+
+Ocurre lo mismo con el neutrón, según Pauli $\mathrm{g}=0$ (por no tener carga), pero experimentalmente: $\frac{g_{n}}{2}=-1,9130 \ldots \rightarrow$.
+
+Por lo mismo, es un sistema compuesto por partículas cargadas que generan corrientes provocando ese momento magnético: $n \sim u d d$. La ecuación de Dirac solo se puede aplicar a partículas elementales.
+
+Al resolver la ecuación de Dirac para el átomo de Hidrógeno:
+$$
+E=E_{0}+\Delta E ; \quad E_{0}=\frac{\alpha}{2 a_{0} n^{2}}, \quad n=1,2,3, \ldots
+$$
+
+Con $\alpha=\frac{e^{2}}{4 \pi \hbar c} \sim \frac{e^{2}}{4 \pi}=\frac{1}{137}$. Además: $\Delta E=-\alpha^{2} E_{0} \frac{1}{n}\left(\frac{1}{j+\frac{1}{2}}-\frac{3}{4 n}\right)$; con $\vec{j}=\vec{l}+\vec{s}$.
+La ecuación de Dirac predice la estructura fina \sidenote{Estructura fina: Aproximaciones relativistas, interacción espín-órbita y término de Darwin.} del átomo de Hidrógeno. Sin embargo no predice la hiperfina ni el efecto Lamb. Según Dirac: $E_{2 S_{1 / 2}}=E_{2 P_{1 / 2}}$, experimentalmente
+
+
+son distintos por el efecto Lamb.
+En resumen, la ecuación de Dirac en el límite no relativista describe partículas de $\frac{1}{2}$ y explica en parte el espectro del Hidrógeno.
 \section{El límite no relativista de la ecuación de Dirac}
 
 \section{Soluciones a la ecuación de Dirac}
@@ -485,7 +663,47 @@ Algunas propiedades de $\gamma^5$ son:
 
 A continuación definiremos los proyectores Weyl y posteriormente los formularemos.
 
-\begin{definition}
-  Los proyectroes Weyl son unos operadores que nos devuelven el espinor de Weyl correspondiente, esto es, $\psi_{L}$ o $\phi_{R}$ una vez aplicados a la función de onda
+\begin{definition}[Proyectores Weyl]
+  Los proyectroes Weyl son unos operadores que nos devuelven el espinor de Weyl correspondiente, esto es, $\psi_{L}$ o $\phi_{R}$ una vez aplicados a la función de onda. 
+  Estos operadores se definen como:
+
+  $$
+P_{L}=\frac{1}{2}\left(1-\gamma^{5}\right)=\left(\begin{array}{ll}
+\mathbb{1} & 0 \\
+0 & 0
+\end{array}\right) \quad P_{R}=\frac{1}{2}\left(1+\gamma^{5}\right)=\left(\begin{array}{ll}
+0 & 0 \\
+0 & \mathbb{1}
+\end{array}\right)
+$$
 \end{definition}
+
+Estos operadores tienen las siguientes propiedades:
+\begin{itemize}
+  \item $P_{L}^{2}=P_{L}$ y $P_{R}^{2}=P_{R}$
+  \item $P_{L} P_{R}=P_{R} P_{L}=0$
+  \item $P_{L}+P_{R}=\mathbb{1}$
+  \item $\gamma_{\mu} P_{L}=P_{R} \gamma^{\mu}$
+\end{itemize}
+
+Podemos escribir el cuadriespinor en terminos de estos operadores, que nos lo dividen en su componente levógira y dextrógira, respectivamente:
+$$
+\psi=\binom{\varepsilon}{\chi} \rightarrow \psi=\psi_{L}+\psi_{R}=P_{L} \psi+P_{R} \psi=\binom{\varepsilon}{0}+\binom{0}{\chi}
+$$
+
+Si introducimos ahora estos operadores en la ecuación de Dirac:
+$$
+(i \not \partial-m) \psi=0 \rightarrow\left\{\begin{array}{l}
+i \not \psi_{R}=m \psi_{L} \\
+i \not \psi_{L}=m \psi_{R}
+\end{array}\right.
+$$
+
+Se demostró que las partículas con masa nula no tienen parte dextrógira y se pueden describir únicamente con la parte levógira. En representación de Weyl:
+$$
+\left.\begin{array}{l}
+\text { Levógiro: }\left(\frac{1}{2}, 0\right) \\
+\text { Dextrógiro: }\left(0, \frac{1}{2}\right)
+\end{array}\right\} \text { Fermiones de Dirac: } \psi_{D}=\overbrace{\left(\frac{1}{2}, 0\right)}^{\psi_{L} \sim \varepsilon} \oplus \overbrace{\left(0, \frac{1}{2}\right)}^{\psi_{R} \sim \chi}
+$$
 
