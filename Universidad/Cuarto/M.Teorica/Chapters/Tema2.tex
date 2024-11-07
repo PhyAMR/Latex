@@ -665,3 +665,122 @@ Como hemos visto, una $k$-forma es un tensor antisimétrico covariante. Por tant
 \end{DispWithArrows}
 
 \subsection{Geometria simppléctica}
+En la sección anterior, solo hemos considerado coordenadas canónicas del espacio de fases $T^{*} \mathscr{Q}$ de la forma $\xi^{\alpha}=\left(q_{a}, p^{a}\right)$ que provienen directamente de
+la transformación de Legendre. En estas coordenadas, la matriz simpléctica $\breve{\Omega}$ es constante y está dada por la ecuación 2.5. En esta sección, consideraremos una situación más general que lleva a su máxima expresión el hecho de que las variables de configuración y los momentos son tratados de igual manera. Reformularemos los principales resultados obtenidos hasta ahora de forma que sea independiente de las coordenadas en el espacio de fases. Para ello, serán necesarios algunos conceptos básicos de geometría diferencial que se incluyen en el apéndice B .
+
+\subsubsection{Forma simpléctica}
+
+Dadas las coordenadas canónicas $\xi^{\alpha}=\left(q^{a}, p_{a}\right)$ en el espacio fases que hemos usado hasta ahora, construimos la dos-forma $\Omega$ tal que, en esas coordenadas canónicas, adquiere la expresión
+$$
+\Omega=\frac{1}{2} \omega_{\alpha \beta} \mathrm{d} \xi^{\alpha} \wedge \mathrm{d} \xi^{\beta}=\mathrm{d} p_{a} \wedge \mathrm{~d} q^{a}
+$$
+
+Un cambio arbitrario de coordenadas $\xi^{\alpha} \rightarrow \zeta^{\alpha}$ convierte esta expresión en
+$$
+\Omega=\frac{1}{2} \omega_{\alpha \beta} \mathrm{d} \zeta^{\alpha} \wedge \mathrm{d} \zeta^{\beta}=\frac{1}{2} \omega_{\gamma \delta} \frac{\partial \xi^{\gamma}}{\partial \zeta^{\alpha}} \frac{\partial \xi^{\delta}}{\partial \zeta^{\beta}} \mathrm{d} \zeta^{\alpha} \wedge \mathrm{d} \zeta^{\beta} .
+$$
+
+Por ser una dos-forma, $\Omega$ es independiente de las coordenadas elegidas, aunque sus componentes sí dependen de las mismas.
+$\omega$ es una matriz no singular y, por tanto, la dos-forma $\Omega$ es no degenerada, es decir, la aplicación $i \Omega: T\left(T^{*} \mathscr{Q}\right) \rightarrow T^{*}\left(T^{*} \mathscr{Q}\right)$ que a cada vector $X$ le asigna la uno-forma
+$$
+i_{X} \Omega=\Omega(X, \diamond)=\omega_{\alpha \beta} X^{\alpha} \mathrm{d} \zeta^{\beta}
+$$
+es un isomorfismo entre el espacio tangente y el cotangente del espacio de fases. $\diamond$ EJERCICIO: Comprobar que $\quad i_{\partial_{q a}} \boldsymbol{\Omega}=-\mathrm{d} p_{a}, \quad i_{\partial_{p_{a}}} \boldsymbol{\Omega}=\mathrm{d} q^{a}$.
+
+Además, la dos-forma $\Omega$ es cerrada, es decir, $\mathrm{d} \Omega=0$, como se puede comprobar fácilmente (EJERCICIO). Por tanto, existe una uno-forma $\theta$ llamada forma canónica tal que, localmente, $\Omega=\mathrm{d} \theta$. La expresión de la forma canónica (en términos de las variables canónicas) es $\theta=p_{a} \mathrm{~d} q^{a}$ (EJERCICIO). Llamaremos forma simpléctica a esta dos-forma $\Omega$ definida sobre el espacio de fases, que es cerrada y no degenerada.
+
+Los elementos $\Omega^{\alpha \beta}$ de la matriz inversa a la formada por las componentes de la forma simpléctica en unas ciertas coordenadas, es decir, tales que $\Omega^{\alpha \beta} \Omega_{\beta \gamma}=\delta_{\gamma}^{\alpha}$, son las componentes de un tensor antisimétrico contravariante.
+
+Desde el punto de vista notacional, es importante notar que tanto la derivada exterior y las formas como los vectores están definidos sobre el espacio de fases $T^{*} \mathscr{Q}$ y son, por tanto, ajenos a los parámetros adicionales de los que una variable dinámica pueda depender, en particular, del tiempo. Así, dada una variable dinámica $f(\zeta, t)$ y un vector $X$,
+$$
+\mathrm{d} f=\partial_{\alpha} f \mathrm{~d} \zeta^{\alpha}+\partial_{f} f \mathrm{~d} t \quad \text { у } \quad X f=X^{\alpha} \partial_{\alpha} f+\partial_{t} f
+$$
+
+Además, utilizaremos el mismo símbolo $\partial_{\alpha}$ para denotar tanto a las derivadas parciales con respecto a las variables canónicas $\partial / \partial \xi^{\alpha}$ como con respecto a variables arbitrarias $\partial / \partial \zeta^{\alpha}$, según el contexto, salvo cuando exista posibilidad de confusión.
+
+\subsubsection{Ecuaciones de Hamilton}
+
+Las ecuaciones de Hamilton $\omega_{\alpha \beta} \dot{\xi} \beta=\partial_{\xi \alpha} H$ se pueden escribir también de forma independiente de las coordenadas. Para ello, consideremos un sistema dinámico $\dot{\xi}^{\alpha}=X^{\alpha}$ cuyo vector dinámico es $X$. Si este sistema es hamiltoniano, entonces el vector dinámico $X$ debe ser tal que
+$$
+\omega_{\alpha \beta} X^{\beta}=\partial_{\xi \alpha} H
+$$
+como se puede ver comparando ambas ecuaciones. Por tanto, las ecuaciones de Hamilton se traducen en encontrar los vectores $X$ que satisfacen esta ecuación $y$, después, encontrar sus curvas integrales. Notemos que el miembro de la izquierda son las componentes de la contracción $i_{X} \Omega$ de la forma simpléctica con el vector dinámico (cambiadas de signo) y que, en el miembro de la derecha, aparecen las componentes de la uno-forma $\mathrm{d} H$ en la base $\left\{\mathrm{d} \xi^{\alpha}\right\}$ adaptada a las coordenadas canónicas. Multiplicando ambos miembros por $\mathrm{d} \xi^{\beta}$, vemos que las ecuaciones de Hamilton se pueden escribir como una ecuación entre formas que es válida en unas coordenadas concretas; por tanto, es válida en cualquier sistema de coordenadas. Así, en una formulación independiente de las coordenadas, las ecuaciones de Hamilton determinan el vector dinámico $X$ cuyas curvas integrales son las trayectorias clásicas a través de la expresión
+$$
+i_{X} \Omega=-\mathrm{d} H
+$$
+
+Dado que la forma simpléctica es no degenerada, cada hamiltoniano determina su vector dinámico de forma única y cada vector dinámico determina el hamiltoniano unívocamente salvo por una cantidad aditiva independiente de las variables dinámicas que corresponde a la indeterminación de la energía potencial. En efecto, si existiesen dos vectores dinámicos $X_{H}$ y $Y_{H}$ correspondientes al mismo hamiltoniano, entonces $i_{X_{H}-Y_{H}} \Omega=0$, lo que a su vez implica que $X_{H}-Y_{H}=0$, ya que $\Omega$ es no degenerada. Por otro lado, si existen dos hamiltonianos $H_{1}$ y $H_{2}$ asociados al mismo vector dinámico, entonces se verifica que $\mathrm{d}\left(H_{1}-H_{2}\right)=0$, lo que implica que el hamiltoniano queda determinado salvo por una cantidad aditiva que no depende del espacio de fases.
+
+\subsubsection{Flujos hamiltonianos}
+
+\paragraph{Flujo de un campo vectorial}
+
+Sea $X$ un campo vectorial sobre el espacio de fases y consideremos la aplicación $\varphi_{s}^{X}$ en el espacio de fases tal que a cada punto $\zeta \in T^{*} \mathscr{Q}$ le asigna el punto $\zeta_{s}$ que se halla a una distancia paramétrica $s$ sobre la curva integral de $X$, es decir, sobre la solución de la ecuación $\mathrm{d} \zeta_{s} / \mathrm{d} s=X$, que pasa por $\zeta$. El conjunto $\varphi^{X}=\left\{\varphi_{s}^{X}, s \in \mathbb{R}\right\}$ de todas las transformaciones de este tipo tiene obviamente estructura de grupo bajo la ley de composición $\varphi_{s_{1}}^{X} \circ \varphi_{s_{2}}^{X}=\varphi_{s_{1}+s_{2}}^{X}$ y recibe el nombre de flujo del campo vectorial $X$.
+$\diamond$ EJEMPLO: Consideremos el campo vectorial $\boldsymbol{X}_{v}=\left(v^{a}, 0\right)$ en unas coordenadas canónicas. Este vector genera un flujo en el espacio de fases que corresponde a traslaciones en el espacio de configuración. En efecto, las curvas integrales de $X_{v}$ son
+$$
+q^{a}(s)=q_{0}^{a}+v^{a} s, \quad p_{a}(s)=p_{a 0}
+$$
+donde $q_{0}^{a}$ y $p_{a 0}$ son constantes.
+Consideremos un pequeño desplazamiento a lo largo del flujo del vector $X$ caracterizado por una distancia paramétrica infinitesimal $\delta s$. La evolución de cualquier tensor (función escalar, vector, forma...) $W$ definido sobre el espacio de fases a lo largo de este flujo estará determinada por su derivada de Lie y por su posible dependencia explícita en el parámetro de la transformación:
+$$
+\varphi_{\delta s}^{X} W=W+\delta s \mathfrak{L}_{X} W+\delta s \partial_{s} W
+$$
+
+En otras palabras, la transformación infinitesimal $\varphi_{\delta s}^{X}$ se puede escribir de la forma
+$$
+\varphi_{\delta s}^{X}=\mathbb{I}+\delta s\left(\mathfrak{L}_{X}+\partial_{s}\right)
+$$
+
+Cualquier transformación finita $\varphi_{s}^{X}$ se puede descomponer en transformaciones infinitesimales. Una posible manera de llevar a cabo esta descomposición se obtiene si escribimos $s=k \cdot(s / k) \operatorname{con} k \rightarrow \infty$. Entonces,
+$$
+\varphi_{s}^{X}=\lim _{k \rightarrow \infty} \varphi_{k \cdot(s / k)}^{X}=\lim _{k \rightarrow \infty}\left(\varphi_{s / k}^{X}\right)^{k}=\lim _{k \rightarrow \infty}\left[\mathbb{I}+(s / k)\left(\mathfrak{L}_{X}+\partial_{s}\right)\right]^{k}=e^{s\left(\mathfrak{L}_{X}+\partial_{s}\right)}
+$$
+
+Es importante notar que la actuación de la exponencial de un operador se define a través del proceso de límite que acabamos de describir o, equivalentemente, mediante un desarrollo en serie:
+$$
+\varphi_{s}^{X}=e^{s\left(\mathfrak{(}_{X}+\partial_{s}\right)}=\mathbb{I}+\sum_{k=1}^{\infty} \frac{s^{k}}{k!}\left(\mathfrak{L}_{X}+\partial_{s}\right)^{k}
+$$
+
+\paragraph{Campos vectoriales hamiltonianos}
+
+Dada una variable dinámica $f$, definimos el campo vectorial hamiltoniano $X_{f}$ asociado a ella como el único vector que satisface la ecuación
+$$
+i_{X_{f}} \Omega=-\mathrm{d} f
+$$
+y que, por tanto, se puede escribir también de la forma $X_{f}=\Omega^{\alpha \beta} \partial_{\beta} f \partial_{\alpha}$.
+No todos los campos vectoriales son hamiltonianos, como es obvio a partir de estas expresiones. De hecho, es fácil ver que un campo vectorial $X$ es hamiltoniano si y solo si la forma $i_{X} \Omega$ es cerrada (es decir, $\mathrm{d} i_{X} \Omega=0$ ) si y solo si $\partial_{\lambda}\left(\Omega_{\alpha \sigma} X^{\alpha}\right)-\partial_{\sigma}\left(\Omega_{\beta \lambda} X^{\beta}\right)=0$, que es la condición de integrabilidad local de la ecuación $\omega_{\alpha \beta} X^{\beta}=\partial_{\alpha} f$.
+$\diamond$ EJEMPLO: El campo vectorial $\boldsymbol{X}_{v}=\left(v^{a}, 0\right)$ del ejemplo anterior (asociado a las traslaciones) es hamiltoniano ya que $i_{X_{v}} \Omega=-v^{a} \mathrm{~d} p_{a}$ y, por tanto, $\mathrm{d} i_{X_{v}} \Omega=0$. De hecho su variable dinámica asociada es $v(q, p)=v^{a} p_{a}$.
+
+Cada variable dinámica $f$ determina de forma única un campo vectorial hamiltoniano $X_{f} \mathrm{y}$, consecuentemente, un flujo bamiltoniano
+$$
+\varphi^{f}=\varphi^{X_{f}}=e^{s\left(\mathcal{L}_{X_{f}}+\mathcal{Z}_{s}\right)} .
+$$
+
+La variable $f$ recibe el nombre de generatriz infinitesimal del flujo $\varphi^{f}$.
+Notemos que sobre variables dinámicas (funciones escalares sobre el espacio de fases), $\mathfrak{L}_{X_{f}} g=X_{f} g=\{g, f\} y$, por tanto,
+$$
+\varphi^{f} g=e^{s\left(\mathfrak{I}_{X_{f}}+\partial_{s}\right)} g=e^{s\left(\{, f\}+\partial_{s}\right)} g .
+$$
+
+EJEMPLO: Sobre variables dinámicas $g(q, p)$ el flujo de traslaciones del ejemplo anterior es
+$$
+\varphi^{v} g=e^{s v^{2} \partial_{a^{a}}} g
+$$
+
+Así, la proyección del momento canónico en una cierta dirección $v^{a}$ del espacio de configuración genera un flujo hamiltoniano de traslaciones en esa dirección y , sobre variables dinámicas, actúa por medio del operador $v^{a} \partial_{q^{a}}$.
+$\diamond$ EJERCICIO: Demostrar que el campo vectorial hamiltoniano del corchete de Poisson de dos variables dinámicas es el conmutador (cambiado de signo) de sus respectivos campos vectoriales hamiltonianos:
+$$
+X_{\{f, g\}}=-\left[X_{f}, X_{g}\right]
+$$
+$\diamond$ EJERCICIO: Estudiar el momento angular como generador de rotaciones. En particular, obtener su álgebra de corchetes de Poisson y de conmutadores, así como su actuación sobre variables dinámicas.
+
+Las ecuaciones de Hamilton se reducen, en este lenguaje independiente de las coordenadas, a encontrar el campo vectorial hamiltoniano $X_{H}$ asociado al hamiltoniano $H$ y su flujo, es decir, sus curvas integrales. La evolución clásica de cualquier tensor $W$ definido sobre el espacio de fases está dada por su derivada a lo largo de la trayectoria clásica, es decir, con respecto al vector dinámico $X_{H}$ (más la posible dependencia temporal explícita):
+$$
+\dot{W}=\mathfrak{L}_{X_{H}} W+\partial_{t} W
+$$
+
+En particular, la evolución clásica de cualquier variable dinámica está dada por
+$$
+\dot{f}=X_{H} f+\partial_{t} f=\{f, H\}+\partial_{t} f
+$$
+$\diamond$ EJERCICIO: Demostrar que la forma simpléctica se preserva a lo largo del flujo de la evolución clásica y que la forma canónica no.

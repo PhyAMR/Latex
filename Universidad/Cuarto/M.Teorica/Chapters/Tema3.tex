@@ -5,21 +5,676 @@
 
 \section{Teoría Hamiltón Jacobi}
 \subsection{Ecuación de Hamilton-Jacobi}
+Dado un sistema hamiltoniano, siempre es posible realizar una transformación canónica tal que el nuevo hamiltoniano sea idénticamente nulo. Nuestro principal objetivo en esta sección es demostrar que tal transformación canónica existe $y$, además, encontrar su función generatriz.
+
+Sean $\left(q^{a}, p_{a}\right)$ unas coordenadas canónicas del espacio de fases $T^{*} \mathscr{Q}$ y sea $H\left(q^{a}, p_{a}, t\right)$ el hamiltoniano del sistema. Realizamos una transformación canónica a las nuevas coordenadas canónicas $\left(q^{\prime a}, p_{a}^{\prime}\right)$ en las que $H^{\prime}\left(q^{\prime}, p^{\prime}, t\right)=0$. Es obvio que las nuevas coordenadas son constantes del movimiento puesto que las ecuaciones de Hamilton en estas variables tienen la forma
+$$
+\dot{q}^{\prime a}=\frac{\partial H^{\prime}}{\partial p_{a}^{\prime}}=0, \quad \dot{p}_{a}^{\prime}=-\frac{\partial H^{\prime}}{\partial q^{\prime a}}=0
+$$
+cuya solución es
+$$
+q^{\prime a}(t)=q_{0}^{\prime a}, \quad p_{a}^{\prime}(t)=p_{0}^{\prime} .
+$$
+
+Notemos que, en las nuevas variables, el sistema es invariante bajo reparametrizaciones temporales como queda claro tanto del hecho de que el hamiltoniano sea idénticamente nulo como de las propias ecuaciones clásicas y de sus soluciones.
+
+La elección de cuáles de las $2 n$ constantes $\left(q^{\prime a}, p_{a}^{\prime}\right)$ son las nuevas variables de configuración y cuáles los momentos conjugados carece de importancia. Esta asignación queda determinada por la elección del tipo de la transformación canónica y por la dependencia de la función generatriz. Nosotros elegiremos transformaciones de tipo 1 y llamaremos $S\left(q, q^{\prime}, t\right)$ a la función generatriz. Entonces, las $n$ constantes $q^{\prime a}$ son las nuevas variables de configuración, las otras $n$ constantes $p_{a}^{\prime}$ desempeñan el papel de nuevos momentos conjugados y la relación entre las variables originales $\left(q^{a}, p_{a}\right)$ y las constantes $\left(q^{\prime a}, p_{a}^{\prime}\right)$ está dada por (ver ecuaciones 2.12 y 2.13 )
+$$
+p_{a}=\partial_{a} S, \quad p_{a}^{\prime}=-\partial_{a}^{\prime} S, \quad 0=H^{\prime}=H+\partial_{t} S,
+$$
+donde $\partial_{a}=\partial / \partial q^{a}$ y $\partial_{a}^{\prime}=\partial / \partial q^{\prime a}$. Sustituyendo la primera ecuación en la última, obtenemos la ecuación de Hamilton-Jacobi
+$$
+H\left(q^{a}, \partial_{a} S, t\right)+\partial_{t} S=0
+$$
+cuya solución proporciona la función generatriz $S$ de la transformación canónica de tipo 1 que permite pasar de las variables originales a otras que son constantes del movimiento si $\operatorname{det}\left(\partial^{2} S / \partial q^{a} \partial q^{\prime b}\right) \neq 0$.
+$\diamond$ EJEMPLO: La ecuación de Hamilton-Jacobi para una partícula libre unidimensional sometida a un potencial $V(q)$ es
+$$
+\left(\partial_{q} S\right)^{2} / 2+V(q)+\partial_{t} S=0
+$$
 \subsubsection{Función Principal de Hamilton}
+
+Dado un sistema dinámico, las trayectorias clásicas entre dos configuraciones $q_{0}^{a}$ y $q_{1}^{a}$ son aquellas para las que el funcional de acción $S[q(t)]$ es estacionario. Sea $S\left(q_{0}, t_{0}, q_{1}, t_{1}\right)=S\left[q_{\text {clás }}(t)\right]$ la acción de la trayectoria clásica que conecta la configuración inicial $q_{0}$ en un cierto instante inicial dado $t_{0}$ con la configuración final $q_{1}$ en un instante $t_{1}$ :
+$$
+\begin{gathered}
+S\left(q_{0}, t_{0}, q_{1}, t_{1}\right)=\int_{t_{0}}^{t_{1}} L\left(q_{\mathrm{clas}}(t), \dot{q}_{\text {clas }}(t), t\right) \mathrm{d} t, \\
+q_{\mathrm{clas}}^{a}\left(t_{0}\right)=q_{0}^{a}, \quad q_{\mathrm{clas}}^{a}\left(t_{1}\right)=q_{1}^{a} .
+\end{gathered}
+$$
+
+Es conveniente insistir en la diferencia entre el funcional de acción $S[q(t)]$ que proporciona la trayectoria clásica mediante un principio variacional y el valor $S\left(q_{0}, t_{0}, q_{1}, t_{1}\right)$ de este funcional para la trayectoria que lo hace estacionario, es decir, para la trayectoria clásica. La función $S\left(q_{0}, t_{0}, q_{1}, t_{1}\right)$ recibe el nombre de función principal de Hamilton.
+
+EJEMPLO: Calculemos la función principal de Hamilton para la partícula libre en una dimensión. Su lagrangiano es $L=\dot{q}^{2} / 2$ y su solución clásica entre los puntos $q\left(t_{0}\right)=q_{0}$ y $q\left(t_{1}\right)=q_{1}$.
+$$
+q(t)=q_{0}+\frac{q_{1}-q_{0}}{t_{1}-t_{0}}\left(t-t_{0}\right)
+$$
+
+Por tanto, la función principal de Hamilton es
+$$
+S\left(q_{0}, t_{0}, q_{1}, t_{1}\right)=\frac{1}{2} \int_{t_{0}}^{t_{1}} \mathrm{~d} t \dot{q}(t)^{2}=\frac{\left(q_{1}-q_{0}\right)^{2}}{2\left(t_{1}-t_{0}\right)}
+$$
+
+Calculemos las derivadas de la función principal de Hamilton $S\left(q_{0}, t_{0}, q_{1}, t_{1}\right)$. Vimos en el tema 1 que la variación de la acción de la trayectoria clásica bajo
+una variación de las variables de configuración y del tiempo es
+$$
+\delta S=\left(p_{a} \delta q^{a}-H \delta t\right)_{t_{0}}^{t_{1}} .
+$$
+
+Por tanto, obtenemos
+$$
+\frac{\partial S}{\partial q_{0}^{a}}=-p_{0 a}, \quad \frac{\partial S}{\partial q_{1}^{a}}=p_{1 a}, \quad \frac{\partial S}{\partial t_{1}}=-H\left(q_{1}, p_{1}, t_{1}\right)
+$$
+
+Por tanto, la acción de la trayectoria clásica es una solución de la ecuación de Hamilton-Jacobi que, mediante una transformación canónica de tipo 1, convierte cualquier punto del espacio de fases $\left(q_{1}^{a}, p_{1 a}\right)$ en las condiciones iniciales $\left(q_{0}^{a}, p_{0 a}\right)$ para la trayectoria clásica que los une.
+
+Si bien acabamos de proporcionar un procedimiento para resolver la ecuación de Hamilton-Jacobi, este no es muy útil puesto que el interés de esta ecuación es que sus soluciones permiten resolver las ecuaciones de Hamilton y encontrar así la trayectoria clásica; pero para obtener la solución de la ecuación de Hamilton-Jacobi, hemos utilizado la trayectoria clásica que queríamos calcular.
 \subsubsection{Soluciones completas}
+Como veremos a continuación, no necesitamos la solución general de la ecuación de Hamilton-Jacobi ni una solución específica, como la discutida arriba, para poder resolver las ecuaciones de Hamilton, sino que nos sirve cualquier solución dentro de una clase bastante amplia: las soluciones completas.
+
+Diremos que una solución $S(q, \alpha, t)$ de la ecuación de Hamilton-Jacobi dependiente de $n$ parámetros $\alpha^{a}$ es completa si y solo si
+$$
+\operatorname{det}\left(\partial^{2} S / \partial q^{a} \partial \alpha^{b}\right) \neq 0
+$$
+
+Conviene notar que, si $S$ es solución, $S+\alpha_{0}$ también lo es, pero esta constante $\alpha_{0}$ no forma parte de los $n$ parámetros de una solución completa puesto que $\operatorname{det}\left(\partial^{2} S / \partial q^{a} \partial \alpha_{0}\right)=0$.
+
+Las soluciones completas no son la solución general, puesto que esta última depende de $n$ funciones arbitrarias de las variables $q^{a}$. Sin embargo, para resolver las ecuaciones de Hamilton en las variables originales, nos basta con cualquier solución completa, como ya hemos comentado. En efecto, cualquier
+solución completa $S(q, \alpha, t)$ de la ecuación de Hamilton-Jacobi es la función generatriz de una transformación canónica de tipo 1 determinada por
+$$
+\begin{equation*}
+p_{a}=\frac{\partial S(q, \alpha, t)}{\partial q^{a}}, \quad \beta_{a}=-\frac{\partial S(q, \alpha, t)}{\partial \alpha^{a}} \tag{3.1}
+\end{equation*}
+$$
+que convierte las ecuaciones de Hamilton originales en $\dot{\alpha}^{a}=\dot{\beta}_{a}=0$ y que, por tanto, permite escribir la solución general $\left(q^{a}(t), p_{a}(t)\right)$ de las ecuaciones de Hamilton originales en términos de las $2 n$ constantes $\alpha^{a}$ y $\beta_{a}$. Explícitamente, la solución general $q^{a}(t)$ se puede obtener invirtiendo la segunda ecuación 3.1 ya que, por ser $S$ una solución completa, satisface la condición $\operatorname{det}\left(\partial^{2} S / \partial q^{a} \partial \alpha^{b}\right) \neq 0$, que es precisamente la condición de invertibilidad de esta ecuación. Una vez obtenida $q^{a}(t ; \alpha, \beta)$, la solución $p_{a}(t ; \alpha, \beta)$ se obtiene directamente de la primera ecuación 3.1. Es obvio que la solución así obtenida es la solución general de las ecuaciones de Hamilton puesto que depende de los $2 n$ parámetros independientes $\alpha^{a}$ y $\beta_{a}$. Así, conocida cualquier solución completa de la ecuación de Hamilton-Jacobi, las ecuaciones de Hamilton originales se pueden integrar por cuadraturas.
+$\diamond$ EJEMPLO: Dada una partícula libre unidimensional, la función
+$$
+S_{1}=\left(q-\alpha_{1}\right)^{2} / 2 t
+$$
+es una solución completa de la ecuación de Hamilton-Jacobi. Se puede comprobar que es solución mediante sustitución directa. Además es completa ya que depende de un parámetro libre $\alpha_{1}$ y $\partial^{2} S_{1} / \partial q \partial \alpha_{1}=-1 / t \neq 0$. Finalmente, $\alpha_{1}$ es la posición inicial, como se ve a partir de la ecuación
+$$
+\beta_{1}=-\partial S_{1} / \partial \alpha_{1}=\left(q-\alpha_{1}\right) / t
+$$
+y $\beta_{1}$ es su momento lineal.
+$\diamond$ EJERCICIO: Demostrar que la función
+$$
+S_{2}=q \sqrt{2 \alpha_{2}}-\alpha_{2} t
+$$
+es otra solución completa de la ecuación de Hamilton-Jacobi para la partícula libre unidimensional. Demostrar que $\alpha_{2}$ es su energía.
+
+Por otro lado, es posible reconstruir la ecuación de Hamilton-Jacobi y, por tanto, el hamiltoniano del sistema a partir de una solución completa cualquiera de la misma. Sea $S(q, \alpha, t)$ una solución completa cualquiera y sean
+$$
+f_{0}(q, \alpha, t)=\partial_{t} S, \quad f_{a}(q, \alpha, t)=\partial_{a} S
+$$
+sus derivadas parciales con respecto al tiempo $t$ y a las variables de configuración $q^{a}$, que son funciones conocidas. Por ser $S$ completa, se satisface que $\operatorname{det}\left(\partial^{2} S / \partial q^{a} \partial \alpha^{b}\right) \neq 0$ y podemos invertir localmente la segunda ecuación para obtener $\alpha^{a}=\alpha^{a}\left(q^{b}, \partial_{b} S, t\right)$. Si sustituimos esta expresión en la primera relación, obtenemos la ecuación
+$$
+\partial_{t} S=f_{0}\left[q^{a}, \alpha^{a}\left(q^{b}, \partial_{b} S, t\right), t\right]
+$$
+que es, por construcción, la ecuación de Hamilton-Jacobi asociada al hamiltoniano $H(q, p, t)=-f_{0}[q, \alpha(q, p, t), t]$ para la que $S$ es una solución completa.
+$\diamond$ EJEMPLO: Dada la solución completa $S_{1}$ del ejemplo anterior, podemos escribir su derivada parcial con respecto al tiempo $\partial_{t} S_{1}=-\left(q-\alpha_{1}\right)^{2} / 2 t^{2}$. Sustituyendo en esta expresión el valor de $\alpha_{1}$ en función de $\partial_{q} S_{1}, q$ y $t$ obtenido a partir de la ecuación $\partial_{q} S_{1}=\left(q-\alpha_{1}\right) / t$, recuperamos la ecuación de Hamilton-Jacobi para la partícula libre unidimensional.
+$\diamond$ EJERCICIO: Dada la solución completa $S_{2}$ del ejercicio anterior, reconstruir la ecuación de Hamilton-Jacobi y el hamiltoniano del sistema.
 \subsection{Separación de Variables}
+La ecuación de Hamilton-Jacobi es, en general, difícil de resolver y no existe un método válido en cualquier situación. La separación de variables es una técnica que, aunque no tiene validez general, es de gran utilidad en muchas situaciones, bien porque el sistema es en sí separable, bien como base de un formalismo perturbativo.
 \subsubsection{Hamiltonianos conservados}
+Supongamos que el hamiltoniano del sistema es una cantidad conservada y, por tanto, sin dependencia temporal explícita. Entonces, resulta útil buscar soluciones de la ecuación de Hamilton-Jacobi de la forma
+$$
+S(q, t)=W(q)+T(t),
+$$
+para las que dicha ecuación se convierte en
+$$
+\dot{T}=-H\left(q^{a}, \partial_{a} W\right)
+$$
+
+En esta ecuación, el miembro de la izquierda solo depende del tiempo y el de la derecha solo depende de las variables de configuración. Por tanto, ambos deben ser iguales a una constante $-E$ :
+$$
+S=W-E t, \quad H\left(q^{a}, \partial_{a} W\right)=E
+$$
+
+Esta última es la ecuación de Hamilton-Jacobi independiente del tiempo. Si la función $W(q, \alpha)$-solución de esta ecuación dependiente de $n$ parámetros $\alpha^{a}$, donde $\alpha^{n}=E-$ satisface la condición
+$$
+\operatorname{det}\left(\partial^{2} W / \partial q^{a} \partial \alpha^{b}\right) \neq 0
+$$
+entonces la función
+$$
+S(q, \alpha, t)=W(q, \alpha)-E t
+$$
+es una solución completa de la ecuación de Hamilton-Jacobi.
+$\diamond$ EJEMPLO: Consideremos el hamiltoniano de un oscilador armónico
+$$
+H=\left(p^{2}+\omega^{2} q^{2}\right) / 2
+$$
+
+Para resolver la ecuación de Hamilton-Jacobi, probamos con una función del tipo $S(q, E)=W(q, E)-E t$ ya que el hamiltoniano es independiente del tiempo. Entonces, $W$ satisface la ecuación
+$$
+\left(\partial_{q} W\right)^{2}+\omega^{2} q^{2}=2 E
+$$
+cuya solución es
+$$
+W(q, E)= \pm \int_{0}^{q} \mathrm{~d} q \sqrt{2 E-\omega^{2} q^{2}}
+$$
+
+Por tanto, invirtiendo las relaciones
+$$
+p=\partial_{q} W= \pm \sqrt{2 E-\omega^{2} q^{2}}, \quad \beta=\partial_{E} W-t= \pm \frac{1}{\omega} \arcsin (\omega q / \sqrt{2 E})-t
+$$
+obtenemos las trayectorias clásicas
+$$
+q=\sqrt{2 E / \omega^{2}} \operatorname{sen}[\omega(t+\beta)], \quad p=\sqrt{2 E} \cos [\omega(t+\beta)]
+$$
+
+En otras palabras, esta es la transformación canónica que pasa de las variables $(q, p)$ a las variables $(\beta, E)$ que son constantes del movimiento y para las que el hamiltoniano se anula. Obviamente, $E$ es la energía del oscilador y $-\beta$ es el origen de tiempo.
 \subsubsection{Coordenadas ciclicas}
+Podemos llevar a cabo este mismo procedimiento para encontrar una solución completa de la ecuación de Hamilton-Jacobi por cada coordenada cíclica. Supongamos que tenemos $n-m$ coordenadas cíclicas $q^{i}$ de forma que $q^{a}=\left(q^{i}, q^{i}\right)$, donde $i=1, \ldots m, \bar{i}=m+1, \ldots, n$. Entonces, la ecuación de Hamilton-Jacobi se puede escribir de la forma
+$$
+\partial_{t} S+H\left(q^{i}, \partial_{i} S, \partial_{i} S, t\right)=0
+$$
+
+Las coordenadas cíclicas $q^{i}$ solo aparecen en esta ecuación a través del operador $\partial_{i}$. Por tanto, probamos funciones $S$ de la forma
+$$
+S\left(q^{a}, t\right)=S_{0}\left(q^{i}, \gamma_{i}, t\right)+\gamma_{i} q^{i}
+$$
+que convierten la ecuación de Hamilton-Jacobi en
+$$
+\partial_{t} S_{0}+H\left(q^{i}, \partial_{i} S_{0}, \gamma_{i}, t\right)=0
+$$
+
+La solución general de esta ecuación dependerá de $m$ funciones arbitrarias de $q^{i}$, además de las $n-m$ constantes $\gamma_{i}$. Sin embargo, existen soluciones $S_{0}\left(q^{i}, \alpha^{i}, \gamma_{i}, t\right)$ dependientes de $n$ parámetros $\alpha^{a}=\left(\alpha^{i}, \gamma_{i}\right)$ tales que satisfacen
+$$
+\operatorname{det}\left(\partial^{2} S_{0} / \partial q^{i} \partial \alpha^{j}\right) \neq 0
+$$
+
+Estas soluciones dan lugar a soluciones completas
+$$
+S\left(q^{a}, \alpha^{a}, t\right)=S_{0}\left(q^{i}, \alpha^{i}, \gamma_{i}, t\right)+\gamma_{i} q^{i}
+$$
+de la ecuación de Hamilton-Jacobi. En efecto,
+$$
+\begin{aligned}
+\operatorname{det}\left(\frac{\partial^{2} S}{\partial q^{a} \partial \alpha^{b}}\right) & =\operatorname{det}\left(\begin{array}{l|l}
+\frac{\partial^{2} S_{0}}{\partial q^{i} \partial \alpha^{j}} & \frac{\partial^{2} S}{\partial q^{i} \partial \gamma_{j}}=0 \\
+\hline \frac{\partial^{2} S}{\partial q^{i} \partial \alpha^{j}}=0 & \frac{\partial^{2} S}{\partial q^{i} \partial \gamma_{j}}=\delta_{j}^{i}
+\end{array}\right)= \\
+& =\operatorname{det}\left(\frac{\partial^{2} S_{0}}{\partial q^{i} \partial \alpha^{j}}\right) \neq 0 .
+\end{aligned}
+$$
 \subsubsection{Variables separables}
+El método de separación de variables que hemos ilustrado en estos dos casos -hamiltonianos independientes del tiempo y presencia de coordenadas cíclicas- es útil también en otras situaciones más generales.
+
+Diremos que la variable $q^{1}$ es separable si la variable $q^{1}$ y la derivada $\partial_{1} S$ aparecen solo mediante una combinación de la forma $f^{1}\left(q^{1}, \partial_{1} S\right)$.
+
+Si $q^{1}$ es separable, buscamos soluciones de la forma
+$$
+S(q, t)=S_{0}\left(q^{2}, \ldots, q^{n}, t\right)+S_{1}\left(q^{1}\right)
+$$
+para las que la ecuación de Hamilton-Jacobi se puede reescribir como
+$$
+\partial_{t} S_{0}+H\left[q^{2}, \ldots, q^{n}, \partial_{2} S_{0}, \ldots, \partial_{n} S_{0}, f^{1}\left(q^{1}, \partial_{1} S_{1}\right), t\right]=0
+$$
+
+Una solución de esta ecuación es
+$$
+f^{1}\left(q^{1}, \partial_{1} S_{1}\right)=\alpha^{1}, \quad \partial_{t} S_{0}+H\left(q^{2}, \ldots, q^{n}, \partial_{2} S_{0}, \ldots, \partial_{n} S_{0}, \alpha^{1}, t\right)=0
+$$
+
+La primera ecuación permite calcular $S_{1}$ mediante cuadraturas y la segunda ecuación es análoga a la ecuación de Hamilton-Jacobi, pero en una variable menos.
+
+Si $q^{2}$ es separable, podemos seguir el mismo procedimiento y reducir la ecuación de Hamilton-Jacobi en una variable más. Si todas las variables son separables, entonces decimos que las variables son completamente separables y una solución completa es
+$$
+\begin{aligned}
+S\left(q^{a}, \alpha^{a}, t\right) & =S_{1}\left(q^{1}, \alpha^{1}\right)+S_{2}\left(q^{2}, \alpha^{1}, \alpha^{2}\right)+\cdots+ \\
+& +S_{n}\left(q^{n}, \alpha^{1}, \ldots, \alpha^{n}\right)+S_{n+1}\left(t, \alpha^{1}, \ldots, \alpha^{n}\right)
+\end{aligned}
+$$
+donde $S_{n+1}=-\int \mathrm{d} t H(\alpha, t)$. Si las variables son completamente separables, la ecuación de Hamilton-Jacobi se puede resolver por cuadraturas. Dada esta solución completa, las ecuaciones de Hamilton en las variables $\left(q^{a}, p_{a}\right)$ también se resuelven por cuadraturas y, por tanto, el sistema es integrable por cuadraturas.
+$\diamond$ EJEMPLO: Consideremos el hamiltoniano
+$$
+H=p^{2} / 2+g(q)\left(p^{\prime 2}+q^{\prime 2}\right) / 2
+$$
+
+Puesto que las variables $q^{\prime}$ y $p^{\prime}$ aparecen en el hamiltoniano solo a través de la combinación $p^{\prime 2}+q^{\prime 2}$ y además el hamiltoniano se conserva, probamos soluciones de la forma $S=S_{0}(q)+S^{\prime}\left(q^{\prime}\right)-E t$. Entonces, la ecuación de HamiltonJacobi se convierte en
+$$
+-E+\left(\partial_{q} S_{0}\right)^{2} / 2+g(q)\left[\left(\partial_{q^{\prime}} S^{\prime}\right)^{2}+q^{\prime 2}\right] / 2=0
+$$
+
+\begin{marginfigure}[]
+  \includegraphics{}
+  \caption[]{Ilustración del teorema de Huygens.
+  que se puede resolver por separación de variables:}
+  \labfig{fig:}
+\end{marginfigure}
+
+
+$$
+\begin{array}{rll}
+\alpha^{\prime}=\left[\left(\partial_{q^{\prime}} S^{\prime}\right)^{2}+q^{\prime 2}\right] / 2 & \rightarrow & S^{\prime}\left(q^{\prime}, \alpha^{\prime}\right) \\
+-E+\left(\partial_{q} S_{0}\right)^{2} / 2+g(q) \alpha^{\prime}=0 & \rightarrow & S_{0}\left(q, \alpha^{\prime}, E\right)
+\end{array}
+$$
 \subsection{Teorema de Hyugens. Analogía óptica}
+De acuerdo con el principio de acción estacionaria, los sistemas físicos evolucionan siguiendo trayectorias que hacen estacionaria la acción. Llamaremos frente de onda $\Phi_{\tilde{q}_{0}}(\sigma)$ a una "distancia" $\sigma$ de un punto $\tilde{q}_{0}=\left(q_{0}, t_{0}\right)$ del espacio de configuración extendido $\mathscr{Q} \times \mathbb{R}$ al conjunto de puntos $\tilde{q}$ tales que la función principal de Hamilton entre $\tilde{q}_{0}$ y $\tilde{q}$ es $\sigma$ :
+$$
+\tilde{q} \in \Phi_{\tilde{q}_{0}}(\sigma) \text { si y solo si } \quad S\left(\tilde{q}_{0}, \tilde{q}\right)=\sigma .
+$$
+
+Consideraremos regiones suficientemente pequeñas como para que la trayectoria clásica que une dos puntos del espacio de configuración extendido sea única.
+
+Teorema de Huygens. Para cada punto $\tilde{q}_{\sigma}$ perteneciente al frente de onda $\Phi_{\tilde{q}_{0}}(\sigma)$, consideremos el frente de onda $\Phi_{\tilde{q}_{\sigma}}(\rho)$. Entonces, el frente de onda $\Phi_{\tilde{q}_{0}}(\sigma+\rho)$ es la envolvente de todos los frentes $\Phi_{\tilde{q}_{\sigma}}(\rho)$ (ver figura 3.1).
+Demostración. Si $\tilde{q}_{\sigma+\rho} \in \Phi_{\tilde{q}_{0}}(\sigma+\rho)$, entonces $\sigma+\rho=S\left(\tilde{q}_{0}, \tilde{q}_{\sigma+\rho}\right)$ es el valor estacionario de $S[q(t)]$ entre los dos puntos $\tilde{q}_{0}$ y $\tilde{q}_{\sigma+\rho}$. Sea $\tilde{q}_{\sigma}$ un punto de la
+trayectoria clásica entre estos dos puntos tal que $S\left(\tilde{q}_{0}, \tilde{q}_{\sigma}\right)=\sigma$. Este camino es estacionario, por lo que $\tilde{q}_{\sigma} \in \Phi_{\tilde{q}_{0}}(\sigma)$. Así mismo, la sección de la trayectoria clásica entre $\tilde{q}_{0}$ y $\tilde{q}_{\sigma+\rho}$ contenida entre $\tilde{q}_{\sigma}$ y $\tilde{q}_{\sigma+\rho}$ también es estacionaria y , por tanto, $\tilde{q}_{\sigma+\rho} \in \Phi_{\tilde{q}_{\sigma}}(\rho)$.
+
+Hemos demostrado que los frentes $\Phi_{\tilde{q}_{\sigma}}(\rho)$ y $\Phi_{\tilde{q}_{0}}(\sigma+\rho)$ se cortan en al menos un punto. De hecho se cortan en uno solo, es decir, son tangentes. Si no lo fuesen, existirían al menos dos puntos $\tilde{q}_{\sigma+\rho}$ y $\tilde{q}_{\sigma+\rho}^{\prime}$ unidos mediante trayectorias clásicas con $\tilde{q}_{0}$ a través de $\tilde{q}_{\sigma}$, pero esto no es posible. En efecto, ambas trayectorias tendrían el mismo momento y el mismo hamiltoniano en $\tilde{q}_{\sigma}$ dados por $\tilde{p}_{\tilde{q}_{\sigma}}=\partial S\left(\tilde{q}_{0}, \tilde{q}_{\sigma}\right) / \partial \tilde{q}_{\sigma}$. Sin embargo, las trayectorias clásicas que parten de $\tilde{q}_{\sigma}$ y llegan a destinos finales diferentes tienen que tener momentos $\mathrm{y} / \mathrm{o}$ hamiltonianos iniciales diferentes.
 \subsubsection{Trayectorias, geodésicas e índices de refracción}
+Vemos que, de acuerdo con este teorema, análogo al principio de Huygens en óptica, la acción de un sistema mecánico es análoga a la longitud del camino óptico de una trayectoria cualquiera de la luz entre dos puntos y la función principal de Hamilton es análoga al camino óptico de la trayectoria clásica de la luz. Podemos establecer esta analogía más precisamente. Para ello, recordemos (problemas 1.8 y 1.9) que las trayectorias de una partícula que se mueve en un espacio curvo son geodésicas, es decir, curvas de longitud estacionaria. Entonces, podemos notar las siguientes analogías:
+- La luz sigue trayectorias dadas por el principio de Fermat: son las que hacen que la longitud $S$ del camino óptico sea estacionaria. Si el medio, con coordenadas $q^{a}$, tiene índice de refracción $n$, entonces
+$$
+S[q(t)]=\int n(q) \sqrt{\delta_{a b} \dot{q}^{a} \dot{q}^{b}} \mathrm{~d} t
+$$
+
+Por tanto, el principio de Fermat se puede formular en términos de geodésicas en un espacio curvo cuya métrica está determinada por el índice de refracción y viceversa: $g_{a b}=n^{2} \delta_{a b}$. Notemos que estas descripciones, tanto en términos de un índice de refracción como de una métrica, son invariantes bajo reparametrizaciones.
+- Una partícula de energía $E$ sometida a un potencial $V(q)$ se mueve siguiendo geodésicas de la métrica (EJERCICIO)
+$$
+g_{a b}=\frac{2}{m c^{2}}(E-V) \delta_{a b}
+$$
+donde $c$ es una constante arbitraria con dimensiones de velocidad (por ejemplo, la velocidad de la luz).
+- Juntando ambos resultados, concluimos que la ley de evolución de una partícula en un potencial es equivalente a la ley de propagación de los rayos de luz en un medio cuyo índice de refracción sea
+$$
+n=\sqrt{2(E-V) / m c^{2}} .
+$$
+
+Esta analogía es importante también desde el punto de vista histórico. Hamilton llegó a la ecuación de Hamilton-Jacobi a partir del estudio de las propiedades de propagación de la luz. Posteriormente, la contribución principal de Jacobi fue romper el círculo de argumentos que indicaban que para resolver las ecuaciones de movimiento se podía utilizar una solución de la ecuación de Hamilton-Jacobi, pero que, para obtener esta solución era necesaria la trayectoria clásica que se quería encontrar, como ya hemos comentado.
 \subsubsection{La ecuación de Hamilton-Jacobi y la velocidad de
 los rayos}
+La ecuación de Hamilton-Jacobi es análoga a la ecuación que relaciona la dependencia del camino óptico con las posiciones finales (más específicamente la normal al frente de onda) y la velocidad de los rayos, que, en general, no coincidirán. Antes de establecer esta analogía, notemos que el funcional del camino óptico es invariante bajo reparametrizaciones temporales, por lo que no podemos hacer un estudio hamiltoniano. Sin embargo, podemos romper esta invariancia eligiendo una de las coordenadas, por ejemplo, $q^{n}$ como el tiempo, que renombraremos como $\tau$. Entonces, si escribimos $q^{a}=\left(q^{\prime a^{\prime}}, \tau\right), a^{\prime}=1,2 \ldots, n-1$, el funcional de camino óptico adquiere la expresión
+$$
+S\left[q^{\prime}(\tau)\right]=\int n\left(q^{\prime}, \tau\right) \sqrt{\delta_{a^{\prime} b^{\prime}} \dot{q}^{\prime a^{\prime}} \dot{q}^{\prime b^{\prime}}+1} \mathrm{~d} \tau
+$$
+
+Por tanto, cada solución $S\left(q_{0}, q\right)$ de la ecuación de Hamilton-Jacobi para este sistema determina una familia $S\left(q_{0}, q\right)=\sigma$ de frentes de onda y cada trayectoria
+estacionaria entre $q_{0}$ y $q$ representa un rayo de luz que conecta estos dos puntos. En efecto, el hamiltoniano correspondiente es (EJERCICIO) $H=\sqrt{n^{2}-p^{\prime 2}}$ y la ecuación de Hamilton-Jacobi se puede escribir como $\left(\partial_{\tau} S\right)^{2}=n^{2}-\left(\partial_{a^{\prime}}{ }^{\prime} S\right)^{2}$. En términos de las variables originales $q^{a}$, esta ecuación adquiere la forma $\left(\partial_{a} S\right)^{2}=n^{2}$ y relaciona la normal $\partial_{a} S$ con la velocidad de los rayos $c / n$.
+$\diamond$ EJERCICIO: Encontrar la ecuación de Hamilton-Jacobi como la eikonal de la ecuación de Schrödinger. Ídem para la ecuación relativista $\left(-\partial_{t}^{2}+\partial_{x}^{2}+V\right) \phi=0$. Comparar los resultados.
 \section{Teoremas de integrabilidad}
+Hemos visto que, si podemos integrar la ecuación de Hamilton-Jacobi (por ejemplo, mediante separación de variables) y obtener una solución completa, entonces esta solución depende de $n$ constantes del movimiento independientes $\alpha^{a}$. Además, estas constantes están en involución puesto que la solución completa genera transformaciones canónicas $\left(q^{a}, p_{a}\right) \rightarrow\left(\alpha^{a}, \beta_{a}\right)$ en las que $\alpha^{a}$ son las nuevas variables de configuración por lo que, obviamente, $\left\{\alpha^{a}, \alpha^{b}\right\}=0$. Por otro lado, con la solución completa, podemos integrar las ecuaciones de Hamilton mediante cuadraturas.
+
+Es importante notar que, localmente, siempre podemos encontrar las variables $\alpha^{a}$ mediante una transformación canónica. Esto no significa que hayamos integrado la ecuación de Hamilton-Jacobi y no es suficiente para integrar las ecuaciones de Hamilton. Para poder hablar de integrabilidad, es necesario que podamos encontrar la solución, al menos implícitamente, en términos de cuadraturas, es decir, en términos de integrales de funciones conocidas.
+
+La relación entre la existencia de $n$ integrales primeras independientes en involución y la integrabilidad por cuadraturas de las ecuaciones de Hamilton no es una casualidad y queda perfectamente establecida mediante el teorema de Liouville-Arnold que estudiaremos en esta sección. Para ello, nos resultará útil el siguiente teorema, que es una versión simplificada del teorema de Frobenius.
+
+Teorema local de Frobenius. Sea $\mathscr{U}$ una variedad $k$-dimensional. La condición necesaria y suficiente para que las líneas de flujo $\varphi^{i}=\varphi^{X_{i}}$ de $k$ vectores $X_{i}$ independientes sean líneas coordenadas y, por tanto, para que $X_{i}=\partial / \partial s^{i}$, es que estos vectores conmuten: $\left[X_{i}, X_{j}\right]=0$.
+Demostración. Si los flujos $\varphi^{i}$ son líneas coordenadas de una variedad $k$ dimensional $\mathscr{U}$, entonces $\varphi_{s^{i}}^{i} \varphi_{s}^{j}=\varphi_{s i}^{j} \varphi_{s^{i}}^{i}$, es decir, el orden en el que las re-
+corramos no altera el resultado. Infinitesimalmente, para cualquier función $f \in \mathscr{F}(\mathscr{U})$, esto significa que $X_{i} X_{j} f=X_{j} X_{i} f$, luego $\left[X_{i}, X_{j}\right]=0$.
+
+Por otro lado, en general, el orden en que recorramos los flujos será importante. Si para ir de un cierto punto $\zeta_{0} \in \mathscr{U}$, que tomaremos como origen, a cualquier otro punto $\zeta$ a lo largo de las líneas de flujo $\varphi^{i}$, seguimos, por convenio, el orden
+$$
+\zeta=\varphi_{t^{1}}^{1} \cdots \varphi_{t^{k}}^{k} \zeta_{0}
+$$
+entonces la línea coordenada construida a partir de $\operatorname{los}$ flujos $\varphi^{i}$ que pasa por $\zeta$ es
+$$
+\gamma^{j}\left(s^{j}\right)=\varphi_{t^{1}}^{1} \cdots \varphi_{t j+s j}^{j} \cdots \varphi_{t^{k}}^{k} \zeta_{0}
+$$
+
+Esta línea coordenada, no será, en general, la línea de flujo de $X_{j}$ por $\xi$. Si los flujos conmutan, o lo que es lo mismo, si sus vectores generadores conmutan, entonces podemos escribir
+$$
+\gamma^{j}\left(s^{j}\right)=\varphi_{s^{\prime}}^{j} \varphi_{t^{1}}^{1} \cdots \varphi_{t j}^{j} \cdots \varphi_{t^{k}}^{k} \zeta_{0}=\varphi_{s{ }^{j}}^{j} \zeta,
+$$
+es decir, las líneas de flujo son líneas coordenadas.
 \subsection{Teorema de Liouville}
+El teorema de Liouville asegura que un sistema con $n$ grados de libertad (cuyo espacio de fases tiene $2 n$ dimensiones) que tiene $n$ constantes del movimiento independientes en involución es integrable por cuadraturas.
+
+En una formulación más detallada, este teorema afirma lo siguiente. Consideremos un sistema descrito por una variedad simpléctica ( $2 n$ )-dimensional $\mathscr{M}$ cuya dinámica en unas ciertas variables canónicas $\xi$ está determinada por un hamiltoniano $H$ independiente del tiempo. Supongamos que conocemos $n$ constantes del movimiento $g_{a}$, entre las que se encuentra el hamiltoniano. Para cada conjunto de $n$ números $\left(g_{a}\right) \in \mathbb{R}^{n}$, sea
+$$
+\mathscr{U}_{g}=\left\{\xi \in \mathscr{M} \mid g_{a}(\xi)=g_{a}\right\} \subset \mathscr{M}
+$$
+un subconjunto de nivel. Finalmente, supongamos que las $n$ constantes $g_{a}$ cumplen las siguientes condiciones:
+- son independientes, es decir, sus diferenciales $\mathrm{d} g_{a}$ son linealmente independientes $o$, lo que es lo mismo,
+$$
+\mathrm{d} g_{1} \wedge \cdots \wedge \mathrm{~d} g_{n} \neq 0
+$$
+- están en involución,
+$$
+\left\{g_{a}, g_{b}\right\}=0
+$$
+
+Notemos que esta condición implica que las constantes $g_{a}$ no dependen explícitamente del tiempo; en efecto, $\partial_{t} g_{a}=-\left\{g_{a}, H\right\}=0$ por ser $H$ una de ellas y estar en involución.
+
+\textbf{Entonces,}
+1. $\mathscr{U}_{g}$ es una subvariedad invariante bajo los flujos de las constantes del movimiento $g_{a} \mathrm{y}$, en particular, es invariante bajo el flujo del hamiltoniano $H$;
+2. las ecuaciones de movimiento en las variables originales se pueden integrar por cuadraturas.
+
+\textbf{Demostración.}
+1. Si $g_{a}$ son $n$ variables independientes, entonces el teorema de la función implícita garantiza que $\mathscr{U}_{g}$ es una subvariedad $n$-dimensional. Además, los campos vectoriales $X_{g_{a}}$ preservan esta variedad ya que $X_{g_{a}} g_{b}=\left\{g_{b}, g_{a}\right\}=0$. Puesto que el hamiltoniano es función de estas variables, $\mathscr{U}_{g}$ es invariante en la evolución bajo el flujo de $H$.
+
+Explícitamente, si $\xi$ es un punto arbitrario de la variedad $\mathscr{M}$ y $\xi(\delta t)$ es otro punto obtenido mediante la evolución hamiltoniana durante un tiempo infinitesimal $\delta t$, entonces
+$$
+g_{a}[\xi(\delta t)]=g_{a}(\xi+\dot{\xi} \delta t)=g_{a}(\xi)+\dot{\xi}^{b} \partial_{b} g_{a} \delta t=g_{a}(\xi)+\dot{g}_{a} \delta t=g_{a}(\xi)
+$$
+
+Por tanto, $g_{a}[\xi(\delta t)]=g_{a}(\xi)$, es decir, $\xi(\delta t) \in \mathscr{U}_{g}$ si y solo si $\xi \in \mathscr{U}_{g}$, luego $\mathscr{U}_{g}$ es invariante bajo la evolución hamiltoniana.
+2. Si las $n$ variables $g_{a}$ están en involución, entonces los corchete de Poisson entre ellas se anulan. Por tanto, los conmutadores de sus campos hamiltonianos también se anulan, como vimos en $\mathbb{\$}$ 2.2.3.2:
+$$
+\left\{g_{a}, g_{b}\right\}=0 \quad \Rightarrow \quad\left[X_{g_{a}}, X_{g_{b}}\right]=-X_{\left\{g_{a}, g_{b}\right\}}=0
+$$
+
+Entonces, de acuerdo con el teorema local de Frobenius, los flujos $\varphi^{g_{a}}$ de estos vectores son líneas coordenadas de cada variedad $\mathscr{U}_{g}$.
+
+Sea $\xi_{0}$ un punto de alguna variedad de nivel $\mathscr{U}_{g}$ y sea $\mathscr{N}$ una variedad $n$ dimensional que contenga a $\xi_{0}$ e interseque a todas las variedades de nivel $\mathscr{U}_{g}$,
+es decir, a todas las líneas de flujo de las $n$ variables $g_{a}$ (ver figura 2.1). Definamos las coordenadas canónicas $f^{a}$ de un punto $\xi$ del espacio de fases como las distancias paramétricas $s^{a}$ del punto $\xi$ a la variedad $\mathscr{N}$ a lo largo de los flujos $\varphi^{g_{a}}$. Claramente, $\left\{f^{a}, f^{b}\right\}=0$ por construcción y $\left\{g_{a}, g_{b}\right\}=0$ por hipótesis. Además, el teorema local de Frobenius nos permite escribir $X_{g_{a}}=\partial / \partial s^{a}$, por lo que $\left\{f^{a}, g_{b}\right\}=X_{g_{b}} f^{a}=\partial s^{a} / \partial s^{b}=\delta_{b}^{a}$.
+
+Hemos construido así las variables canónicas $\left(f^{a}, g_{a}\right)$ en términos de las cuales las ecuaciones de Hamilton adquieren la forma
+$$
+\dot{f}^{a}=\frac{\partial H}{\partial g_{a}}, \quad \dot{g}_{a}=0
+$$
+
+La segunda ecuación indica, como ya sabemos, que $f^{a}$ es una coordenada cíclica ya que $\partial H / \partial f^{a}=0$. Por tanto, el segundo miembro de la primera ecuación solo depende de las constantes del movimiento $g_{a}$ y la solución de esta ecuación es
+$$
+\begin{equation*}
+f^{a}=\left(\partial H / \partial g_{a}\right) t+f_{0}^{a} \tag{3.2}
+\end{equation*}
+$$
+
+Nos queda demostrar que las variables $f^{a}$ así construidas se pueden obtener mediante cuadraturas. Para ello, notemos que ya hemos demostrado que la transformación $\left(q^{a}, p_{a}\right) \rightarrow\left(f^{a}, g_{a}\right)$ es canónica. Por tanto, existe una única función generatriz $F_{2}$ para la misma que satisface la ecuación
+$$
+\begin{equation*}
+\mathrm{d} F_{2}=p_{a} \mathrm{~d} q^{a}+f^{a} \mathrm{~d} g_{a} . \tag{3.3}
+\end{equation*}
+$$
+
+Esta ecuación es integrable puesto que, como vimos, la condición de integrabilidad es precisamente que la transformación sea canónica. Conocida la transformación canónica, el teorema de la función implícita nos permite encontrar la solución de las ecuaciones de Hamilton a partir de las relaciones entre las nuevas variables y las originales que involucran las derivadas parciales de la función generatriz. Más explícitamente, podemos resolver las ecuaciones $p_{a}=\partial F_{2} / \partial q^{a}$ y $f^{a}=\partial F_{2} / \partial g_{a}$ para obtener $q(f, g)$ y $p(f, g)$ y sustituir en estas expresiones la solución clásica para $f$ dada por 3.2.
+
+Podemos obtener una expresión cerrada para la función generatriz $F_{2}(q, g)$. Para ello, notemos que la uno-forma 3.3 es cerrada $y$, por tanto, su integral
+$$
+F_{2}(q, g)=\int_{\left(q_{0}, g_{0}\right)}^{q, g)}\left(p_{a} \mathrm{~d} q^{a}+f^{a} \mathrm{~d} g_{a}\right)
+$$
+entre un punto arbitrario $\left(q_{0}, g_{0}\right)$ del espacio de fases elegido como origen y el punto caracterizado por $(q, g)$ perteneciente a la superficie de nivel $\mathscr{U}_{g}$ es independiente del camino seguido. Entonces, podemos separar esta integral en dos partes. En la primera parte, seguimos el camino de $q$ constante dado por $q=q_{0}$ que une el punto ( $q_{0}, g_{0}$ ) con el punto $\left(q_{0}, g\right)$, que ya se halla en la superficie de nivel $\mathscr{U}_{g}$. En la segunda, seguimos una curva cualquiera $\gamma_{g}(q)$ enteramente contenida en $\mathscr{U}_{g}$ que conecte el punto arbitrario $\left(q_{0}, g\right) \in \mathscr{U}_{g}$ con el punto final $(q, g)$. Así,
+$$
+F_{2}(q, g)=\left.\int_{g_{0}}^{g} f^{a} \mathrm{~d} g_{a}\right|_{q_{0}}+\int_{\gamma_{g}(q)} p_{a} \mathrm{~d} q^{a}
+$$
+
+La primera integral solo depende de las constantes $g_{a}$ ya que $f=f\left(q_{0}, g\right)$, por lo que no es relevante a efectos de generación de transformaciones canónicas y podemos ignorarlo. Por tanto, podemos escribir $F_{2}$ como una integral a lo una curva arbitraria enteramente contenida en $\mathscr{U}_{g}$ que pase por el punto $(q, g)$ :
+$$
+F_{2}(q, g)=\int_{\gamma_{g}(q)} p_{a} \mathrm{~d} q^{a}
+$$
 \subsection{Teorema de Arnold}
+Bajo las mismas hipótesis del teorema de Liouville expuesto en el apartado anterior, el teorema de Arnold garantiza que, si la subvariedad de nivel $\mathscr{U}_{\mathrm{g}}$ es compacta $^{1}$ y conexa, se cumplen las siguientes tesis:
+3. la subvariedad de nivel $\mathscr{U}_{g}$ es difeomorfa (se puede deformar de forma suave) a un toro $n$-dimensional, $T^{n}=\left(S^{1}\right)^{n}$;
+4. existen variables canónicas $\left(\phi^{a}, J_{a}\right)$, llamadas de ángulo y acción respectivamente, tales que
+$$
+\oint_{\mathscr{U}_{g}} \mathrm{~d} \phi^{a}=2 \pi
+$$
+donde la integral cerrada involucra una sola vuelta; en términos de estas variables, las ecuaciones de Hamilton adquieren la forma
+$$
+\dot{\phi}^{a}=\omega^{a}(J), \quad \dot{j_{a}}=0
+$$
+
+\footnotetext{
+${ }^{1}$ Cerrada y acotada si la topología de la variedad simpléctica $\mathscr{M}$ es $\mathbb{R}^{2 n}$.
+}
+
+\textbf{Demostración.}
+3. La demostración rigurosa de esta parte del teorema de Liouville-Arnold requiere técnicas que escapan al nivel de este curso y se puede encontrar, por ejemplo, en el libro de Arnold [3]. Sin embargo, sí es posible dar una "demostración intuitiva" de esta tercera tesis.
+
+Las subvariedades de nivel $\mathscr{U}_{g}$ son compactas por hipótesis. Entonces, las líneas de flujo $\varphi^{g_{a}}$ en una de estas subvariedades $\mathscr{U}_{g}$ necesariamente tienen uno de estos dos comportamientos: o se salen de ella o se arrollan en la misma. Si se salen, la subvariedad $\mathscr{U}_{g}$ no es invariante bajo los flujos de $g_{a}$, lo cual contradice la primera tesis del teorema. Concluimos así que las líneas de flujo $\varphi^{g_{a}}$ se arrollan independientemente en $\mathscr{U}_{g}$.
+
+Dado un flujo $\varphi^{g a}$, sus líneas se arrollan y eventualmente se acercan al punto de partida. Entonces, mediante la evolución a lo largo de otros flujos es posible acercarse más y más al punto de partida. De hecho, mediante una elección adecuada de la combinación de flujos se puede volver exactamente al punto de partida. Estas son las direcciones principales que, en lo que se refiere al comportamiento de curvas suaves y de los flujos a lo largo de las mismas, tienen las mismas propiedades que las circunferencias.
+
+Por otro lado, las constantes del movimiento $g_{a}$ están en involución, por lo que, como vimos en la primera parte de este teorema, sus campos vectoriales $X_{g_{a}}$ conmutan y , equivalentemente, también lo hacen sus flujos $\varphi^{g_{a}}$.
+
+Nos encontramos ante $n$ flujos circulares independientes que conmutan. En este sentido, la subvariedad $\mathscr{U}_{g}$ tiene las mismas propiedades que el producto de $n$ circunferencias, es decir, es difeomorfa a un toro $n$-dimensional $T^{n}$ caracterizado por las constantes $g_{a}$ (figura 3.2). Podríamos pensar en otras opciones que no son el producto de $n$ circunferencias. Por ejemplo, una esfera $n$-dimensional también tiene $n$ flujos circulares independientes, que son las rotaciones alrededor de $n$ ejes, pero las rotaciones no conmutan, por lo que no satisfacen los requisitos necesarios. De hecho, $T^{n}$ es el única posibilidad.
+4. En cada $n$-toro caracterizado por $g_{a}$, las variables angulares $\phi^{a}$ a lo largo de cada circunferencia principal están en involución pues son los parámetros de evolución a lo largo de los flujos principales, que conmutan por ser combinaciones lineales de flujos que conmutan. Por tanto, pueden considerarse como variables canónicas de configuración tales que
+$$
+\oint_{\mathscr{U}_{g}} \mathrm{~d} \phi^{a}=2 \pi,
+$$
+\begin{marginfigure}[]
+  \includegraphics{}
+  \caption[]{(a) Toros invariantes unidimensionales (circunferencias) correspondientes a un oscilador centrado en $q_{0}$ con un grado de libertad. Cada toro está caracterizado por la energía del oscilador. (b) Flujos en toros bidimensionales invariantes.
+  donde el camino cerrado escogido da una sola vuelta al rededor de $\mathscr{U}_{g}$.
+  Asimismo, puesto que las variables $g_{a}$ están en involución, también lo estarán cualesquiera funciones de ellas, que también serán cantidades conservadas. Elijamos las $n$ variables independientes $J_{a}(g)$ con dimensiones de momento angular que son conjugadas a las variables angulares $\phi^{a} y$ que corresponden, obviamente, a las funciones cuyos campos hamiltonianos generan flujos en las direcciones principales de los $n$-toros.}
+  \labfig{fig:}
+\end{marginfigure}
+
+El hamiltoniano en estas nuevas variables acción-ángulo es el mismo que el original ya que la transformación canónica $\left(q^{a}, p_{a}\right) \rightarrow\left(\phi^{a}, J_{a}\right)$ es independiente del tiempo y es, por tanto, una función de las variables $J_{a}$. Estas variables $\left(\phi^{a}, J_{a}\right)$ satisfacen las ecuaciones de Hamilton
+$$
+0=\dot{J}_{a}=-\frac{\partial H}{\partial \phi^{a}}, \quad \dot{\phi}^{a}=\frac{\partial H}{\partial J_{a}}=\omega^{a}(J)
+$$
+
+Notemos que pueden existir valores críticos de las constantes $g_{a}$ para los que el conjunto de nivel $\mathscr{U}_{g}$ deja de ser una subvariedad $n$-dimensional. Estos valores indican un cambio de régimen.
+$\diamond$ EJEMPLO: La separatriz no diferenciable $E=0$ para un péndulo de hamiltoniano
+$$
+H=p^{2} / 2+\operatorname{sen} q
+$$
+(donde $q$ es el ángulo con dirección vertical hacia arriba), separa la curvas de nivel que se pueden deformar suavemente a un punto de las que no (ver figura 3.3).
+
+\begin{marginfigure}[]
+  \includegraphics{}
+  \caption[]{Espacio de fases y curvas de energía constante para un péndulo.
+  $\diamond$ EJEMPLO: En el caso de la figura $3.4, E=V_{\text {máx }}$ es una curva desconexa que separa las curvas de nivel compactas de las no compactas.}
+  \labfig{fig:}
+\end{marginfigure}
+
 \section{Variables de acción-ángulo}
+Las variables acción-ángulo se pueden obtener a partir de las variables originales mediante cuadraturas, si se satisfacen las hipótesis del teorema de LiouvilleArnold. Comenzaremos con la construcción de las variables acción-ángulo para sistemas con un grado de libertad y generalizaremos el procedimiento a sistemas con un número arbitrario de grados de libertad.
 \subsubsection{Sistemas con un grado de libertad}
+Si el hamiltoniano del sistema $H(q, p)$ es independiente del tiempo, entonces es una cantidad conservada. El teorema de Liouville nos garantiza que las ecuaciones de movimiento se pueden reducir a cuadraturas. Más aún, si las curvas de nivel $\mathscr{U}_{E}$ definidas por la ecuación $H=E$ son cerradas, al menos en alguna región del espacio de fases (es decir, para algunos valores $E$ ), entonces podemos definir variables de acción-ángulo en esa región. Por ejemplo, una partícula en un potencial como el de la figura 3.4 solo tendrá órbitas cerradas si
+\begin{marginfigure}[]
+  \includegraphics{}
+  \caption[]{Solo la región del espacio de fases con $E<V_{\text {máx }}$ admite variables de acción-ángulo.
+  $E<V_{\text {máx }}$.}
+  \labfig{fig:}
+\end{marginfigure}
+Para construir las variables acción-ángulo, encontremos una transformación canónica $(q, p) \rightarrow(\phi, J)$ tal que el nuevo momento $J$ sea solo función de la energía y la nueva variable de configuración $\phi$ sea tal que $\oint_{\mathscr{U}_{E}} \mathrm{~d} \phi=2 \pi$. Elijamos esta transformación de tipo 2 , de forma que la función generatriz $W(q, J)$ dependa de la variable de configuración original $q$ y del nuevo momento $J$. Entonces, como ya sabemos, se satisfacen las relaciones
+$$
+p=\partial_{q} W, \quad \phi=\partial_{J} W, \quad H\left(q, \partial_{q} W\right)=E(J)
+$$
+
+Sobre la curva $\mathscr{U}_{E}$, el momento $J$ es constante, por lo que la primera ecuación se puede integrar en dicha curva desde un punto $q_{0} \in \mathscr{U}_{E}$ arbitrario dado:
+$$
+W(q, J)=\left.\int_{q_{0}}^{q} p \mathrm{~d} q\right|_{\mathscr{U}_{E}}
+$$
+
+Esta función es la función generatriz de la transformación buscada. En efecto, la primera y la tercera de las ecuaciones anteriores se satisfacen por definición. Veamos ahora qué condiciones garantizan que la variable canónica $\phi$ definida por la segunda ecuación sea una variable angular.
+
+La función generatriz $W$ evaluada en la configuración inicial $q_{0}$ toma múltiples valores $W\left(q_{0}, J\right)=k \oint_{\mathscr{U}_{E}} p \mathrm{~d} q$, donde $k$ es el número de vueltas que hemos dado para volver a $q_{0}$. Por tanto, la función $W(q, J)$ es multivaluada:
+$$
+W(q, J)=k \oint_{\mathscr{U}_{E}} p \mathrm{~d} q+\left.\oint_{q_{0}}^{q} p \mathrm{~d} q\right|_{\mathscr{U}_{E}}
+$$
+donde hemos separado la integral sobre vueltas completas a la curva $\mathscr{U}_{E}$ y la integral en menos de una vuelta, que hemos representado con el símbolo $f$. Esta multivaluación no afecta a $p=\partial_{q} W$ puesto que el primer término no depende de $q$, pero sí a
+$$
+\phi=\partial_{J} W=k \partial_{J} \oint_{\mathscr{U}_{E}} p \mathrm{~d} q+\left.\partial_{J} \oint_{q_{0}}^{q} p \mathrm{~d} q\right|_{\mathscr{U}_{E}}
+$$
+que está definida salvo un número entero de veces $\partial_{J} \oint_{\mathscr{U}_{E}} p \mathrm{~d} q$.
+La variable $J$ es una función de la energía todavía sin determinar. La condición de que $\phi$ sea una variable angular exige que $\oint_{\mathscr{Q}_{E}} \mathrm{~d} \phi=2 \pi$ tras dar una vuelta a $\mathscr{U}_{E}$. Así, obtenemos la condición $2 \pi=\partial_{J} \oint_{\mathscr{U}_{E}} p \mathrm{~d} q$ que, integrada en $J$, implica que
+$$
+\begin{gathered}
+J=\frac{1}{2 \pi} \oint_{\mathscr{U}_{E}} p \mathrm{~d} q, \quad \phi=2 \pi k+\left.\partial_{J} \oint_{q_{0}}^{q} p \mathrm{~d} q\right|_{\mathscr{U}_{E}}, \\
+W(q, J)=2 \pi k J+\left.\oint_{q_{0}}^{q} p \mathrm{~d} q\right|_{\mathscr{U}_{E}}
+\end{gathered}
+$$
+
+Es interesante notar que la variable así construida es simplemente el área encerrada en el interior de la curva $\mathscr{U}_{E}$ de energía $E$.
+
+Consideremos un sistema cuyo hamiltoniano es
+$$
+H=p^{2} / 2 m+V(q)
+$$
+
+Consideremos la región conexa del espacio de fases en la que $V(q)<E$ y tal que las curva $\mathscr{U}_{E}$, cuya expresión en términos de las variables $(q, p)$ es
+$$
+p= \pm \sqrt{2 m[E-V(q)]}
+$$
+es compacta (en el caso de la figura 3.4, esto ocurre para $0<E<V_{\text {máx }}$ ). Entonces, la variable de acción queda determinada por la expresión
+$$
+\begin{equation*}
+J=\frac{1}{2 \pi} \oint_{\mathscr{U}_{E}} p \mathrm{~d} q=\frac{2}{2 \pi} \int_{q_{-}(E)}^{q_{+}(E)} \sqrt{2 m[E-V(q)]} \mathrm{d} q \tag{3.4}
+\end{equation*}
+$$
+donde $q_{-}<q_{+}$son los puntos de retorno, soluciones de $V(q)=E$. El factor 2 delante de la segunda integral nos asegura que vamos de $q_{-}$a $q_{+}$y vuelta, es
+decir, que recorremos toda la curva cerrada $\mathscr{U}_{E}$. El hamiltoniano en función de la variable de acción se puede obtener invirtiendo esta relación entre $E$ y $J$. La función generatriz para la rama correspondiente a $p$ positivo (respectivamente, negativo) es
+$$
+W=\sigma \int_{q_{-}(E)}^{q} \sqrt{2 m[E-V(q)]} \mathrm{d} q
+$$
+donde $\sigma=\operatorname{signo}(p)$. Entonces, la coordenada angular es
+$$
+\phi=\partial_{J} W=\partial_{E} W \partial_{J} E=\partial_{E} W / \partial_{E} J
+$$
+
+Teniendo en cuenta que
+$$
+\begin{aligned}
+\partial_{E} W & =\sigma \frac{\partial}{\partial E} \int_{q_{-}(E)}^{q} \sqrt{2 m[E-V(q)]} \mathrm{d} q=\sigma \frac{\sqrt{2 m}}{2} \int_{q_{-}(E)}^{q}[E-V(q)]^{-1 / 2} \mathrm{~d} q, \\
+\partial_{E} J & =\frac{1}{\pi} \frac{\partial}{\partial E} \int_{q_{-}(E)}^{q_{+}(E)} \sqrt{2 m[E-V(q)]} \mathrm{d} q=\frac{\sqrt{2 m}}{2 \pi} \int_{q_{-}(E)}^{q_{+}(E)}[E-V(q)]^{-1 / 2} \mathrm{~d} q,
+\end{aligned}
+$$
+podemos escribir
+$$
+\phi=\sigma \pi \frac{\int_{q_{-}(E)}^{q}[E-V(q)]^{-1 / 2} \mathrm{~d} q}{\int_{q_{-}(E)}^{q_{+}(E)}[E-V(q)]^{-1 / 2} \mathrm{~d} q}
+$$
+$\diamond$ EJEMPLO: Para un oscilador armónico, $V(q)=m \omega^{2} q^{2} / 2$. Los puntos de retorno son $q_{ \pm}= \pm q_{0}$, donde $q_{0}=\sqrt{2 E / m \omega^{2}}$. La relación entre la variable de acción y la energía se obtiene de la ecuación 3.4:
+$$
+J=\frac{m \omega}{\pi} \int_{-q_{0}}^{q_{0}} \sqrt{q_{0}^{2}-q^{2}} \mathrm{~d} q=\frac{1}{2} m \omega q_{0}^{2}=\frac{E}{\omega}
+$$
+de donde obtenemos el hamiltoniano $H=\omega J$. La variable angular es
+$$
+\phi=\sigma \pi \frac{\int_{-q_{0}}^{q}\left(q_{0}^{2}-q^{2}\right)^{-1 / 2} \mathrm{~d} q}{\int_{-q_{0}}^{q_{0}}\left(q_{0}^{2}-q^{2}\right)^{-1 / 2} \mathrm{~d} q}=\sigma\left[\arcsin \left(q / q_{0}\right)+\pi / 2\right]
+$$
+
+Invirtiendo ambas relaciones obtenemos las variables originales $q$ y $p$ en función de las variables de acción y ángulo
+$$
+\begin{equation*}
+q=\sqrt{2 J / m \omega} \cos \phi, \quad p=\sqrt{2 J m \omega} \operatorname{sen} \phi \tag{3.5}
+\end{equation*}
+$$
+
+La evolución de la variable angular obedece la ecuación $\dot{\phi}=\partial_{J} H=\omega$, por lo que la solución es $\phi=\omega t+\phi_{0}$. Así, la solución general de las ecuaciones de Hamilton en las variables originales es
+$$
+q=\sqrt{2 J / m \omega} \cos \left(\omega t+\phi_{0}\right), \quad p=\sqrt{2 J m \omega} \operatorname{sen}\left(\omega t+\phi_{0}\right) .
+$$
 \subsubsection{Sistemas con un número arbitrario de grados de libertad}
+En un sistema con $n$ grados de libertad que satisface las hipótesis del teorema de Liouville-Arnold, las variables de acción son las $n$ funciones de las $n$ constantes del movimiento en involución $g_{a}$ definidas mediante la expresión
+$$
+J_{a}=\frac{1}{2 \pi} \oint_{r_{a}} p_{b} \mathrm{~d} q^{b}
+$$
+donde $\gamma_{a}$ son $n$ curvas del toro $\mathscr{U}_{g}$ cerradas e independientes, es decir, que no se pueden deformar suavemente una en otra. Estas integrales son independientes de las curvas específicas elegidas (de entre todas las posibles deformaciones suaves) ya que $p_{b} \mathrm{~d} q^{b}$ es una uno-forma cerrada en $\mathscr{U}_{g}$, como ya vimos en la demostración del teorema de Liouville, $\$ 3.2$. . La demostración explícita de esta afirmación es la siguiente.
+Demostración. Demostremos en primer lugar esta última afirmación, es decir, que $p_{b} \mathrm{~d} q^{b}$ es cerrada en $\mathscr{U}_{g}$. Por un lado, $p_{b} \mathrm{~d} q^{b}$ es la forma canónica, es decir, satisface
+$$
+\left.\mathrm{d}\left(p_{b} \mathrm{~d} q^{b}\right)\right|_{\mathscr{U}_{g}}=\left.\mathrm{d} p_{b} \wedge \mathrm{~d} q^{b}\right|_{\mathscr{U}_{g}}=\left.\Omega\right|_{\mathscr{U}_{g}}
+$$
+
+Por otro lado, $(f, g)$ también son variables canónicas por lo que podemos escri$\left.\operatorname{bir} \Omega\right|_{\mathscr{U}_{g}}=\left.\mathrm{d} g_{b} \wedge \mathrm{~d} f^{b}\right|_{\mathscr{U}_{g}}$. Sin embargo, esta última cantidad se anula ya que las variables canónicas $g_{b}$ son constantes sobre $\mathscr{U}_{g}$.
+
+La demostración de que la integral de una uno-forma cerrada es independiente del camino se deriva directamente del teorema de Stokes. Nosotros daremos aquí una versión simplificada. Consideremos dos curvas $\gamma_{a}$ y $\gamma_{a}^{\prime}$ que se pueden deformar una en otra y unámoslas mediante un camino $\beta$ de ida y otro de vuelta $\beta^{\prime}$ como se muestra en la figura 3.5. Puesto que $\left.p_{b} \mathrm{~d} q^{b}\right|_{\mathscr{U}_{g}}$ es cerrada, admite una función $b$ sobre $\mathscr{U}_{g}$ tal que $\left.p_{b} \mathrm{~d} q^{b}\right|_{\mathscr{U}_{g}}=\mathrm{d} b$ en una región local de $\mathscr{U}_{g}$. Supongamos que la curva $\gamma_{a} \beta \gamma_{a}^{\prime} \beta^{\prime}$ está incluida en dicha región local y que
+
+\begin{marginfigure}[]
+  \includegraphics{}
+  \caption[]{La integral de una uno-forma cerrada en un camino cerrado $\gamma_{a} \beta \gamma_{a}^{\prime} \beta^{\prime}$ de $\mathscr{U}_{g}$ que se puede contraer a un punto se anula.
+  se puede deformar a un punto. Entonces, por un lado, la integral a lo largo de $\gamma_{a} \beta \gamma_{a}^{\prime} \beta^{\prime}$ se anula y, por el otro, podemos descomponerla en cuatro integrales, de las cuales, las integrales a lo largo de $\beta$ y $\beta^{\prime}$ se cancelan entre sí.}
+  \labfig{fig:}
+\end{marginfigure} Por tanto,
+$$
+0=\oint_{r_{a} \beta \gamma_{a}^{\prime} \beta^{\prime}} p_{b} \mathrm{~d} q^{b}=\oint_{r_{a}} p_{b} \mathrm{~d} q^{b}-\oint_{r_{a}^{\prime}} p_{b} \mathrm{~d} q^{b}
+$$
+como queríamos demostrar.
+La función definida sobre $\mathscr{U}_{g}$ desde un punto $q_{0}$ arbitrario dado
+$$
+W(q, J)=\left.\int_{q_{0}}^{q} p_{b} \mathrm{~d} q^{b}\right|_{\mathscr{U}_{g}}
+$$
+genera una transformación canónica $(q, p) \rightarrow(\phi, J)$ de tipo 2 , donde la nueva variable $\phi^{a}=\partial W / \partial J_{a}$ es una variable angular. Para demostrarlo es suficiente darse cuenta de que $W$ es multivaluada: podemos llegar de $q_{0}$ a $q$ sobre $\mathscr{U}_{g}$ dando $k^{a}$ vueltas alrededor de cada curva independiente $\gamma_{a}$, es decir,
+$$
+W(q, J)=2 \pi k^{a} J_{a}+\left.\oint_{q_{0}}^{q} p_{b} \mathrm{~d} q^{b}\right|_{U_{g}}
+$$
+donde la última integral involucra menos de una vuelta a lo largo de cada una de las curvas $\gamma_{a}$. Entonces, en cada vuelta a lo largo de la curva $\gamma_{a}$, la función generatriz aumenta en $\oint_{\gamma_{a}} p_{b} \mathrm{~d} q^{b}=2 \pi J_{a}$, la variable $\phi^{a}=\partial W / \partial J_{a}$ aumenta en $2 \pi$ y las demás variables $\phi^{b \neq a}$ no sufren variación.
+
+En la construcción de las variables acción-ángulo, solo hemos utilizado cuadraturas e inversiones de funciones y, por tanto, esta proporciona un método de integración de las ecuaciones de Hamilton originales por cuadraturas.
 \subsubsection{Acción-ángulo y Hamilton-Jacobi}
+Existe una estrecha relación entre las variables de acción-ángulo y las soluciones completas de la ecuación de Hamilton-Jacobi.
+\paragraph{Soluciones completas y acción-ángulo}
+Por un lado, la función generatriz $W(q, J)=\left.\int_{q_{0}}^{q} p_{b} \mathrm{~d} q^{b}\right|_{\mathscr{U}_{g}}$ de tipo 2 es una solución completa de la ecuación de Hamilton-Jacobi independiente del tiempo $H\left(q^{a}, \partial_{a} W\right)=E$ por construcción.
+
+Por otro lado, si $\bar{W}(q, g)$ es una solución completa de la ecuación de HamiltonJacobi independiente del tiempo, las $n$ constantes $g_{a}$ están en involución ya que son momentos canónicos. Si los conjuntos de nivel son compactos, podemos construir las variables acción-ángulo de la forma ya descrita.
+\paragraph{Soluciones completas con flujos cerrados}
+Ya vimos que, en general, el flujo $\varphi^{g_{a}}$ generado por cada una de estas constantes no es cerrado sino que se arrolla en el toro $\mathscr{U}_{g}$. Sin embargo, en la práctica, a menudo estos flujos son cerrados. Entonces, las variables de acción-ángulo son especialmente simples de construir. En efecto, en este caso, las variables canónicas conjugadas $f^{a}=\partial \bar{W} / \partial g_{a}$ son periódicas $y$, por tanto, las nuevas variables
+$$
+\phi^{a}=2 \pi f^{a} / K^{a}, \quad J_{a}=\frac{1}{2 \pi} g_{a} K^{a}, \quad(\sin \text { suma en } a)
+$$
+donde $K^{a}=\oint_{\mathscr{U}_{8}} \mathrm{~d} f^{a}$, son variables de acción-ángulo.
+\paragraph{Variables separables}
+Consideremos ahora un sistema en el que las variables originales son separables. Entonces, la ecuación de Hamilton-Jacobi independiente del tiempo admite una solución completa de la forma $\bar{W}(q, g)=\sum_{a} \bar{W}_{a}\left(q^{a}, g\right)$, donde $\bar{W}_{a}$
+depende solo de la variable $q^{a}$ y de las $n$ las constantes $g_{b}$. Por tanto, cada $p_{a}=\partial_{a} \bar{W}_{a}$ es solo función de su correspondiente coordenada canónica $q^{a} \cdot \mathrm{Si}$ el movimiento es acotado, las curvas $C_{g, a}$ pertenecientes a los conjuntos de nivel $\mathscr{U}_{g}$ y dependientes solo de sus correspondientes $q^{a}$ y $p_{a}$ serán cerradas. En estas circunstancias, podemos definir las variables de acción (una por cada par de variables canónicas)
+$$
+J_{a}=\frac{1}{2 \pi} \oint_{C_{g, a}} p_{a} \mathrm{~d} q^{a} \quad(\sin \text { suma en } a)
+$$
+e invertir estas expresiones para obtener las relaciones $g_{a}(J)$. Entonces,
+$$
+W(q, J)=\sum_{a} \bar{W}_{a}\left(q^{a}, g(J)\right)
+$$
+es la función generatriz de la transformación canónica de tipo 2 que pasa de las variables originales $(q, p)$ a las variables de acción-ángulo $(\phi, J)$. Para demostrarlo, basta con notar que $\partial_{a} W=\partial_{a} \bar{W}_{a}=p_{a}$ y que, por otro lado, $\phi^{a}=\partial W / \partial J_{a}$ es una variable angular. En efecto,
+$$
+\begin{aligned}
+\oint_{C_{g, a}} \mathrm{~d} \phi^{a} & =\oint_{C_{g, a}} \frac{\partial^{2} W}{\partial J_{a} \partial q^{a}} \mathrm{~d} q^{a}=\frac{\partial}{\partial J_{a}} \oint_{C_{g, a}} p_{a} \mathrm{~d} q^{a} \\
+& =\frac{\partial}{\partial J_{a}}\left(2 \pi J_{a}\right)=2 \pi . \quad(\text { sin suma en } a)
+\end{aligned}
+$$
+$\diamond$ EJEMPLO: Sea una partícula de masa unidad sometida a la fuerza de la gravedad que se mueve en la superficie de un cilindro vertical de radio $r$ apoyado sobre el suelo y cuyos choques con este son elásticos. El hamiltoniano es
+$$
+H=p_{z}^{2} / 2+p_{\theta}^{2} / 2 r^{2}+g z
+$$
+donde $z$ es la coordenada vertical $y \theta$ el ángulo azimutal. Además, $z \geq 0$ y tanto el momento como la energía se conservan en cada choque. Entonces, la energía $E$ y el momento angular $p_{\theta}$ se conservan y están en involución. La función
+$$
+\bar{W}=\bar{W}_{z}+\bar{W}_{\theta}=-(2 / 3) \sqrt{2 g}\left(\alpha_{z}-z\right)^{3 / 2}+\alpha_{\theta} \theta
+$$
+donde
+$$
+\alpha_{\theta}^{2}=2 r^{2}\left(E-g \alpha_{z}\right)
+$$
+es una solución completa de la ecuación de Hamilton-Jacobi independiente del tiempo obtenida mediante separación de variables.
+
+Puesto que $p_{\theta}=\partial_{\theta} \bar{W}=\alpha_{\theta}$ es conservado, $\theta$ es un ángulo y el problema es separable, la variable de acción correspondiente es
+$$
+J_{\theta}=\frac{1}{2 \pi} \oint p_{\theta} \mathrm{d} \theta=p_{\theta}
+$$
+
+Análogamente, la variable de acción correspondiente al movimiento vertical es
+$$
+J_{z}=\frac{1}{2 \pi} \oint p_{z} \mathrm{~d} z=\frac{1}{2 \pi} \oint \partial_{z} \bar{W}_{z} \mathrm{~d} z=\frac{\sqrt{2 g}}{\pi} \int_{0}^{\alpha_{z}} \sqrt{\alpha_{z}-z} \mathrm{~d} z=\frac{2 \sqrt{2 g}}{3 \pi} \alpha_{z}^{3 / 2}
+$$
+
+De esta expresión, vemos que el hamiltoniano es
+$$
+H=J_{\theta}^{2} / 2 r^{2}+\left(3 \pi g J_{z}\right)^{2 / 3} / 2
+$$
+y que la función generatriz de tipo 2 que pasa de las variables originales a las nuevas variables es
+$$
+\begin{aligned}
+W\left(z, \theta, J_{z}, J_{\theta}\right) & =\bar{W}_{z}\left(z, \alpha_{z}(J)\right)+\bar{W}_{\theta}\left(\theta, \alpha_{\theta}(J)\right) \\
+& =-\left(\pi^{2 / 3} J_{z}^{2 / 3}-2 \cdot 3^{-2 / 3} g^{1 / 3} z\right)^{3 / 2}+J_{\theta} \theta
+\end{aligned}
+$$
+
+Finalmente, de la relación $\phi^{\theta}=\partial W / \partial J_{\theta}$, obtenemos $\phi^{\theta}=\theta \mathrm{y}$, de las relaciones $\phi^{z}=\partial W / \partial J_{z}$ y $p_{z}=\partial W / \partial z$, obtenemos
+$$
+\phi^{z}=-\pi p_{z}\left(p_{z}^{2}+2 g z\right)^{-1 / 2}, \quad J_{z}=(3 \pi g)^{-1}\left(p_{z}^{2}+2 g z\right)^{3 / 2}
+$$
+
+Notemos que, aunque este sistema posee ligaduras anholónomas ( $z \geq 0$ ), las variables acción-ángulo nos han permitido su estudio sin necesidad de llevar a cabo análisis adicionales.
 \subsubsection{Movimiento condicionalmente periódico}
+
+
+
+En las variables acción-ángulo, la solución a las ecuaciones de movimiento es de la forma
+$$
+J_{a}=\text { constante }, \quad \phi^{a}(t)=\omega^{a}(J) t+\phi_{0}^{a}, \quad \omega^{a}(J)=\frac{\partial H}{\partial J_{a}}
+$$
+
+Los valores de $J_{a}$ determinan el $n$-toro en el que tiene lugar el movimiento y las funciones $\phi^{a}(t)$ representan la trayectoria en dicho toro. El movimiento en cada $n$-toro es condicionalmente periódico en el sentido que se discute a continuación.
+
+Notemos que el movimiento en cada dirección principal es periódico. Sin embargo, en general, las trayectorias no serán periódicas. En efecto, para que tal condición se dé, es necesario y suficiente que exista un tiempo $T$ y unas constantes enteras no nulas $k^{a}$ tales que
+$$
+\phi^{a}(T)=\phi_{0}^{a}+2 \pi k^{a}
+$$
+para todo $a$. Para ello, es necesario y suficiente que $\omega^{a} T=2 \pi k^{a}$ o, lo que es lo mismo, deben existir enteros no nulos $k_{a}$ tales que $k_{a} \omega^{a}=0$.
+
+Diremos que las frecuencias $\omega^{a}$ son independientes si y solo si la combinación lineal $k_{a} \omega^{a}$ de coeficientes $k_{a}$ enteros es nula solo cuando todos los coeficientes se anulan. En estas circunstancias, cada trayectoria cubre densamente el $n$-toro al que pertenece. Además, al cabo de un tiempo, la trayectoria pasa arbitrariamente cerca de la configuración inicial y es posible demostrar (ver, por ejemplo, la referencia [3]) que el tiempo que pasa una trayectoria en una cierta región del toro es proporcional al tamaño de la misma, es decir, que las trayectorias son ergódicas (el promedio espacial y el promedio temporal coinciden).
+
+Puesto que las frecuencias dependen exclusivamente de las variables de acción, el movimiento en cada toro puede ser diferente. Sin embargo, los números racionales tienen medida nula en el conjunto de los reales y, por lo tanto, los sistemas integrables casi nunca tienen movimientos periódicos (tan solo para un conjunto de condiciones iniciales de medida nula).
+
+Diremos que un sistema es no degenerado si y solo si $\operatorname{det}\left(\partial \omega^{a} / \partial J_{b}\right) \neq 0$. Las frecuencias de los sistemas no degenerados son independientes, salvo para un conjunto de medida nula, como es fácil ver. En efecto, para un sistema no degenerado, se satisface que, si $k_{a}$ son enteros tales que alguno de ellos es no nulo, entonces $k_{a} \partial \omega^{a} / \partial J_{b} \neq 0$ para algún valor de $b$ ya que, en caso contrario, las columnas del determinante $\operatorname{det}\left(\partial \omega^{a} / \partial J_{b}\right)$ serían linealmente dependientes y este sería nulo. Pero esta condición implica que $k_{a} \omega^{a} \neq 0$ salvo para un número finito de valores de $J_{b}$, que tiene medida nula.
+
+Podemos concluir que todos los toros (salvo un conjunto de medida nula) invariantes $J_{a}=$ constante de un sistema no degenerado están definidos de forma única (independiente de la elección de las variables de acción-ángulo) por el cierre topológico de las trayectorias en los mismos, que los cubren densamente.
+
+Por otro lado, en sistemas degenerados, los toros $J_{a}=$ constante dependen de la elección de las variables acción-ángulo ya que las trayectorias cubrirán densamente toros de dimensión menor que $n$ y que, por tanto, se pueden embeber de formas diferentes en los toros $n$-dimensionales.
