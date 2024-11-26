@@ -3,6 +3,10 @@
 \usepackage[bottom=2cm,top=2cm,right=1.5cm,left=1cm,binding=1cm]{geometry}
 \usepackage{mathtools}
 \usepackage{cancel}
+\usepackage{pgfplots}
+\pgfplotsset{compat = newest}
+\usetikzlibrary{arrows.meta}
+\usepackage{tikz}
 \title{Entregables electrodinámica clásica}
 \author{Álvaro Méndez Rodriguez de Tembleque}
 \date{\today}
@@ -179,32 +183,93 @@ Sustituyendo en la energía del fotón obtenemos que
 
 \end{itemize}
 
+\newpage
 
 \section{Entregable 2}
 
 \subsection{Describir cualitativamente el movimiento de un electrón, en un campo magnético inhomogéneo que está principalmente dirigido en la dirección $+\hat{x}$, en concreto: 
 \[
-\vec{B} = B_0 \left( 1 + \frac{z^2}{d^2} \right) \hat{x} - \frac{2xy}{d^2} \hat{y}
+\vec{B} = B_0 \left[\left( 1 + \frac{x^2}{d^2} \right) \hat{x} - \frac{2xy}{d^2} \hat{y}\right]
 \]
 El campo está descrito así para tener divergencia 0, pero este principalmente dirigido en la dirección $x$, con solo una ligera variación en el plano $(y,z)$, en concreto en la dirección $y$, considerando el movimiento en una zona de espacio cómodamente alejado de la origen de coordenadas y ejes principales para que sea así.}
+
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+      \begin{axis}[
+          width=10cm, % Width of the plot
+          height=10cm, % Height of the plot
+          xlabel={$x$},
+          ylabel={$y$},
+          xmin=-10, xmax=10, % x-axis range
+          ymin=-10, ymax=10, % y-axis range
+          axis equal image, % Keep the aspect ratio
+          -stealth,
+          view = {0}{90}
+      ]
+      % Define the constant d and B_0
+      \pgfmathsetmacro{\d}{5} % Set d = 1 (example value)
+      \pgfmathsetmacro{\Bzero}{1} % Set B_0 = 1 (example value)
+      
+      \addplot3[
+          quiver={
+              u={\Bzero*(1 + x^2/(\d^2))}, % x-component of the field
+              v={\Bzero*(-2*x*y/(\d^2))},  % y-component of the field
+              scale arrows=0.5, % Scale the arrow lengths
+          },
+          samples=20, % Number of samples for the grid
+          domain=-10:10, % Domain for x
+          y domain=-10:10 % Domain for y
+      ] {0}; % 3D plot, z=0 since it's 2D
+      \end{axis}
+    \end{tikzpicture}
+    \caption{Campo magnético inhomogéneo para $B_{0}=1$ y $d=5$.}
+    \label{fig:field}
+\end{figure}
+
 
 \subsection{Describir las reglas de transformación Lorentz de la energía radiada por una carga}
 
 
 
-\subsection{Se considera una función tensiorial $B_{\mu\nu}$ completamente antisymétrica (campo de Kalb-Ramond) que es potencial del campo \[H_{\mu\nu\rho} = \partial_{\mu} B_{\nu\rho} + \partial_{\nu} B_{\rho\mu} + \partial_{\rho} B_{\mu\nu}\].}
+\subsection{Se considera una función tensiorial $B_{\mu\nu}$ completamente antisymétrica (campo de Kalb-Ramond) que es potencial del campo \[H_{\lambda\mu\nu } = \partial_{\lambda} B_{\mu\nu } + \partial_{\nu} B_{\lambda\mu} + \partial_{\mu } B_{\nu \lambda }\].}
 
 
 
 \begin{enumerate}
-    \item[a)] Comprobar que $\partial_{\rho} H^{\rho \sigma} = 0$, siendo $H$ el tensor dual de $H$.
+    \item[a)] Comprobar que $\partial_{\sigma} H^{* \sigma} = 0$, siendo $H^*$ el tensor dual de $H$.
     \item[b)] Dada la densidad lagrangiana 
     \[
-    \mathcal{L} = - \frac{1}{6} H_{\mu\nu\rho} H^{\mu\nu\rho} - m^2 B_{\mu\nu} B^{\mu\nu},
+    \mathcal{L} = - \frac{1}{6} H_{\lambda\mu\nu } H^{\lambda\mu\nu } - m^2 B_{\mu\nu} B^{\mu\nu},
     \]
     encontrar las ecuaciones de movimiento de $B_{\mu\nu}$.
+    
+    En primer lugar debemos poner el Lagrangiano en función de $B_{\mu \nu }$ como:
+    \[\mathcal{L}= - \frac{1}{6} \left(\partial_{\lambda} B_{\mu\nu } + \partial_{\nu} B_{\lambda\mu} + \partial_{\mu } B_{\nu \lambda }\right)\left(\partial^{\lambda} B^{\mu\nu } + \partial^{\nu} B^{\lambda\mu} + \partial^{\mu } B^{\nu \lambda }\right)- m^2 B_{\mu\nu} B^{\mu\nu}\]
+    \[\mathcal{L}= - \frac{1}{6} \left( \partial_{\lambda} B_{\mu\nu }\partial^{\lambda} B^{\mu\nu } + \partial_{\lambda} B_{\mu\nu }\partial^{\nu} B^{\lambda\mu} +\partial_{\lambda} B_{\mu\nu }\partial^{\mu } B^{\nu \lambda }+\partial_{\nu} B_{\lambda\mu}\partial^{\lambda} B^{\mu\nu } + \partial_{\nu} B_{\lambda\mu}\partial^{\nu} B^{\lambda\mu} +\partial_{\nu} B_{\lambda\mu}\partial^{\mu } B^{\nu \lambda }\right.\]
+    \[\left. +\partial_{\mu } B_{\nu \lambda}\partial^{\lambda} B^{\mu\nu } + \partial_{\mu } B_{\nu \lambda}\partial^{\nu} B^{\lambda\mu} +\partial_{\mu } B_{\nu \lambda}\partial^{\mu } B^{\nu \lambda } \right)- m^2 B_{\mu\nu} B^{\mu\nu}\]
+
+    \[\partial_{\mu }\frac{\partial\mathcal{L}}{\partial\partial_{\mu}B_{\mu \nu }}-\frac{\partial\mathcal{L}}{\partial B_{\mu \nu }}=0\]
     \item[c)] Se considera la siguiente transformación tipo-gauge: $B'_{\mu\nu} = B_{\mu\nu} + \partial_{\mu} \Psi_{\nu} - \partial_{\nu} \Psi_{\mu}$.
     Comprobar que el tensor $H$ es invariante gauge, analizar para qué valores de $m$ la lagrangiana $\mathcal{L}$ es invariante gauge.
+
+    Primero escribimos la transformada del tensor H:
+    \[H'_{\lambda\mu\nu } = \partial_{\lambda} B'_{\mu\nu } + \partial_{\nu} B'_{\lambda\mu} + \partial_{\mu } B'_{\nu \lambda }\]
+    Y sustituimos la transformación Gauge para expresar $H'$ en función de $B$:
+    \[H'_{\lambda\mu\nu } = \partial_{\lambda} \left(B_{\mu\nu } + \partial_{\mu} \Psi_{\nu} - \partial_{\nu } \Psi_{\mu} \right) + \partial_{\nu} \left(B_{\lambda\mu} + \partial_{\lambda  } \Psi_{\mu} - \partial_{\mu } \Psi_{\lambda} \right) + \partial_{\mu } \left(B_{\nu \lambda} + \partial_{\nu } \Psi_{\lambda} - \partial_{\lambda } \Psi_{\nu} \right) \]
+    Reagrupamos términos 
+    \[H'_{\lambda\mu\nu } =H_{\lambda\mu\nu } + \partial_{\lambda}\partial_{\mu} \Psi_{\nu} - \partial_{\lambda}\partial_{\nu} \Psi_{\mu} + \partial_{\nu}\partial_{\lambda  } \Psi_{\mu} - \partial_{\nu }\partial_{\mu} \Psi_{\lambda} + \partial_{\mu }\partial_{\nu} \Psi_{\lambda } - \partial_{\mu }\partial_{\lambda } \Psi_{\nu } \]
+    Como el orden de las derivadas no es relevante, los terminos de $\Psi$ se cancelan y queda 
+    \[H'_{\lambda\mu\nu } = H_{\lambda\mu\nu } \]
+    Por lo tanto, el tensor $H$ es invariante gauge.
+
+    Ahora, para analizar para qué valores de $m$ la lagrangiana $\mathcal{L}$ es invariante gauge, en donde el termino $- \frac{1}{6} H_{\lambda\mu\nu } H^{\lambda\mu\nu }$ es invariante por ser $H$ invariente, y quedaría solo comprobar el término $m^2 B_{\mu\nu} B^{\mu\nu}$, escribimos el Lagrangiano como:
+    \[
+    \mathcal{L}' = - \frac{1}{6} \underbrace{H_{\lambda\mu\nu } H^{\lambda\mu\nu }}_{\text{Invariante}} - m^2 B'_{\mu\nu} B'^{\mu\nu}
+    \]
+    Entonces 
+    \[B'_{\mu\nu} B'^{\mu\nu}= \left(B_{\mu\nu} + \partial_{\mu} \Psi_{\nu} - \partial_{\nu} \Psi_{\mu}\right)\left(B^{\mu\nu} + \partial^{\mu} \Psi^{\nu} - \partial^{\nu} \Psi^{\mu}\right)\]
+    \[B'_{\mu\nu} B'^{\mu\nu}=B_{\mu\nu} B^{\mu\nu} + B_{\mu\nu} \partial^{\mu} \Psi^{\nu} - B_{\mu\nu} \partial^{\nu} \Psi^{\mu} + \partial_{\mu} \Psi_{\nu} B^{\mu\nu} - \partial_{\nu} \Psi_{\mu} B^{\mu\nu} + \partial_{\mu} \Psi_{\nu} \partial^{\nu} \Psi^{\mu} - \partial_{\nu} \Psi_{\mu} \partial^{\mu} \Psi^{\nu} \]
 \end{enumerate}
 
 

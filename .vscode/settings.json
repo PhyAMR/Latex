@@ -14,7 +14,6 @@
   "latex-workshop.latex.outDir": "%DIR%",
   "latex-workshop.view.pdf.invertMode.enabled":"always",
   "latex-workshop.view.pdf.invert":0.9,
-  "latex-workshop.formatting.tex-fmt.doNotWrap": true,
   "latex-workshop.formatting.latex": "latexindent",
   
   "files.exclude": {
@@ -96,7 +95,9 @@
                 "%DOCFILE%"
             ]
         }
-    ]
+    ],
+    "hsnips.hsnipsPath": "C:/Users/alvar/Desktop/Code/Programación/Latex/HSnips",
+
 }
 
 

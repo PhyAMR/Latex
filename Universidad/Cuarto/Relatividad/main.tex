@@ -1,0 +1,179 @@
+
+\documentclass[
+	a4paper, 
+	fontsize=10pt,
+	twoside=true, 
+	%open=any,
+	%chapterentrydots=true, 
+	numbers=noenddot, 
+]{kaobook}
+
+\ifxetexorluatex
+	\usepackage{polyglossia}
+	\setmainlanguage{spanish}
+\else
+	\usepackage[spanish]{babel} 
+\fi
+\usepackage[spanish]{csquotes}	
+
+\usepackage{pdfpages}
+\usepackage{blindtext}
+%\usepackage{showframe} % Uncomment to show boxes around the text area, margin, header and footer
+%\usepackage{showlabels} % Uncomment to output the content of \label commands to the document where they are used
+
+% Load the bibliography package
+\usepackage{kaobiblio}
+\addbibresource{main.bib} % Bibliography file
+
+% Load mathematical packages for theorems and related environments
+\usepackage[framed=true]{kaotheorems}
+
+% Load the package for hyperreferences
+\usepackage{kaorefs}
+
+%%%%%%%%%%%%%%%%Paquetes%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{witharrows}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\graphicspath{{../Images}{images/}} % Paths in which to look for images
+
+\makeindex[columns=3, title=Alphabetical Index, intoc] % Make LaTeX produce the files required to compile the index
+
+\makeglossaries % Make LaTeX produce the files required to compile the glossary
+\input{Chapters/Glossary.tex} % Include the glossary definitions
+
+\makenomenclature % Make LaTeX produce the files required to compile the nomenclature
+
+% Reset sidenote counter at chapters
+\counterwithin*{sidenote}{chapter}
+
+\begin{document}
+
+\titlehead{Apuntes de }
+\subject{Asignatura}
+
+\title[]{Título}
+\subtitle{Customise this page according to your needs}
+
+\author[]{}
+
+\date{\today}
+
+\publishers{An Awesome Publisher}
+
+\frontmatter
+
+\makeatletter
+\uppertitleback{\@titlehead}
+
+\makeatletter
+\uppertitleback{\@titlehead} % Header
+
+\lowertitleback{
+  \textbf{Disclaimer}\\
+  You can edit this page to suit your needs. For instance, here we have a no copyright statement, a colophon and some other information. This page is based on the corresponding page of Ken Arroyo Ohori's thesis, with minimal changes.
+
+  \medskip
+
+  \textbf{No copyright}\\
+  \cczero\ This book is released into the public domain using the CC0 code. To the extent possible under law, I waive all copyright and related or neighbouring rights to this work.
+
+  To view a copy of the CC0 code, visit: \\\url{http://creativecommons.org/publicdomain/zero/1.0/}
+
+  \medskip
+
+  \textbf{Colophon} \\
+  This document was typeset with the help of \href{https://sourceforge.net/projects/koma-script/}{\KOMAScript} and \href{https://www.latex-project.org/}{\LaTeX} using the \href{https://github.com/fmarotta/kaobook/}{kaobook} class.
+
+  The source code of this book is available at:\\\url{https://github.com/fmarotta/kaobook}
+
+  (You are welcome to contribute!)
+
+  \medskip
+
+  \textbf{Publisher} \\
+  First printed in May 2019 by \@publishers
+}
+\makeatother
+
+\maketitle
+
+\begingroup % Local scope for the following commands
+
+% Define the style for the TOC, LOF, and LOT
+%\setstretch{1} % Uncomment to modify line spacing in the ToC
+%\hypersetup{linkcolor=blue} % Uncomment to set the colour of links in the ToC
+\setlength{\textheight}{230\hscale} % Manually adjust the height of the ToC pages
+
+% Turn on compatibility mode for the etoc package
+\etocstandarddisplaystyle % "toc display" as if etoc was not loaded
+\etocstandardlines % "toc lines" as if etoc was not loaded
+
+\tableofcontents % Output the table of contents
+
+\listoffigures % Output the list of figures
+
+% Comment both of the following lines to have the LOF and the LOT on different pages
+\let\cleardoublepage\bigskip
+\let\clearpage\bigskip
+
+\listoftables % Output the list of tables
+
+\endgroup
+
+%----------------------------------------------------------------------------------------
+%	MAIN BODY
+%----------------------------------------------------------------------------------------
+
+\mainmatter % Denotes the start of the main document content, resets page numbering and uses arabic numbers
+\setchapterstyle{kao} % Choose the default chapter heading style
+
+
+
+\pagelayout{wide}
+
+\addpart{Mecánica Newtoniana}
+
+\pagelayout{wide}
+
+\pagelayout{wide}
+
+\addpart{Principios dinámicos}
+
+\pagelayout{wide}
+
+\pagelayout{wide}
+
+\addpart{Geometria: Rieman y minkowsky}
+
+\pagelayout{wide}
+
+\pagelayout{wide}
+
+\addpart{La gravitación en la relatividad especial}
+
+\pagelayout{wide}
+
+\pagelayout{wide}
+
+\addpart{Geometria de Schwarzchild}
+
+\pagelayout{wide}
+
+\pagelayout{wide}
+
+\addpart{Pruebas clásicas de la relatividad de Einstein}
+
+\pagelayout{wide}
+
+\pagelayout{wide}
+
+\addpart{Agujeros negros}
+
+\pagelayout{wide}
+
+
+
+
+
+\end{document}

@@ -5,12 +5,166 @@
 \begin{center}
   \large Todo esto lo he sacado del \cite{Dobdado}
 \end{center}
+En los temas anteriores hemos estudiado cómo cuantizar teorías libres. En una teoría libre, la evolución de los estados es trivial. En efecto, consideremos por simplicidad un estado inicial de una partícula $|\vec{p}\rangle$. En imagen de Schrödinger, el estado simplemente evolucionará con una fase, esto es
+$$
+e^{-i H\left(t-t_{0}\right)}|\vec{p}\rangle=e^{-i E_{p}\left(t-t_{0}\right)}|\vec{p}\rangle
+$$
+donde hemos usado que los estados de Fock son autoestados del Hamiltoniano, y por tanto el estado final será también un estado de una partícula con el mismo momento $\vec{p}$. Es decir, en la teoría libre no es posible que ocurran procesos de dispersión en los que cambie el momento de la partícula, ni de creación o aniquilación de partículas.
+
+Los procesos físicamente interesantes aparecen cuando hay interacciones entre los campos. Desde el punto de vista matemático, las interacciones se describen a través de términos que involucren más de dos campos en el Lagrangiano. Dichos términos pueden contener potencias mayores de un mismo campo, como
+$$
+\frac{\lambda}{4!} \phi^{4}
+$$
+en el caso de una teoría escalar, o productos que involucren distintos tipos de campos como
+$$
+-q \bar{\psi} \gamma^{\mu} \psi A_{\mu}
+$$
+en electrodinámica.
+En este tema presentaremos el formalismo para calcular las probabilidades de transición entre distintos estados en presencia de interacciones y cómo, a partir de esas probabilidades, calcular las cantidades que pueden medirse experimentalmente (ritmos de desintegración y secciones eficaces).
 \section{Imágen de interacción}
+Consideremos una teoría con interacción, en la que podemos separar el Hamiltoniano del sistema en dos partes
+$$
+\begin{equation*}
+H=H_{0}+H_{i n t} \tag{7.1}
+\end{equation*}
+$$
+donde $H_{0}$ corresponde al Hamiltoniano de la teoría libre que hemos visto en los temas anteriores y $H_{\text {int }}$ es el Hamiltoniano de las interacciones. Así, por ejemplo en la teoría escalar con interacción
+$$
+\begin{equation*}
+\mathscr{L}=\frac{1}{2} \eta^{\mu v} \partial_{\mu} \phi \partial_{v} \phi-\frac{1}{2} m^{2} \phi^{2}-\frac{\lambda}{4!} \phi^{4} \tag{7.2}
+\end{equation*}
+$$
+podemos definir
+$$
+\begin{equation*}
+H_{i n t}=-\int d^{3} x \mathscr{L}_{i n t}=\int d^{3} x \frac{\lambda}{4!} \phi^{4} \tag{7.3}
+\end{equation*}
+$$
+donde hemos usado que el término de interacción no involucra derivadas de los campos. Supondremos que $H_{\text {int }}$ es una pequeña perturbación con respecto a $H_{0}$
 \subsection{Imagen de Schrödinger}
+\begin{itemize}
+  \item $A_{S}$. Los operadores no dependen del tiempo
+  \item $|\Psi(t)\rangle_{S}=e^{-i H\left(t-t_{0}\right)}\left|\Psi\left(t_{0}\right)\right\rangle_{S}$. Los estados evolucionan.
+\end{itemize}
 \subsection{Imagen de Heisenberg}
+\begin{itemize}
+  \item $A_{H}(t)=e^{i H\left(t-t_{0}\right)} A_{H}\left(t_{0}\right) e^{-i H\left(t-t_{0}\right)}$. Los operadores evolucionan.
+  \item $|\Psi\rangle_{H}$. Los estados no evolucionan
+\end{itemize}
+
+En el caso en el que tengamos interacciones es posible definir una tercera imagen en la que tanto los estados como los operadores dependen del tiempo
 \subsection{Imagen de Interacción (Dirac)}
+\begin{itemize}
+  \item $A_{I}(t)=e^{i H_{0}\left(t-t_{0}\right)} A_{I}\left(t_{0}\right) e^{-i H_{0}\left(t-t_{0}\right)}$. Los operadores evolucionan con la parte libre del Hamiltoniano, es decir, como los operadores libres.
+  \item $|\Psi(t)\rangle_{I}=e^{i H_{0}\left(t-t_{0}\right)} e^{-i H\left(t-t_{0}\right)}\left|\Psi\left(t_{0}\right)\right\rangle_{I}$. Los estados evolucionan con el hamiltoniano libre y el total.
+\end{itemize}
+
+Nótese que $A_{I}\left(t_{0}\right)=A_{H}\left(t_{0}\right)=A_{S}$ y que $\left|\Psi\left(t_{0}\right)\right\rangle_{I}=\left|\Psi\left(t_{0}\right)\right\rangle_{S}=|\Psi\rangle_{H}$. Nótese también que si $H_{\text {int }}=0$, las imágenes de Heisenberg y de interacción coinciden.
+
+Podemos, por tanto, definir el operador de evolución en la imagen de interacción
+
+\begin{equation*}
+|\Psi(t)\rangle_{I}=U_{I}\left(t, t_{0}\right)\left|\Psi\left(t_{0}\right)\right\rangle_{I} \tag{7.4}
+\end{equation*}
+
+como
+
+\begin{equation*}
+U_{I}\left(t, t_{0}\right)=e^{i H_{0}\left(t-t_{0}\right)} e^{-i H\left(t-t_{0}\right)} \tag{7.5}
+\end{equation*}
+
+que cumple $U_{I}\left(t_{0}, t_{0}\right)=1$ y satisface la ecuación
+
+\begin{equation*}
+i \frac{\partial}{\partial t} U_{I}\left(t, t_{0}\right)=H_{I}(t) U_{I}\left(t, t_{0}\right) \tag{7.6}
+\end{equation*}
+
+donde $H_{I}(t)=e^{i H_{0}\left(t-t_{0}\right)} H_{\text {int }} e^{-i H_{0}\left(t-t_{0}\right)}$. Así, en el ejemplo anterior
+
+\begin{equation*}
+H_{I}(t)=\int d^{3} x \frac{\lambda}{4!} \phi_{I}^{4} \tag{7.7}
+\end{equation*}
+
+
+La solución de la ecuación (7.6) puede escribirse formalmante como
+
+\begin{equation*}
+U_{I}\left(t, t_{0}\right)=1+(-i) \int_{t_{0}}^{t} d t^{\prime} H_{I}\left(t^{\prime}\right) U_{I}\left(t^{\prime}, t_{0}\right) \tag{7.8}
+\end{equation*}
+
+utilizando el hecho de que $H_{I}$ es una pequeña perturbación, podemos escribir una solución en serie de la forma
+
+\begin{aligned}
+U_{I}\left(t, t_{0}\right) & =1+(-i) \int_{t_{0}}^{t} d t_{1} H_{I}\left(t_{1}\right)+(-i)^{2} \int_{t_{0}}^{t} d t_{1} \int_{t_{0}}^{t_{1}} d t_{2} H_{I}\left(t_{1}\right) H_{I}\left(t_{2}\right) \\
+& +(-i)^{3} \int_{t_{0}}^{t} d t_{1} \int_{t_{0}}^{t_{1}} d t_{2} \int_{t_{0}}^{t_{2}} d t_{3} H_{I}\left(t_{1}\right) H_{I}\left(t_{2}\right) H_{I}\left(t_{3}\right)+\ldots \tag{7.9}
+\end{aligned}
+
+
+Se puede comprobar que al derivar cada término se obtiene el anterior multiplicado por $-i H_{I}(t)$ y por tanto es solución perturbativa de la ecuación (7.6). Nótese que en la integral
+\begin{marginfigure}[]
+  \includegraphics{}
+  \caption[]{Integración temporal en (7.10).
+  anterior los factores $H_{I}\left(t_{i}\right)$ aparecen en orden temporal (los últimos a la izquierda) puesto que por ejemplo $t_{2} \leq t_{1}$. Esto implica que por ejemplo el término $H_{I}^{2}$}
+  \labfig{fig:}
+\end{marginfigure}
+
+
+\begin{equation*}
+\int_{t_{0}}^{t} d t_{1} \int_{t_{0}}^{t_{1}} d t_{2} H_{I}\left(t_{1}\right) H_{I}\left(t_{2}\right)=\frac{1}{2} \int_{t_{0}}^{t} d t_{1} \int_{t_{0}}^{t} d t_{2} T\left\{H_{I}\left(t_{1}\right) H_{I}\left(t_{2}\right)\right\} \tag{7.10}
+\end{equation*}
+
+donde $T$ denota el producto cronológico de los operadores, como puede verse en la Fig.7.1. Expresiones similares pueden encontrarse para el resto de términos de forma que podemos escribir
+
+\begin{aligned}
+U_{I}\left(t, t_{0}\right) & =1+(-i) \int_{t_{0}}^{t} d t_{1} H_{I}\left(t_{1}\right)+\frac{(-i)^{2}}{2!} \int_{t_{0}}^{t} d t_{1} \int_{t_{0}}^{t} d t_{2} T\left\{H_{I}\left(t_{1}\right) H_{I}\left(t_{2}\right)\right\}+\ldots \\
+& =T \exp \left(-i \int_{t_{0}}^{t} d t^{\prime} H_{I}\left(t^{\prime}\right)\right) \tag{7.11}
+\end{aligned}
+
+que es la llamada fórmula de Dyson.
 
 \section{Propiedades de la Matriz S}
+Hemos visto en la sección anterior que debido a la presencia de la interacción, la evolución de los estados es no trivial. Consideremos por tanto un sistema que inicialmente se encuentra en un cierto estado $|i\rangle_{I}$ y queremos determinar la probabilidad de que se transforme en un estado final $|f\rangle_{I}$ debido a la interacción. Es decir, si el estado de nuestro sistema viene descrito en la imagen de interacción por $|\psi(t)\rangle_{I}$, tendremos
+
+\begin{equation*}
+\lim _{t \rightarrow-\infty}|\psi(t)\rangle_{I}=|i\rangle_{I} \tag{7.12}
+\end{equation*}
+
+
+Por tanto, la amplitud de probabilidad de que este estado se transforme en un cierto estado $|f\rangle_{I}$ en $t \rightarrow \infty$ vendrá dado por el elemento de matriz $\mathbf{S}$
+
+\begin{equation*}
+S_{f i}=\lim _{t \rightarrow \infty}\langle f \mid \psi(t)\rangle_{I}={ }_{I}\langle f| S|i\rangle_{I} \tag{7.13}
+\end{equation*}
+
+
+Expresado en términos del operador de evolución en la imagen de interacción tendremos
+
+\begin{equation*}
+S_{f i}=\lim _{t_{2} \rightarrow \infty} \lim _{t_{1} \rightarrow-\infty} I\langle f| U_{I}\left(t_{2}, t_{1}\right)|i\rangle_{I} \tag{7.14}
+\end{equation*}
+
+es decir el operador $S$ puede escribirse como
+
+\begin{equation*}
+S=U_{I}(\infty,-\infty)=T \exp \left(-i \int_{-\infty}^{\infty} d t^{\prime} H_{I}\left(t^{\prime}\right)\right)=T \exp \left(-i \int d^{4} x \mathscr{H}_{I}(x)\right) \tag{7.15}
+\end{equation*}
+
+
+Un aspecto fundamental de este resultado es que puesto que los campos en imagen de interacción evolucionan como campos libres, podremos usar la descomposición en operadores de creacion y destrucción vista en los temas anteriores cuando calculemos $\mathscr{H}_{I}$.
+
+El operador $S$ es un operador unitario $S^{\dagger} S=S S^{\dagger}=1$ lo que representa la conservación de la probabilidad. Es conveniente introducir la llamada matriz T de la forma
+
+\begin{equation*}
+S=1+i T \tag{7.16}
+\end{equation*}
+
+
+En los procesos de dispersión suponemos que en los estados iniciales y finales las partículas están suficientemente separadas como para ignorar las interacciones. Es decir, los estados inicial y final $|i\rangle_{I}$ y $|f\rangle_{I}$ se supondrán por simplicidad como estados libres, es decir serán autoestados del Hamiltoniano libre $H_{0}$. Esto plantea dos problemas:
+\begin{itemize}
+  \item Este formalismo no permite trabajar con estados ligados. Por ejemplo, no podremos describir el proceso en el que un electrón y un protón colisionan y forma un átomo de hidrógeno.
+  \item Aún más importante es que incluso una única partícula alejada de otras partículas nunca puede considerarse de forma estricta como libre en teoría de campos. Así por ejemplo, un electrón siempre aparecerá rodeado por un nube de fotones virtuales. Esto conduce a la noción de renormalización que no veremos en este curso. La forma rigurosa de tratar con este problema se basa en la llamada fórmula de reducción de Lehamnn-Symanzik-Zimmermann (LSZ).
+\end{itemize}
+
 
 \section{Probabilidad de interacción}
 
@@ -19,3 +173,11 @@
 \subsubsection{Vida media}
 
 \section{Secciones eficazes}
+
+\section{Espacio de fases de 2 cuerpos}
+\subsection{Desintegraciones}
+\subsection{Sección eficaz a 2 cuerpos}
+\subsubsection{Caso inelástico}
+\subsubsection{Caso elástico}
+\section{}
+\section{Diagramas de Feyman}
