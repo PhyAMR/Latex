@@ -53,7 +53,36 @@ A continuación definiremos que son estas variaciones:
   $\hat{\delta} \phi=\epsilon^a F_{i, a}(\Phi, \partial \Phi) \quad \quad \partial_\mu \epsilon^a \neq 0 \rightarrow$ transformaciór local (Gauge)
 \end{definition}
 \subsubsection{Transformaciones de Lorentz}
+De la forma $x^\mu = x^\mu + \delta x^\mu$. La transformación general será de la forma:
+$$
+\delta \phi(x) = \delta \phi + \delta x^\mu \partial_\mu \phi
+$$
 
+Pero, en el tema 0 vimos que $\Lambda^\mu_\nu = \delta^\mu_\nu + \omega^\mu_\nu$, por lo que, para un cambio de coordenadas o transformación infinitesimal, $\delta x^\mu = \omega^\mu_\nu x^\nu$, por lo que la transformación general quedaría:
+$
+\delta \phi = \delta \phi + \omega^\mu_\nu x^\nu \partial_\mu \phi
+$
+
+Como ya se introdujo en el tema 1 también, usamos el operador $P^\mu = i \partial^\mu$ para definir el operador $L^{\mu\nu} = x^\mu P^\nu - x^\nu P^\mu$, por lo que las transformaciones nos quedan:
+$$
+\delta \phi = \frac{1}{2} \omega^{\mu\nu} L_{\mu\nu} \phi \Rightarrow \delta \phi = L^{\mu\nu} J_\mu \phi
+$$
+
+Ahora bien, si definimos un nuevo generador $S^{\mu\nu}$ tal que la transformación general sea de la forma:
+$$
+\delta \phi = -\frac{1}{2} \epsilon^{\mu\nu} L_{\mu\nu} \phi,
+$$
+de manera que $\delta \phi = \epsilon^{\mu\nu} J_\mu \phi + S^{\mu\nu} \phi$.
+
+Las componentes del operador $L$ serán de la forma:
+$$
+L^{ij} = x^i P^j
+$$
+$$
+L^i = \frac{1}{2} \epsilon_{ijk} L^{jk} \Rightarrow \tilde{L} = r \times \vec{P}
+$$
+
+Algunos ejemplos o casos concretos donde se usan estas transformaciones:
 \begin{example}[Campo escalar]
   
 \end{example}
@@ -76,7 +105,54 @@ Esto quiere decir, que vamos a tener tantas coordenadas como puntos del espacio 
 
 De esta forma, la teoría de campos que buscamos para entender la dinámica de un sistema es una \textit{Teoría de campos local}, es decir, que lo que le ocurre a un punto del campo solo afecte a otros puntos cercanos y no a todo el campo y que además sea relativista.
 \subsection{Formalismo Lagrangiano}
-Para ello definimos la densidad lagrangiana $\mathcal{L}$ la cual depende de las coordenadas generalizadas $\phi_{i}$ y de sus velocidades generalizadas $\partial_{\mu}\phi_{i}$
+Si inicialmente consideramos un sistema con $q_a(t)$, donde $a = 1, \ldots, n$ representa los $n$ grados de libertad del sistema, cada uno de estos grados de libertad corresponde a un punto específico en el espacio. Ahora, al extender el sistema a un campo, los grados de libertad ya no están limitados a un número finito, sino que están definidos en cada punto del espacio y evolucionan con el tiempo. En este caso, el índice $x$ indica el punto espacial asociado al grado de libertad particular. De este modo, pasamos de una descripción discreta de los grados de libertad $q_a(t)$ a una descripción continua mediante un campo, $\phi(\bar{x}, t)$, donde $\bar{x}$ representa la posición espacial.
+
+La dinámica del sistema viene dada por la \textbf{acción}:
+$$
+S = S[\phi] = \int d^x t \mathcal{L}(\phi, \partial_\mu \phi)
+$$
+
+Con $\mathcal{L}$ la densidad lagrangiana. Recordemos también que:
+$$
+\int dt = \int_{-\infty}^{+\infty} dt, \quad \int d^x = \int d^0 x \int d^1 x \ldots \int d^3 x
+$$
+
+Definimos así el Lagrangiano: $L = \int d^x \mathcal{L}(\phi, \partial_\mu \phi)$. Por tanto, la acción se puede simplificar como:
+$$
+S = \int dt \, L
+$$
+
+Utilizando el principio de mínima acción: Para $\phi \rightarrow \phi + \delta \phi \rightarrow S[\phi] \rightarrow S[\phi] + \delta S[\phi]$. Hacemos que esa variación de la acción sea estacionaria: $\delta S = 0$, quedando:
+$$
+\delta S = \int d^x \left( \frac{\partial \mathcal{L}}{\partial \phi} \delta \phi + \frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi)} \delta (\partial_\mu \phi) \right)
+$$
+
+\begin{marginfigure}[]
+  \includegraphics{}
+  \caption[]{}
+  \labfig{fig:}
+\end{marginfigure}
+
+Definimos $K^\mu = \frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi)} \delta \phi \sim \partial_\mu \phi$. Ahora, aplicando el teorema de la divergencia:
+$
+\int_V d^4x \partial_\mu K^\mu = \int_{\Sigma_2}^{\Sigma_1} d\Sigma_\mu K^\mu
+$
+
+Con $\Sigma^\mu$ el cuadrivector perpendicular a la hipersuperficie (ver en "Figura 1").
+
+Entonces, el flujo de $K^\mu$ sobre la superficie se anula en toda la frontera de Minkowski:
+$
+\delta S = \int d^4x \left( \frac{\partial \mathcal{L}}{\partial \phi} - \partial_\mu \frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi)} \right) \delta \phi \approx 0 \quad \forall \delta \phi \rightarrow
+$
+
+Obteniendo:
+$
+\frac{\partial \mathcal{L}}{\partial \phi} - \partial_\mu \frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi)} = 0
+$
+
+\textbf{Las ecuaciones de Euler-Lagrange:}
+
+Para una acción $S'$ tal que su diferencia con $S$ sea de la forma: $S' = S + \int d^4x f(x)\delta V(\phi) \rightarrow \delta S' = \delta S + \int d^4x \delta V(\phi) = \delta S$: Si la diferencia entre acciones $S$ y $S'$ es la cuadridivergencia de un campo vectorial, entonces ambas tienen las mismas ecuaciones del movimiento.
 \subsection{Formalismo Hamiltoniano}
 
 Una vez descrito el formalismo Lagrangiano, podemos ir al formalismo Hamiltoniano de forma análoga a como lo haciamos en mecánica clásica, para ello definimos el \textit{Momento canónico generalizado} como 
@@ -89,28 +165,125 @@ De forma que el Hamiltoniano queda definido como
 
 \subsection{Ejemplos}
 
-\begin{example}[Campo escalar real]
+\begin{example}[Campo escalar real sin interacción]
+  $$
+  \mathcal{L}_0 = \frac{1}{2} \partial_\mu \phi \partial^\mu \phi - \frac{1}{2} m^2 \phi^2 = \mathcal{L}_0 (\phi, \partial_\mu \phi)
+  $$
+  A partir de estos lagrangianos y las ecuaciones de Euler-Lagrange es posible obtener la ecuación de Klein-Gordon:
+  $$
+  \frac{\partial \mathcal{L}}{\partial \phi} = -m^2 \phi
+  $$
+  $$
+  \partial_\mu \frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi)} = \Box \phi \quad \Rightarrow \quad (\Box + m^2) \phi = 0
+  $$
+
+\end{example}
+\begin{example}[Campo escalar real con interacción]
+
+  $$
+    \mathcal{L} = \frac{1}{2} \partial_\mu \phi \partial^\mu \phi - \frac{1}{2} m^2 \phi^2 - V(\phi) = \mathcal{L}_0 - V(\phi)
+    $$
+    La ecuación de Klein-Gordon obtenida a partir de este lagrangiano sería:
+    $$
+    (\Box + m^2) \phi = -V'(\phi) = \frac{\partial V(\phi)}{\partial \phi}
+    $$
   
 \end{example}
-\begin{example}[Campo escalar real]
-  
+\begin{example}[Campo complejo]
+  El campo es de la forma: $\phi = \phi_1 + i \phi_2 \in \mathbb{C}$, con $\phi_i \in \mathbb{R}$, $i = 1, 2$. El lagrangiano sería:
+  $$
+  \mathcal{L} = -\partial_\mu \phi^* \partial^\mu \phi - m^2 |\phi|^2 - V(|\phi|^2)
+  $$
+
+  Donde hemos considerado que $\phi_1$ y $\phi_2$ dependen de la misma masa. Para el cálculo de K-G es equivalente trabajar con $\phi_1$ y $\phi_2$ como campos independientes que trabajar con $\phi$ y $\phi^*$:
+  $$
+  (\Box + m^2) \phi^* = -\frac{\partial V}{\partial |\phi|^2} \phi^*
+  $$
+  $$
+  (\Box + m^2) \phi = -\frac{\partial V}{\partial |\phi|^2} \phi
+  $$
 \end{example}
-\begin{example}[Campo escalar real]
-  
+\begin{example}[Campo electromagnético con potencial]
+  $$
+    \mathcal{L} = -\frac{1}{4} F^{\mu\nu} F_{\mu\nu} - A_\mu J^\mu
+    $$
+
+    Con $F^{\mu\nu}$ el tensor de campo electromagnético, definido como:
+    $$
+    F^{\mu\nu} = \partial^\mu A^\nu - \partial^\nu A^\mu
+    $$
+
+    El término $-\frac{1}{4} F_{\mu\nu} F^{\mu\nu}$ es el campo electromagnético libre, mientras que el término $A_\mu J^\mu$ se refiere a la interacción. Con las ecuaciones de Euler-Lagrange para este lagrangiano podemos obtener el segundo par de ecuaciones de Maxwell.
 \end{example}
-\begin{example}[Campo escalar real]
-  
+\begin{example}[Partícula en campo electromagnético]
+  $$
+    \mathcal{L} = -\frac{1}{4} F_{\mu\nu} F^{\mu\nu} + (D_\mu \phi)^* (D^\mu \phi) - m^2 |\phi|^2
+    $$
+
+    Recordando que, para una partícula en un campo electromagnético, $D_\mu$ toma la forma $D_\mu = \partial_\mu + iq A_\mu$, podemos reescribir el lagrangiano como:
+    $$
+    \mathcal{L} = -\frac{1}{4} F_{\mu\nu} F^{\mu\nu} + |(\partial_\mu + iq A_\mu) \phi|^2 - m^2 |\phi|^2
+    $$
+
+    donde:
+    $$
+    J^\mu = iq (\phi^* \partial^\mu \phi - \phi \partial^\mu \phi^*)
+    $$
+
+    Es la corriente conservada asociada a la simetría de gauge. Así, las ecuaciones de movimiento para los campos complejos en presencia de un campo electromagnético toman la forma:
+    $$
+    (\Box + m^2) \phi = -2iq \partial^\mu A_\mu \phi - 2iq A_\mu \partial^\mu \phi + q^2 A_\mu A^\mu \phi
+    $$
+    $$
+    (\Box + m^2) \phi^* = 2iq \partial^\mu A_\mu \phi^* + 2iq A_\mu \partial^\mu \phi^* + q^2 A_\mu A^\mu \phi^*
+    $$
+
+    Lo que implica que $\phi^*$ se comporta como $\phi$, pero con una carga opuesta, $-q$.
 \end{example}
-\begin{example}[Campo escalar real]
-  
+\begin{example}[Lagrangiano de Dirac]
+  $$
+  \mathcal{L} = \frac{i}{2} (\bar{\psi} \gamma^\mu \partial_\mu \psi - \partial_\mu \bar{\psi} \gamma^\mu \psi) - m \bar{\psi} \psi
+  $$
+
+  Con $\psi$ el cuadriespinor de Dirac (ver L.D.) y $\bar{\psi} = \psi^\dagger \gamma^0$ el adjunto de Dirac. Introduciendo la notación slash de nuevo:
+  $$
+  \mathcal{L} = \bar{\psi} (\slashed{\partial} - m) \psi
+  $$
+\end{example}
+\begin{example}[Cuadriespinor de Dirac en campo electromagnético]
+  $$
+    \mathcal{L} = -\frac{1}{4} F^{\mu\nu} F_{\mu\nu} + \bar{\psi} (i \slashed{D} - m) \psi - A_\mu J^\mu
+    $$
+    En esta expresión:
+
+\begin{itemize}
+
+    \item $-\frac{1}{4} F_{\mu\nu} F^{\mu\nu}$ representa el lagrangiano libre del campo electromagnético.
+    
+    \item $\bar{\psi} (i \slashed{\partial} - m) \psi$ es el lagrangiano libre del campo de Dirac.
+    
+    \item $A_\mu J^\mu$ es el término de interacción entre el cuadriespinor de Dirac y el campo electromagnético.
+
+\end{itemize}
+Esta expresión es conocida como el \textbf{lagrangiano de Maxwell-Dirac}. Si la corriente conservada está dada por:
+$$
+J^\mu = q \bar{\psi} \gamma^\mu \psi
+$$
+
+Entonces las ecuaciones de movimiento son:
+$$
+\partial_\mu F^{\mu\nu} = J^\nu, \quad i\slashed{D} \psi = m \psi
+$$
+
+Donde se verifica que la corriente es conservada $(\partial_\mu J^\mu = 0)$.
 \end{example}
 \section{Teorema de Noether}
 Este teorema relaciona las simetrías de la integral de acción con la existencia de leyes de conservación. Consideremos una transformación infinitesimal que puede afectar tanto a las coordenadas como a los campos, esto es
 
-\begin{aligned}
+\[\begin{aligned}
 x^{\mu} \rightarrow x^{\prime \mu} & =x^{\mu}+\delta x^{\mu} \\
 \phi_{i}(x) \rightarrow \phi_{i}^{\prime}\left(x^{\prime}\right) & =\phi_{i}(x)+\delta \phi_{i}(x) \tag{3.43}
-\end{aligned}
+\end{aligned}\]
 
 Se dice que estas transformaciones definen una simetría de la acción si dejan $S$ invariante para todo $\phi_{i}(x)$ (sea o no solución de las ecuaciones de movimiento).
 
@@ -153,10 +326,10 @@ podemos escribir
 
 
 Ahora usando $\delta_{0}\left(\partial_{\mu} \phi_{i}\right)=\partial_{\mu}\left(\delta_{0} \phi\right)$ tenemos
-
-\begin{equation*}
-\mathscr{L}\left(\phi^{\prime}(x), \partial_{\mu} \phi^{\prime}(x)\right)=\mathscr{L}\left(\phi(x), \partial_{\mu} \phi(x)\right)+\left(\frac{\partial \mathscr{L}}{\partial \phi_{i}}-\partial_{\mu}\left(\frac{\partial \mathscr{L}}{\partial\left(\partial_{\mu} \phi_{i}\right)}\right)\right) \delta_{0} \phi_{i}+\partial_{\mu}\left(\frac{\partial \mathscr{L}}{\partial\left(\partial_{\mu} \phi_{i}\right)} \delta_{0} \phi_{i}\right) \tag{3.50}
-\end{equation*}
+\[
+\begin{aligned}
+\mathscr{L}\left(\phi^{\prime}(x), \partial_{\mu} \phi^{\prime}(x)\right)=\mathscr{L}\left(\phi(x), \partial_{\mu} \phi(x)\right)+\left(\frac{\partial \mathscr{L}}{\partial \phi_{i}}-\partial_{\mu}\left(\frac{\partial \mathscr{L}}{\partial\left(\partial_{\mu} \phi_{i}\right)}\right)\right) \delta_{0} \phi_{i}\\ +\partial_{\mu}\left(\frac{\partial \mathscr{L}}{\partial\left(\partial_{\mu} \phi_{i}\right)} \delta_{0} \phi_{i}\right) \tag{3.50}
+\end{aligned}\]
 
 
 Sustituyendo en (3.46) y quedándonos a primer orden obtenemos
@@ -195,10 +368,10 @@ j^{\mu}=\left(\frac{\partial \mathscr{L}}{\partial\left(\partial_{\mu} \phi_{i}\
 
 Supongamos ahora que las transformaciones dependen de una serie de parámetros $\theta^{a}(x) \operatorname{con} a=1, \ldots, N$ de forma que
 
-\begin{aligned}
+\[\begin{aligned}
 \delta x^{\mu} & =\theta^{a}(x) X_{a}^{\mu}(x) \\
 \delta \phi_{i}(x) & =\theta^{a}(x) Y_{i, a}\left(\phi, \partial_{\mu} \phi\right) \tag{3.56}
-\end{aligned}
+\end{aligned}\]
 
 Estas transformaciones pueden corresponder a cada uno de los parámetros de un grupo de Lie. En este caso, (3.48) se escribirá
 

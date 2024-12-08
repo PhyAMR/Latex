@@ -23,23 +23,23 @@ en electrodinámica.
 En este tema presentaremos el formalismo para calcular las probabilidades de transición entre distintos estados en presencia de interacciones y cómo, a partir de esas probabilidades, calcular las cantidades que pueden medirse experimentalmente (ritmos de desintegración y secciones eficaces).
 \section{Imágen de interacción}
 Consideremos una teoría con interacción, en la que podemos separar el Hamiltoniano del sistema en dos partes
-$$
+
 \begin{equation*}
 H=H_{0}+H_{i n t} \tag{7.1}
 \end{equation*}
-$$
+
 donde $H_{0}$ corresponde al Hamiltoniano de la teoría libre que hemos visto en los temas anteriores y $H_{\text {int }}$ es el Hamiltoniano de las interacciones. Así, por ejemplo en la teoría escalar con interacción
-$$
+
 \begin{equation*}
 \mathscr{L}=\frac{1}{2} \eta^{\mu v} \partial_{\mu} \phi \partial_{v} \phi-\frac{1}{2} m^{2} \phi^{2}-\frac{\lambda}{4!} \phi^{4} \tag{7.2}
 \end{equation*}
-$$
+
 podemos definir
-$$
+
 \begin{equation*}
 H_{i n t}=-\int d^{3} x \mathscr{L}_{i n t}=\int d^{3} x \frac{\lambda}{4!} \phi^{4} \tag{7.3}
 \end{equation*}
-$$
+
 donde hemos usado que el término de interacción no involucra derivadas de los campos. Supondremos que $H_{\text {int }}$ es una pequeña perturbación con respecto a $H_{0}$
 \subsection{Imagen de Schrödinger}
 \begin{itemize}
@@ -167,17 +167,99 @@ En los procesos de dispersión suponemos que en los estados iniciales y finales 
 
 
 \section{Probabilidad de interacción}
+$$
+|f\rangle = \mathcal{N} \int d\mathbf{x} \, e^{-i(E_{f} - E_{i})t} \, |i\rangle
+$$
+
+$$
+\langle f | \mathcal{T} | i \rangle = \langle f | H | i \rangle + i\epsilon \langle f | \mathcal{T} | i \rangle
+$$
+
+$$
+d\Gamma = \int \frac{d^3 p'}{(2\pi)^3 2E_{p'}} \, |\mathcal{M}|^2 \, (2\pi)^4 \delta^4(p - p') 
+$$
+
+$$
+\rho_f = (2\pi)^4 V \, \delta(E_f - E_i) | \mathcal{T}_{fi} |^2
+$$
+
+$$
+dn = \rho \, d\mathbf{k_1} \ldots d\mathbf{k_n}
+$$
+
+Número de estados = $ \frac{V d^3k}{(2\pi)^3} $
+
+Esto guía si $ \langle k | k' \rangle \neq 1 $ pero como no era así:
+
+$$
+\langle k | k \rangle = 2EV
+$$
+
+Número de estados en un $ V $: $ 2EV \in (\mathbf{k}, \mathbf{k} + d\mathbf{k}) = \frac{V d^3k}{(2\pi)^3} $
+
+Los estados normalizados son:
+
+$$
+|k\rangle = \frac{1}{\sqrt{2EV}} 
+$$
 
 \subsection{Desintegraciones}
 
 \subsubsection{Vida media}
 
+\subsubsection{Desintegración a 2 partículas}
+
 \section{Secciones eficazes}
 
+\subsection{Secciones eficaces polarizadas}
+Si tenemos en cuenta el espín de las partículas, podemos tener una sección eficaz polarizada:
+
+$$
+\frac{d\sigma}{d\Omega} \left| \mathcal{T}_{f,i} \right|^2
+$$
+
+Si no tenemos en cuenta (no medimos) el espín, podemos promediar sobre el estado inicial (un espín medio) y sumar sobre el estado final (porque todos contribuyen):
+
+$$
+\frac{d\sigma}{d\Omega}_{\text{nopol}} = \frac{1}{N_i} \sum \sum \left| \mathcal{T}_{f,i} \right|^2
+$$
 \section{Espacio de fases de 2 cuerpos}
 \subsection{Desintegraciones}
 \subsection{Sección eficaz a 2 cuerpos}
+
 \subsubsection{Caso inelástico}
 \subsubsection{Caso elástico}
-\section{}
+$$
+\frac{d\sigma}{d\Omega} = \frac{1}{4\pi} \left| \mathcal{T}_{if} \right|^2 d\Omega = \frac{K}{4\pi} \left| \mathcal{T}_{if} \right|^2 d\Omega
+$$
+
+Para que:
+$$
+m_1 = m_2 = m_3 = m_4
+$$
+$$
+K = k_i
+$$
+
+Cuando hay espines y no los calculamos, sección eficaz:
+
+$$
+\frac{d\sigma}{d\Omega} = \frac{1}{2j+1} \sum_{m_i m_f} \left| \mathcal{T}_{if} \right|^2 d\Omega
+$$
+
+$$
+\frac{d\sigma}{d\Omega} = \frac{1}{4 k_i^2} \left| \mathcal{T}_{if} \right|^2
+$$
+
+Número de estados con diferentes espines iniciales:
+$$
+\left| \mathcal{T}_{if} \right| = \frac{1}{N} \sum_{m_i m_f} \left| \mathcal{T}_{if} \right|
+$$
+
+Polarizada:
+
+$$
+\left| \mathcal{T}_{if} \right|^2
+$$
+\subsection{Ejemplos}
 \section{Diagramas de Feyman}
