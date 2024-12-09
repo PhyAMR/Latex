@@ -12,8 +12,46 @@ En este tema estudiaremos las reglas de Feynman para QED y los principales proce
 \section{Cuantización, teoría de perturbaciones y reglas de Feymann}
 \section{Reglas de Feynman}
 \subsection{Alguna fórmulas útiles}
+\begin{equation}
+  \begin{array}{ll}
+  g_\mu^\mu=4=\delta_\mu^\mu & \gamma^0=\gamma^{0^ \dagger} \\
+  \left\{\gamma^\mu, \gamma^\nu\right\}=2 g^{\mu \nu} & \gamma^i=-\gamma^{i ^\dagger} \\
+  \gamma_\nu \gamma^\mu \gamma^\nu=-2 \gamma^\mu & \left(\gamma^0\right)^2=1 \\
+  \gamma_{\mu}=g_{\mu\nu} \gamma^\nu &\gamma^{\mu^\dagger}=\gamma^\sigma \gamma^\mu \gamma^\sigma \\
+  \gamma^\rho \gamma^\mu \gamma^\nu \gamma_\rho=4 g^{\mu \nu} & \\
+  \gamma^\mu \gamma^\nu \gamma^\rho \gamma^\sigma \gamma_\mu=-2 \gamma^\sigma \gamma^\rho \gamma^\nu
+  \end{array}
+  \end{equation}
+
+  $\gamma ^5$ no aparece en la electrodínamica cuántica, pero si aparece cuando hay interacción de la fuerza débil. Algunas propiedades són:
+
+  \begin{equation}
+    \begin{aligned}
+    & \gamma^5=i \gamma^0 \gamma^1 \gamma^2 \gamma^3 \quad\left(\gamma^5\right)^2=\mathbb{I}\quad  \gamma^5=\gamma^{5^\dagger} \quad\left\{\gamma^5, \gamma^\nu\right\}=0 \\
+    & P_L=1 / 2\left(1-\gamma^5\right) \quad P_R=1 / 2\left(1+\gamma^s\right) \\
+    & P_L^2=P_L \quad P_R^2=P_R \quad P_L+R_R=\mathbb{I}
+    \end{aligned}
+    \end{equation}
+
+    Algunas propiedades sobre traza son:
+    
+    \begin{equation}
+      \begin{aligned}
+      \operatorname{Tr}\left(\gamma_{\mu\nu}\right)=0\Leftrightarrow\nu\text{ impar} \quad& \quad\operatorname{Tr}\left(\gamma^5\right)=0 \\
+      \operatorname{Tr}\left(\gamma_\mu\gamma_\nu\right)=4g_{\mu\nu}\quad& \quad \operatorname{Tr}\left(\gamma^\mu \gamma^5\right)=0 \\
+      \operatorname{Tr}\left(\gamma_\mu\gamma_\nu\gamma_{\sigma\rho}\right)=4\left(g_{\mu\nu}g_{\rho\sigma}-g_{\mu\rho}g_{\nu\sigma}+g_{\mu\sigma}g_{\nu\rho}\right)\quad& \quad \operatorname{Tr}\left(\gamma^\mu \gamma^\nu \gamma^5\right)=0 \\
+      \quad& \quad \operatorname{Tr}\left(\gamma^\mu \gamma^\nu \gamma^\sigma \gamma^5\right)=0 \\
+      \quad& \quad \operatorname{Tr}\left(\gamma^\mu \gamma^\nu \gamma^\sigma \gamma^\rho \gamma^5\right)=4i\epsilon^{\mu\nu\sigma\rho}
+      \end{aligned}
+      \end{equation}
+  
 \section{Procesos en electrodinámica cuántica}
 \subsection{Dispersión Möller}
+\begin{figure}
+  \centering
+  \includegraphics{Moller.png}
+  \caption{Diagramás de Feymann de la dispersión Möller}
+\end{figure}
 \subsubsection{Canal t}
 A partir del diagrama, podemos escribir el elemento de matriz:
 
@@ -509,7 +547,11 @@ Por ejemplo, en haces de electrones colisionando, cada uno con un momento de 400
 
 \subsection{Dispersión Blhaba}
 Hay dos diagramas de Feynman que contribuyen en el proceso:
-
+\begin{figure}
+  \centering
+  \includegraphics{Bhabha.png}
+  \caption{Diagramás de Feymann de la dispersión Bhabha}
+\end{figure}
 Con amplitudes que denotamos como $ A^{(1)} $ y $ A^{(2)} $ respectivamente. Usando las reglas de Feynman, podemos traducir los diagramas de Feynman en amplitudes:
 
 \begin{equation}
