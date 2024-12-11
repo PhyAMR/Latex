@@ -11,6 +11,250 @@ En este tema estudiaremos las reglas de Feynman para QED y los principales proce
 \section{Lagrangiano clásico e invariancia Gauge}
 \section{Cuantización, teoría de perturbaciones y reglas de Feymann}
 \section{Reglas de Feynman}
+\subsection{Part\'{\i}culas en el estado inicial}
+\begin{itemize}
+    \item \textbf{Electr\'{o}n (ferm\'{i}on) en el estado inicial:} 
+    
+    \begin{center}
+      
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1,scale=0.8, every node/.style={transform shape}]
+%uncomment if require: \path (0,32); %set diagram left start at 0, and has height of 32
+
+%Straight Lines [id:da7895899053771676] 
+\draw    (153,14) -- (513.71,14) ;
+\draw [shift={(513.71,14)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+\draw [shift={(339.36,14)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-4.9) .. controls (6.95,-2.3) and (3.31,-0.67) .. (0,0) .. controls (3.31,0.67) and (6.95,2.3) .. (10.93,4.9)   ;
+
+% Text Node
+\draw (89,8.4) node [anchor=north west][inner sep=0.75pt]    {$u( p,s)$};
+
+
+\end{tikzpicture}
+
+    \end{center}
+    \item \textbf{Positr\'{o}n (antiferm\'{i}on) en el estado inicial:}  \begin{center}
+      \tikzset{every picture/.style={line width=0.75pt}}
+      
+      \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1,scale=0.8, every node/.style={transform shape}]
+        %uncomment if require: \path (0,27); %set diagram left start at 0, and has height of 27
+        
+        %Straight Lines [id:da7895899053771676] 
+        \draw    (153,14) -- (513.71,14) ;
+        \draw [shift={(513.71,14)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+        \draw [shift={(326.36,14)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-4.9) .. controls (6.95,-2.3) and (3.31,-0.67) .. (0,0) .. controls (3.31,0.67) and (6.95,2.3) .. (10.93,4.9)   ;
+        
+        \draw (89,8.4) node [anchor=north west][inner sep=0.75pt]    {$\bar{v}(p,s)$};
+        
+        
+        \end{tikzpicture}
+    \end{center}
+    \item \textbf{Fot\'{o}n en el estado inicial:}  
+    \begin{center}
+      
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1,scale=0.8, every node/.style={transform shape}]
+%uncomment if require: \path (0,45); %set diagram left start at 0, and has height of 45
+
+%Shape: Wave [id:dp44363194459120914] 
+\draw   (100,24.93) .. controls (104.57,30.09) and (108.93,35) .. (114,35) .. controls (119.07,35) and (123.43,30.09) .. (128,24.93) .. controls (132.57,19.77) and (136.93,14.86) .. (142,14.86) .. controls (147.07,14.86) and (151.43,19.77) .. (156,24.93) .. controls (160.57,30.09) and (164.93,35) .. (170,35) .. controls (175.07,35) and (179.43,30.09) .. (184,24.93) .. controls (188.57,19.77) and (192.93,14.86) .. (198,14.86) .. controls (203.07,14.86) and (207.43,19.77) .. (212,24.93) .. controls (216.57,30.09) and (220.93,35) .. (226,35) .. controls (231.07,35) and (235.43,30.09) .. (240,24.93) .. controls (244.57,19.77) and (248.93,14.86) .. (254,14.86) .. controls (259.07,14.86) and (263.43,19.77) .. (268,24.93) .. controls (272.57,30.09) and (276.93,35) .. (282,35) .. controls (287.07,35) and (291.43,30.09) .. (296,24.93) .. controls (300.57,19.77) and (304.93,14.86) .. (310,14.86) .. controls (315.07,14.86) and (319.43,19.77) .. (324,24.93) .. controls (328.57,30.09) and (332.93,35) .. (338,35) .. controls (343.07,35) and (347.43,30.09) .. (352,24.93) .. controls (356.57,19.77) and (360.93,14.86) .. (366,14.86) .. controls (371.07,14.86) and (375.43,19.77) .. (380,24.93) .. controls (384.57,30.09) and (388.93,35) .. (394,35) .. controls (399.07,35) and (403.43,30.09) .. (408,24.93) .. controls (412.57,19.77) and (416.93,14.86) .. (422,14.86) .. controls (427.07,14.86) and (431.43,19.77) .. (436,24.93) .. controls (440.57,30.09) and (444.93,35) .. (450,35) .. controls (455.07,35) and (459.43,30.09) .. (464,24.93) .. controls (468.57,19.77) and (472.93,14.86) .. (478,14.86) .. controls (483.07,14.86) and (487.43,19.77) .. (492,24.93) .. controls (496.57,30.09) and (500.93,35) .. (506,35) .. controls (511.07,35) and (515.43,30.09) .. (520,24.93) .. controls (524.57,19.77) and (528.93,14.86) .. (534,14.86) .. controls (539.07,14.86) and (543.43,19.77) .. (548,24.93) .. controls (552.57,30.09) and (556.93,35) .. (562,35) .. controls (567.07,35) and (571.43,30.09) .. (576,24.93) .. controls (576.57,24.28) and (577.14,23.64) .. (577.71,23) ;
+%Straight Lines [id:da3953182496879233] 
+\draw    (576.71,25.86) ;
+\draw [shift={(576.71,25.86)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+
+% Text Node
+\draw (585,22.83) node [anchor=north west][inner sep=0.75pt]    {$\mu $};
+% Text Node
+\draw (32,11.83) node [anchor=north west][inner sep=0.75pt]    {$\epsilon _{\mu }(\vec{k} ,\ \lambda )$};
+
+
+\end{tikzpicture}
+\newline
+Los $\lambda $ son los 2 estados de polarización del fotón, es decir, $\lambda = 1,2$.
+    \end{center}
+\end{itemize}
+
+\subsection{Part\'{\i}culas en el estado final}
+\begin{itemize}
+    \item \textbf{Electr\'{o}n (ferm\'{i}on) en el estado final:} 
+    \begin{center}
+      
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1,scale=0.8, every node/.style={transform shape}]
+%uncomment if require: \path (0,32); %set diagram left start at 0, and has height of 32
+
+%Straight Lines [id:da7895899053771676] 
+\draw    (153,14) -- (513.71,14) ;
+\draw [shift={(339.36,14)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-4.9) .. controls (6.95,-2.3) and (3.31,-0.67) .. (0,0) .. controls (3.31,0.67) and (6.95,2.3) .. (10.93,4.9)   ;
+\draw [shift={(153,14)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+
+% Text Node
+\draw (89,9.4) node [anchor=north west][inner sep=0.75pt]    {$\overline{u}( p,s)$};
+
+
+\end{tikzpicture}
+
+    \end{center}
+    \item \textbf{Positr\'{o}n (antiferm\'{i}on) en el estado final:} \begin{center}
+      
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1,scale=0.8, every node/.style={transform shape}]
+%uncomment if require: \path (0,32); %set diagram left start at 0, and has height of 32
+
+%Straight Lines [id:da7895899053771676] 
+\draw    (153,14) -- (513.71,14) ;
+\draw [shift={(326.36,14)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-4.9) .. controls (6.95,-2.3) and (3.31,-0.67) .. (0,0) .. controls (3.31,0.67) and (6.95,2.3) .. (10.93,4.9)   ;
+\draw [shift={(153,14)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+
+% Text Node
+\draw (89,9.4) node [anchor=north west][inner sep=0.75pt]    {$v( p,s)$};
+
+
+\end{tikzpicture}
+
+    \end{center}
+    \item \textbf{Fot\'{o}n en el estado final:} 
+    \begin{center}
+      
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1,scale=0.8, every node/.style={transform shape}]
+%uncomment if require: \path (0,45); %set diagram left start at 0, and has height of 45
+
+%Shape: Wave [id:dp44363194459120914] 
+\draw   (100,24.93) .. controls (104.57,30.09) and (108.93,35) .. (114,35) .. controls (119.07,35) and (123.43,30.09) .. (128,24.93) .. controls (132.57,19.77) and (136.93,14.86) .. (142,14.86) .. controls (147.07,14.86) and (151.43,19.77) .. (156,24.93) .. controls (160.57,30.09) and (164.93,35) .. (170,35) .. controls (175.07,35) and (179.43,30.09) .. (184,24.93) .. controls (188.57,19.77) and (192.93,14.86) .. (198,14.86) .. controls (203.07,14.86) and (207.43,19.77) .. (212,24.93) .. controls (216.57,30.09) and (220.93,35) .. (226,35) .. controls (231.07,35) and (235.43,30.09) .. (240,24.93) .. controls (244.57,19.77) and (248.93,14.86) .. (254,14.86) .. controls (259.07,14.86) and (263.43,19.77) .. (268,24.93) .. controls (272.57,30.09) and (276.93,35) .. (282,35) .. controls (287.07,35) and (291.43,30.09) .. (296,24.93) .. controls (300.57,19.77) and (304.93,14.86) .. (310,14.86) .. controls (315.07,14.86) and (319.43,19.77) .. (324,24.93) .. controls (328.57,30.09) and (332.93,35) .. (338,35) .. controls (343.07,35) and (347.43,30.09) .. (352,24.93) .. controls (356.57,19.77) and (360.93,14.86) .. (366,14.86) .. controls (371.07,14.86) and (375.43,19.77) .. (380,24.93) .. controls (384.57,30.09) and (388.93,35) .. (394,35) .. controls (399.07,35) and (403.43,30.09) .. (408,24.93) .. controls (412.57,19.77) and (416.93,14.86) .. (422,14.86) .. controls (427.07,14.86) and (431.43,19.77) .. (436,24.93) .. controls (440.57,30.09) and (444.93,35) .. (450,35) .. controls (455.07,35) and (459.43,30.09) .. (464,24.93) .. controls (468.57,19.77) and (472.93,14.86) .. (478,14.86) .. controls (483.07,14.86) and (487.43,19.77) .. (492,24.93) .. controls (496.57,30.09) and (500.93,35) .. (506,35) .. controls (511.07,35) and (515.43,30.09) .. (520,24.93) .. controls (524.57,19.77) and (528.93,14.86) .. (534,14.86) .. controls (539.07,14.86) and (543.43,19.77) .. (548,24.93) .. controls (552.57,30.09) and (556.93,35) .. (562,35) .. controls (567.07,35) and (571.43,30.09) .. (576,24.93) .. controls (576.57,24.28) and (577.14,23.64) .. (577.71,23) ;
+%Straight Lines [id:da3953182496879233] 
+\draw    (99.71,25.86) ;
+\draw [shift={(99.71,25.86)}, rotate = 0] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]      (0, 0) circle [x radius= 3.35, y radius= 3.35]   ;
+
+% Text Node
+\draw (102,2.83) node [anchor=north west][inner sep=0.75pt]    {$\mu $};
+% Text Node
+\draw (13,12.83) node [anchor=north west][inner sep=0.75pt]    {$\epsilon _{\mu }^{*}(\vec{k} ,\ \lambda )$};
+
+
+\end{tikzpicture}
+\newline
+Los $\lambda $ son los 2 estados de polarización del fotón, es decir, $\lambda = 1,2$.
+
+    \end{center}
+\end{itemize}
+
+\subsection{V\'{e}rtice}
+\begin{itemize}
+    \item \begin{center}
+      
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1,scale=0.8, every node/.style={transform shape}]
+%uncomment if require: \path (0,213); %set diagram left start at 0, and has height of 213
+
+%Straight Lines [id:da037410651049002874] 
+\draw    (228,13) -- (328,113) ;
+\draw [shift={(282.24,67.24)}, rotate = 225] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-4.9) .. controls (6.95,-2.3) and (3.31,-0.67) .. (0,0) .. controls (3.31,0.67) and (6.95,2.3) .. (10.93,4.9)   ;
+%Straight Lines [id:da8166962722779569] 
+\draw    (328,113) -- (427.71,9.43) ;
+\draw [shift={(382.02,56.89)}, rotate = 133.91] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-4.9) .. controls (6.95,-2.3) and (3.31,-0.67) .. (0,0) .. controls (3.31,0.67) and (6.95,2.3) .. (10.93,4.9)   ;
+%Straight Lines [id:da8632233109264691] 
+\draw    (328,113) .. controls (329.68,114.65) and (329.69,116.32) .. (328.04,118) .. controls (326.39,119.68) and (326.4,121.35) .. (328.08,123) .. controls (329.76,124.65) and (329.77,126.32) .. (328.12,128) .. controls (326.47,129.68) and (326.48,131.35) .. (328.16,133) .. controls (329.84,134.65) and (329.85,136.32) .. (328.2,138) .. controls (326.55,139.68) and (326.57,141.35) .. (328.25,143) .. controls (329.93,144.65) and (329.94,146.32) .. (328.29,148) .. controls (326.64,149.68) and (326.65,151.35) .. (328.33,153) .. controls (330.01,154.65) and (330.02,156.32) .. (328.37,158) .. controls (326.72,159.68) and (326.73,161.35) .. (328.41,163) .. controls (330.09,164.65) and (330.1,166.32) .. (328.45,168) .. controls (326.8,169.68) and (326.81,171.35) .. (328.49,173) .. controls (330.17,174.65) and (330.18,176.32) .. (328.53,178) .. controls (326.88,179.68) and (326.89,181.35) .. (328.57,183) .. controls (330.25,184.65) and (330.26,186.32) .. (328.61,188) .. controls (326.96,189.68) and (326.97,191.35) .. (328.65,193) .. controls (330.33,194.65) and (330.34,196.32) .. (328.69,198) -- (328.71,200.43) -- (328.71,200.43) ;
+
+%Shape: Circle [id:dp8472577663241367] 
+\draw   (312.71,113) .. controls (312.71,104.56) and (319.56,97.71) .. (328,97.71) .. controls (336.44,97.71) and (343.29,104.56) .. (343.29,113) .. controls (343.29,121.44) and (336.44,128.29) .. (328,128.29) .. controls (319.56,128.29) and (312.71,121.44) .. (312.71,113) -- cycle ;
+
+% Text Node
+\draw (345.29,116.4) node [anchor=north west][inner sep=0.75pt]    {$iq \gamma ^{\mu }$};
+
+
+\end{tikzpicture}
+\newline
+$q$ (que no es el $q$ del momento de fotón) es 
+\begin{DispWithArrows}[format=c, displaystyle]
+q=eQ_f \text{ con }Q_f\left\{\begin{array}{c}
+  Q_{e,\mu ,\tau }=-1 \\
+  Q_{u,c,t }=\frac{2}{3} \\
+  Q_{d,s,b}=-\frac{1}{3} \\
+\end{array}\right.
+\end{DispWithArrows}
+    \end{center}
+\end{itemize}
+
+
+
+\subsection{L\'{\i}neas internas}
+\begin{itemize}
+    \item \textbf{Propagador fermi\'{o}nico:} \begin{center}
+      
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1,scale=0.8, every node/.style={transform shape}]
+%uncomment if require: \path (0,69); %set diagram left start at 0, and has height of 69
+
+%Straight Lines [id:da7895899053771676] 
+\draw    (154,31) -- (514.71,31) ;
+\draw [shift={(340.36,31)}, rotate = 180] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-4.9) .. controls (6.95,-2.3) and (3.31,-0.67) .. (0,0) .. controls (3.31,0.67) and (6.95,2.3) .. (10.93,4.9)   ;
+
+% Text Node
+\draw (20,10.4) node [anchor=north west][inner sep=0.75pt]    {$S_{F}( k) =i\frac{k-m}{k^{2} -m^{2}}$};
+
+
+\end{tikzpicture}
+
+    \end{center}
+    \item \textbf{Propagador del fot\'{o}n:} 
+    \begin{center}
+      
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1,scale=0.8, every node/.style={transform shape}]
+%uncomment if require: \path (0,69); %set diagram left start at 0, and has height of 69
+
+%Straight Lines [id:da7895899053771676] 
+\draw    (154,31) .. controls (155.67,29.33) and (157.33,29.33) .. (159,31) .. controls (160.67,32.67) and (162.33,32.67) .. (164,31) .. controls (165.67,29.33) and (167.33,29.33) .. (169,31) .. controls (170.67,32.67) and (172.33,32.67) .. (174,31) .. controls (175.67,29.33) and (177.33,29.33) .. (179,31) .. controls (180.67,32.67) and (182.33,32.67) .. (184,31) .. controls (185.67,29.33) and (187.33,29.33) .. (189,31) .. controls (190.67,32.67) and (192.33,32.67) .. (194,31) .. controls (195.67,29.33) and (197.33,29.33) .. (199,31) .. controls (200.67,32.67) and (202.33,32.67) .. (204,31) .. controls (205.67,29.33) and (207.33,29.33) .. (209,31) .. controls (210.67,32.67) and (212.33,32.67) .. (214,31) .. controls (215.67,29.33) and (217.33,29.33) .. (219,31) .. controls (220.67,32.67) and (222.33,32.67) .. (224,31) .. controls (225.67,29.33) and (227.33,29.33) .. (229,31) .. controls (230.67,32.67) and (232.33,32.67) .. (234,31) .. controls (235.67,29.33) and (237.33,29.33) .. (239,31) .. controls (240.67,32.67) and (242.33,32.67) .. (244,31) .. controls (245.67,29.33) and (247.33,29.33) .. (249,31) .. controls (250.67,32.67) and (252.33,32.67) .. (254,31) .. controls (255.67,29.33) and (257.33,29.33) .. (259,31) .. controls (260.67,32.67) and (262.33,32.67) .. (264,31) .. controls (265.67,29.33) and (267.33,29.33) .. (269,31) .. controls (270.67,32.67) and (272.33,32.67) .. (274,31) .. controls (275.67,29.33) and (277.33,29.33) .. (279,31) .. controls (280.67,32.67) and (282.33,32.67) .. (284,31) .. controls (285.67,29.33) and (287.33,29.33) .. (289,31) .. controls (290.67,32.67) and (292.33,32.67) .. (294,31) .. controls (295.67,29.33) and (297.33,29.33) .. (299,31) .. controls (300.67,32.67) and (302.33,32.67) .. (304,31) .. controls (305.67,29.33) and (307.33,29.33) .. (309,31) .. controls (310.67,32.67) and (312.33,32.67) .. (314,31) .. controls (315.67,29.33) and (317.33,29.33) .. (319,31) .. controls (320.67,32.67) and (322.33,32.67) .. (324,31) .. controls (325.67,29.33) and (327.33,29.33) .. (329,31) .. controls (330.67,32.67) and (332.33,32.67) .. (334,31) .. controls (335.67,29.33) and (337.33,29.33) .. (339,31) .. controls (340.67,32.67) and (342.33,32.67) .. (344,31) .. controls (345.67,29.33) and (347.33,29.33) .. (349,31) .. controls (350.67,32.67) and (352.33,32.67) .. (354,31) .. controls (355.67,29.33) and (357.33,29.33) .. (359,31) .. controls (360.67,32.67) and (362.33,32.67) .. (364,31) .. controls (365.67,29.33) and (367.33,29.33) .. (369,31) .. controls (370.67,32.67) and (372.33,32.67) .. (374,31) .. controls (375.67,29.33) and (377.33,29.33) .. (379,31) .. controls (380.67,32.67) and (382.33,32.67) .. (384,31) .. controls (385.67,29.33) and (387.33,29.33) .. (389,31) .. controls (390.67,32.67) and (392.33,32.67) .. (394,31) .. controls (395.67,29.33) and (397.33,29.33) .. (399,31) .. controls (400.67,32.67) and (402.33,32.67) .. (404,31) .. controls (405.67,29.33) and (407.33,29.33) .. (409,31) .. controls (410.67,32.67) and (412.33,32.67) .. (414,31) .. controls (415.67,29.33) and (417.33,29.33) .. (419,31) .. controls (420.67,32.67) and (422.33,32.67) .. (424,31) .. controls (425.67,29.33) and (427.33,29.33) .. (429,31) .. controls (430.67,32.67) and (432.33,32.67) .. (434,31) .. controls (435.67,29.33) and (437.33,29.33) .. (439,31) .. controls (440.67,32.67) and (442.33,32.67) .. (444,31) .. controls (445.67,29.33) and (447.33,29.33) .. (449,31) .. controls (450.67,32.67) and (452.33,32.67) .. (454,31) .. controls (455.67,29.33) and (457.33,29.33) .. (459,31) .. controls (460.67,32.67) and (462.33,32.67) .. (464,31) .. controls (465.67,29.33) and (467.33,29.33) .. (469,31) .. controls (470.67,32.67) and (472.33,32.67) .. (474,31) .. controls (475.67,29.33) and (477.33,29.33) .. (479,31) .. controls (480.67,32.67) and (482.33,32.67) .. (484,31) .. controls (485.67,29.33) and (487.33,29.33) .. (489,31) .. controls (490.67,32.67) and (492.33,32.67) .. (494,31) .. controls (495.67,29.33) and (497.33,29.33) .. (499,31) .. controls (500.67,32.67) and (502.33,32.67) .. (504,31) .. controls (505.67,29.33) and (507.33,29.33) .. (509,31) .. controls (510.67,32.67) and (512.33,32.67) .. (514,31) -- (514.71,31) -- (514.71,31) ;
+
+% Text Node
+\draw (20,10.4) node [anchor=north west][inner sep=0.75pt]    {$S_{\mu \nu }( q) =-\frac{g^{\mu \nu }}{q^{2}}$};
+% Text Node
+\draw (148,9.24) node [anchor=north west][inner sep=0.75pt]    {$\mu $};
+% Text Node
+\draw (509,8.24) node [anchor=north west][inner sep=0.75pt]    {$\nu $};
+
+
+\end{tikzpicture}
+
+    \end{center}
+\end{itemize}
+
+Cuando tenemos que sumar varios diagramas es importante determinar el signo relativo entre ellos. Para ello debemos ver si la ordenación de los espinores en las amplitudes es la misma o no. Así por ejemplo, dos amplitudes con espinores $\bar{u} u \bar{v} v$ y $\bar{v} u \bar{u} v$ tendrán signos opuestos puesto que requieren intercambiar el orden de operadores de creación o destrucción fermiónicos.
+
+Basta con coger el orden de las partículas calculadas en la amplitud de dispersión y hacer permutaciones de 2 a 2 partículas cambiendo el signdo en cada una de las permutaciones para ver el signo relativo de cada canal
+
+\begin{example}[Ejemplo de signos relativos]
+  Dada la siguiente amplitud de dispersión
+  \begin{DispWithArrows}[format=c, displaystyle]
+    \frac{e^2}{q^2} [\overline{u}_3\gamma^\mu u_1][\overline{u}_4\gamma^\nu u_2]
+  \end{DispWithArrows}
+
+  Vemos que se encuentra en el orden 
+  \begin{DispWithArrows}[format=c, displaystyle]
+  3142 \Arrow{Un cambio} \\
+  -1342 \Arrow{Otro cambio} \\
+  1324 \Arrow{Cambio final} \\
+  -1234
+  \end{DispWithArrows}
+  Como vemos el signo de esta amplitud de dispersión será negativo. 
+\end{example}
 \subsection{Alguna fórmulas útiles}
 \begin{equation}
   \begin{array}{ll}
@@ -44,7 +288,7 @@ En este tema estudiaremos las reglas de Feynman para QED y los principales proce
       \quad& \quad \operatorname{Tr}\left(\gamma^\mu \gamma^\nu \gamma^\sigma \gamma^\rho \gamma^5\right)=4i\epsilon^{\mu\nu\sigma\rho}
       \end{aligned}
       \end{equation}
-  
+      \pagelayout{wide}
 \section{Procesos en electrodinámica cuántica}
 \subsection{Dispersión Möller}
 \begin{figure}
@@ -104,26 +348,27 @@ aquí notaremos que cualquier término que sea lineal en la masa del electrón c
 usando las identidades de traza de las matrices de Dirac (Peskin Apéndice 3) esto es
 
 \begin{equation}
-|\overline{\mathcal{M}_t}|^2 = \frac{e^4}{4t^2} \left\{ \not{p}_1 \not{p}_3 \, \text{Tr} \left[ \gamma^\nu \gamma^\mu \right] + 4 g_{\mu \nu} m_e^2 \right\} \left\{  p_{2\alpha} p_{4\beta} \, \text{Tr} \left[ \gamma^\mu \gamma^\nu \right] + 4 g_{\mu \nu} m_e^2 \right\},
+\begin{aligned}
+  |\overline{\mathcal{M}_t}|^2 = \frac{e^4}{4t^2} \left\{ \not{p}_1 \not{p}_3 \, \text{Tr} \left[ \gamma^\nu \gamma^\mu \right] + 4 g_{\mu \nu} m_e^2 \right\} \left\{  p_{2\alpha} p_{4\beta} \, \text{Tr} \left[ \gamma^\mu \gamma^\nu \right]\right. \\
+  \left. + 4 g_{\mu \nu} m_e^2 \right\},
+\end{aligned}
 \end{equation}
 
 las trazas restantes son
 
-\begin{equation}
-p_{1\alpha} p_{3\beta} \, \text{Tr} \left[ \gamma^\alpha \gamma^\beta \gamma^\nu \gamma^\mu \right] = 4 p_{1 \alpha} p_{3 \beta} \left( g^{\alpha \beta} g^{\nu \mu} - g^{\alpha \nu} g^{\beta \mu} + g^{\alpha \mu} g^{\beta \nu} \right),
-\end{equation}
-
-\begin{equation}
-= 4 (p_{1\mu} p_{3\nu} - (p_1 \cdot p_3) g_{\mu\nu} + p_{1\nu} p_{3\mu}),
-\end{equation}
-
-\begin{equation}
-= 4 p_{2\alpha} p_{4\beta} \left( g^{\alpha \beta} g^{\mu \nu} - g^{\alpha \mu} g^{\beta \nu} + g^{\alpha \nu} g^{\beta \mu} \right),
-\end{equation}
-
-\begin{equation}
-= 4 (p_{2\mu} p_{4\nu} - (p_2 \cdot p_4) g_{\mu\nu} + p_{2\nu} p_{4\mu}).
-\end{equation}
+\begin{DispWithArrows}[format=c, displaystyle]
+  
+    p_{1\alpha} p_{3\beta} \, \text{Tr} \left[ \gamma^\alpha \gamma^\beta \gamma^\nu \gamma^\mu \right] = 4 p_{1 \alpha} p_{3 \beta} \left( g^{\alpha \beta} g^{\nu \mu} - g^{\alpha \nu} g^{\beta \mu} + g^{\alpha \mu} g^{\beta \nu} \right) \\
+    
+    
+    = 4 (p_{1\mu} p_{3\nu} - (p_1 \cdot p_3) g_{\mu\nu} + p_{1\nu} p_{3\mu}) \\
+    
+    
+    = 4 p_{2\alpha} p_{4\beta} \left( g^{\alpha \beta} g^{\mu \nu} - g^{\alpha \mu} g^{\beta \nu} + g^{\alpha \nu} g^{\beta \mu} \right) \\
+    
+    
+    = 4 (p_{2\mu} p_{4\nu} - (p_2 \cdot p_4) g_{\mu\nu} + p_{2\nu} p_{4\mu}) \\
+\end{DispWithArrows}
 
 Ahora debemos realizar la multiplicación en la expansión de las matrices. El primer término es la contracción de las dos trazas anteriores, así que usando la notación (1+2+3)(A+B+C), los términos son
 
@@ -146,28 +391,32 @@ El segundo término (en el elemento de matriz) es la contracción de los dos té
 
 Los dos términos restantes son los "términos cruzados":
 
-\begin{equation}
-4 (p_{1\mu} p_{3\beta} - (p_1 \cdot p_3) g_{\mu \nu} + p_{1\nu} p_{3\mu})(4g_{\mu \nu} m_e^2) = 4^2 \left[ m_e^2 (p_1 \cdot p_3 - 4p_1 \cdot p_3 + p_1 \cdot p_3) \right]
-\end{equation}
-
-\begin{equation}
-= 4^2 \left[ -2m_e^2 p_1 \cdot p_3 \right],
-\end{equation}
+\begin{DispWithArrows}[format=ll, displaystyle]
+  
+    4 (p_{1\mu} p_{3\beta} - (p_1 \cdot p_3) g_{\mu \nu} + p_{1\nu} p_{3\mu})(4g_{\mu \nu} m_e^2) &= 4^2 \left[ m_e^2 (p_1 \cdot p_3 - 4p_1 \cdot p_3 + p_1 \cdot p_3) \right] \\
+    
+   & = 4^2 \left[ -2m_e^2 p_1 \cdot p_3 \right],
+    
+\end{DispWithArrows}
 
 y
 
-\begin{equation}
-4 (p_2^\beta p_4^\alpha - (p_2 \cdot p_4) g_{\mu \nu} + p_4^\beta p_2^\alpha)(4g_{\mu \nu} m_e^2) = 4^2 \left[ m_e^2 (p_2 \cdot p_4 - 4(p_2 \cdot p_4) + p_2 \cdot p_4) \right]
-\end{equation}
+\begin{DispWithArrows}[format=ll, displaystyle]
+  
+  4 (p_2^\beta p_4^\alpha - (p_2 \cdot p_4) g_{\mu \nu} + p_4^\beta p_2^\alpha)(4g_{\mu \nu} m_e^2) &= 4^2 \left[ m_e^2 (p_2 \cdot p_4 - 4(p_2 \cdot p_4) + p_2 \cdot p_4) \right] \\
+  
+ & = 4^2 \left[ -2m_e^2 p_2 \cdot p_4 \right].,
+  
+\end{DispWithArrows}
 
-\begin{equation}
-= 4^2 \left[ -2m_e^2 p_2 \cdot p_4 \right].
-\end{equation}
 
 Reuniendo estos términos, el elemento de matriz es
 
 \begin{equation}
-|\overline{\mathcal{M}_t}|^2 = \frac{e^4}{t^2} \left\{ 2(p_2 \cdot p_1)(p_4 \cdot p_3) + 2(p_4 \cdot p_1)(p_2 \cdot p_3) + 4m_e^4 - 2m_e^2(p_1 \cdot p_3) - 2m_e^2(p_2 \cdot p_4) \right\}.
+\begin{aligned}
+  |\overline{\mathcal{M}_t}|^2 = \frac{e^4}{t^2} \left\{ 2(p_2 \cdot p_1)(p_4 \cdot p_3) + 2(p_4 \cdot p_1)(p_2 \cdot p_3) + 4m_e^4 \right.\\
+\left.- 2m_e^2(p_1 \cdot p_3) - 2m_e^2(p_2 \cdot p_4) \right\}.
+\end{aligned}
 \end{equation}
 
 Nuevamente utilizaremos nuestros invariantes de Mandelstam, observando (en el caso masivo)
@@ -961,3 +1210,109 @@ $$
 \frac{1}{\omega^{\prime}}-\frac{1}{\omega}=\frac{1}{m}(1-\cos \theta)
 $$
 con $\theta$ el ángulo entre la dirección del fotón incidente y el saliente.
+
+\subsection{Sección eficaz de aniquilación $e^{+} e^{-} \rightarrow \mu^{+} \mu^{-}$}
+
+A partir de la amplitud invariante calculada anteriormente en (8.14) vamos a calcular la sección eficaz de aniquilación en el sistema centro de masas usando (7.75). Necesitamos por tanto evaluar $|\mathscr{M}|^{2}$. Para ello necesitamos obtener los complejos conjugados de términos de la forma $\bar{v} \gamma^{\mu} u$, que usando $\left(\gamma^{\mu}\right)^{\dagger}=\gamma^{0} \gamma^{\mu} \gamma^{0}$, se escribe
+\begin{equation*}
+\left(\bar{v} \gamma^{\mu} u\right)^{*}=u^{\dagger}\left(\gamma^{\mu}\right)^{\dagger}\left(\gamma^{0}\right)^{\dagger} v=u^{\dagger}\left(\gamma^{\mu}\right)^{\dagger} \gamma^{0} v=u^{\dagger} \gamma^{0} \gamma^{\mu} v=\bar{u} \gamma^{\mu} v \tag{8.15}
+\end{equation*}
+
+Por tanto, podemos escribir (por simplicidad hemos quitado la etiqueta de spin)
+\begin{equation*}
+|\mathscr{M}|^{2}=\frac{e^{4}}{\left(p_{1}+p_{2}\right)^{4}}\left(\bar{u}\left(p_{1}^{\prime}\right) \gamma^{\mu} v\left(p_{2}^{\prime}\right) \bar{v}\left(p_{2}^{\prime}\right) \gamma^{v} u\left(p_{1}^{\prime}\right)\right)\left(\bar{v}\left(p_{2}\right) \gamma_{\mu} u\left(p_{1}\right) \bar{u}\left(p_{1}\right) \gamma_{v} v\left(p_{2}\right)\right) \tag{8.16}
+\end{equation*}
+
+En la mayor parte de los casos, los haces de electrones y positrones iniciales no están polarizados, por tanto la sección eficaz que medimos es un promedio sobre los estados de spin $r$ y $s$ de los electrones y positrones iniciales. Por otra parte, los detectores de muones no son sensibles al spin de los mismos, por tanto la sección eficaz es la suma sobre los estados de spin finales $r^{\prime}$ y $s^{\prime}$. Es decir, tenemos que calcular
+\begin{equation*}
+\frac{1}{2} \sum_{r} \frac{1}{2} \sum_{s} \sum_{r^{\prime}, s^{\prime}}\left|\mathscr{M}\left(r, s \rightarrow r^{\prime}, s^{\prime}\right)\right|^{2} \tag{8.17}
+\end{equation*}
+
+Estas sumas como veremos simplifican enormemente el cálculo de la sección eficaz. En efecto, podemos emplear para la suma en estados de spin las relaciones (5.59)
+$$
+\begin{align*}
+& \sum_{s=1,2} u(p, s) \bar{u}(p, s)=p+m  \tag{8.18}\\
+& \sum_{s=1,2} v(p, s) \bar{v}(p, s)=p-m \tag{8.19}
+\end{align*}
+$$
+
+Así, cogiendo el segundo factor de (8.16) tenemos que escribiendo explícitamente los índices espinoriales
+$$
+\begin{align*}
+& \sum_{r, s} \bar{v}\left(p_{2}, s\right) \gamma_{\mu} u\left(p_{1}, r\right) \bar{u}\left(p_{1}, r\right) \gamma_{v} v\left(p_{2}, s\right)=\sum_{r, s} \bar{v}_{a}\left(p_{2}, s\right)\left(\gamma_{\mu}\right)_{a b} u_{b}\left(p_{1}, r\right) \bar{u}_{c}\left(p_{1}, r\right)\left(\gamma_{v}\right)_{c d} v_{d}\left(p_{2}, s\right) \\
+= & \left(p_{2}-m_{e}\right)_{d a}\left(\gamma_{\mu}\right)_{a b}\left(p_{1}+m_{e}\right)_{b c}\left(\gamma_{v}\right)_{c d}=\operatorname{tr}\left[\left(p_{2}-m_{e}\right) \gamma_{\mu}\left(p_{1}+m_{e}\right) \gamma_{v}\right] \tag{8.20}
+\end{align*}
+$$
+
+Procedemos de forma análoga con el primer factor y obtenemos
+\begin{equation*}
+\frac{1}{4} \sum_{\text {spins }}|\mathscr{M}|^{2}=\frac{e^{4}}{4\left(p_{1}+p_{2}\right)^{4}} \operatorname{tr}\left[\left(p_{1}^{\prime}+m_{\mu}\right) \gamma^{\mu}\left(p_{2}^{\prime}-m_{\mu}\right) \gamma^{v}\right] \operatorname{tr}\left[\left(p_{2}-m_{e}\right) \gamma_{\mu}\left(p_{1}+m_{e}\right) \gamma_{v}\right] \tag{8.21}
+\end{equation*}
+
+Utilizando ahora las propiedades de las traza de las matrices gamma tenemos
+\begin{equation*}
+\operatorname{tr}\left[\left(p_{2}-m_{e}\right) \gamma_{\mu}\left(p_{1}+m_{e}\right) \gamma_{v}\right]=4\left[p_{1 \mu} p_{2 v}+p_{1_{v}} p_{2_{\mu}}-\eta_{\mu v}\left(p_{1} \cdot p_{2}+m_{e}^{2}\right)\right] \tag{8.22}
+\end{equation*}
+y
+\begin{equation*}
+\operatorname{tr}\left[\left(p_{1}^{\prime}+m_{\mu}\right) \gamma^{\mu}\left(\not p_{2}^{\prime}-m_{\mu}\right) \gamma^{v}\right]=4\left[p_{1}^{\prime \mu} p_{2}^{\prime v}+p_{1}^{\prime v} p_{2}^{\prime \mu}-\eta^{\mu v}\left(p_{1}^{\prime} \cdot p_{2}^{\prime}+m_{\mu}^{2}\right)\right] \tag{8.23}
+\end{equation*}
+
+Multiplicando los dos factores obtenemos directamente
+$$
+\begin{align*}
+\frac{1}{4} \sum_{\text {spins }}|\mathscr{M}|^{2} & =\frac{8 e^{4}}{\left(p_{1}+p_{2}\right)^{4}}\left[\left(p_{1} \cdot p_{1}^{\prime}\right)\left(p_{2} \cdot p_{2}^{\prime}\right)+\left(p_{1} \cdot p_{2}^{\prime}\right)\left(p_{2} \cdot p_{1}^{\prime}\right)-\left(p_{1}^{\prime} \cdot p_{2}^{\prime}\right)\left(p_{1} \cdot p_{2}+m_{e}^{2}\right)\right. \\
+& \left.-\left(p_{1} \cdot p_{2}\right)\left(p_{1}^{\prime} \cdot p_{2}^{\prime}+m_{\mu}^{2}\right)+2\left(p_{1} \cdot p_{2}+m_{e}^{2}\right)\left(p_{1}^{\prime} \cdot p_{2}^{\prime}+m_{\mu}^{2}\right)\right] \tag{8.24}
+\end{align*}
+$$
+
+Podemos ahora considerar la siguiente aproximación. Puesto que la masa del muón es mucho mayor que la masa del electrón, la producción de muones requiere electrones ultrarrelativistas, por lo que podemos despreciar la masa del electrón y suponer $m_{e}=0$. En ese caso la expresión anterior se simplifica de forma que
+\begin{equation*}
+\frac{1}{4} \sum_{\text {spins }}|\mathscr{M}|^{2}=\frac{8 e^{4}}{\left(p_{1}+p_{2}\right)^{4}}\left[\left(p_{1} \cdot p_{1}^{\prime}\right)\left(p_{2} \cdot p_{2}^{\prime}\right)+\left(p_{1} \cdot p_{2}^{\prime}\right)\left(p_{2} \cdot p_{1}^{\prime}\right)+\left(p_{1} \cdot p_{2}\right) m_{\mu}^{2}\right] \tag{8.25}
+\end{equation*}
+\begin{marginfigure}[]
+  \includegraphics{sis_CM.png}
+  \caption[]{Colisión en el sistema centro de masas con $\hat{p}_{1} \cdot \hat{p}_{1}^{\prime}=\hat{p}_{2} \cdot \hat{p}_{2}^{\prime}=\cos \theta$}
+  \labfig{fig:}
+\end{marginfigure}
+
+En el sistema centro de masa (ver Fig.8.2), tenemos que en el estado inicial $\vec{p}_{1}=-\vec{p}_{2} \mathrm{y}$ por tanto como ambas partículas tienen la misma masa $E_{1}=E_{2}$. De la misma forma en el estado final $\vec{p}_{1}^{\prime}=-\vec{p}_{2}^{\prime}$ y $E_{1}^{\prime}=E_{2}^{\prime}$. La energía total en el centro de masas será $\sqrt{s}=E_{1}+E_{2}=$ $2 E_{1}$ y por conservación de la energía $E_{1}=E_{1}^{\prime}$. Por tanto
+$$
+p_{1} \cdot p_{1}^{\prime}=p_{2} \cdot p_{2}^{\prime}=E_{1}^{2}-E_{1}\left|\vec{p}_{1}^{\prime}\right| \cos \theta
+$$
+donde hemos usado que $m_{e}=0$. Por otra parte,
+$$
+p_{1} \cdot p_{2}^{\prime}=p_{2} \cdot p_{1}^{\prime}=E_{1}^{2}+E_{1}\left|\vec{p}_{1}^{\prime}\right| \cos \theta
+$$
+y finalmente
+$$
+p_{1} \cdot p_{2}=2 E_{1}^{2}
+$$
+
+El momento transferido que aparece en el propagador será
+$$
+\left(p_{1}+p_{2}\right)^{2}=4 E_{1}^{2}
+$$
+con lo que podemos escribir finalmente
+$$
+\begin{align*}
+\frac{1}{4} \sum_{\text {spins }}|\mathscr{M}|^{2} & =\frac{8 e^{4}}{16 E_{1}^{4}}\left[\left(E_{1}^{2}-E_{1}\left|\vec{p}_{1}^{\prime}\right| \cos \theta\right)^{2}+\left(E_{1}^{2}+E_{1}\left|\vec{p}_{1}^{\prime}\right| \cos \theta\right)^{2}+2 E_{1}^{2} m_{\mu}^{2}\right] \\
+& =e^{4}\left[\left(1+\frac{m_{\mu}^{2}}{E_{1}^{2}}\right)+\left(1-\frac{m_{\mu}^{2}}{E_{1}^{2}}\right) \cos ^{2} \theta\right] \tag{8.26}
+\end{align*}
+$$
+
+Por tanto, la sección eficaz diferencial de aniquiliación en el sistema centro de masas será
+$$
+\begin{align*}
+\frac{d \sigma_{C M}}{d \Omega} & =\frac{1}{64 \pi^{2} s} \frac{\left|\vec{p}_{1}^{\prime}\right|}{\left|\vec{p}_{1}\right|} \frac{1}{4} \sum_{s p i n}\left|\mathscr{M}_{f i}\right|^{2}=\frac{e^{4}}{256 \pi^{2} E_{1}^{2}} \frac{\left|\vec{p}_{1}^{\prime}\right|}{E_{1}}\left[\left(1+\frac{m_{\mu}^{2}}{E_{1}^{2}}\right)+\left(1-\frac{m_{\mu}^{2}}{E_{1}^{2}}\right) \cos ^{2} \theta\right] \\
+& =\frac{\alpha^{2}}{16 E_{1}^{2}} \sqrt{\left(1-\frac{m_{\mu}^{2}}{E_{1}^{2}}\right)}\left[\left(1+\frac{m_{\mu}^{2}}{E_{1}^{2}}\right)+\left(1-\frac{m_{\mu}^{2}}{E_{1}^{2}}\right) \cos ^{2} \theta\right] \tag{8.27}
+\end{align*}
+$$
+que como vemos es de orden $\alpha^{2}$. Integrando la sección eficaz diferencial en $d \Omega=d \phi d \cos \theta$ obtenemos la sección eficaz total en función de la energía total en el sistema centro de masas
+\begin{equation*}
+\sigma_{C M}=\frac{4 \pi \alpha^{2}}{3 s} \sqrt{\left(1-\frac{4 m_{\mu}^{2}}{s}\right)}\left(1+\frac{2 m_{\mu}^{2}}{s}\right) \tag{8.28}
+\end{equation*}
+
+Vemos que la sección eficaz es nula para $s<4 m_{\mu}^{2}$ puesto que en ese caso, el par electrónpositrón no tiene energía suficiente para producir el par muón-anitmuón.
+
+\pagelayout{margin}

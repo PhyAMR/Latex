@@ -226,6 +226,31 @@ $$
 \section{Espacio de fases de 2 cuerpos}
 \subsection{Desintegraciones}
 \subsection{Sección eficaz a 2 cuerpos}
+Consideremos ahora el caso particular de colisiones $2 \rightarrow 2$ entre partículas con momentos
+
+\begin{equation*}
+p_{1}+p_{2} \rightarrow p_{3}+p_{4} \tag{7.64}
+\end{equation*}
+
+
+donde las masas de las partículas iniciales son $m_{1}$ y $m_{2}$ y las de las finales $m_{3}$ y $m_{4}$. Es útil introducir las llamadas variables de Mandelstam
+$$
+\begin{align*}
+s & =\left(p_{1}+p_{2}\right)^{2}  \tag{7.65}\\
+t & =\left(p_{1}-p_{3}\right)^{2}  \tag{7.66}\\
+u & =\left(p_{1}-p_{4}\right)^{2} \tag{7.67}
+\end{align*}
+$$
+
+Las variables son invariants Lorentz y cumplen
+
+\begin{equation*}
+s+t+u=m_{1}^{2}+m_{2}^{2}+m_{3}^{2}+m_{4}^{2} \tag{7.68}
+\end{equation*}
+
+como puede comprobarse inmediatamente usando conservando del cuadrimomento total $p_{1}+p_{2}=p_{3}+p_{4}$.
+
+En el sistema CM tendremos $\vec{p}_{1}=-\vec{p}_{2}$ y $\vec{p}_{3}=-\vec{p}_{4}$ con $E_{1}+E_{2}=E_{3}+E_{4}=E_{C M}$ y por tanto se puede ver inmediatamente que $\sqrt{s}=E_{C M}$ es la energía total en el sistema centro de masas.
 
 \subsubsection{Caso inelástico}
 \subsubsection{Caso elástico}
@@ -263,3 +288,49 @@ $$
 $$
 \subsection{Ejemplos}
 \section{Diagramas de Feyman}
+Aunque hemos considerado únicamente un par de ejemplos concretos, se puede demostrar de forma totalmente general que existe una relación uno a uno entre los distintos términos del desarrollo perturbativo de la amplitud de transición y los diagramas de Feynman.
+
+Por tanto, para calcular $i T_{f i}=\langle f| i T|i\rangle$ tendremos que dibujar todos los posibles diagramas de Feynman (conectados) que conecten las partículas de los estados iniciales con las finales. Para ello tendremos que seguir los siguientes pasos:
+\begin{itemize}
+  \item Identificar los distintos vértices de interacción que aparecen en $\mathscr{L}_{\text {int }}$. 
+
+\item Dibujar una línea externa por cada partícula del estado inicial $|i\rangle$ y por cada partícula del estado final $|f\rangle$. En el ejemplo anterior se usaban líneas discontinuas para los mesones y líneas continuas para los bariones y antibariones.
+\item Asignar un momento con sentido entrante o saliente a cada línea.
+\item En las líneas correspondiente a partículas con carga conservada (no necesariamente eléctrica) asignar una flecha que indique el sentido de la carga. Entrante (saliente) para partículas (antipartículas) en el estado inicialy al revés en el estado final.
+\item Conectar de todas las formas posibles las líneas de las partículas iniciales con las finales utilizando los vértices y líneas internas. Asignar también un momento entrante o saliente del vértice a cada línea interna.
+\end{itemize}
+
+Una vez dibujados todos los diagramas de Feynman que contribuyen a un cierto proceso, calcularemos su contribución a la amplitud de transición usando las reglas de Feynman.
+
+\subsection*{Reglas de Feynman}
+
+Hemos visto que en los elementos de matriz $i T_{f i}$ que hemos calculado aparecen factores $\delta^{(4)}\left(P_{i}-P_{f}\right)$, donde $P_{i}=\sum k_{j}$ y $P_{f}=\sum p_{k}$ son los cuadrimomentos totales iniciales y finales, que aseguran la conservación del cuadrimomento. Es conveniente por tanto extraer
+estos factores y escribir los elementos de matriz $T$ como
+
+\begin{equation*}
+i T_{f i}=(2 \pi)^{4} \delta^{(4)}\left(P_{i}-P_{f}\right) i \mathscr{M}_{f i} \tag{7.46}
+\end{equation*}
+donde se ha definido el llamado elemento de matriz invariante $\mathscr{M}_{f i}$. Podemos finalmente escribir unas reglas de Feynman aún más sencillas para calcular las amplitudes invariantes $i \mathscr{M}_{f i}$. 
+\begin{itemize}
+  \item Escribir un factor $(-i\alpha v)$ por cada vértice.
+\item Imponer conservación del cuadrimomento en cada vértice.
+\item Escribir un propagador de Feynman por cada línea interna, esto es,
+$$
+\frac{i}{k^{2}-m^{2}}
+$$
+por cada línea interna de mesones (partículas con carga, no necesariamente eléctrica) y
+$$
+\frac{i}{k^{2}-M^{2}}
+$$
+por cada línea interna de nucleones (partículas neutras).
+
+El criterio de la carga es sobre la diferencia entre partículas, es decir, si la carga de las dos partículas unidas por una linea interna es la misma, entonces se usará el propagador de nucleones, si tienen cargas distintas, entonces se usará el propagador de mesones.
+
+\item Integrar sobre el momento interno que fluya en líneas cerradas (loops)
+$$
+\int \frac{d^{4} k}{(2 \pi)^{4}}
+$$
+\end{itemize}
+
+Respecto al último punto, los diagramas que hemos visto son diagramas a nivel árbol (tree-level) que no incluyen loops. Típicamente las contribuciones de los loops son divergentes y requieren un proceso de regularización y renormalización para proporcionar resultados finitos que no veremos en este curso.
+

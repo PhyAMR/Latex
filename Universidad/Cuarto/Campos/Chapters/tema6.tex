@@ -3,318 +3,397 @@
 \labch{Part}
 
 \begin{center}
-  \large Todo esto lo he sacado del \cite{Dobdado}
+  \large Todo esto lo he sacado del \cite{Maroto}
 \end{center}
 \section{EL campo electromagnético clásico}
+
+El campo electromagnético se describe a través de un campo vectorial $A_{\mu}$. El tensor de Faraday que contiene los campos eléctricos $\vec{E}=\left(E^{1}, E^{2}, E^{3}\right)$ y magnéticos $\vec{B}=\left(B^{1}, B^{2}, B^{3}\right)$ está dado por
+$$
+\begin{align*}
+F_{\mu v} & =\partial_{\mu} A_{v}-\partial_{v} A_{\mu}  \tag{6.1}\\
+F^{0 i} & =\partial^{0} A^{i}-\partial^{i} A^{0}=\partial_{0} A^{i}+\partial_{i} A^{0}=-E^{i}  \tag{6.2}\\
+F^{i j} & =\partial^{i} A^{j}-\partial^{j} A^{i}=-\epsilon^{i j k} B^{k} \tag{6.3}
+\end{align*}
+$$
+
+El Lagrangiano invariante Lorentz se puede construir contrayendo el tensor de Faraday de la siguiente forma ${ }^{1}$
+
+\begin{equation*}
+\mathscr{L}=-\frac{1}{4} F_{\mu v} F^{\mu v}=\frac{1}{2}\left(\vec{E}^{2}-\vec{B}^{2}\right) \tag{6.4}
+\end{equation*}
+
+
+Las ecuaciones de movimiento correspondientes son las ecuaciones de Maxwell libres
+
+\begin{equation*}
+\partial_{\mu} F^{\mu v}=0 \leftrightarrow \vec{\nabla} \cdot \vec{E}=0 ; \quad \vec{\nabla} \times \vec{B}=\partial_{0} \vec{E} \tag{6.5}
+\end{equation*}
+
+
+Definiendo el tensor dual del tensor de Faraday
+$$
+{ }^{*} F^{\mu v}=\frac{1}{2} \epsilon^{\mu \nu \rho \sigma} F_{\rho \sigma}
+$$
+y derivando obtenemos las llamadas identidades de Bianchi que conducen a las otras dos ecuaciones de Maxwell
+
+\begin{equation*}
+0=\partial_{\mu}{ }^{*} F^{\mu \nu}=\epsilon^{\mu \nu \rho \sigma} \partial_{\mu} \partial_{\rho} A_{\sigma} \leftrightarrow \vec{\nabla} \cdot \vec{B}=0 ; \quad \vec{\nabla} \times \vec{E}=-\partial_{0} \vec{B} . \tag{6.6}
+\end{equation*}
+
 \section{Invariancia Gauge}
 
-Supongamos una transformación del tipo:
-$$ A^\mu(x) \rightarrow A'^\mu(x) = A^\mu(x) - \partial^\mu \Lambda(x) $$
-y
+Una simetría fundamental del Lagrangiano de Maxwell, aparte de la simetría Lorentz, es la simetría gauge dada por
 
-$$ F^{\mu\nu} \rightarrow F'^{\mu\nu} = F^{\mu\nu} $$
+\begin{equation*}
+A_{\mu}(x) \rightarrow A_{\mu}^{\prime}(x)=A_{\mu}(x)-\partial_{\mu} \theta(x) \tag{6.7}
+\end{equation*}
 
+donde $\theta(x)$ es una función arbitraria de $x$. Se trata por tanto de una simetría interna local. Como puede verse directamente, el tensor de Faraday es invariante bajo transformaciones gauge y por tanto el Lagrangiano también lo es.
+
+La invariancia gauge implica que de los cuatro campos $A_{\mu}$ algunos son redundantes. Así por ejemplo, podemos encontrar una transformación gauge que haga $A_{0}^{\prime}=0$. En efecto,
 $$
-\begin{align*}
-    &\partial_\mu F^{\mu\nu} = 0 \quad \Box \mathbf{A}^\nu - \partial^\nu (\partial_\mu A^\mu) = 0
-\end{align*}
-$$
-
-De ahora en adelante, suponemos que nuestro campo cumple el gauge transverso y el gauge temporal:
-
-$$ 
-\begin{align*}
-    \partial_\mu A^\mu &= 0 \quad (\text{Ec. de onda}) \\
-    A^0 &= 0 \\
-    \nabla \cdot \mathbf{A} &= 0
-\end{align*}
+A_{\mu} \rightarrow A_{\mu}^{\prime}=A_{\mu}-\partial_{\mu} \int^{t} d t^{\prime} A_{0}\left(\vec{x}, t^{\prime}\right)
 $$
 
-Si $\Box \Lambda = 0$, $\partial^\mu A'_\mu = \partial^\mu A_\mu - \Box \Lambda = 0$ entonces $\Box \Lambda = 0$, $\partial^\mu A_\mu = 0$, $\nabla \cdot \mathbf{A} = 0$.
-
-Al hacer esto, hay que tener en cuenta que las transformaciones no sean invariantes, por lo que las ecuaciones no son covariantes.
-
+Nótese que aún podemos hacer transformaciones gauge que mantengan la condición $A_{0}^{\prime \prime}=$ 0 , en concreto todas aquéllas en las que el parámetro $\theta=\theta(\vec{x})$ no dependa de $t$
 $$
-\begin{align*}
-    \int \partial^0 A^0 &= \int d \phi \\
-    \Box A^\mu &= 0 \\
-    \partial^j \phi &= \phi^0 \quad A^0 \rightarrow -\phi = A'_\mu = A_\mu + \partial_\mu \Lambda = 0
-\end{align*}
+A_{\mu}^{\prime} \rightarrow A_{\mu}^{\prime \prime}=A_{\mu}^{\prime}-\partial_{\mu} \theta(\vec{x})
 $$
 
-Escogemos 
+Escogiendo
 $$
-\begin{align*}
-    \phi &= 0 \quad A^\mu = \nabla \cdot \mathbf{A} 
-\end{align*}
+\theta(\vec{x})=-\int \frac{d^{3} y}{4 \pi|\vec{x}-\vec{y}|} \frac{\partial}{\partial y^{i}} A^{\prime i}(\vec{y}, t)
 $$
-Teniendo en cuenta que $ \partial_\mu F^{\mu\nu} = 0 $
-
-De esta forma obtenemos que
-
+vemos que $\theta(\vec{x})$ definido de esta forma es independiente del tiempo $\partial_{0} \partial_{i} A^{\prime i}=\partial_{i}\left(-E^{i}+\right.$ $\left.\partial^{i} A^{\prime 0}\right)=-\vec{\nabla} \cdot \vec{E}=0$, donde hemos usado $A^{\prime 0}=0$. Usando ahora
 $$
-T^{\mu\nu} = F^{\mu\lambda} F^{\nu}_{\phantom{\nu}\lambda} + \frac{1}{4} g^{\mu\nu} F_{\rho\sigma} F^{\rho\sigma} 
+\vec{\nabla}_{x}^{2}\left(\frac{1}{4 \pi|\vec{x}-\vec{y}|}\right)=-\delta^{3}(\vec{x}-\vec{y})
 $$
-
+obtenemos
 $$
-\begin{cases}
-T^{\mu\nu} - T^{\nu\mu} \\
-\partial_\mu T^{\mu\nu} = 0
-\end{cases}
+\vec{\nabla} \cdot \vec{A}^{\prime \prime}=\vec{\nabla} \cdot \vec{A}^{\prime}-\vec{\nabla}^{2} \theta=0
 $$
 
-$$ 
-T^{00} = H = \int (\mathbf{E}^2 + \mathbf{B}^2) \, dx \equiv \text{Energía}
-$$
+Por tanto, usando la simetría gauge hemos encontrado que podemos fijar el llamado gauge de radiación
 
-$$
-T^{0i} = P = \int (\mathbf{E} \times \mathbf{B}) \, dx \equiv \text{Momento lineal}
-$$
+\begin{equation*}
+A_{0}=0, \quad \vec{\nabla} \cdot \vec{A}=0 \tag{6.8}
+\end{equation*}
 
-$$
-\Pi^0 = \frac{\delta \mathcal{L}}{\delta(\partial_0 A^0)} = 0
-$$
 
-No aparece $ A^0 $, aparece $-\frac{1}{4} F_{\mu\nu} F^{\mu\nu}$ y $ F^{00} = 0 $.
+El gauge de radiación implica el llamado gauge de Lorentz
 
-Los gauge no son simétricos, son redundancias producto de hacer las ecuaciones invariantes relativistas, ya que añadimos 2 grados de libertad ficticios para asegurar la covariancia. Si imponemos los gauge, las ecuaciones ya no son covariantes, y por tanto no son invariantes relativistas, pero ya no hay grados de libertad ficticios.
+\begin{equation*}
+\partial_{\mu} A^{\mu}=0 \tag{6.9}
+\end{equation*}
 
-$$
--A^i = A_i \quad \Rightarrow \quad \Pi^i = E^i
-$$
 
-$$
-A_i \quad \Rightarrow \quad H = \frac{\delta \mathcal{L}}{\delta(\partial_0 A_i)} \quad \Rightarrow \quad -F^{0i} = E^i
-$$
+
+
+Nótese sin embargo que imponer el gauge de Lorentz no garantiza estar en el gauge de radiación.
+
+En el gauge de radiación, las ecuaciones de movimiento se reducen a
+
+\begin{equation*}
+\partial_{\mu} F^{\mu v}=\partial_{\mu}\left(\partial^{\mu} A^{v}-\partial^{v} A^{\mu}\right)=\square A^{v}=0 \tag{6.10}
+\end{equation*}
+
+
+Es decir, las componentes del campo vectorial se comportan como cuatro campos escalares sin masa.
+
+Para los campo electromagnéticos, la simetría gauge y el hecho de que no tienen masa implica que sólo dos de las cuatro componentes son independientes (los fotones sólo tienen dos grados de libertad). Podemos por tanto escribir las soluciones reales de las ecuaciones (6.10) como
+
+\begin{equation*}
+A_{\mu}(x)=\varepsilon_{\mu}(k) e^{-i k x}+\varepsilon_{\mu}^{*}(k) e^{i k x} \tag{6.11}
+\end{equation*}
+
+$\operatorname{con} k^{2}=0 \mathrm{y} \varepsilon_{\mu} k^{\mu}=0$. En el gauge de radiación $\varepsilon_{0}=0 \mathrm{y} \vec{\varepsilon} \cdot \vec{k}=0$ que corresponde a dos grados de libertad.
+
+Nótese que si añadimos un término de masa al Lagrangiano
+
+\begin{equation*}
+\mathscr{L}=-\frac{1}{4} F_{\mu \nu} F^{\mu v}+\frac{M^{2}}{2} A_{\mu} A^{\mu} \tag{6.12}
+\end{equation*}
+
+la teoría no respeta la invariancia gauge. Este es el Lagrangiano de Proca que describe campos vectoriales con masa como pueden ser los bosones vectoriales $W, Z$. En este caso el campo tiene tres grados de libertad.
+\subsection{Tensor energía-momento}
+Podemos calcular el tensor energía-momento a partir del Lagrangiano de Maxwell
+
+\begin{equation*}
+\theta^{\mu v}=-F^{\mu \rho} \partial^{v} A_{\rho}+\frac{1}{4} \eta^{\mu v}\left(F_{\rho \sigma} F^{\rho \sigma}\right) \tag{6.13}
+\end{equation*}
+
+
+Vemos que esta expresión no es explícitamente invariante gauge puesto que depende de los campos $A_{\rho}$. Sin embargo, bajo transformaciones gauge y usando las ecuaciones del movimiento $\partial_{\mu} F^{\mu \nu}=0$ tenemos
+
+\begin{equation*}
+\theta^{\mu v} \rightarrow \theta^{\mu v}+F^{\mu \rho} \partial^{v} \partial_{\rho} \theta=\theta^{\mu v}+\partial_{\rho}\left(F^{\mu \rho} \partial^{v} \theta\right) \tag{6.14}
+\end{equation*}
+
+y las cargas conservadas cambian como
+
+\begin{equation*}
+P^{v} \rightarrow P^{v}+\int d^{3} x \partial_{\rho}\left(F^{0 \rho} \partial^{v} \theta\right)=P^{v}+\int d^{3} x \partial_{i}\left(F^{0 i} \partial^{v} \theta\right) \tag{6.15}
+\end{equation*}
+
+y por tanto el último término se integra a cero. Es decir, la energía y el momento son invariantes gauge.
+
+Podemos obtener una expresión explícitamente invariante gauge añadiendo un tér$\operatorname{mino} \partial_{\rho}\left(F^{\mu \rho} A^{v}\right)$ a $\theta^{\mu \nu}$ que como vimos conduce a las mismas cargas conservadas. De esta forma se obtiene
+
+\begin{equation*}
+T^{\mu v}=F^{\mu \rho} F_{\rho}{ }^{v}+\frac{1}{4} \eta^{\mu v} F^{2} \tag{6.16}
+\end{equation*}
+
+$\operatorname{con} F^{2}=F_{\alpha \beta} F^{\alpha \beta}$. Esta expresión conduce directamente a la energía
+
+\begin{equation*}
+P^{0}=\int d^{3} x T^{00}=\int d^{3} x \frac{1}{2}\left(\vec{E}^{2}+\vec{B}^{2}\right) \tag{6.17}
+\end{equation*}
+
+y al vector de Poynting para el trimomento del campo
+
+\begin{equation*}
+\vec{P}=\int d^{3} x T^{0 i}=\int d^{3} x(\vec{E} \times \vec{B}) \tag{6.18}
+\end{equation*}
+
 \section{Cuantización del Gauge de radiaición}
-$$
-A^0 = 0 \quad \Rightarrow \quad \begin{cases}
-\nabla \cdot \mathbf{A} = 0 \\
-\Box \mathbf{A}^\mu = 0
-\end{cases}
-$$
+Fijemos por tanto el gauge de radiación de forma que
+\begin{equation*}
+A_{0}=0, \quad \vec{\nabla} \cdot \vec{A}=0 \tag{6.25}
+\end{equation*}
 
-Ahora las ecuaciones no son invariantes relativistas, pero trabajamos con los grados de libertad físicos.
+En este gauge tenemos que $\partial_{\mu} A^{\mu}=0$ y por tanto las ecuaciones de movimiento se reducen a
+\begin{equation*}
+\square A_{i}=0 \tag{6.26}
+\end{equation*}
+cuya solución como vimos puede escribirse como
+\begin{equation*}
+\vec{A}(x)=\int \frac{d^{3} p}{(2 \pi)^{3} \sqrt{2 \omega_{p}}} \sum_{\lambda=1,2}\left(\vec{\varepsilon}(\vec{p}, \lambda) a_{p, \lambda} e^{-i p x}+\vec{\varepsilon}^{*}(\vec{p}, \lambda) a_{p, \lambda}^{\dagger} e^{i p x}\right)_{p^{0}=\omega_{p}} \tag{6.27}
+\end{equation*}
+donde usamos la notación $\omega_{p}=|\vec{p}|$. La condición de gauge $\vec{\nabla} \cdot \vec{A}=0$ impone $\vec{p} \cdot \vec{\varepsilon}(\vec{p}, \lambda)=0$. Por tanto $\lambda$ corresponde a las dos polarizaciones independientes transversas a $\vec{p}$. Las dos componentes físicas del campo electromagnético están dadas por los vectores de polarización unitarios $\vec{\varepsilon}(\vec{p}, 1)$ y $\vec{\varepsilon}(\vec{p}, 2)$ ortogonales entre sí y perpendiculares a $\vec{p}$. Puede demostrarse que
+\begin{equation*}
+\sum_{\lambda}\left(\varepsilon^{i}(\vec{p}, \lambda) \varepsilon^{j *}(\vec{p}, \lambda)\right)=\delta^{i j}-\frac{p^{i} p^{j}}{\vec{p}^{2}} \equiv P^{i j}(\vec{p}) \tag{6.28}
+\end{equation*}
 
-$$
-\hat{A}^0 \neq \hat{A}^0
-$$
+El momento canónico conjugado de las componentes físicas $A_{i}$ será
+\begin{equation*}
+\pi^{i}=F^{i 0}=\partial_{0} A_{i}=E^{i} \tag{6.29}
+\end{equation*}
+y puesto que $A^{0}=0$ no tenemos ahora el problema con su momento conjugado.
 
-Pasamos a operadores
-
+En principio, las reglas de conmutación deberían ser $\left[A^{i}(t, \vec{x}), \pi^{j}(t, \vec{y})\right]=-i \delta^{i j} \delta^{(3)}(\vec{x}-$ $\vec{y}$ ). Sin embargo esta regla de conmutación no es compatible con la condición de gauge. Efectivamente, si tomamos la divergencia con respecto a $\vec{x}$, tendremos que el miembro de la izquierda se anula mientrar que el miembro de la derecha no lo hace. La forma de resolver este problema es sustituir el miembro de la derecha por la llamada delta de Dirac transversa que viene dada por
+\begin{equation*}
+\delta_{t r}^{i j}(\vec{x}-\vec{y})=\int \frac{d^{3} k}{(2 \pi)^{3}} e^{i \vec{k}(\vec{x}-\vec{y})}\left(\delta^{i j}-\frac{k^{i} k^{j}}{\vec{k}^{2}}\right) \tag{6.30}
+\end{equation*}
+que efectivamente cumple $\partial_{i}^{x} \delta_{t r}^{i j}(\vec{x}-\vec{y})=\partial_{i}^{y} \delta_{t r}^{i j}(\vec{x}-\vec{y})=0$. Por tanto, la regla de conmutación correcta será
+\begin{equation*}
+\left[A^{i}(t, \vec{x}), \pi^{j}(t, \vec{y})\right]=-i \delta_{t r}^{i j}(\vec{x}-\vec{y}) \tag{6.31}
+\end{equation*}
+y el resto de conmutadores nulos. Podemos por tanto, al igual que en los casos anteriores, imponer las reglas de conmutación
 $$
-\hat{A} = \hat{A}^+ + \hat{A}^-
-$$
-
-$$
-\mathbf{K} \cdot \mathbf{\hat{E}}(\mathbf{K}, \lambda) = 0
-$$
-
-$$
-K^0 < 0 
-$$
-
-$$
-K^2 = \mathbf{K}^2 + \omega^2 = 0 \quad \text{con} \quad \omega = |\mathbf{K}|
-$$
-
-$$
-\hat{\mathbf{A}} = 0 \quad \Rightarrow \quad \overline{\mathbf{A}}(\mathbf{x},t) = \int d^3K \sum_\lambda \left( \mathbf{E}(\mathbf{K}, \lambda) \hat{a}_{\mathbf{K},\lambda} e^{-i\mathbf{kx}} + \overline{\mathbf{E}}(\mathbf{K},\lambda) \hat{a}^\dagger_{\mathbf{K},\lambda} e^{i\mathbf{kx}} \right)
-$$
-
-$$
-A^\mu - A^\nu - A^\lambda - A^\rho = 0 
-$$
-
-Gauge de radiación
-
-$$
-\begin{cases}
-\text{Gauge temporal} & \phi = A^0 = 0 \\
-\text{Gauge de Coulomb} & \nabla \cdot \mathbf{A} = 0 \\
-\text{Gauge de Lorenz} & \partial_\mu A^\mu = 0
-\end{cases}
+\begin{align*}
+& {\left[a_{p, \lambda}, a_{q, \lambda^{\prime}}^{\dagger}\right]=\delta_{\lambda \lambda^{\prime}}(2 \pi)^{3} \delta^{(3)}(\vec{p}-\vec{q})}  \tag{6.32}\\
+& {\left[a_{p, \lambda}, a_{q, \lambda^{\prime}}\right]=\left[a_{p, \lambda}^{\dagger}, a_{q, \lambda^{\prime}}^{\dagger}\right]=0} \tag{6.33}
+\end{align*}
 $$
 
+Podemos ahora construir el espacio de Fock definiendo el vacío como
+\begin{equation*}
+a_{p, \lambda}|0\rangle=0, \quad \forall \vec{p}, \lambda=1,2 \tag{6.34}
+\end{equation*}
+
+El operador Hamiltoniano se puede obtener a partir de la definición canónica
+\begin{equation*}
+\mathscr{H}=\pi^{i} \partial_{0} A_{i}-\mathscr{L}=\frac{1}{2}\left(\vec{E}^{2}+\vec{B}^{2}\right) \tag{6.35}
+\end{equation*}
+y por tanto usando la ordenación normal tenemos
+\begin{equation*}
+: H:=\frac{1}{2} \int d^{3} x: \vec{E}^{2}+\vec{B}^{2}:=\int \frac{d^{3} p}{(2 \pi)^{3}} \sum_{\lambda=1,2} \omega_{p} a_{p, \lambda}^{\dagger} a_{p, \lambda} \tag{6.36}
+\end{equation*}
+
+De forma análoga, el operador momento corresponde con
+\begin{equation*}
+: \vec{P}:=\int d^{3} x: \vec{E} \times \vec{B}:=\int \frac{d^{3} p}{(2 \pi)^{3}} \sum_{\lambda=1,2} \vec{p} a_{p, \lambda}^{\dagger} a_{p, \lambda} \tag{6.37}
+\end{equation*}
+
+Por tanto vemos que los estados de una partícula $\sqrt{2 \omega_{p}} a_{p, \lambda}^{\dagger}|0\rangle$ corresponden a partículas con energía $\omega_{p}$ y momento $\vec{p}$. Para determinar el spin de los estados, debemos de nuevo, como hicimos en el caso fermiónico construir la corriente de Noether correspondiente al momento angular.
+
+En este caso las expresión para el operador momento angular total es
+\begin{equation*}
+\vec{J}=\int d^{3} x:\left(\pi^{i}(\vec{x} \times \vec{\nabla}) A^{i}+\vec{\pi} \times \vec{A}\right): \tag{6.38}
+\end{equation*}
+
+Podemos de nuevo identificar el segundo término con el operador de spin de forma que
+\begin{equation*}
+\vec{S}=\int d^{3} x:(\vec{\pi} \times \vec{A}): \tag{6.39}
+\end{equation*}
+y podemos por tanto determinar el spin de los estados de una partícula.
+Consideremos el caso $S^{3}$ con $\vec{p}=(0,0, p)$. Por tanto los vectores de polarización podemos tomarlos como $\vec{\varepsilon}(\vec{p}, 1)=(1,0,0), \vec{\varepsilon}(\vec{p}, 2)=(0,1,0)$. En este caso la helicidad $h=\vec{p}$. $\vec{S} /|\vec{p}|=S^{3}$
+\begin{equation*}
+S^{3} a_{p, 1}^{\dagger}|0\rangle=i a_{p, 2}^{\dagger}|0\rangle \tag{6.40}
+\end{equation*}
+y de forma totalmente análoga tenemos
+\begin{equation*}
+S^{3} a_{p, 2}^{\dagger}|0\rangle=-i a_{p, 1}^{\dagger}|0\rangle \tag{6.41}
+\end{equation*}
+
+Es decir, las polarizaciones lineales no son autoestados de la helicidad. Sin embargo las polarizaciones circulares
+\begin{equation*}
+a_{p, \pm}^{\dagger}=\frac{a_{p, 1}^{\dagger} \pm i a_{p, 2}^{\dagger}}{\sqrt{2}} \tag{6.42}
+\end{equation*}
+sí lo son, de forma que
 $$
-\Box A^\mu = 0
-$$
-
-$$
-A^\mu = \Lambda^\mu = \int \int dK \left( \mathbf{E}(\mathbf{K}, \lambda) \hat{a}_{\mathbf{K},\lambda} e^{-i\mathbf{kx}} + \overline{\mathbf{E}}(\mathbf{K},\lambda) \hat{a}^\dagger_{\mathbf{K},\lambda} e^{i\mathbf{kx}} \right)
-$$
-
-Solución más general a la ecuación de onda $\Box \Lambda^\mu = 0$
-
-La condición del gauge de Coulomb nos pone una condición en $\mathbf{E}(\mathbf{K}, k)$ y $\mathbf{A}$ ya que al derivar respecto a $x$ aparecen términos 
-
-Para que se cumpla la condición
-
-$$
-\mathbf{E}(\mathbf{K}, \lambda) \cdot \mathbf{E}(\mathbf{K}, \nu) = \delta_{\lambda\nu}
-$$
-
-Con $\mathbf{K} = w \, e_3$, con esta elección cumplimos la condición 
-
-Esto recibe el nombre de "base de polarización lineal"
-
-$ \{e_1, e_2, \frac{\mathbf{K}}{w} \} $
-
-\begin{marginfigure}[]
-  \begin{tikzpicture}[scale=1.5]
-    \draw[->] (0,0,0) -- (1,0,0) node[right] {$e_1$};
-    \draw[->] (0,0,0) -- (0,1,0) node[above] {$e_2$};
-    \draw[->] (0,0,0) -- (0,0,1) node[above right] {$\mathbf{K}$};
-    \draw[->] (0,0,0) -- (0.5,0.5,0.5) node[below right] {$\mathbf{A}$};
-
-    \node at (-0.3,0.5,0) {$e_3$};
-\end{tikzpicture}
-  \caption[]{EJes}
-  \labfig{fig:}
-\end{marginfigure}
-
-Otra base, también ortonormal, es 
-
-$$
-e_\pm = \frac{1}{\sqrt{2}} (\mathbf{E}(\mathbf{K}, 1) \pm i \mathbf{E}(\mathbf{K}, 2))
-$$
-
-Con $\mathbf{E}(\mathbf{K}, \lambda) \cdot \mathbf{E}(\mathbf{K}, \nu) = \delta_{\lambda\nu}$
-
-Esta nueva base está relacionada con la helicidad y, por ejemplo, $e_+$ será un fotón de helicidad positiva.
-
-Se puede construir un tensor energía-momento en esta teoría clásica
-
-$$
-\Theta^{\mu\nu} = \frac{\delta \mathcal{L}}{\delta(\partial_\mu A_\rho)} \partial^\nu A_\rho - g^{\mu\nu} \mathcal{L} \quad \Rightarrow \quad -F^{\mu\rho} \partial^\nu A_\rho + \frac{1}{4} g^{\mu\nu} F^2
-$$
-
-$$
-\partial_\mu \Theta^{\mu\nu} = 0 \quad \Rightarrow \quad T^{\mu\nu} = \Theta^{\mu\nu} - \partial_\rho (F^{\rho\mu} A^\nu)
+\begin{gather*}
+S^{3} a_{p,+}^{\dagger}|0\rangle=a_{p,+}^{\dagger}|0\rangle \\
+S^{3} a_{p,-}^{\dagger}|0\rangle=-a_{p,-}^{\dagger}|0\rangle \tag{6.43}
+\end{gather*}
 $$
 
-$$A^{\mu\nu} = -F^{\mu\lambda} A_\lambda$$
-
-Esto lo hacemos para construir un tensor simétrico.
+La conclusión por tanto es que los estados $\sqrt{2 \omega_{p}} a_{p, \pm}$ describen partículas con energía $\omega_{p}$, momento $\vec{p}$, spin 1 y helicidad $\pm 1$. Estas partículas son los fotones. Nótese que en este caso, como en el de campo escalar real, los fotones son sus propias antipartículas.
 \section{Cuantización covariante}
 
-Imponer las condiciones gauge de radiación significaba perder la covariancia, por lo que ahora vamos a ver como se cuantizaria este campo sin imponer las condiciones del Gauge de radiación.
+Como hemos visto antes, el problema fundamental a la hora de cuantizar la teoría de Maxwell es que no hay un término $\partial_{0} A_{0}$ en el Lagrangiano que permita obtener un momento $\pi^{0}$ no nulo. La cuantización en el gauge de radiación resuelve el problema eliminando la componente $A_{0}$ como campo físico a través de la condición de gauge $A_{0}=0$. Sin embargo esta condición no es invariante Lorentz con lo que se pierda la covariancia manifiesta de la teoría.
 
+Una forma de evitar ambos problemas es el llamado método de cuantización covariante. El primer paso es la modifición del Lagrangiano de la siguiente forma
+\begin{equation*}
+\mathscr{L}^{\prime}=-\frac{1}{4} F_{\mu \nu} F^{\mu v}-\frac{1}{2}\left(\partial_{\mu} A^{\mu}\right)^{2} \tag{6.48}
+\end{equation*}
+
+En principio esta teoría es muy distinta de la teoría de Maxwell (no es ni siquiera invariante gauge) sin embargo las ecuaciones de movimiento para todas las componentes son
+\begin{equation*}
+\square A_{\mu}=0 \tag{6.49}
+\end{equation*}
+y por tanto coinciden para los modos transversos con las del gauge de radiación.
+Podemos ahora calcular los momentos canónicos conjugados de las cuatro componentes $A_{\mu}$
+\begin{equation*}
+\pi^{\mu}=\frac{\partial \mathscr{L}^{\prime}}{\partial\left(\partial_{0} A_{\mu}\right)} \tag{6.50}
+\end{equation*}
+es decir
 $$
-\begin{cases}
-\text{Gauge de radiación} & \phi = A^0 = 0 \\
-\text{Gauge de Coulomb} & \nabla \cdot \mathbf{A} = 0 \\
-\text{Gauge de Lorenz} & \partial_\mu A^\mu = 0
-\end{cases}
-$$
-
-$$
-\Box A^\mu = 0
-$$
-
-
-\subsection{Método de Gupta-Bleuler}
-
-Ahora partimos de un lagrangiano diferente $\mathcal{L}' = \frac{1}{4} F^{\mu\nu} F_{\mu\nu} = \frac{1}{2} (\partial_\mu A^\nu)^2$.
-
-$
-\Pi^0 = \frac{\delta \mathcal{L}'}{\delta(\partial_0 A_0)} = -\partial_0 A^0 
-$
-
-$
-\Pi^i = \frac{\delta \mathcal{L}'}{\delta(\partial_0 A_i)} = -F^{0i} = E^i
-$
-
-Ahora se cumple directamente que $\Box A^\mu = 0$.
-
-Vamos a suponer una onda plana en la dirección $\hat{z}$ con $K^\mu = (\omega, 0, 0, \omega)$ en donde tendremos 4 polarizaciones $\epsilon^\mu(K, \lambda) = \epsilon^\mu_A(K) = \delta^\mu_\lambda$.
-
-$
-A^\mu = \sum_{\lambda = 0}^3 \int dK \left( \epsilon^\mu_{\mathbf{K}, \lambda} \hat{a}_{\mathbf{K}, \lambda} e^{-iKx} + \epsilon^{\ast \mu}_{\mathbf{K}, \lambda} \hat{a}_{\mathbf{K}, \lambda}^\dagger e^{iKx} \right)
-$
-
-Relaciones de conmutación
-
-$
-[\hat{A}^M(x, t), \hat{\Pi}^N(\mathbf{x}', t)] = i g^{\mu\nu} \delta(\mathbf{x} - \mathbf{x'})
-$
-
-Esto da lugar a estados de norma negativa
-
-$
-\langle \mathbf{K}', \lambda' = 0 | \mathbf{K}, \lambda = 0 \rangle < 0 
-$
-
-lo cual es inconsistente con la teoría, por lo que vamos a coger un subespacio del espacio de Fock $\mathcal{P} \subseteq \mathcal{F}$ tal que $|\psi\rangle, |\psi'\rangle \in \mathcal{P}$.
-
-$ 
-\langle \psi' | \partial_\mu \hat{A}^M |\psi\rangle = 0 
-$
-
-En este subespacio también se cumple que $ \partial_\mu \hat{A}^{M (+)} |\psi\rangle = 0 $.
-
-$\hat{a}_{\mathbf{K},\lambda}$ y $\hat{a}^\dagger_{\mathbf{K},\lambda}$ son los operadores de creación y destrucción de fotones con momento $\mathbf{K}$ y polarización $\lambda$.
-
-\subsubsection{Reglas de conmutación}
-
-$$
-[\hat{a}_{\mathbf{K},\lambda}, \hat{a}^\dagger_{\mathbf{K}',\lambda'}] = (2\pi)^3 \delta_{\lambda\lambda'} \delta(\mathbf{K} - \mathbf{K'})
+\begin{align*}
+& \pi^{0}=-\partial_{\mu} A^{\mu} \\
+& \pi^{i}=F^{i 0}=\partial_{0} A_{i}-\partial_{i} A_{0}=E^{i} \tag{6.51}
+\end{align*}
 $$
 
+Como vemos coincide con los anteriores para las componentes espaciales $\pi^{i}$ pero ahora $\pi^{0}$ es no nulo. Podemos intentar imponer las reglas de conmutación canónicas de forma manifiestamente covariante
+\begin{equation*}
+\left[A_{\mu}(t, \vec{x}), \pi^{v}(t, \vec{y})\right]=i \delta_{\mu}^{v} \delta^{(3)}(\vec{x}-\vec{y}) \tag{6.52}
+\end{equation*}
+
+De forma que con todos los índice arriba se leería
+\begin{equation*}
+\left[A^{\mu}(t, \vec{x}), \pi^{v}(t, \vec{y})\right]=i \eta^{\mu v} \delta^{(3)}(\vec{x}-\vec{y}) \tag{6.53}
+\end{equation*}
+y el resto de conmutadores nulos.
+Puesto que todas las componentes cumplen ahora una ecuación de ondas, la solución más general podrá escribirse como
+\begin{equation*}
+A^{\mu}(x)=\int \frac{d^{3} p}{(2 \pi)^{3} \sqrt{2 \omega_{p}}} \sum_{\lambda=0}^{3}\left(\varepsilon^{\mu}(\vec{p}, \lambda) a_{p, \lambda} e^{-i p x}+\vec{\varepsilon}^{\mu *}(\vec{p}, \lambda) a_{p, \lambda}^{\dagger} e^{i p x}\right)_{p^{0}=\omega_{p}} \tag{6.54}
+\end{equation*}
+donde ahora tenemos cuatro posible polarizaciones $\epsilon^{\mu}(\vec{p}, \lambda), \lambda=0, \ldots 3$ y puesto que todas las componentes satisfacen la misma ecuación de ondas tenemos para todos los modos $p^{2}=0$. En el frame en el que $p^{\mu}=(p, 0,0, p)$, los vectores de polarización se puede elegir como
 $$
-[\hat{a}, \hat{a}] = [\hat{a}^\dagger, \hat{a}^\dagger] = 0
+\begin{align*}
+\epsilon^{\mu}(\vec{p}, 0) & =(1,0,0,0), \\
+\epsilon^{\mu}(\vec{p}, 1) & =(0,1,0,0),  \tag{6.55}\\
+\epsilon^{\mu}(\vec{p}, 2) & =(0,0,1,0), \\
+\epsilon^{\mu}(\vec{p}, 3) & =(0,0,0,1)
+\end{align*}
+$$
+o de forma más compacta $\epsilon^{\mu}(\vec{p}, \lambda)=\delta_{\lambda}^{\mu}$. En cualquier otro inercial pueden obtenerse realizando la correspondiente transformación de Lorentz.
+
+En general se cumple que
+\begin{equation*}
+\eta_{\mu \nu} \epsilon^{\mu}(\vec{p}, \lambda) \epsilon^{\nu *}\left(\vec{p}, \lambda^{\prime}\right)=\eta^{\lambda \lambda^{\prime}} \tag{6.56}
+\end{equation*}
+y
+\begin{equation*}
+\sum_{\lambda} \frac{\epsilon^{\mu}(\vec{p}, \lambda) \epsilon^{v *}(\vec{p}, \lambda)}{\eta_{\mu \nu} \epsilon^{\mu}(\vec{p}, \lambda) \epsilon^{v *}(\vec{p}, \lambda)}=\eta^{\mu \nu} \tag{6.57}
+\end{equation*}
+independientemente del inercial \sidenote{Nótese que esta expresión también puede escribirse
+
+\begin{equation*}
+\sum_{\lambda} \eta^{\lambda \lambda} \epsilon^{\mu}(\vec{p}, \lambda) \epsilon^{\nu *}(\vec{p}, \lambda)=\eta^{\mu \nu} \tag{6.58}
+\end{equation*}
+
+donde $\eta^{\lambda \lambda}$ es simplemente un signo.}.
+Las relaciones de conmutación anteriores puede obtenerse imponiendo las siguientes relaciones de conmutación sobre los operadores de creación y destrucción
+$$
+\begin{align*}
+& {\left[a_{p, \lambda}, a_{q, \lambda^{\prime}}^{\dagger}\right]=-\eta_{\lambda \lambda^{\prime}}(2 \pi)^{3} \delta^{(3)}(\vec{p}-\vec{q})}  \tag{6.59}\\
+& {\left[a_{p, \lambda}, a_{q, \lambda^{\prime}}\right]=\left[a_{p, \lambda}^{\dagger}, a_{q, \lambda^{\prime}}^{\dagger}\right]=0, \quad \lambda, \lambda^{\prime}=0 \ldots 3} \tag{6.60}
+\end{align*}
 $$
 
-$$
-\hat{A}_i = \hat{\Pi}^i = E^i
-$$
+El punto fundamental aquí es que el conmutador correspodiente a $\lambda=\lambda^{\prime}=0$ tiene el signo opuesto al de los espaciales y esto hace que los estados de una partícula correspondientes tengan normas negativas, lo cual podría ser catastrófico para la consistencia de la teoría. En efecto consideremos los estados
+\begin{equation*}
+|\vec{p}, \lambda\rangle=\sqrt{2 \omega_{p}} a_{p, \lambda}^{\dagger}|0\rangle \tag{6.61}
+\end{equation*}
+por tanto
+\begin{equation*}
+\langle\vec{p}, \lambda \mid \vec{p}, \lambda\rangle=2 \omega_{p}\langle 0| a_{p, \lambda} a_{p, \lambda}^{\dagger}|0\rangle=2 \omega_{p}\langle 0|\left[a_{p, \lambda}, a_{p, \lambda}^{\dagger}\right]|0\rangle=-\eta_{\lambda \lambda^{\prime}} 2 \omega_{p}(2 \pi)^{3} \delta^{(3)}(0) \tag{6.62}
+\end{equation*}
 
-Ahora podemos obtener las reglas de conmutación del campo (como en los ejercicios):
+Puesto que los productos escalares en Mecánica Cuántica tienen una interpretación en términos de probabilidades, un espacio de Fock con un producto escalar no definido positivo no tiene una interpretación probabilística. Por otra parte, hay que notar que ni los estados creados por $a_{p, 0}^{\dagger}$ ni los creados por $a_{p, 3}^{\dagger}$ correspondían a estados físicos.
 
-$$
-[\hat{A}^i(\mathbf{x}, t), \hat{E}^i(\mathbf{x}', t)] = -i \int \frac{dK}{(2\pi)^3} e^{i \mathbf{K} (\mathbf{x} - \mathbf{x'})} \left(K^i \left(\delta^{ij} - \frac{K^i K^j}{|\mathbf{K}|^2}\right)\right)
-$$
 
-Este término garantiza que $\nabla \cdot \mathbf{A} = 0$
 
+La solución a estos problemas puede encontrarse en el hecho de que hemos añadido un término $\left(\partial_{\mu} A^{\mu}\right)^{2}$ al Lagrangiano. La idea de la cuantización covariante es limitar el espacio de Fock de forma que sobre los estados físicos |phys〉 tengamos
+\begin{equation*}
+\left.\langle\text { phys' }|\left(\partial_{\mu} A^{\mu}\right) \mid \text { phys }\right\rangle=0 \tag{6.63}
+\end{equation*}
+que es lo que se conoce como condición de Gupta-Bleuler. Por tanto, sobre estados físicos se recuperarán las ecuaciones de Maxwell usuales. Veamos cómo implementar esta condición de forma más concreta. Para ello vamos a separar el operador $\partial_{\mu} A^{\mu}$ en su parte de frecuencia positiva y negativa.
+\begin{equation*}
+\partial_{\mu} A^{\mu}=\left(\partial_{\mu} A^{\mu}\right)^{+}+\left(\partial_{\mu} A^{\mu}\right)^{-} \tag{6.64}
+\end{equation*}
+donde
 $$
-[\nabla \times \hat{A}, \mathbf{E}] = -i \int \frac{dK}{(2\pi)^3} e^{i \mathbf{K} (\mathbf{x} - \mathbf{x'})} K^i \left(\delta^{ij} - \frac{K^i K^j}{|\mathbf{K}|^2}\right) = 0
-$$
-
-\subsubsection{Estados de Fock}
-
-$$
-|0\rangle = \text{Estado de vacío} 
-$$
-
-$$
-\hat{a}_{\mathbf{K},\lambda} |0\rangle = 0 \quad \hat{a}^\dagger_{\mathbf{K},\lambda} |0\rangle = |\mathbf{K}, \lambda \rangle 
-$$
-
-$$
-H_0 \Rightarrow \hat{H}_0 = \frac{1}{2} \int dx (\mathbf{E}^2 + \mathbf{B}^2) = \sum_\lambda \int dK \, \omega_K \, \hat{a}^\dagger_{\mathbf{K},\lambda} \hat{a}_{\mathbf{K},\lambda}
-$$
-
-$$
-\hat{\mathbf{P}} = \int dx \, \hat{\mathbf{E}} \times \hat{\mathbf{B}} = \sum_\lambda \int dK \, \mathbf{K} \, \hat{n}_{\mathbf{K},\lambda}
+\begin{align*}
+& \left(\partial_{\mu} A^{\mu}\right)^{+}=-i \int \frac{d^{3} p}{(2 \pi)^{3} \sqrt{2 \omega_{p}}} \sum_{\lambda=0}^{3}\left(p_{\mu} \varepsilon^{\mu}(\vec{p}, \lambda) a_{p, \lambda} e^{-i p x}\right) \\
+& \left(\partial_{\mu} A^{\mu}\right)^{-}=i \int \frac{d^{3} p}{(2 \pi)^{3} \sqrt{2 \omega_{p}}} \sum_{\lambda=0}^{3}\left(p_{\mu} \varepsilon^{\mu *}(\vec{p}, \lambda) a_{p, \lambda}^{\dagger} e^{i p x}\right) \tag{6.65}
+\end{align*}
 $$
 
-Los estados que cumplen esta condición son las siguientes combinaciones:
+Puesto que $\left(\partial_{\mu} A^{\mu}\right)^{-}=\left(\partial_{\mu} A^{\mu}\right)^{+\dagger}$ tenemos que la condición de Gupta-Bleuler se cumple si
+\begin{equation*}
+\left.\left(\partial_{\mu} A^{\mu}\right)^{+} \mid \text {phys }\right\rangle=0 \tag{6.66}
+\end{equation*}
 
-\begin{itemize}
-    \item \textbf{Estados transversales}
-    $
-    |\psi_T\rangle = \hat{a}^\dagger_T \hat{a}^\dagger_L |\phi\rangle \in \mathcal{P}
-    $
+Puesto que es una condición lineal, tendremos que el espacio de Fock de los estados físicos también lo será, es decir si $\mid$ phys $\left._{1}\right\rangle$ y $\mid$ phys $\left._{2}\right\rangle$ son estados físicos entonces $\alpha \mid$ phys $\left._{1}\right\rangle+$ $\beta \mid$ phys $\left._{2}\right\rangle$ también lo será.
 
-    \item \textbf{Estados temporales}
-    $
-    |\phi\rangle = (\hat{a}^\dagger_\text{temp} - \hat{a}^\dagger_\text{long}) |0\rangle \in \mathcal{P}
-    $
+Veamos el efecto de esta condición sobre los estados de una partícula. Para ello consideremos un estado de una partícula general $|\psi\rangle=\sum_{\lambda^{\prime}=0}^{3} c_{\lambda^{\prime}} \sqrt{2 \omega_{k}} a_{k, \lambda^{\prime}}^{\dagger}|0\rangle$. Tomando por simplicidad $k^{\mu}=(k, 0,0, k)$, tenemos que
+$$
+\begin{align*}
+\left(\partial_{\mu} A^{\mu}\right)^{+}|\psi\rangle & =-i \int \frac{d^{3} p}{(2 \pi)^{3} \sqrt{2 \omega_{p}}} \sum_{\lambda=0}^{3}\left(p_{\mu} \varepsilon^{\mu}(\vec{p}, \lambda) a_{p, \lambda} e^{-i p x}\right) \sum_{\lambda^{\prime}=0}^{3} c_{\lambda^{\prime}} \sqrt{2 \omega_{k}} a_{k, \lambda^{\prime}}^{\dagger}|0\rangle \\
+& =i \sum_{\lambda \lambda^{\prime}=0}^{3}\left(k_{\mu} \delta_{\lambda}^{\mu} e^{-i k x}\right) c_{\lambda^{\prime}} \eta_{\lambda, \lambda^{\prime}}|0\rangle=i k\left(c_{0}+c_{3}\right) e^{-i k x}|0\rangle=0 \tag{6.67}
+\end{align*}
+$$
+es decir, la condición de Gupta-Bleuler requiere $c_{0}+c_{3}=0$. Es decir:
+\begin{equation*}
+|\phi\rangle=\left(a_{k, 0}^{\dagger}-a_{k, 3}^{\dagger}\right)|0\rangle \tag{6.68}
+\end{equation*}
 
-    $
-    |\psi\rangle = |\psi_T\rangle + \lambda |\phi\rangle \quad \text{también son estados de este espacio}
-    $
-\end{itemize}
 
-De esta forma, los estados físicos están contenidos.
+sería un estado físico. Por otra parte, nótese que los estados de fotones transversales de la forma $a_{k, 1,2}^{\dagger}|0\rangle$ también son físicos. Sin embargo, ni los fotones temporales $a_{k, 0}^{\dagger}|0\rangle$ ni los fotones longitudinales $a_{k, 3}^{\dagger}|0\rangle$ son físicos, sólo la combinación anterior lo es. Por tanto, la forma más general de los estados de una partícula sería
+\begin{equation*}
+|\psi\rangle=\left|\psi_{T}\right\rangle+c|\phi\rangle \tag{6.69}
+\end{equation*}
+con $\left|\psi_{T}\right\rangle$ un estado de fotones transerversos.
+Calculemos ahora la norma del estado físico $|\phi\rangle$,
+$$
+\begin{align*}
+\langle\phi \mid \phi\rangle & =\langle 0|\left(a_{k, 0}-a_{k, 3}\right)\left(a_{k, 0}^{\dagger}-a_{k, 3}^{\dagger}\right)|0\rangle=\langle 0|\left(a_{k, 0} a_{k, 0}^{\dagger}+a_{k, 3} a_{k, 3}^{\dagger}\right)|0\rangle \\
+& =\langle 0|\left(\left[a_{k, 0}, a_{k, 0}^{\dagger}\right]+\left[a_{k, 3}, a_{k, 3}^{\dagger}\right]\right)|0\rangle=0 \tag{6.70}
+\end{align*}
+$$
+debido a la diferencia de signo en los conmutadores. Es decir la norma de los estados $|\phi\rangle$ es cero y son por tanto ortogonales a todos los estados físicos. Por tanto, todos los productos escalares de estados $\left|\psi_{T}\right\rangle+c|\phi\rangle$ son idénticos a los productos escalares de los estados transversos $\left|\psi_{T}\right\rangle$.
+
+Calculemos ahora la energía y el momento de los nuevos estados. La expresión del Hamiltoniano es ahora diferente
+\begin{equation*}
+: H:=\int \frac{d^{3} p}{(2 \pi)^{3}} \omega_{p}\left(-a_{p, 0}^{\dagger} a_{p, 0}+\sum_{\lambda=1,2,3} a_{p, \lambda}^{\dagger} a_{p, \lambda}\right) \tag{6.71}
+\end{equation*}
+y de forma análoga
+\begin{equation*}
+: \vec{P}:=\int \frac{d^{3} p}{(2 \pi)^{3}} \vec{p}\left(-a_{p, 0}^{\dagger} a_{p, 0}+\sum_{\lambda=1,2,3} a_{p, \lambda}^{\dagger} a_{p, \lambda}\right) \tag{6.72}
+\end{equation*}
+vemos por tanto que los fotones temporales contribuyen a la energía y al momento con un signo opuesto al de las componentes transversas. De hecho puede verse que puesto que los estados físicos contienen el mismo número de fotones temporales y longitudinales sus contribuciones se cancelan y por tanto sobre los estados físicos únicamente los fotones transversos contribuyen a la energía y el momento.
+
+En conclusión, a pesar de que en el formalismo covariante aparecen nuevos estados, estos no son físicos, puesto que no contribuyen a la energía ni al momento, ni a los productos escalares. Dado su carácter manifiestamente covariante, este es el formalismo habitualmente empleado en los cálculos en electrodinámica cuántica.

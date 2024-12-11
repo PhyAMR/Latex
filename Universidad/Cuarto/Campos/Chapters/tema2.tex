@@ -122,35 +122,46 @@ $$
 S = \int dt \, L
 $$
 
-Utilizando el principio de mínima acción: Para $\phi \rightarrow \phi + \delta \phi \rightarrow S[\phi] \rightarrow S[\phi] + \delta S[\phi]$. Hacemos que esa variación de la acción sea estacionaria: $\delta S = 0$, quedando:
+Utilizando el principio de mínima acción: 
+
+\begin{proposition}[Principio de mínima acción o acción estacionaria]
+  Los campos físicos, cuyos valores están fijados en una cierta hipersuperficie espacial, son aquellos para los
+que la acción del sistema es estacionaria, es decir, aquellos campos para
+los que pequeñas variaciones intrínsecas no afectan al valor de la acción.
+
+Para
+ $$\phi \rightarrow \phi + \delta \phi \rightarrow S[\phi] \rightarrow S[\phi] + \delta S[\phi]$$. 
+
+Hacemos que esa variación de la acción sea estacionaria: $\delta S = 0$, quedando:
 $$
 \delta S = \int d^x \left( \frac{\partial \mathcal{L}}{\partial \phi} \delta \phi + \frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi)} \delta (\partial_\mu \phi) \right)
 $$
+\end{proposition}
 
 \begin{marginfigure}[]
-  \includegraphics{}
-  \caption[]{}
-  \labfig{fig:}
+  \includegraphics{4-D_REGION.jpg}
+  \caption[]{Espacio de Minkowski de 4 dimensiones}
+  \labfig{fig:mink}
 \end{marginfigure}
 
-Definimos $K^\mu = \frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi)} \delta \phi \sim \partial_\mu \phi$. Ahora, aplicando el teorema de la divergencia:
-$
+Definimos $$K^\mu = \frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi)} \delta \phi \sim \partial_\mu \phi$$. Ahora, aplicando el teorema de la divergencia:
+$$
 \int_V d^4x \partial_\mu K^\mu = \int_{\Sigma_2}^{\Sigma_1} d\Sigma_\mu K^\mu
-$
+$$
 
-Con $\Sigma^\mu$ el cuadrivector perpendicular a la hipersuperficie (ver en "Figura 1").
+Con $\Sigma^\mu$ el cuadrivector perpendicular a la hipersuperficie (ver en \reffig{fig:mink}).
 
 Entonces, el flujo de $K^\mu$ sobre la superficie se anula en toda la frontera de Minkowski:
-$
+$$
 \delta S = \int d^4x \left( \frac{\partial \mathcal{L}}{\partial \phi} - \partial_\mu \frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi)} \right) \delta \phi \approx 0 \quad \forall \delta \phi \rightarrow
-$
+$$
 
 Obteniendo:
-$
+$$
 \frac{\partial \mathcal{L}}{\partial \phi} - \partial_\mu \frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi)} = 0
-$
+$$
 
-\textbf{Las ecuaciones de Euler-Lagrange:}
+\subsubsection{Las ecuaciones de Euler-Lagrange}
 
 Para una acción $S'$ tal que su diferencia con $S$ sea de la forma: $S' = S + \int d^4x f(x)\delta V(\phi) \rightarrow \delta S' = \delta S + \int d^4x \delta V(\phi) = \delta S$: Si la diferencia entre acciones $S$ y $S'$ es la cuadridivergencia de un campo vectorial, entonces ambas tienen las mismas ecuaciones del movimiento.
 \subsection{Formalismo Hamiltoniano}
@@ -161,7 +172,7 @@ Una vez descrito el formalismo Lagrangiano, podemos ir al formalismo Hamiltonian
 
 De forma que el Hamiltoniano queda definido como 
 
-\[\mathcal{H}=\Pi\phi_{i}-\mathcal{L}\]
+\[\mathcal{H}=\Pi\dot{\phi_{i}}-\mathcal{L}\]
 
 \subsection{Ejemplos}
 
@@ -278,143 +289,101 @@ $$
 Donde se verifica que la corriente es conservada $(\partial_\mu J^\mu = 0)$.
 \end{example}
 \section{Teorema de Noether}
-Este teorema relaciona las simetrías de la integral de acción con la existencia de leyes de conservación. Consideremos una transformación infinitesimal que puede afectar tanto a las coordenadas como a los campos, esto es
 
-\[\begin{aligned}
-x^{\mu} \rightarrow x^{\prime \mu} & =x^{\mu}+\delta x^{\mu} \\
-\phi_{i}(x) \rightarrow \phi_{i}^{\prime}\left(x^{\prime}\right) & =\phi_{i}(x)+\delta \phi_{i}(x) \tag{3.43}
-\end{aligned}\]
+El teorema de Noether es una herramienta fundamental en el estudio de la dinámica de los cuerpos, por lo que también es relevante ver como es su formalismo en teoría de campos.
+\subsection{Corrientes}
+En mecánica Lagrangiana decíamos que una coordenada era una constante del movimiento cuando su momento canónico conjugado era constante, es decir,
+$$\dot{p}_{q^a}=0\rightarrow p_{q^a}=const \qquad q^a \text{ es cíclica}$$
+esto implicaba que podíamos cambiar $q$ por una coordenada $q'$ parametrizada por un parámetro $\epsilon$ de tal forma que $L$ es invariante. 
 
-Se dice que estas transformaciones definen una simetría de la acción si dejan $S$ invariante para todo $\phi_{i}(x)$ (sea o no solución de las ecuaciones de movimiento).
+El teorema de Noether relaciona las simetrías en la integral de acción con leyes de conservación. Considerando una transformación infinitesimal de las coordenadas:
 
-Una observación importante es que una simetría requiere que la acción $S$ sea invariante, pero no necesariamente la densidad Lagrangiana $\mathscr{L}$. Es decir, la condición de simetría es $S^{\prime}\left[\phi^{\prime}\right]=S[\phi]$ y por tanto
+$$
+x'^\mu = x^\mu + \delta x^\mu
+$$
 
-\begin{equation*}
-\delta S[\phi]=\int_{V^{\prime}} d^{4} x^{\prime} \mathscr{L}\left(\phi^{\prime}\left(x^{\prime}\right), \partial_{\mu} \phi^{\prime}\left(x^{\prime}\right)\right)-\int_{V} d^{4} x \mathscr{L}\left(\phi(x), \partial_{\mu} \phi(x)\right)=0 \tag{3.44}
-\end{equation*}
+$$
+\phi(x) = \phi(x) + \delta \phi(x)
+$$
 
-donde $V^{\prime}$ denota el mismo volumen de integración $V$ pero expresado en coordendas $x^{\prime}$. Haciendo el cambio de variable a las coordenadas $x$ en la primera integral, tendremos que usar el determinante jacobiano que a primer orden es
+%\begin{definition}[Variación tilda]… \end{definition}
+Además usaremos la propiedad de conmutación
+$$
+ \left[ \delta, \partial_\mu \right] = 0
+$$
 
-\begin{equation*}
-d^{4} x^{\prime}=d^{4} x\left(1+\partial_{\mu} \delta x^{\mu}\right) \tag{3.45}
-\end{equation*}
+La acción de la transformación infinitesimal es de la forma :
 
-y por tanto
+\begin{equation}
+\tilde{\delta} S=\int d^4 x^{\prime} \mathcal{L}^{\prime}\left(x^{\prime}\right)-\int d^4 x \mathcal{L}(x)
+\end{equation}
 
+El jacobiano para la primera integral al cambiarse la base $(x')$ será:
+
+\begin{equation}
+d x^{\prime}=d^4 x^{\prime}=\left\|\frac{\partial x^{\prime \mu}}{\partial x^\nu}\right\| d^4 x=\operatorname{det}\left(\delta^\mu{ }_\nu+\partial_\nu \delta x^\mu\right) d^4 x
+\end{equation}
+
+Para resolver esta ecuación, usamos que $\det{e^M} = e^{\text{tr}M}$, por lo que, haciendo un desarrollo en potencias, el determinante queda en primera corrección: $\det(1+M) = 1+\langle M \rangle +\mathcal{O}(M^2)$. Así:
+
+\begin{equation}
+d x^{\prime}=\left(1+\operatorname{tr} \partial_\nu \delta x^\mu\right) d x=\left(1+\partial_\mu \delta x^\mu\right) d x \rightarrow d x^{\prime} \mathcal{L}=d x\left(1+\partial_\mu \delta x^\mu\right) \mathcal{L}
+\end{equation}
+Sustituyendo de nuevo en la transformación general:
+
+\begin{equation}
 \begin{aligned}
-\delta S[\phi] & =\int_{V} d^{4} x\left(1+\partial_{\mu} \delta x^{\mu}\right)\left(\mathscr{L}\left(\phi^{\prime}(x), \partial_{\mu} \phi^{\prime}(x)\right)+\partial_{\mu} \mathscr{L}\left(\phi(x), \partial_{\mu} \phi(x)\right) \delta x^{\mu}\right) \\
-& -\int_{V} d^{4} x \mathscr{L}\left(\phi(x), \partial_{\mu} \phi(x)\right) \tag{3.46}
+\tilde{\delta} S & =\int d x(\overbrace{\mathcal{L}^{\prime}\left(x^{\prime}\right)-\mathcal{L}(x)}^{\tilde{\delta} \mathcal{L}}+\partial_\mu \delta x^\mu \mathcal{L}(x))=\int d x\left(\delta \mathcal{L}+\delta x^\mu \partial_\mu \mathcal{L}+\partial_\mu \delta x^\mu \mathcal{L}\right)= \\
+& =\int d x\left(\delta \mathcal{L}+\partial_\mu\left(\delta x^\mu \mathcal{L}\right)\right)=\int d x\left(\frac{\partial \mathcal{L}}{\partial \phi} \delta \phi+\frac{\partial \mathcal{L}}{\partial\left(\partial_\mu \phi\right.} \delta \partial_\mu \phi+\partial_\mu\left(\delta x^\mu \mathcal{L}\right)\right)= \\
+& =\int d x\left[\left(\frac{\partial \mathcal{L}}{\partial \phi}-\partial_\mu \frac{\partial \mathcal{L}}{\partial\left(\partial_\mu \phi\right)}\right)_{\text {EMov }} \delta \phi+\partial_\mu\left(\frac{\partial \mathcal{L}}{\partial\left(\partial_\mu \phi\right)} \delta \phi\right)+\partial_\mu\left(\delta x^\mu \mathcal{L}\right)\right]
 \end{aligned}
+\end{equation}
 
-Usando la definición (3.5)
+Se dice que tenemos una transformación de simetría si $ \delta S = 0 $, es decir, tendrá las mismas ecuaciones de movimiento tras la transformación. Decimos que $ \delta x^\mu $ y $ \delta \phi $ son simetrías del sistema si conducen a las mismas ecuaciones del movimiento, es decir, a $ \delta S = 0 $. Tomando el caso en el que tenemos transformación de simetría, la integral se debe anular:
 
-\begin{equation*}
-\phi_{i}^{\prime}(x)=\phi_{i}(x)+\delta_{0} \phi_{i}(x) \tag{3.47}
-\end{equation*}
+$$
+\left( \frac{\partial \mathcal{L}}{\partial \phi} - \partial_\mu \left( \frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi)} \right) \right)_{\text{EMov}} \delta \phi + \partial_\mu \left( \frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi)} \delta \phi + \delta x^\mu \mathcal{L} \right) = 0
+$$
 
-con
+Definimos así el cuadrivector \textit{corriente Noether}:
 
-\begin{equation*}
-\delta_{0} \phi_{i}(x)=\delta \phi_{i}(x)-\delta x^{\lambda} \partial_{\lambda} \phi_{i}(x) \tag{3.48}
-\end{equation*}
+$$
+J^\mu = \left( - \frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi)} \delta \phi \right) - \left( \delta x^\mu \mathcal{L} \right)
+$$
 
-podemos escribir
+Así, la condición para la simetría se simplifica:
 
-\begin{equation*}
-\mathscr{L}\left(\phi^{\prime}(x), \partial_{\mu} \phi^{\prime}(x)\right)=\mathscr{L}\left(\phi(x), \partial_{\mu} \phi(x)\right)+\left(\frac{\partial \mathscr{L}}{\partial \phi_{i}} \delta_{0} \phi_{i}+\frac{\partial \mathscr{L}}{\partial\left(\partial_{\mu} \phi_{i}\right)} \delta_{0}\left(\partial_{\mu} \phi_{i}\right)\right) \tag{3.49}
-\end{equation*}
+$$
+\partial_\mu J^\mu = \left( \frac{\partial \mathcal{L}}{\partial \phi} - \partial_\mu \frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi)} \right)_{\text{EMov}} \delta \phi
+$$
 
+Es decir, la condición de simetría se reduce a:
 
-Ahora usando $\delta_{0}\left(\partial_{\mu} \phi_{i}\right)=\partial_{\mu}\left(\delta_{0} \phi\right)$ tenemos
-\[
-\begin{aligned}
-\mathscr{L}\left(\phi^{\prime}(x), \partial_{\mu} \phi^{\prime}(x)\right)=\mathscr{L}\left(\phi(x), \partial_{\mu} \phi(x)\right)+\left(\frac{\partial \mathscr{L}}{\partial \phi_{i}}-\partial_{\mu}\left(\frac{\partial \mathscr{L}}{\partial\left(\partial_{\mu} \phi_{i}\right)}\right)\right) \delta_{0} \phi_{i}\\ +\partial_{\mu}\left(\frac{\partial \mathscr{L}}{\partial\left(\partial_{\mu} \phi_{i}\right)} \delta_{0} \phi_{i}\right) \tag{3.50}
-\end{aligned}\]
+$$
+\partial_\mu J^\mu = 0
+$$
 
+$ J^\mu $ es una cantidad conservada. El conjunto de las transformaciones de simetría forman grupo, que denotaremos por $\{J^\mu_a\}$, tales que $J^\mu=\epsilon J^\mu_a$, es decir,  $J^\mu_a$ es el generador del grupo.
 
-Sustituyendo en (3.46) y quedándonos a primer orden obtenemos
+% Sea $ \delta x^\mu = \epsilon^a A^\mu_a $, con $ \epsilon^a \ll 1 $; y sea $ \delta \phi_i = \epsilon^a F_{ai}(\phi, \partial \phi) \rightarrow \delta \phi_i = \epsilon^a (F_{ai} - A^\mu_a \partial_\mu \phi_i) $, con $ a = 1, \ldots, n $, siendo $ n $ la dimensión del grupo. Con esto, podemos escribir $ J^\mu $ como:
 
-\begin{aligned}
-\delta S[\phi] & =\int_{V} d^{4} x\left[\left(\partial_{\mu} \delta x^{\mu}\right) \mathscr{L}+\left(\partial_{\mu} \mathscr{L}\right) \delta x^{\mu}\right. \\
-& \left.+\left(\frac{\partial \mathscr{L}}{\partial \phi_{i}}-\partial_{\mu}\left(\frac{\partial \mathscr{L}}{\partial\left(\partial_{\mu} \phi_{i}\right)}\right)\right) \delta_{0} \phi_{i}+\partial_{\mu}\left(\frac{\partial \mathscr{L}}{\partial\left(\partial_{\mu} \phi_{i}\right)} \delta_{0} \phi_{i}\right)\right]=0 \tag{3.51}
-\end{aligned}
-que se puede reescribir como
+% $$
+% J^\mu = \epsilon J^\mu_a, \quad \text{con} \quad J^\mu_a = \frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi_i)} (A^\nu_a \partial_\nu \phi_i - F_{ai}) - A^\mu_a \mathcal{L}
+% $$
 
+% Que sigue verificando $ \partial_\mu J^\mu_a = 0 $. 
+\subsection{Cargas}
+Podemos definir también las \textit{cargas de Noether} asociadas a las transformaciones de simetría:
+$$
+Q_a = \int dx J^0_a \quad \Rightarrow \quad \frac{dQ_a}{dt} = 0
+$$
 
-\begin{equation*}
-\delta S[\phi]=\int_{V} d^{4} x\left[\left(\frac{\partial \mathscr{L}}{\partial \phi_{i}}-\partial_{\mu}\left(\frac{\partial \mathscr{L}}{\partial\left(\partial_{\mu} \phi_{i}\right)}\right)\right) \delta_{0} \phi_{i}+\partial_{\mu}\left(\frac{\partial \mathscr{L}}{\partial\left(\partial_{\mu} \phi_{i}\right)} \delta_{0} \phi_{i}+\mathscr{L} \delta x^{\mu}\right)\right]=0 \tag{3.52}
-\end{equation*}
+Consideremos un cambio en la corriente: $ J^\mu_a \rightarrow J^\mu_a = J^\mu_a + \partial_\nu A^{\mu \nu}_a $ Con $ A^{\mu \nu}_a $ anti-simétrico. Calculando $ \partial_\mu J^\mu_a $:
 
-
-Puesto que esta variación debe ser cero para cualquier valor del volumen de integración $V$, el integrando debe ser cero por lo que
-
-\begin{equation*}
-\left(\frac{\partial \mathscr{L}}{\partial \phi_{i}}-\partial_{\mu}\left(\frac{\partial \mathscr{L}}{\partial\left(\partial_{\mu} \phi_{i}\right)}\right)\right) \delta_{0} \phi_{i}+\partial_{\mu}\left(\frac{\partial \mathscr{L}}{\partial\left(\partial_{\mu} \phi_{i}\right)} \delta_{0} \phi_{i}+\mathscr{L} \delta x^{\mu}\right)=0 \tag{3.53}
-\end{equation*}
-
-
-Ahora bien, el primer paréntesis no son más que las ecuaciones de Euler-Lagrange (3.37), y por tanto sobre soluciones de las ecuaciones clásicas de movimiento $\phi_{i}(x)=\phi_{i}^{c l}(x)$ llegamos a
-
-\begin{equation*}
-\partial_{\mu} j^{\mu}\left(\phi^{c l}\right)=0 \tag{3.54}
-\end{equation*}
-
-donde
-
-\begin{equation*}
-j^{\mu}=\left(\frac{\partial \mathscr{L}}{\partial\left(\partial_{\mu} \phi_{i}\right)} \delta_{0} \phi_{i}+\mathscr{L} \delta x^{\mu}\right) \tag{3.55}
-\end{equation*}
-
-
-Supongamos ahora que las transformaciones dependen de una serie de parámetros $\theta^{a}(x) \operatorname{con} a=1, \ldots, N$ de forma que
-
-\[\begin{aligned}
-\delta x^{\mu} & =\theta^{a}(x) X_{a}^{\mu}(x) \\
-\delta \phi_{i}(x) & =\theta^{a}(x) Y_{i, a}\left(\phi, \partial_{\mu} \phi\right) \tag{3.56}
-\end{aligned}\]
-
-Estas transformaciones pueden corresponder a cada uno de los parámetros de un grupo de Lie. En este caso, (3.48) se escribirá
-
-\begin{equation*}
-\delta_{0} \phi_{i}(x)=\theta^{a}(x)\left(Y_{i, a}(x)-X_{a}^{\lambda}(x) \partial_{\lambda} \phi_{i}(x)\right) \tag{3.57}
-\end{equation*}
-
-y por tanto la corriente (3.55) se escribirá
-
-\begin{equation*}
-j^{\mu}=\left(\frac{\partial \mathscr{L}}{\partial\left(\partial_{\mu} \phi_{i}\right)}\left(Y_{i, a}(x)-X_{a}^{\lambda}(x) \partial_{\lambda} \phi_{i}(x)\right)+\mathscr{L} X_{a}^{\mu}(x)\right) \theta^{a}(x) \tag{3.58}
-\end{equation*}
-
-
-Puesto que los parámetros $\theta^{a}$ son independientes, podemos definir una corriente conservada para cada uno de ellos:
-
-\begin{equation*}
-j_{a}^{\mu}=\frac{\partial \mathscr{L}}{\partial\left(\partial_{\mu} \phi_{i}\right)}\left(Y_{i, a}(x)-X_{a}^{\lambda}(x) \partial_{\lambda} \phi_{i}(x)\right)+\mathscr{L} X_{a}^{\mu}(x), \quad a=1, \ldots, N \tag{3.59}
-\end{equation*}
-
-de forma que sobre soluciones de las ecuaciones del movimiento
-
-\begin{equation*}
-\partial_{\mu} j_{a}^{\mu}\left(\phi^{c l}\right)=0, \quad a=1, \ldots, N \tag{3.60}
-\end{equation*}
-
-
-Es decir, si la acción es invariante bajo las transformaciones de simetría (3.56) existen $N$ corrientes de Noether $j_{a}^{\mu}$ conservadas cuando se evalúan sobre las soluciones clásicas. Es decir, hay una corriente conservada por cada generador de las transformaciones de simetría. Este es el Teorema de Noether.
-
-Para cada corriente conservada tenemos una carga conservada dada por:
-
-\begin{equation*}
-Q_{a} \equiv \int d^{3} x j_{a}^{0}(x) \tag{3.61}
-\end{equation*}
-
-
-Efectivamente, usando (3.60) tenemos
-
-\begin{equation*}
-\partial_{0} Q_{a}=\int d^{3} x \partial_{0} j_{a}^{0}(x)=-\int d^{3} x \partial_{i} j_{a}^{i}(x)=0 \tag{3.62}
-\end{equation*}
-
-donde en la última integral hemos usado el teorema de Stokes y asumido que los campos se anulan en el infinito.
+$$
+\partial_\mu J^\mu_a = \partial_\mu J^\mu_a + \partial_\nu \partial_\mu A^{\mu \nu}_a = 0
+$$
+Esta ambigüedad está relacionada con la de la lagrangiana en una derivada total.
 \section{Transformaciones de simetria espacio-temporales}
 Dependiendo de la forma de las transformaciones (3.56), podemos distinguir distintos tipos de simetrías:
 
@@ -451,7 +420,7 @@ La conservación de la corriente implica
 \partial_{\mu} \theta^{\mu v}\left(\phi^{c l}\right)=0 \tag{3.66}
 \end{equation*}
 y las cargas son
-}begin{equation*}
+\begin{equation*}
 P^{v} \equiv \int d^{3} x \theta^{0 v}\left(\phi^{c l}\right) \tag{3.67}
 \end{equation*}
 que es el cuadrimomento del campo.
@@ -469,11 +438,12 @@ Para $\mu=0$ tenemos $\partial_{\rho} A^{\rho 0 v}=\partial_{i} A^{i 0 v}$ que e
 \subsection{Transformaciones de Lorentz}
 Consideremos ahora el caso en el que la acción es invariante bajo transformaciones de Lorentz dadas anteriormente en (3.6) y (3.31)
 
-\begin{aligned}
-x^{\prime \mu} & =x^{\mu}+\omega_{v}^{\mu} x^{v} \\
-\phi_{i}^{\prime}\left(x^{\prime}\right) & =\phi_{i}(x)-\frac{i}{2} \omega_{\mu v}\left[S^{\mu v}\right]_{i}^{j} \phi_{j}(x) \tag{3.69}
-\end{aligned}
-de forma que ahora el índice $a$ se convierte en un par de índices griegos $v, \rho$
+\[\begin{aligned}
+  x^{\prime \mu} & =x^{\mu}+\omega_{v}^{\mu} x^{v} \\
+  \phi_{i}^{\prime}\left(x^{\prime}\right) & =\phi_{i}(x)-\frac{i}{2} \omega_{\mu v}\left[S^{\mu v}\right]_{i}^{j} \phi_{j}(x) \tag{3.69}
+  \end{aligned}\]
+
+de forma que ahora el índice $a$ se convierte en un par de índices griegos $\nu , \rho$
 
 \begin{gather*}
 X^{\mu v \rho}=\frac{1}{2}\left(\eta^{\mu v} x^{\rho}-\eta^{\mu \rho} x^{v}\right) \\
